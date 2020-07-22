@@ -135,6 +135,8 @@
 	"menu_asset_lock_buy_bodybags_asset":	"Требуется навык ''Чистильщик''",
 	"menu_asset_lock_buy_spotter_asset":	"Требуется навык ''Наблюдатель''",
 	
+	"menu_risk_easy_wish":					"Жажда смерти",
+	"menu_difficulty_easy_wish":			"Жажда смерти",
 	"menu_risk_sm_wish":					"Преступление на почве ненависти",
 	"menu_difficulty_sm_wish":				"Преступление на почве ненависти",
 	"menu_offshore_remains":				"Остаток Стредств",

@@ -1,43 +1,6 @@
 function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 	local node = deep_clone(original_node)
-	local plvl = managers.experience:current_level()
-	local prank = managers.experience:current_rank()
-	local sm_wish = {"menu_difficulty_sm_wish"}
-	local apocalypse = {"menu_difficulty_apocalypse"}
 
-	
-	if plvl >= 80 or prank >= 1 then
-		if apocalypse ~= nil then
-			local diff_filter = node:item("difficulty")
-			if diff_filter ~= nil then
-				for k, v in ipairs(apocalypse) do
-					diff_filter:add_option(CoreMenuItemOption.ItemOption:new({
-						_meta = "option",
-						text_id = managers.localization:text(v),
-						value = 6,
-						localize = false
-					}))
-				end
-			end
-		end
-	end
-	
-	if prank >= 22 then
-	elseif prank >= 21 then
-		if sm_wish ~= nil then
-			local diff_filter = node:item("difficulty")
-			if diff_filter ~= nil then
-				for k, v in ipairs(sm_wish) do
-					diff_filter:add_option(CoreMenuItemOption.ItemOption:new({
-						_meta = "option",
-						text_id = managers.localization:text(v),
-						value = 7,
-						localize = false
-					}))
-				end
-			end
-		end
-	end
 	if Global.game_settings.single_player then
 		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
 	elseif data.smart_matchmaking then
@@ -177,7 +140,7 @@ end
 function MenuCrimeNetFiltersInitiator:update_node(node)
 	if MenuCallbackHandler:is_win32() then
 		local not_friends_only = not Global.game_settings.search_friends_only
-	
+
 		node:item("toggle_new_servers_only"):set_enabled(not_friends_only)
 		node:item("toggle_server_state_lobby"):set_enabled(not_friends_only)
 		node:item("toggle_job_appropriate_lobby"):set_enabled(not_friends_only)
@@ -195,7 +158,6 @@ function MenuCrimeNetFiltersInitiator:update_node(node)
 		node:item("difficulty"):set_visible(self:is_standard())
 		node:item("job_id_filter"):set_visible(self:is_standard())
 		node:item("max_spree_difference_filter"):set_visible(self:is_crime_spree())
-		node:item("toggle_weekly_skirmish_filter"):set_visible(self:is_skirmish())
 		node:item("skirmish_wave_filter"):set_visible(self:is_skirmish())
 		node:item("job_plan_filter"):set_visible(not self:is_skirmish())
 	elseif MenuCallbackHandler:is_xb1() then
@@ -487,10 +449,7 @@ function MenuCallbackHandler:is_contract_difficulty_allowed(item)
 	end	
 	if item:value() == 7 then
 		return false
-	end	
-	if item:value() == 6 then
-		return false
-	end	
+	end
 
 	if not job_data.professional and item:value() > 2 then
 		-- Nothing

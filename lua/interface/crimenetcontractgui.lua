@@ -540,7 +540,18 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 
 	self:make_fine_text(potential_rewards_title)
 	potential_rewards_title:set_top(math.round(risk_stats_panel:bottom() + 4))
+	
+	local paygrade_title = self._contract_panel:text({
+		x = 20,
+		font = font,
+		font_size = font_size,
+		text = managers.localization:to_upper_text("cn_menu_contract_paygrade_header"),
+		color = tweak_data.screen_colors.text
+	})
 
+	self:make_fine_text(paygrade_title)
+	paygrade_title:set_top(math.round(potential_rewards_title:bottom()))
+	
 	local jobpay_title = self._contract_panel:text({
 		x = 20,
 		font = font,
@@ -550,7 +561,7 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 	})
 
 	self:make_fine_text(jobpay_title)
-	jobpay_title:set_top(math.round(potential_rewards_title:bottom()))
+	jobpay_title:set_top(math.round(paygrade_title:bottom()))
 
 	self._potential_rewards_title = potential_rewards_title
 	local experience_title = self._contract_panel:text({
@@ -578,6 +589,23 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 		32,
 		32
 	}
+	local job_stars = math.ceil(narrative.jc/10)
+	local cy = paygrade_title:center_y()
+	local level_data = { 
+			texture="guis/textures/pd2/mission_briefing/difficulty_icons", 
+			texture_rect = filled_star_rect, 
+			w = 18, 
+			h = 18, 
+			color = tweak_data.screen_colors.text, 
+			alpha = 1 
+	}
+	for i = 1, job_stars do
+		local x = sx + (i - 1) * 18
+		local star_data = level_data
+		local star = self._contract_panel:bitmap( star_data )
+		star:set_x(x)
+		star:set_center_y( math.round(cy))
+	end
 	local contract_visuals = job_data.contract_visuals or {}
 	local cy = experience_title:center_y()
 	local xp_min = contract_visuals.min_mission_xp and (type(contract_visuals.min_mission_xp) == "table" and contract_visuals.min_mission_xp[difficulty_stars + 1] or contract_visuals.min_mission_xp) or 0

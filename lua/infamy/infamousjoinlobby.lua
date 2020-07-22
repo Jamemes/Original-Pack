@@ -164,9 +164,11 @@ function HostStateInLobby:on_join_request_received(data, peer_name, client_prefe
 	self:on_handshake_confirmation(data, new_peer, 1)
 	managers.network:session():local_peer():sync_lobby_data(new_peer)
 
-	if peer_rank >= 15 then
+	if peer_rank > 25 then
 		managers.menu:post_event("player_join")
 		managers.menu:post_event("goat")
+	elseif peer_rank >= 15 then
+		managers.menu:post_event("player_join")
 	elseif peer_rank == 14 then
 		managers.menu:post_event("infamous_ace_join_stinger")
 	elseif peer_rank > 10 then

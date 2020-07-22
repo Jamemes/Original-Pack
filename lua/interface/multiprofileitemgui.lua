@@ -137,7 +137,7 @@ function MultiProfileItemGui:init(ws, panel)
 end
 
 function MultiProfileItemGui:mouse_moved(x, y)
-	if managers.experience:current_rank() > 3 then
+	if managers.experience:current_rank() >= 3 then
 		local function anim_func(o, large)
 			local current_width = o:w()
 			local current_height = o:h()

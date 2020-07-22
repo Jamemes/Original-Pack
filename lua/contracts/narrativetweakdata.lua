@@ -195,6 +195,11 @@ function NarrativeTweakData:init(tweak_data)
 	self.jobs.arm_hcm.jc = 50
 	self.jobs.arm_par.jc = 40
 	self.jobs.arm_und.jc = 40
+	self.jobs.arm_cro_single.jc = 50
+	self.jobs.arm_fac_single.jc = 40
+	self.jobs.arm_hcm_single.jc = 50
+	self.jobs.arm_par_single.jc = 40
+	self.jobs.arm_und_single.jc = 40
 	self.jobs.gallery.jc = 50
 
 	self.jobs.mallcrasher.jc = 40

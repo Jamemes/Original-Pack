@@ -7,9 +7,11 @@ function HostStateInGame:on_peer_finished_loading(data, peer)
 	end
 
 	if self._new_peers[peer:id()] then
-		if peer:rank() >= 15 then	
+		if peer:rank() > 25 then	
 			managers.menu:post_event("player_join")
 			managers.menu:post_event("goat")
+		elseif peer:rank() >= 15 then
+			managers.menu:post_event("player_join")
 		elseif peer:rank() == 14 then
 			managers.menu:post_event("infamous_ace_join_stinger")
 		elseif peer:rank() > 10 then
