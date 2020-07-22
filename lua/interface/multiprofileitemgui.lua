@@ -1,3 +1,4 @@
+local unlock_rank = tweak_data.unlock_profiles
 function MultiProfileItemGui:init(ws, panel)
 	self._ws = ws
 	local panel_w = self.profile_panel_w
@@ -16,7 +17,7 @@ function MultiProfileItemGui:init(ws, panel)
 
 	self._panel:set_bottom(panel:bottom() - 4)
 	self._panel:set_center_x(panel:w() / 2)
-	if managers.experience:current_rank() < 3 then
+	if managers.experience:current_rank() < unlock_rank then
 		self._panel:hide()
 	else
 		self._panel:show()
@@ -137,7 +138,7 @@ function MultiProfileItemGui:init(ws, panel)
 end
 
 function MultiProfileItemGui:mouse_moved(x, y)
-	if managers.experience:current_rank() >= 3 then
+	if managers.experience:current_rank() >= unlock_rank then
 		local function anim_func(o, large)
 			local current_width = o:w()
 			local current_height = o:h()
@@ -244,7 +245,7 @@ function MultiProfileItemGui:mouse_moved(x, y)
 end
 
 function MultiProfileItemGui:key_press(o, k)
-	if not self._editing and not managers.experience:current_rank() < 3 then
+	if not self._editing and not managers.experience:current_rank() < unlock_rank then
 		return
 	end
 
@@ -258,7 +259,7 @@ function MultiProfileItemGui:key_press(o, k)
 end
 
 function MultiProfileItemGui:key_release(o, k)
-	if not self._editing and not managers.experience:current_rank() < 3 then
+	if not self._editing and not managers.experience:current_rank() < unlock_rank then
 		return
 	end
 

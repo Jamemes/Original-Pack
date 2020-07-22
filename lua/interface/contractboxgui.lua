@@ -216,24 +216,17 @@ function ContractBoxGui:create_contract_box()
 		if difficulty_stars > 0 then
 			difficulty_text:set_color(risk_color)
 		end
-
 		local plvl = managers.experience:current_level()
 		local player_stars = math.max(math.ceil(plvl / 10), 1)
 		local contract_visuals = job_data.contract_visuals or {}
 		local xp_min = contract_visuals.min_mission_xp and (type(contract_visuals.min_mission_xp) == "table" and contract_visuals.min_mission_xp[difficulty_stars + 1] or contract_visuals.min_mission_xp) or 0
-		local xp_max = contract_visuals.max_mission_xp and (type(contract_visuals.max_mission_xp) == "table" and contract_visuals.max_mission_xp[difficulty_stars + 1] or contract_visuals.max_mission_xp) or 0
 		local total_xp_min, _ = managers.experience:get_contract_xp_by_stars(job_id, job_stars, difficulty_stars, job_data.professional, #job_chain, {
 			mission_xp = xp_min
 		})
-		local total_xp_max, _ = managers.experience:get_contract_xp_by_stars(job_id, job_stars, difficulty_stars, job_data.professional, #job_chain, {
-			mission_xp = xp_max
-		})
 		local xp_text_min = managers.money:add_decimal_marks_to_string(tostring(math.round(total_xp_min)))
-		local xp_text_max = managers.money:add_decimal_marks_to_string(tostring(math.round(total_xp_max)))
-		local job_xp_text = total_xp_min < total_xp_max and managers.localization:text("menu_number_range", {
-			min = xp_text_min,
-			max = xp_text_max
-		}) or xp_text_min
+		local lvl = Global.game_settings.level_id
+		local halloween = lvl == "nail" or lvl == "help" or lvl == "haunted" or lvl == "hvh"
+		local job_xp_text = halloween and (#xp_text_min == 1 and "?" or #xp_text_min == 2 and "??" or #xp_text_min == 3 and "???" or #xp_text_min == 5 and (difficulty_stars > 2 and "109 x 24 = ?,???" or "?,???") or #xp_text_min == 6 and "??,???" or #xp_text_min == 7 and "???,???") or xp_text_min
 		local job_xp = self._contract_panel:text({
 			font = font,
 			font_size = font_size,

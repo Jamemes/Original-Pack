@@ -194,11 +194,8 @@ function MenuCrimeNetFiltersInitiator:add_filters(node)
 		help_id = "menu_diff_help",
 		filter = true
 	}
-	local data_node
-	local prank = managers.experience:current_rank()
-	if prank >= 22 then
-		data_node = {
-				{
+	local data_node = {
+			{
 				value = -1,
 				text_id = "menu_any",
 				_meta = "option"
@@ -230,80 +227,6 @@ function MenuCrimeNetFiltersInitiator:add_filters(node)
 			},
 			type = "MenuItemMultiChoice"
 		}
-	elseif prank >= 21 then
-		data_node = {
-				{
-				value = -1,
-				text_id = "menu_any",
-				_meta = "option"
-			},
-			{
-				value = 2,
-				text_id = "menu_difficulty_normal",
-				_meta = "option"
-			},
-			{
-				value = 3,
-				text_id = "menu_difficulty_hard",
-				_meta = "option"
-			},
-			{
-				value = 4,
-				text_id = "menu_difficulty_very_hard",
-				_meta = "option"
-			},
-			{
-				value = 5,
-				text_id = "menu_difficulty_overkill",
-				_meta = "option"
-			},
-			{
-				value = 6,
-				text_id = "menu_difficulty_apocalypse",
-				_meta = "option"
-			},
-			{
-				value = 7,
-				text_id = "menu_difficulty_sm_wish",
-				_meta = "option"
-			},
-			type = "MenuItemMultiChoice"
-		}
-	else
-		data_node = {
-				{
-				value = -1,
-				text_id = "menu_any",
-				_meta = "option"
-			},
-			{
-				value = 2,
-				text_id = "menu_difficulty_normal",
-				_meta = "option"
-			},
-			{
-				value = 3,
-				text_id = "menu_difficulty_hard",
-				_meta = "option"
-			},
-			{
-				value = 4,
-				text_id = "menu_difficulty_very_hard",
-				_meta = "option"
-			},
-			{
-				value = 5,
-				text_id = "menu_difficulty_overkill",
-				_meta = "option"
-			},
-			{
-				value = 6,
-				text_id = "menu_difficulty_apocalypse",
-				_meta = "option"
-			},
-			type = "MenuItemMultiChoice"
-		}
-	end
 	local new_item = node:create_item(data_node, params)
 
 	new_item:set_value(managers.network.matchmake:difficulty_filter())

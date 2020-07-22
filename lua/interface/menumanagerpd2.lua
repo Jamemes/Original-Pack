@@ -3,36 +3,14 @@ function MenuQuickplaySettingsInitiator:modify_node(node)
 	local loud_item = node:item("quickplay_settings_loud")
 	local stealth_on = managers.user:get_setting("quickplay_stealth")
 	local loud_on = managers.user:get_setting("quickplay_loud")
-	local prank = managers.experience:current_rank()
-	if prank >= 22 then
-		self._difficulties_quick = {
-			"easy",
-			"normal",
-			"hard",
-			"overkill",
-			"overkill_145",
-			"overkill_290"
-		}
-	elseif prank >= 21 then
-		self._difficulties_quick = {
-			"easy",
-			"normal",
-			"hard",
-			"overkill",
-			"overkill_145",
-			"overkill_290",
-			"sm_wish"
-		}
-	else
-		self._difficulties_quick = {
-			"easy",
-			"normal",
-			"hard",
-			"overkill",
-			"overkill_145",
-			"overkill_290"
-		}
-	end
+	self._difficulties_quick = {
+		"easy",
+		"normal",
+		"hard",
+		"overkill",
+		"overkill_145",
+		"overkill_290"
+	}
 	stealth_item:set_value(stealth_on and "on" or "off")
 	loud_item:set_value(loud_on and "on" or "off")
 	stealth_item:set_parameter("loud", loud_item)

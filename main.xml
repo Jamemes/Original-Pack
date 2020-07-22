@@ -1,48 +1,57 @@
 <mod name="Original Pack" global_key="Original Pack">
-    <AssetUpdates id="15996" version="1.2.1.3" provider="modworkshop"/>
+    <AssetUpdates id="15996" provider="modworkshop"/>
     <Hooks directory="lua">
-		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crimespreetweakdata.lua"/>
-		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crimespreemanager.lua"/>
-		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="gamemodes/skirmishtweakdata.lua"/>
-		<hook source_file="lib/managers/skirmishmanager"							file="gamemodes/skirmishmanager.lua"/>
-		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse/customsafehousemanager.lua"/>
-		<hook source_file="lib/tweak_data/customsafehousetweakdata"					file="safehouse/customsafehousetweakdata.lua"/>
-		<hook source_file="lib/tweak_data/achievementstweakdata"					file="safehouse/achievementstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/narrativetweakdata"						file="contracts/narrativetweakdata.lua"/>
-		<hook source_file="lib/managers/musicmanager"								file="contracts/musicmanager.lua"/>
-		<hook source_file="lib/managers/experiencemanager"							file="contracts/narrativeexperience.lua"/>
-		<hook source_file="lib/units/interactions/interactionext"					file="contracts/interactionext.lua"/>
-		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="contracts/interactionext.lua"/>
-		<hook source_file="lib/tweak_data/missiondoortweakdata"						file="contracts/missiondoortweakdata.lua"/>
-		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="contracts/coreelementrandom.lua"/>
-		<hook source_file="lib/tweak_data/assetstweakdata"							file="contracts/assetstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/preplanningtweakdata"						file="contracts/preplanningtweakdata.lua"/>
-		<hook source_file="lib/utils/inventorydescription"							file="weapons/inventorydescription.lua"/>
-		<hook source_file="lib/tweak_data/dlctweakdata"								file="weapons/dlctweakdata.lua"/>
-		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
-		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons/weaponfactorytweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons/meleeweaponstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/tweakdata"								file="weapons/tweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons/projectilestweakdata.lua"/>
-        <hook source_file="lib/managers/menumanagerdialogs" 						file="skills/menumanagerdialogs.lua"/>
-        <hook source_file="lib/managers/skilltreemanager" 							file="skills/skilltreemanager.lua"/>
-        <hook source_file="lib/tweak_data/upgradestweakdata"						file="skills/upgradestweakdata.lua"/>
-        <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills/skilltreetweakdata.lua"/>
-        <hook source_file="lib/tweak_data/equipmentstweakdata" 						file="skills/equipmentstweakdata.lua"/>
-        <hook source_file="lib/tweak_data/interactiontweakdata" 					file="skills/interactiontweakdata.lua"/>
-		<hook source_file="lib/tweak_data/playertweakdata"							file="skills/playertweakdata.lua"/>
-		<hook source_file="lib/units/beings/player/playerdamage"					file="skills/playerdamage.lua"/>
-		<hook source_file="lib/managers/playermanager"								file="skills/playermanager.lua"/>
-		<hook source_file="lib/units/beings/player/states/playerstandard"			file="skills/playerstandard.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="skills/coplogicintimidated.lua"/>
-		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="skills/groupaistatebase.lua"/>
-		<hook source_file="lib/units/pickups/ammoclip"								file="skills/ammoclip.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="skills/coplogicidle.lua"/>
+		<hook source_file="lib/tweak_data/tweakdata"								file="tweakdata.lua"/>
+		<hook source_file="lib/units/beings/player/states/playerstandard"			file="alerts.lua"/>
+		<hook source_file="lib/managers/gameplaycentralmanager"						file="alerts.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="alerts.lua"/>
+		<hook source_file="lib/units/props/drill"									file="alerts.lua"/>
+		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crime_spree.lua"/>
+		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crime_spree.lua"/>
+		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="gamemodes/skirmish.lua"/>
+		<hook source_file="lib/managers/skirmishmanager"							file="gamemodes/skirmish.lua"/>
+		<hook source_file="lib/tweak_data/customsafehousetweakdata"					file="safehouse.lua"/>
+		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse.lua"/>
+		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative.lua"/>
+		<hook source_file="lib/managers/experiencemanager"							file="narrative.lua"/>
+		<hook source_file="lib/tweak_data/preplanningtweakdata"						file="narrative.lua"/>
+		<hook source_file="lib/tweak_data/assetstweakdata"							file="narrative.lua"/>
+		<hook source_file="lib/tweak_data/missiondoortweakdata"						file="narrative.lua"/>
+		<hook source_file="lib/managers/musicmanager"								file="narrative.lua"/>
+		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="narrative.lua"/>
+		<hook source_file="lib/units/interactions/interactionext"					file="narrative.lua"/>
+		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative.lua"/>
+		<hook source_file="lib/managers/chatmanager"								file="narrative.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="narrative.lua"/>
+		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons.lua"/>
+		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons.lua"/>
+		<hook source_file="lib/tweak_data/tweakdata"								file="weapons.lua"/>
+		<hook source_file="lib/utils/inventorydescription"							file="weapons.lua"/>
+        <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills.lua"/>
+        <hook source_file="lib/tweak_data/upgradestweakdata"						file="skills.lua"/>
+		<hook source_file="lib/tweak_data/playertweakdata"							file="skills.lua"/>
+        <hook source_file="lib/tweak_data/interactiontweakdata" 					file="skills.lua"/>
+        <hook source_file="lib/tweak_data/equipmentstweakdata" 						file="skills.lua"/>
+		<hook source_file="lib/units/beings/player/playerdamage"					file="skills.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="skills.lua"/>
+		<hook source_file="lib/units/pickups/ammoclip"								file="skills.lua"/>
+		<hook source_file="lib/managers/playermanager"								file="skills.lua"/>
+		<hook source_file="lib/managers/menu/skilltreeguinew"						file="skills.lua"/>
+		<hook source_file="lib/managers/menu/skilltreegui"							file="skills.lua"/>
+        <hook source_file="lib/managers/menumanagerdialogs" 						file="skills.lua"/>
+        <hook source_file="lib/managers/skilltreemanager" 							file="skills.lua"/>
+		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/units/weapons/grenades/quickflashgrenade"			file="difficulties/quickflashgrenade.lua"/>
 		<hook source_file="lib/managers/crimenetmanager"							file="difficulties/crimenetmanager.lua"/>
 		<hook source_file="lib/managers/mission/elementspawnenemygroup"				file="difficulties/elementspawnenemygroup.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebesiege"		file="difficulties/groupaistatebesiege.lua"/>
-		<hook source_file="lib/tweak_data/tweakdata"								file="difficulties/tweakdata.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebesiege"		file="difficulties/groupaistate.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/groupaistate.lua"/>
 		<hook source_file="lib/tweak_data/groupaitweakdata"							file="difficulties/groupaitweakdata.lua"/>
 		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties/charactertweakdata.lua"/>
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties/weapontweakdata.lua"/>
@@ -56,13 +65,16 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/cop/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/cop/coplogictravel.lua"/>
 		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/cop/copmovement.lua"/>
-		<hook source_file="lib/network/base/session_states/hoststateingame"			file="infamy/infamousjoiningame.lua"/>
-		<hook source_file="lib/network/base/session_states/hoststateinlobby"		file="infamy/infamousjoinlobby.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="infamy/becomeinfamous.lua"/>
-		<hook source_file="lib/managers/menu/menuscenegui"							file="infamy/infamysign.lua"/>
-		<hook source_file="lib/managers/menu/infamytreegui"							file="infamy/infamytreegui.lua"/>
-		<hook source_file="lib/tweak_data/infamytweakdata"							file="infamy/infamytweakdata.lua"/>
-		<hook source_file="lib/managers/experiencemanager"							file="infamy/infamynumerals.lua"/>
+		<hook source_file="lib/managers/menumanagerdialogs"							file="infamy.lua"/>
+		<hook source_file="lib/tweak_data/infamytweakdata"							file="infamy.lua"/>
+		<hook source_file="lib/managers/menu/infamytreegui"							file="infamy.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="infamy.lua"/>
+		<hook source_file="lib/managers/menu/menuscenegui"							file="infamy.lua"/>
+		<hook source_file="lib/managers/experiencemanager"							file="infamy.lua"/>
+		<hook source_file="lib/network/base/session_states/hoststateingame"			file="infamy.lua"/>
+		<hook source_file="lib/network/base/session_states/hoststateinlobby"		file="infamy.lua"/>
+		<hook source_file="lib/managers/chatmanager"								file="interface/chatmanager.lua"/>
+		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface/chatmanager.lua"/>
 		<hook source_file="core/lib/managers/coreenvironmentcontrollermanager"		file="interface/coreenvironmentcontrollermanager.lua"/>
 		<hook source_file="lib/tweak_data/guitweakdata"								file="interface/guitweakdata.lua"/>
 		<hook source_file="lib/managers/menu/walletguiobject"						file="interface/walletguiobject.lua"/>
@@ -70,13 +82,10 @@
 		<hook source_file="lib/managers/menu/items/contractbrokerheistitem"			file="interface/contractbrokerheistitem.lua"/>
 		<hook source_file="lib/managers/menu/crimenetcontractgui"					file="interface/crimenetcontractgui.lua"/>
 		<hook source_file="lib/managers/menu/crimenetsidebargui"					file="interface/crimenetsidebargui.lua"/>
-		<hook source_file="lib/managers/hud/hudstatsscreen"							file="interface/hudstatsscreen.lua"/>
+		<hook source_file="lib/managers/hud/newhudstatsscreen"						file="interface/hudstatsscreen.lua"/>
 		<hook source_file="lib/managers/menu/ingamecontractgui"						file="interface/ingamecontractgui.lua"/>
 		<hook source_file="lib/managers/hud/hudmissionbriefing"						file="interface/hudmissionbriefing.lua"/>
 		<hook source_file="lib/managers/hud/hudstageendscreen"						file="interface/hudstageendscreen.lua"/>
-		<hook source_file="lib/managers/menu/skilltreeguinew"						file="interface/skilltreeguinew.lua"/>
-		<hook source_file="lib/managers/menu/skilltreegui"							file="interface/skilltreegui.lua"/>
-		<hook source_file="lib/managers/hudmanagerpd2"								file="interface/hudmanagerpd2.lua"/>
 		<hook source_file="lib/states/bootupstate" 									file="interface/trailer.lua"/>
 		<hook source_file="lib/managers/menu/menuscenemanager"						file="interface/menuscenemanager.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/playerstyletweakdata"			file="interface/playerstyletweakdata.lua"/>
@@ -87,18 +96,31 @@
 		<hook source_file="lib/managers/votemanager"								file="interface/votemanager.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="interface/menumanager.lua"/>
 		<hook source_file="lib/managers/menumanagerpd2"								file="interface/menumanagerpd2.lua"/>
-		<hook source_file="lib/managers/moneymanager"								file="money/moneymanager.lua"/>
-		<hook source_file="lib/tweak_data/moneytweakdata"							file="money/moneytweakdata.lua"/>
-		<hook source_file="lib/tweak_data/carrytweakdata"							file="money/carrytweakdata.lua"/>
-		<hook source_file="lib/tweak_data/dlctweakdata"								file="content/dlctweakdata.lua"/>
-		<hook source_file="lib/tweak_data/gageassignmenttweakdata"					file="content/gageassignmenttweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/maskstweakdata"				file="content/maskstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/materialstweakdata"			file="content/materialstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/texturestweakdata"			file="content/texturestweakdata.lua"/>
-		<hook source_file="lib/tweak_data/achievementstweakdata"					file="content/achievementstweakdata.lua"/>
+		<hook source_file="lib/tweak_data/moneytweakdata"							file="money.lua"/>
+		<hook source_file="lib/tweak_data/carrytweakdata"							file="money.lua"/>
+		<hook source_file="lib/managers/moneymanager"								file="money.lua"/>
+		<hook source_file="lib/tweak_data/dlctweakdata"								file="content.lua"/>
+		<hook source_file="lib/tweak_data/gageassignmenttweakdata"					file="content.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/maskstweakdata"				file="content.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/materialstweakdata"			file="content.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/texturestweakdata"			file="content.lua"/>
 		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="game/networkmatchmakingsteam.lua"/>
 		<hook source_file="lib/managers/savefilemanager"							file="game/savefile.lua"/>
 		<hook source_file="lib/managers/menu/menunodegui"							file="game/version.lua"/>
+		<hook source_file="lib/managers/localizationmanager"						file="game/localizationmanager.lua"/>
+		<hook source_file="lib/managers/menu/blackmarketgui"						file="game/achievements/blackmarketgui.lua"/>
+		<hook source_file="lib/managers/achievmentmanager"							file="game/achievements/achievmentmanager.lua"/>
+		<hook source_file="lib/managers/menu/achievementlistgui"					file="game/achievements/achievementlistgui.lua"/>
+		<hook source_file="lib/network/matchmaking/networkaccountsteam"				file="game/achievements/networkaccountsteam.lua"/>
+		<hook source_file="lib/managers/statisticsmanager"							file="game/achievements/statisticsmanager.lua"/>
+		<hook source_file="lib/tweak_data/hudiconstweakdata"						file="game/achievements/hudiconstweakdata.lua"/>
+		<hook source_file="lib/tweak_data/generatedachievementtweakdata"			file="game/achievements/generatedachievementtweakdata.lua"/>
+		<hook source_file="lib/tweak_data/achievementstweakdata"					file="game/achievements/awards/achievementstweakdata.lua"/>
+		<hook source_file="lib/managers/achievement/cac_customachievements"			file="game/achievements/awards/cac_customachievements.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="game/achievements/awards/ach_frog_1.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="game/test.lua"/>
+		<hook source_file="lib/managers/dlcmanager"									file="game/test.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="game/test.lua"/>
     </Hooks>
 	<Localization directory="loc" default="english.txt">
         <localization language="russian" file="russian.txt"/>
@@ -112,6 +134,7 @@
 
     <AddFiles directory="assets">
 
+		<texture path="guis/textures/pd2/achievements/achievements" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
 		
 						<!-- Logo -->
@@ -127,21 +150,146 @@
 						<!-- Old classy swat -->
 		<texture path="units/payday2/characters/shared_textures/helmets_atlas_df" force="true"/>
 		<texture path="units/payday2/characters/shared_textures/swat_city_df" force="true"/>
-		<texture path="units/payday2/characters/shared_textures/swat_fbi_body_df" force="true"/>
+		<texture path="units/payday2/characters/shared_textures/swat_m4_body_df" force="true"/>
 
 		<texture path="units/payday2/characters/shared_textures/spook_heavy_df"/>
 		
-		<unit path="units/payday2/characters/ene_city_heavy_m4/ene_city_heavy_m4" load="true"/>
-		<unit path="units/payday2/characters/ene_city_heavy_m4/ene_city_heavy_m4_husk" load="true"/>
-		
-		<unit path="units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3" load="true"/>
-		<unit path="units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3_husk" load="true"/>
-		
-		<model path="units/payday2/characters/ene_fbi_swat_1/ene_fbi_swat_1"/>
+		<model path="units/payday2/characters/ene_m4_swat_1/ene_m4_swat_1"/>
 		<model path="units/payday2/characters/ene_city_swat_1/ene_city_swat_1"/>
-	
+		
+		<model path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>
+		<cooked_physics path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>
+		<object path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>
+		<material_config path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>
+		<material_config path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36_contour"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36_husk" force="false" load="true"/>
+		<texture path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/helmets_atlas_df" force="true"/>
+		<texture path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/swat_body_df" force="true"/>
+		<cooked_physics path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_acc_shield_helmet/ene_acc_shield_helmet"/>
+		<material_config path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_acc_shield_helmet/ene_acc_shield_helmet"/>
+		<model path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_acc_shield_helmet/ene_acc_shield_helmet"/>
+		<object path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_acc_shield_helmet/ene_acc_shield_helmet"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_acc_shield_helmet/ene_acc_shield_helmet" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_ump" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_ump_husk" force="false" load="true"/>
+		
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870_husk" force="false" load="true"/>
+		<material_config path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870"/>
+		<cooked_physics path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870"/>
+		<object path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870"/>
+		<model path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi_r870/ene_swat_policia_federale_fbi_r870"/>
+		
+		<model path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36"/>
+		<cooked_physics path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36_contour"/>
+		<object path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_g36_husk" force="false" load="true"/>
+		<texture path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/material_df" force="true"/>
+		<cooked_physics path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_acc_murkywater_hat/ene_acc_murkywater_hat"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_acc_murkywater_hat/ene_acc_murkywater_hat"/>
+		<model path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_acc_murkywater_hat/ene_acc_murkywater_hat"/>
+		<object path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_acc_murkywater_hat/ene_acc_murkywater_hat"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_acc_murkywater_hat/ene_acc_murkywater_hat" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_ump" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_city_g36/ene_murkywater_city_ump_husk" force="false" load="true"/>
+
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_1" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_1_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_2" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_2_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_3" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_3_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_4" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_4_husk" force="false" load="true"/>
+		<model path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service"/>
+		<cooked_physics path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service_contour"/>
+		<object path="units/pd2_dlc_bph/characters/ene_murkywater_secret_service/ene_murkywater_secret_service"/>
+		
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi" force="false" load="true"/>
+		<unit path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi_husk" force="false" load="true"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi"/>
+		<material_config path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi"/>
+		<cooked_physics path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi"/>
+		<object path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi"/>
+		<model path="units/pd2_dlc_bph/characters/ene_murkywater_heavy_fbi/ene_murkywater_heavy_fbi"/>
+		
+								<!--Zeal-->
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer_df" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/zeal_cloaker_body_df" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/swat_heavy_df" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/swat_heavy_head_df" force="true"/>
+		
+		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op_contour"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4_husk" force="false" load="true"/>	
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36_husk" force="false" load="true"/>
+		
+		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op" force="false" load="true"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op_contour"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op_husk" force="false" load="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_df" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_head_df" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_head_nm" force="true"/>
+		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_nm" force="true"/>
+
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
+		<object path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
+		<unit path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
+		
+		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_contour"/>
+		<unit_mat path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_light_mask/ene_acc_zeal_light_mask"/>			
+		<df_nm path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat" />
+		<df_nm path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_head" />	
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump_husk" force="false" load="true"/>
+		
+		<object path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_contour"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump_husk" force="false" load="true"/>
+
+		<object path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
+		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
+		<model path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
+		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_contour"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45_husk" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull" force="false" load="true"/>
+		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull_husk" force="false" load="true"/>
+		
 						<!-- Skill icons -->
-		<texture path="guis/textures/pd2/skilltree/icons_atlas" force="true"/>
+		<texture path="guis/textures/pd2/skilltree/op_icons_atlas" force="true"/>
 		<texture path="guis/textures/pd2/specialization/icons_atlas" force="true"/>
 		
 						<!-- Lobby states -->

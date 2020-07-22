@@ -1,7 +1,4 @@
-local num = "1.2.1.3"
-
-local version = "Version " .. num
-
+MenuNodeMainGui.version = "Version " .. tweak_data.version
 function MenuNodeMainGui:_add_version_string()
 	if alive(self._version_string) then
 		self._version_string:parent():remove(self._version_string)
@@ -31,7 +28,7 @@ function MenuNodeMainGui:_add_version_string()
 			vertical = "bottom",
 			align = "left",
 			alpha = 1,
-			text = version,
+			text = MenuNodeMainGui.version,
 			font = tweak_data.menu.pd2_large_font,
 			font_size = 26
 		})
@@ -49,7 +46,7 @@ function MenuNodeMainGui:_add_version_string()
 
 			o:set_color(from)
 
-			while t < 6 do
+			while t < 3 do
 				local dt = coroutine.yield()
 				t = t + dt
 			end
@@ -72,7 +69,7 @@ function MenuNodeMainGui:_add_version_string()
 
 			o:set_color(from)
 
-			while t < 6 do
+			while t < 3 do
 				local dt = coroutine.yield()
 				t = t + dt
 			end

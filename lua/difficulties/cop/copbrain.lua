@@ -23,8 +23,7 @@ function CopBrain:init(unit)
 		CopBrain._logic_variants.spooc_city = clone(security_variant)
 		CopBrain._logic_variants.spooc_city.idle = SpoocLogicIdle
 		CopBrain._logic_variants.spooc_city.attack = SpoocLogicAttack
-		CopBrain._logic_variants.taser_city = clone(security_variant)
-		CopBrain._logic_variants.city_heavy = clone(security_variant)		
+		CopBrain._logic_variants.taser_city = clone(security_variant)	
 		CopBrain._logic_variants.secret_service = clone(security_variant)		
 		CopBrain._logic_variants.zeal_light = clone(security_variant)		
 		CopBrain._logic_variants.zeal_swat = clone(security_variant)		

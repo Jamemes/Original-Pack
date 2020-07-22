@@ -40,21 +40,8 @@ function CrimeNetManager:_get_jobs_by_jc() --Выпадение контракт
 				local difficulty = tweak_data:index_to_difficulty(difficulty_id)
 				local level_lock = tweak_data.difficulty_level_locks[difficulty_id] or 0
 				local level_lock_infamy = tweak_data.difficulty_level_locks_infamy[difficulty_id] or 0
-				local level_lock_infamy_elite = tweak_data.difficulty_level_locks_infamy_elite[difficulty_id] or 0
 			
-				if prank >= 21 then
-					if level_lock_infamy_elite <= plvl then
-						t[job_jc] = t[job_jc] or {}
-
-						table.insert(t[job_jc], {
-							job_id = job_id,
-							difficulty_id = difficulty_id,
-							difficulty = difficulty,
-							marker_dot_color = job_data.marker_dot_color or nil,
-							color_lerp = job_data.color_lerp or nil
-						})
-					end
-				elseif prank >= 1 then
+				if prank >= 1 then
 					if level_lock_infamy <= plvl then
 						t[job_jc] = t[job_jc] or {}
 
@@ -167,19 +154,6 @@ function CrimeNetManager:update_difficulty_filter() --Выпадение ран�
 end
 
 Hooks:PreHook(CrimeNetGui, "update_job_gui", "four_skulls", function(data, job, inside) --4 черепа на контрактах в краймнете
-	local prank = managers.experience:current_rank()
 	local stars_panel = job.side_panel:child("stars_panel")
-	-- local marker = job.marker_panel:child("marker_dot")
-	
-	-- if tweak_data.narrative:job_data("branchbank_cash") then
-		-- marker:set_color(tweak_data.screen_colors.pro_color)
-	-- end
-	if prank >= 22 then
-		stars_panel:set_w(44)
-	elseif prank >= 21 then
-		stars_panel:set_w(55)
-	else
-		stars_panel:set_w(44)
-	end
-	
+	stars_panel:set_w(44)
 end)

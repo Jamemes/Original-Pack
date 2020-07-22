@@ -25,7 +25,7 @@ function SecurityCamera:_upd_detect_attention_objects(t)
 	local my_pos = self._pos
 	local my_fwd = self._look_fwd
 	local det_delay = self._detection_delay
-	local no_titan_cameras = Global.game_settings.level_id == "roberts"
+	local no_titan_cameras = Global.game_settings and Global.game_settings.level_id == "roberts"
 
 	for u_key, attention_info in pairs(detected_obj) do
 		if t >= attention_info.next_verify_t then
@@ -68,7 +68,7 @@ function SecurityCamera:_upd_detect_attention_objects(t)
 					delta_prog = det_delay[2] > 0 and -dt / det_delay[2] or -1
 				end
 				if difficulty_index == 7 and managers.groupai:state():is_ecm_jammer_active("camera") then
-					if Global.game_settings and no_titan_cameras then
+					if no_titan_cameras then
 						attention_info.notice_progress = attention_info.notice_progress + delta_prog * 0.05
 					else
 						attention_info.notice_progress = attention_info.notice_progress + delta_prog * 0.3

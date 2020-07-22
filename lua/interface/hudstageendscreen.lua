@@ -1,6 +1,3 @@
-require("lib/managers/menu/MenuBackdropGUI")
-require("lib/managers/menu/WalletGuiObject")
-
 local function make_fine_text(text)
 	local x, y, w, h = text:text_rect()
 
@@ -9,10 +6,6 @@ local function make_fine_text(text)
 
 	return x, y, w, h
 end
-
-HUDPackageUnlockedItem = HUDPackageUnlockedItem or class()
-HUDPackageUnlockedItem.MIN_DISPLAYED = 2
-HUDPackageUnlockedItem.MAX_DISPLAYED = 2
 
 function HUDStageEndScreen:init(hud, workspace)
 	self._backdrop = MenuBackdropGUI:new(workspace)

@@ -42,7 +42,6 @@ local security_variant = action_variants.security
 function CopMovement:init(unit)	
 	CopMovement._action_variants.tank_city = clone(security_variant)
 	CopMovement._action_variants.tank_city.walk = TankCopActionWalk
-	CopMovement._action_variants.city_heavy = security_variant	
 	CopMovement._action_variants.spooc_city = security_variant
 	CopMovement._action_variants.zeal_light = security_variant
 	CopMovement._action_variants.zeal_swat = security_variant

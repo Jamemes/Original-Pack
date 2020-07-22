@@ -78,7 +78,11 @@ function WalletGuiObject.set_wallet(panel, layer)
 	level_text:set_left(level_icon:right() + 2)
 	level_text:set_center_y(level_icon:center_y())
 	level_text:set_y(math.round(level_text:y()))
-	skillpoint_icon:set_leftbottom(level_text:right() + 10, level_icon:bottom())
+	if _G.AchievementListGui.panel_crash_protection then
+		skillpoint_icon:set_leftbottom(level_icon:right() + 25, level_icon:bottom())
+	else
+		skillpoint_icon:set_leftbottom(2, level_icon:top() - 5)
+	end
 	skillpoint_text:set_left(skillpoint_icon:right() + 2)
 	skillpoint_text:set_center_y(skillpoint_icon:center_y())
 	skillpoint_text:set_y(math.round(skillpoint_text:y()))
@@ -143,7 +147,11 @@ function WalletGuiObject.refresh()
 		level_text:set_y(math.round(level_text:y()))
 		skillpoint_text:set_text(tostring(managers.skilltree:points()))
 		WalletGuiObject.make_fine_text(skillpoint_text)
-		skillpoint_icon:set_leftbottom(level_text:right() + 10, level_icon:bottom())
+		if _G.AchievementListGui.panel_crash_protection then
+			skillpoint_icon:set_leftbottom(level_icon:right() + 25, level_icon:bottom())
+		else
+			skillpoint_icon:set_leftbottom(2, level_icon:top() - 5)
+		end
 		skillpoint_text:set_left(skillpoint_icon:right() + 2)
 		skillpoint_text:set_center_y(skillpoint_icon:center_y())
 		skillpoint_text:set_y(math.round(skillpoint_text:y()))
