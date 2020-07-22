@@ -42,7 +42,7 @@ function CrimeNetManager:_get_jobs_by_jc() --Выпадение контракт
 				local level_lock_infamy = tweak_data.difficulty_level_locks_infamy[difficulty_id] or 0
 				local level_lock_infamy_elite = tweak_data.difficulty_level_locks_infamy_elite[difficulty_id] or 0
 			
-				if prank >= 11 then
+				if prank >= 21 then
 					if level_lock_infamy_elite <= plvl then
 						t[job_jc] = t[job_jc] or {}
 
@@ -174,9 +174,9 @@ Hooks:PreHook(CrimeNetGui, "update_job_gui", "four_skulls", function(data, job, 
 	-- if tweak_data.narrative:job_data("branchbank_cash") then
 		-- marker:set_color(tweak_data.screen_colors.pro_color)
 	-- end
-	if prank > 14 then
+	if prank >= 22 then
 		stars_panel:set_w(44)
-	elseif prank >= 11 then
+	elseif prank >= 21 then
 		stars_panel:set_w(55)
 	else
 		stars_panel:set_w(44)

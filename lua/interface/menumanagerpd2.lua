@@ -4,7 +4,7 @@ function MenuQuickplaySettingsInitiator:modify_node(node)
 	local stealth_on = managers.user:get_setting("quickplay_stealth")
 	local loud_on = managers.user:get_setting("quickplay_loud")
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
+	if prank >= 22 then
 		self._difficulties_quick = {
 			"easy",
 			"normal",
@@ -13,7 +13,7 @@ function MenuQuickplaySettingsInitiator:modify_node(node)
 			"overkill_145",
 			"overkill_290"
 		}
-	elseif prank >= 11 then
+	elseif prank >= 21 then
 		self._difficulties_quick = {
 			"easy",
 			"normal",

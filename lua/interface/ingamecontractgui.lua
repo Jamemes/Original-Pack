@@ -287,8 +287,8 @@ function IngameContractGui:init(ws, node)
 			table.insert(risks, "risk_murder_squad")
 		end
 		local prank = managers.experience:current_rank()
-		if prank >= 15 then
-		elseif prank >= 11 then
+		if prank >= 22 then
+		elseif prank >= 21 then
 			table.insert(risks, "risk_sm_wish")
 		end
 

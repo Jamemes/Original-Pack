@@ -449,8 +449,8 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 		table.insert(risks, "risk_murder_squad")
 	end
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
-	elseif prank >= 11 then
+	if prank >= 22 then
+	elseif prank >= 21 then
 		table.insert(risks, "risk_sm_wish")
 	end
 
@@ -995,8 +995,8 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 		table.insert(self._data.gui_objects.risks, "risk_murder_squad")
 	end
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
-	elseif prank >= 11 then
+	if prank >= 22 then
+	elseif prank >= 21 then
 		table.insert(self._data.gui_objects.risks, "risk_sm_wish")
 	end
 
@@ -1223,8 +1223,8 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 		table.insert(risks, "risk_murder_squad")
 	end
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
-	elseif prank >= 11 then
+	if prank >= 22 then
+	elseif prank >= 21 then
 		table.insert(risks, "risk_sm_wish")
 	end
 
@@ -1391,8 +1391,8 @@ function CrimeNetContractGui:set_all(t, dt)
 		table.insert(risks, "risk_murder_squad")
 	end
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
-	elseif prank >= 11 then
+	if prank >= 22 then
+	elseif prank >= 21 then
 		table.insert(risks, "risk_sm_wish")
 	end
 

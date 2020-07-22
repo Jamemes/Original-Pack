@@ -1,5 +1,5 @@
 <mod name="Original Pack" global_key="Original Pack">
-    <AssetUpdates id="15996" version="1.2" provider="modworkshop"/>
+    <AssetUpdates id="15996" version="1.2.1" provider="modworkshop"/>
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crimespreetweakdata.lua"/>
 		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crimespreemanager.lua"/>
@@ -98,7 +98,6 @@
 		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="game/networkmatchmakingsteam.lua"/>
 		<hook source_file="lib/managers/savefilemanager"							file="game/savefile.lua"/>
 		<hook source_file="lib/managers/menu/menunodegui"							file="game/version.lua"/>
-		<hook source_file="lib/setups/setup"										file="game/setup.lua"/>
     </Hooks>
 	<Localization directory="loc" default="english.txt">
         <localization language="russian" file="russian.txt"/>
@@ -128,108 +127,6 @@
 		<texture path="units/payday2/characters/shared_textures/helmets_atlas_df" force="true"/>
 		<texture path="units/payday2/characters/shared_textures/swat_city_df" force="true"/>
 		<texture path="units/payday2/characters/shared_textures/swat_fbi_body_df" force="true"/>
-		
-						<!-- Old and New Zeal-->
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/swat_heavy_df" force="true"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/swat_heavy_head_df" force="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy" force="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy_husk" force="true"/>
-		
-		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op" load="true"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op_contour"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op_husk" load="true"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_df"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_head_df"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_head_nm"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/swat_heavy_op_nm"/>
-
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
-		<object path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
-		<unit path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_swat_heavy_op_helmet/ene_acc_zeal_swat_heavy_op_helmet"/>	
-		
-		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_op_contour"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4_husk" load="true"/>	
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36_husk" load="true"/>
-
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_df"/>
-
-		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_contour"/>
-		<unit_mat path="units/pd2_dlc_gitgud/characters/ene_acc_zeal_light_mask/ene_acc_zeal_light_mask"/>			
-		<df_nm path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat" />
-		<df_nm path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_head" />	
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump_husk" load="true"/>
-
-	
-		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_contour"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_df"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_g36" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_g36_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_sniper" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_sniper_husk" load="true"/>
-		
-		<object path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_contour"/>
-		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/zeal_cloaker_heavy_body_df"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_mp9" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_mp9_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_ump" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_ump_husk" load="true"/>
-		<sequence_manager path="units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy"/>
-		
-		<object path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_contour"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump_husk" load="true"/>
-
-		<object path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
-		<cooked_physics path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
-		<model path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2"/>
-		<material_config path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_contour"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45_husk" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull" load="true"/>
-		<unit path="units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull_husk" load="true"/>
-
-		<texture path="units/payday2/characters/shared_textures/ene_medic_df" force="true"/>
-		<texture path="units/payday2/characters/shared_textures/ene_medic_head_df" force="true"/>
-		<unit path="units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_1" load="true"/>
-		<unit path="units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_1_husk" load="true"/>
-		<unit path="units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_2" load="true"/>
-		<unit path="units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_2_husk" load="true"/>
 
 		<texture path="units/payday2/characters/shared_textures/spook_heavy_df"/>
 		

@@ -1,29 +1,3 @@
-function MenuSkirmishContractInitiator:modify_node(original_node, data)
-	local node = deep_clone(original_node)
-	data = data or {}
-
-	if Global.game_settings.single_player then
-		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
-	elseif not data.server then
-		node:item("lobby_kicking_option"):set_value(Global.game_settings.kick_option)
-		node:item("lobby_permission"):set_value(Global.game_settings.permission)
-		node:item("lobby_reputation_permission"):set_value(Global.game_settings.reputation_permission)
-		node:item("lobby_drop_in_option"):set_value(Global.game_settings.drop_in_option)
-		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
-		node:item("toggle_auto_kick"):set_value(Global.game_settings.auto_kick and "on" or "off")
-		node:item("toggle_allow_modded_players"):set_value(Global.game_settings.allow_modded_players and "on" or "off")
-		node:item("toggle_ai"):set_visible(false)
-	end
-
-	if data and data.back_callback then
-		table.insert(node:parameters().back_callback, data.back_callback)
-	end
-
-	node:parameters().menu_component_data = data
-
-	return node
-end
-
 function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 	local node = deep_clone(original_node)
 	local plvl = managers.experience:current_level()
@@ -48,8 +22,8 @@ function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 		end
 	end
 	
-	if prank >= 15 then
-	elseif prank >= 11 then
+	if prank >= 22 then
+	elseif prank >= 21 then
 		if sm_wish ~= nil then
 			local diff_filter = node:item("difficulty")
 			if diff_filter ~= nil then
@@ -78,7 +52,6 @@ function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 		node:item("toggle_auto_kick"):set_value(Global.game_settings.auto_kick and "on" or "off")
 		node:item("toggle_allow_modded_players"):set_value(Global.game_settings.allow_modded_players and "on" or "off")
 		node:item("toggle_allow_modded_players"):set_visible(false)
-		node:item("toggle_ai"):set_visible(false)
 		if tweak_data.quickplay.stealth_levels[data.job_id] then
 			local job_plan_item = node:item("lobby_job_plan")
 			local stealth_option = nil
@@ -261,7 +234,7 @@ function MenuCrimeNetFiltersInitiator:add_filters(node)
 	}
 	local data_node
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
+	if prank >= 22 then
 		data_node = {
 				{
 				value = -1,
@@ -295,7 +268,7 @@ function MenuCrimeNetFiltersInitiator:add_filters(node)
 			},
 			type = "MenuItemMultiChoice"
 		}
-	elseif prank >= 11 then
+	elseif prank >= 21 then
 		data_node = {
 				{
 				value = -1,
@@ -527,9 +500,9 @@ function MenuCallbackHandler:is_contract_difficulty_allowed(item)
 	local difficulty_jc = (item:value() - 2) * 10
 	local plvl = managers.experience:current_level()
 	local prank = managers.experience:current_rank()
-	if prank >= 15 then
+	if prank >= 22 then
 		self._level_lock = tweak_data.difficulty_level_locks_infamy[item:value()] or 0
-	elseif prank >= 11 then
+	elseif prank >= 21 then
 		self._level_lock = tweak_data.difficulty_level_locks_infamy_elite[item:value()] or 0
 	elseif prank >= 1 then
 		self._level_lock = tweak_data.difficulty_level_locks_infamy[item:value()] or 0
@@ -555,7 +528,7 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 		filter = true
 	}
 	local data_node
-	if prank >= 15 then
+	if prank >= 22 then
 		data_node = {
 			{
 				value = "normal",
@@ -584,7 +557,7 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 			},
 			type = "MenuItemMultiChoice"
 		}
-	elseif prank >= 11 then
+	elseif prank >= 21 then
 		data_node = {
 			{
 				value = "normal",

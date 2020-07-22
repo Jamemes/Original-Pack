@@ -11,7 +11,7 @@ function CrimeSpreeTweakData:init(tweak_data)
 		}
 	}
 	self.unlock_rank = 5
-	self.base_difficulty = "sm_wish"
+	self.base_difficulty = "overkill_290"
 	self.base_difficulty_index = 7
 	self.initial_cost = 12
 	self.continue_cost = {

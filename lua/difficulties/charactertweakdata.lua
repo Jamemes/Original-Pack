@@ -1366,7 +1366,11 @@ end
 
 function CharacterTweakData:_set_normal()
 	self:_multiply_all_hp(1, 1)
-
+	
+	self.swat.HEALTH_INIT = 8
+	self.heavy_swat.HEALTH_INIT = 10
+	self.shield.HEALTH_INIT = 10
+	
 	self:_multiply_weapon_delay(self.presets.weapon.normal, 0)
 	self:_multiply_weapon_delay(self.presets.weapon.good, 0)
 	self:_multiply_weapon_delay(self.presets.weapon.expert, 0)
