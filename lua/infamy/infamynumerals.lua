@@ -1,6 +1,8 @@
 function ExperienceManager:rank_string(rank)
-	if rank >= 15 then
+	if rank >= 26 then
 		return "LOL NOOB"
+	elseif rank >= 15 then
+		return "TESTER"
 	elseif rank == 14 then
 		return "ACE"
 	elseif rank == 13 then

@@ -111,30 +111,31 @@ function ExperienceManager:get_xp_by_params(params)
 		job_id == "kenaz" then mission_xp_dissect = 24286 or self:mission_xp() elseif
 		job_id == "kenaz_pro" then mission_xp_dissect = 26286 or self:mission_xp() elseif
 		job_id == "jolly" then mission_xp_dissect = 8571 or self:mission_xp() elseif
-		job_id == "red2" then mission_xp_dissect = 6429 or self:mission_xp() elseif
-		job_id == "dinner" then mission_xp_dissect = 786 or self:mission_xp() elseif
+		job_id == "red2" then mission_xp_dissect = 12858 or self:mission_xp() elseif
+		job_id == "dinner" then mission_xp_dissect = 15720 or self:mission_xp() elseif
+		job_id == "man" then mission_xp_dissect = 9858 or self:mission_xp() elseif
+		job_id == "pal" then mission_xp_dissect = 9572 or self:mission_xp() elseif
+		job_id == "run" then mission_xp_dissect = 32858 or self:mission_xp() elseif
+		job_id == "nmh" then mission_xp_dissect = 17142 or self:mission_xp() elseif
+		job_id == "flat" then mission_xp_dissect = 18572 or self:mission_xp() elseif
+		job_id == "glace" then mission_xp_dissect = 30000 or self:mission_xp() elseif
 		job_id == "nail" then mission_xp_dissect = 6357 or self:mission_xp() elseif
 		job_id == "cane" then mission_xp_dissect = 6500 or self:mission_xp() elseif
 		job_id == "pbr" then mission_xp_dissect = 15714 or self:mission_xp() elseif
 		job_id == "pbr2" then mission_xp_dissect = 8571 or self:mission_xp() elseif
 		job_id == "peta" then mission_xp_dissect = 8571 or self:mission_xp() elseif
 		job_id == "peta_pro" then mission_xp_dissect = 12500 or self:mission_xp() elseif
-		job_id == "pal" then mission_xp_dissect = 4786 or self:mission_xp() elseif
-		job_id == "man" then mission_xp_dissect = 4929 or self:mission_xp() elseif
 		job_id == "mad" then mission_xp_dissect = 9286 or self:mission_xp() elseif
 		job_id == "dark" then mission_xp_dissect = 4143 or self:mission_xp() elseif
 		job_id == "born" then mission_xp_dissect = 5000 or self:mission_xp() elseif
 		job_id == "born_pro" then mission_xp_dissect = 7857 or self:mission_xp() elseif
 		job_id == "chill_combat" then mission_xp_dissect = 6643 or self:mission_xp() elseif
 		job_id == "friend" then mission_xp_dissect = 6929 or self:mission_xp() elseif
-		job_id == "flat" then mission_xp_dissect = 9286 or self:mission_xp() elseif
 		job_id == "help" then mission_xp_dissect = 7857 or self:mission_xp() elseif
 		job_id == "haunted" then mission_xp_dissect = 2357 or self:mission_xp() elseif
 		job_id == "spa" then mission_xp_dissect = 12857 or self:mission_xp() elseif
 		job_id == "fish" then mission_xp_dissect = 6357 or self:mission_xp() elseif
 		job_id == "moon" then mission_xp_dissect = 7000 or self:mission_xp() elseif
-		job_id == "run" then mission_xp_dissect = 16429 or self:mission_xp() elseif
-		job_id == "glace" then mission_xp_dissect = 15000 or self:mission_xp() elseif
 		job_id == "dah" then mission_xp_dissect = 30000 or self:mission_xp() elseif
 		job_id == "rvd" then mission_xp_dissect = 8571 or self:mission_xp() elseif
 		job_id == "rvd_pro" then mission_xp_dissect = 11071 or self:mission_xp() elseif
@@ -143,7 +144,6 @@ function ExperienceManager:get_xp_by_params(params)
 		job_id == "brb" then mission_xp_dissect = 6214 or self:mission_xp() elseif
 		job_id == "tag" then mission_xp_dissect = 4357 or self:mission_xp() elseif
 		job_id == "des" then mission_xp_dissect = 22857 or self:mission_xp() elseif
-		job_id == "nmh" then mission_xp_dissect = 8571 or self:mission_xp() elseif
 		job_id == "sah" then mission_xp_dissect = 5929 or self:mission_xp() elseif
 		job_id == "bph" then mission_xp_dissect = 10000 or self:mission_xp() elseif
 		job_id == "mex" then mission_xp_dissect = 9286 or self:mission_xp() elseif

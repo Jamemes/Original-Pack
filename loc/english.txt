@@ -1,5 +1,9 @@
 {
 
+	"trophy_car_friendly_objective":	"Complete the Scarface Mansion job on the Death Wish difficulty or above in loud, with four players. To complete this challenge, you have to have played the job from start to finish.",
+	"trophy_courtesy_objective":		"Complete Beneath the Mountain heist without killing any medics on «Hate Crime» difficulty.",
+	"trophy_smwish_objective":			"Complete all contracts on the «Hate Crime» difficulty with One Down modifier turned on.",
+
 	"menu_hostage_taker":			"Hostage Taker",
 	"menu_hostage_taker_desc":		"BASIC: ##$basic## \nCivilians remain intimidated ##50%## longer.\n\nACE: ##$pro## \nInteraction with hostages to move them is reduced by ##95%##.",
 	"menu_smooth_talker":			"Smooth Talker",	
@@ -22,10 +26,10 @@
 	"menu_aggressive_shots":		"Aggressive Shots",
 	"menu_aggressive_shots_desc":	"BASIC: ##$basic## \nAny killing headshot will increase your reload speed by ##20%## for ##4## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode. \n\nACE: ##$pro## \nYou gain a ##20%## critical hit chance firing by SMGs, Assault Rifles and Sniper Rifles in single shot fire mode.",
 	"menu_cat_burglar_desc":		"BASIC: ##$basic## \nYou take ##75%## less damage from falling from non-lethal heights. \n\nACE: ##$pro## \nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
-	"menu_cleaner_desc":			"BASIC: ##$basic## \n##1## body bag is added to your inventory. You can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
+	"menu_cleaner_desc":			"BASIC: ##$basic## \nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
 	"menu_spotter":					"Spotter",
 	"menu_spotter_desc":			"BASIC: ##$basic## \nSpecial enemies marked by you take ##15%## additional damage. \n\nACE: ##$pro## \nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
-	"menu_mastercraftsman":		"Improved Crafting",
+	"menu_mastercraftsman":			"Improved Crafting",
 	"menu_mastercraftsman_desc":	"BASIC: ##$basic## \nYour cost of weapon crafting is reduced by ##10%##. \n\nACE: ##$pro## \nYour cost of mask crafting is reduced by ##10%##.",
 	"menu_jail_workout_desc":		"BASIC: ##$basic## \nIncreases the duration of marked enemies by ##100%##. \n\nACE: ##$pro## \nWhen you stand still for ##3.5## seconds in stealth, you start highlighting people around you within a ##10## meter radius.",
 	"menu_second_wind":				"Second Wind",
@@ -106,6 +110,13 @@
 	"menu_hoxton_tier_6":			"Standing still and crouching increases your armor recovery rate by ##15%##.",
 	
 	"heist_arm":	"Armored Transport",
+		
+	"menu_silencer_radius_silent":			"Noise suppression: Silent",
+	"menu_silencer_radius_very_small":		"Noise suppression: Very High",
+	"menu_silencer_radius_small":			"Noise suppression: High",
+	"menu_silencer_radius_medium":			"Noise suppression: Medium",
+	"menu_silencer_radius_high":			"Noise suppression: Low",
+	"menu_silencer_radius_very_high":		"Noise suppression: Very Low",
 	
 	"menu_infamy_jack_reached":				"Congratulations! You have become Jack of Spades!",
 	"menu_infamy_queen_reached":			"Congratulations! You have become Queen of Spades!",
@@ -120,8 +131,10 @@
 	"menu_asset_lock_additional_assets":	"Requires the ''Inside Man'' Skill to unlock",
 	"menu_asset_lock_buy_bodybags_asset":	"Requires the ''Cleaner'' Skill to unlock",
 	"menu_asset_lock_buy_spotter_asset":	"Requires the ''Spotter'' Skill to unlock",
-	
-	"menu_difficulty_easy_wish":			"Death Wish",
+
+	"menu_risk_sm_wish":					"Hate Crime",
+	"menu_difficulty_sm_wish":				"Hate Crime",
+	"menu_offshore_remains":				"Offshore Remains",
 	"menu_owned":							"##Tier bonus owned##: ",
 	"menu_tier":							"$tier",
 	"menu_mouse_invest_fast":				"Fast Invest",

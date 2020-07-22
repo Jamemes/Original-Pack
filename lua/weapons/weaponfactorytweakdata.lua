@@ -1,9 +1,142 @@
 local data = WeaponFactoryTweakData.init
 function WeaponFactoryTweakData:init(tweak_data)
     data(self, tweak_data)
+	self.parts.wpn_fps_upg_i_autofire.forbids = {
+			"wpn_fps_amcar_uupg_body_upperreciever",
+			"wpn_fps_ass_m16_os_frontsight",
+			"wpn_fps_ass_scar_o_flipups_up",
+			"wpn_fps_upg_o_xpsg33_magnifier",
+			"wpn_fps_upg_o_sig"
+		}
 	
-	self.parts.wpn_fps_saw_body_silent.stats.alert_size = 7
+	self.parts.wpn_fps_upg_ns_pis_large_kac.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_large.has_description = true
+	self.parts.wpn_fps_upg_ns_ass_smg_large.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_medium.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_medium_slim.has_description = true
+	self.parts.wpn_fps_m4_uupg_b_sd.has_description = true
+	self.parts.wpn_fps_smg_mp7_b_suppressed.has_description = true
+	self.parts.wpn_fps_snp_msr_ns_suppressor.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_medium_gem.has_description = true
+	self.parts.wpn_fps_smg_sterling_b_suppressed.has_description = true
+	self.parts.wpn_fps_sho_striker_b_suppressed.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_small.has_description = true
+	self.parts.wpn_fps_upg_ns_ass_smg_medium.has_description = true
+	self.parts.wpn_fps_smg_sterling_b_e11.has_description = true
+	self.parts.wpn_fps_snp_mosin_b_sniper.has_description = true
+	self.parts.wpn_fps_smg_scorpion_b_suppressed.has_description = true
+	self.parts.wpn_fps_upg_ns_ass_smg_small.has_description = true
+	self.parts.wpn_fps_upg_ns_shot_thick.has_description = true
+	self.parts.wpn_fps_ass_famas_b_suppressed.has_description = true
+	self.parts.wpn_fps_smg_uzi_b_suppressed.has_description = true
+	self.parts.wpn_fps_ass_vhs_b_silenced.has_description = true
+	self.parts.wpn_fps_snp_r93_b_suppressed.has_description = true
+	self.parts.wpn_fps_lmg_mg42_b_vg38.has_description = true
+	self.parts.wpn_fps_snp_m95_barrel_suppressed.has_description = true
+	self.parts.wpn_fps_saw_body_silent.has_description = true
+	self.parts.wpn_fps_upg_ns_sho_salvo_large.has_description = true
+	self.parts.wpn_fps_upg_ns_pis_jungle.has_description = true
+	self.parts.wpn_fps_upg_ns_ass_filter.has_description = true
+	self.parts.wpn_fps_smg_cobray_ns_silencer.has_description = true
+	self.parts.wpn_fps_smg_mp9_b_suppressed.has_description = true
+	self.parts.wpn_fps_smg_baka_b_longsupp.has_description = true
+	self.parts.wpn_fps_smg_baka_b_midsupp.has_description = true
+	self.parts.wpn_fps_smg_baka_b_smallsupp.has_description = true
+	self.parts.wpn_fps_smg_schakal_ns_silencer.has_description = true
+	self.parts.wpn_fps_smg_sr2_ns_silencer.has_description = true
+	self.parts.wpn_fps_upg_ns_ass_pbs1.has_description = true
+	self.parts.wpn_fps_smg_p90_b_civilian.has_description = true
+	self.parts.wpn_fps_smg_p90_b_ninja.has_description = true
+	self.parts.wpn_fps_smg_polymer_ns_silencer.has_description = true
+	self.parts.wpn_fps_ass_asval_b_proto.has_description = true
+	self.parts.wpn_fps_sho_aa12_barrel_silenced.has_description = true
+	self.parts.wpn_fps_snp_wa2000_b_suppressed.has_description = true
+	self.parts.wpn_fps_snp_siltstone_b_silenced.has_description = true
+	 
+	self.parts.wpn_fps_upg_ns_pis_large_kac.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_upg_ns_pis_large.desc_id = 			"menu_silencer_radius_silent"
+	self.parts.wpn_fps_upg_ns_pis_jungle.desc_id = 			"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_cobray_ns_silencer.desc_id = 	"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_mp9_b_suppressed.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_baka_b_longsupp.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_baka_b_midsupp.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_baka_b_smallsupp.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_sr2_ns_silencer.desc_id = 		"menu_silencer_radius_silent"
+	self.parts.wpn_fps_upg_ns_ass_pbs1.desc_id = 			"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_p90_b_ninja.desc_id = 			"menu_silencer_radius_silent"
+	self.parts.wpn_fps_smg_polymer_ns_silencer.desc_id = 	"menu_silencer_radius_silent"
 	
+	self.parts.wpn_fps_upg_ns_ass_smg_large.stats.alert_size = 10		--очень малый
+	self.parts.wpn_fps_upg_ns_pis_medium.stats.alert_size = 10			--очень малый
+	self.parts.wpn_fps_upg_ns_pis_medium_slim.stats.alert_size = 10		--очень малый
+	self.parts.wpn_fps_m4_uupg_b_sd.stats.alert_size = 10				--очень малый
+	self.parts.wpn_fps_smg_mp7_b_suppressed.stats.alert_size = 10		--очень малый
+	self.parts.wpn_fps_snp_msr_ns_suppressor.stats.alert_size = 5		--очень малый
+	self.parts.wpn_fps_upg_ns_pis_medium_gem.stats.alert_size = 10		--очень малый
+	self.parts.wpn_fps_smg_sterling_b_suppressed.stats.alert_size = 9	--очень малый
+	self.parts.wpn_fps_smg_schakal_ns_silencer.stats.alert_size = 10	--очень малый
+	self.parts.wpn_fps_ass_asval_b_proto.stats.alert_size = 10			--очень малый
+	self.parts.wpn_fps_upg_ns_ass_smg_large.desc_id = 		"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_upg_ns_pis_medium.desc_id = 			"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_upg_ns_pis_medium_slim.desc_id = 	"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_m4_uupg_b_sd.desc_id = 				"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_smg_mp7_b_suppressed.desc_id = 		"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_snp_msr_ns_suppressor.desc_id = 		"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_upg_ns_pis_medium_gem.desc_id = 		"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_smg_sterling_b_suppressed.desc_id = 	"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_smg_schakal_ns_silencer.desc_id = 	"menu_silencer_radius_very_small"
+	self.parts.wpn_fps_ass_asval_b_proto.desc_id = 			"menu_silencer_radius_very_small"
+	
+	self.parts.wpn_fps_sho_striker_b_suppressed.stats.alert_size = 11	--малый
+	self.parts.wpn_fps_upg_ns_pis_small.stats.alert_size = 9			--малый
+	self.parts.wpn_fps_upg_ns_ass_smg_medium.stats.alert_size = 9		--малый
+	self.parts.wpn_fps_smg_sterling_b_e11.stats.alert_size = 8			--малый
+	self.parts.wpn_fps_smg_scorpion_b_suppressed.stats.alert_size = 9	--малый
+	self.parts.wpn_fps_sho_striker_b_suppressed.desc_id = 	"menu_silencer_radius_small"
+	self.parts.wpn_fps_upg_ns_pis_small.desc_id = 			"menu_silencer_radius_small"
+	self.parts.wpn_fps_upg_ns_ass_smg_medium.desc_id = 		"menu_silencer_radius_small"
+	self.parts.wpn_fps_smg_sterling_b_e11.desc_id = 		"menu_silencer_radius_small"
+	self.parts.wpn_fps_smg_scorpion_b_suppressed.desc_id = 	"menu_silencer_radius_small"
+	
+	self.parts.wpn_fps_upg_ns_ass_smg_small.stats.alert_size = 8		--средний
+	self.parts.wpn_fps_ass_famas_b_suppressed.stats.alert_size = 7		--средний
+	self.parts.wpn_fps_smg_uzi_b_suppressed.stats.alert_size = 6		--средний
+	self.parts.wpn_fps_ass_vhs_b_silenced.stats.alert_size = 6			--средний
+	self.parts.wpn_fps_upg_ns_sho_salvo_large.stats.alert_size = 8		--средний
+	self.parts.wpn_fps_upg_ns_ass_filter.stats.alert_size = 8			--средний
+	self.parts.wpn_fps_sho_aa12_barrel_silenced.stats.alert_size = 8	--средний
+	self.parts.wpn_fps_snp_winchester_b_suppressed.stats.alert_size = 8	--средний
+	self.parts.wpn_fps_upg_ns_ass_smg_small.desc_id = 			"menu_silencer_radius_medium"
+	self.parts.wpn_fps_ass_famas_b_suppressed.desc_id = 		"menu_silencer_radius_medium"
+	self.parts.wpn_fps_smg_uzi_b_suppressed.desc_id = 			"menu_silencer_radius_medium"
+	self.parts.wpn_fps_ass_vhs_b_silenced.desc_id = 			"menu_silencer_radius_medium"
+	self.parts.wpn_fps_upg_ns_sho_salvo_large.desc_id = 		"menu_silencer_radius_medium"
+	self.parts.wpn_fps_upg_ns_ass_filter.desc_id = 				"menu_silencer_radius_medium"
+	self.parts.wpn_fps_sho_aa12_barrel_silenced.desc_id = 		"menu_silencer_radius_medium"
+	self.parts.wpn_fps_snp_winchester_b_suppressed.desc_id = 	"menu_silencer_radius_medium"
+	 
+	self.parts.wpn_fps_snp_r93_b_suppressed.stats.alert_size = 5		--большой
+	self.parts.wpn_fps_lmg_mg42_b_vg38.stats.alert_size = 5				--большой
+	self.parts.wpn_fps_upg_ns_shot_thick.stats.alert_size = 7			--большой
+	self.parts.wpn_fps_snp_wa2000_b_suppressed.stats.alert_size = 5		--большой
+	self.parts.wpn_fps_snp_mosin_b_sniper.stats.alert_size = 5			--большой
+	self.parts.wpn_fps_snp_tti_ns_hex.stats.alert_size = 5				--большой
+	self.parts.wpn_fps_snp_siltstone_b_silenced.stats.alert_size = 5	--большой
+	self.parts.wpn_fps_snp_r93_b_suppressed.desc_id = 		"menu_silencer_radius_high"
+	self.parts.wpn_fps_lmg_mg42_b_vg38.desc_id = 			"menu_silencer_radius_high"
+	self.parts.wpn_fps_upg_ns_shot_thick.desc_id = 			"menu_silencer_radius_high"
+	self.parts.wpn_fps_snp_wa2000_b_suppressed.desc_id = 	"menu_silencer_radius_high"
+	self.parts.wpn_fps_snp_mosin_b_sniper.desc_id = 		"menu_silencer_radius_high"
+	self.parts.wpn_fps_snp_tti_ns_hex.desc_id = 			"menu_silencer_radius_high"
+	self.parts.wpn_fps_snp_siltstone_b_silenced.desc_id = 	"menu_silencer_radius_high"
+	
+	self.parts.wpn_fps_snp_m95_barrel_suppressed.stats.alert_size = 4	--очень большой
+	self.parts.wpn_fps_saw_body_silent.stats.alert_size = 7				--очень большой
+	self.parts.wpn_fps_snp_m95_barrel_suppressed.desc_id = 	"menu_silencer_radius_very_high"
+	self.parts.wpn_fps_saw_body_silent.desc_id = 			"menu_silencer_radius_very_high"
+	
+	self.parts.wpn_fps_smg_p90_b_ninja.stats.concealment = -5
+	self.parts.wpn_fps_smg_p90_b_civilian.stats.concealment = -3
 	self.parts.wpn_fps_upg_a_slug.stats = {
 			value = 5,
 			total_ammo_mod = -10,
@@ -81,7 +214,7 @@ function WeaponFactoryTweakData:init(tweak_data)
 		value = 1,
 		spread = 2,
 		recoil = -8,
-		total_ammo_mod = -12,
+		total_ammo_mod = -11,
 		damage = 12,
 		concealment = -4
 	}
@@ -89,7 +222,7 @@ function WeaponFactoryTweakData:init(tweak_data)
 		value = 1,
 		spread = 2,
 		recoil = -8,
-		total_ammo_mod = -6,
+		total_ammo_mod = -11,
 		damage = 10,
 		concealment = -4
 	}
@@ -97,7 +230,7 @@ function WeaponFactoryTweakData:init(tweak_data)
 		value = 1,
 		spread = 2,
 		recoil = -8,
-		total_ammo_mod = -12,
+		total_ammo_mod = -11,
 		damage = 14,
 		concealment = -4
 	}
@@ -105,7 +238,7 @@ function WeaponFactoryTweakData:init(tweak_data)
 		value = 1,
 		spread = 2,
 		recoil = -8,
-		total_ammo_mod = -6,
+		total_ammo_mod = -11,
 		damage = 10,
 		concealment = -4
 	}
@@ -113,9 +246,18 @@ function WeaponFactoryTweakData:init(tweak_data)
 		value = 1,
 		spread = 2,
 		recoil = -8,
-		total_ammo_mod = -12,
+		total_ammo_mod = -14,
 		damage = 14,
 		concealment = -4
+	}
+	self.parts.wpn_fps_ass_g3_b_sniper.stats = {
+		value = 2,
+		recoil = -2,
+		spread = 2,
+		concealment = -2,
+		total_ammo_mod = -11,
+		damage = 8,
+		extra_ammo = -5
 	}
 	self.parts.wpn_fps_ass_g3_b_short.stats = {
 		value = 2,
@@ -124,15 +266,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 		concealment = 4,
 		damage = -5,
 		total_ammo_mod = 5
-	}
-	self.parts.wpn_fps_ass_g3_b_sniper.stats = {
-		value = 2,
-		recoil = -2,
-		spread = 2,
-		concealment = -2,
-		total_ammo_mod = -10,
-		damage = 8,
-		extra_ammo = -5
 	}
 	self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats = {ammo_pickup_min_mul = 0.5, ammo_pickup_max_mul = 0.5}
 	self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats = {ammo_pickup_min_mul = 0.8, ammo_pickup_max_mul = 0.8}
@@ -238,7 +371,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 			"wpn_fps_upg_m4_s_ubr",
 			"wpn_fps_upg_ak_g_rk3",
 			"wpn_fps_upg_ak_s_solidstock",
-			"wpn_fps_upg_ns_ass_pbs1",
 			"wpn_fps_upg_ass_ns_battle",
 			"wpn_fps_upg_fl_ass_utg",
 			"wpn_fps_snp_tti_s_vltor",

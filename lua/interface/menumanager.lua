@@ -1,6 +1,69 @@
+function MenuSkirmishContractInitiator:modify_node(original_node, data)
+	local node = deep_clone(original_node)
+	data = data or {}
+
+	if Global.game_settings.single_player then
+		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
+	elseif not data.server then
+		node:item("lobby_kicking_option"):set_value(Global.game_settings.kick_option)
+		node:item("lobby_permission"):set_value(Global.game_settings.permission)
+		node:item("lobby_reputation_permission"):set_value(Global.game_settings.reputation_permission)
+		node:item("lobby_drop_in_option"):set_value(Global.game_settings.drop_in_option)
+		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
+		node:item("toggle_auto_kick"):set_value(Global.game_settings.auto_kick and "on" or "off")
+		node:item("toggle_allow_modded_players"):set_value(Global.game_settings.allow_modded_players and "on" or "off")
+		node:item("toggle_ai"):set_visible(false)
+	end
+
+	if data and data.back_callback then
+		table.insert(node:parameters().back_callback, data.back_callback)
+	end
+
+	node:parameters().menu_component_data = data
+
+	return node
+end
+
 function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 	local node = deep_clone(original_node)
+	local plvl = managers.experience:current_level()
+	local prank = managers.experience:current_rank()
+	local sm_wish = {"menu_difficulty_sm_wish"}
+	local apocalypse = {"menu_difficulty_apocalypse"}
 
+	
+	if plvl >= 80 or prank >= 1 then
+		if apocalypse ~= nil then
+			local diff_filter = node:item("difficulty")
+			if diff_filter ~= nil then
+				for k, v in ipairs(apocalypse) do
+					diff_filter:add_option(CoreMenuItemOption.ItemOption:new({
+						_meta = "option",
+						text_id = managers.localization:text(v),
+						value = 6,
+						localize = false
+					}))
+				end
+			end
+		end
+	end
+	
+	if prank >= 15 then
+	elseif prank >= 11 then
+		if sm_wish ~= nil then
+			local diff_filter = node:item("difficulty")
+			if diff_filter ~= nil then
+				for k, v in ipairs(sm_wish) do
+					diff_filter:add_option(CoreMenuItemOption.ItemOption:new({
+						_meta = "option",
+						text_id = managers.localization:text(v),
+						value = 7,
+						localize = false
+					}))
+				end
+			end
+		end
+	end
 	if Global.game_settings.single_player then
 		node:item("toggle_ai"):set_value(Global.game_settings.team_ai and Global.game_settings.team_ai_option or 0)
 	elseif data.smart_matchmaking then
@@ -15,7 +78,7 @@ function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 		node:item("toggle_auto_kick"):set_value(Global.game_settings.auto_kick and "on" or "off")
 		node:item("toggle_allow_modded_players"):set_value(Global.game_settings.allow_modded_players and "on" or "off")
 		node:item("toggle_allow_modded_players"):set_visible(false)
-
+		node:item("toggle_ai"):set_visible(false)
 		if tweak_data.quickplay.stealth_levels[data.job_id] then
 			local job_plan_item = node:item("lobby_job_plan")
 			local stealth_option = nil
@@ -60,7 +123,6 @@ function MenuCrimeNetContractInitiator:modify_node(original_node, data)
 	if data and data.back_callback then
 		table.insert(node:parameters().back_callback, data.back_callback)
 	end
-
 	node:parameters().menu_component_data = data
 
 	return node
@@ -136,14 +198,13 @@ function LobbyOptionInitiator:modify_node(node)
 
 		item_lobby_job_plan:set_visible(not managers.skirmish:is_skirmish())
 	end
-
 	return node
 end
 
 function MenuCrimeNetFiltersInitiator:update_node(node)
 	if MenuCallbackHandler:is_win32() then
 		local not_friends_only = not Global.game_settings.search_friends_only
-
+	
 		node:item("toggle_new_servers_only"):set_enabled(not_friends_only)
 		node:item("toggle_server_state_lobby"):set_enabled(not_friends_only)
 		node:item("toggle_job_appropriate_lobby"):set_enabled(not_friends_only)
@@ -198,39 +259,116 @@ function MenuCrimeNetFiltersInitiator:add_filters(node)
 		help_id = "menu_diff_help",
 		filter = true
 	}
-	local data_node = {
+	local data_node
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+		data_node = {
+				{
+				value = -1,
+				text_id = "menu_any",
+				_meta = "option"
+			},
 			{
-			value = -1,
-			text_id = "menu_any",
-			_meta = "option"
-		},
-		{
-			value = 2,
-			text_id = "menu_difficulty_normal",
-			_meta = "option"
-		},
-		{
-			value = 3,
-			text_id = "menu_difficulty_hard",
-			_meta = "option"
-		},
-		{
-			value = 4,
-			text_id = "menu_difficulty_very_hard",
-			_meta = "option"
-		},
-		{
-			value = 5,
-			text_id = "menu_difficulty_overkill",
-			_meta = "option"
-		},
-		{
-			value = 6,
-			text_id = "menu_difficulty_apocalypse",
-			_meta = "option"
-		},
-		type = "MenuItemMultiChoice"
-	}
+				value = 2,
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = 3,
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = 4,
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = 5,
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = 6,
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	elseif prank >= 11 then
+		data_node = {
+				{
+				value = -1,
+				text_id = "menu_any",
+				_meta = "option"
+			},
+			{
+				value = 2,
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = 3,
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = 4,
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = 5,
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = 6,
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			{
+				value = 7,
+				text_id = "menu_difficulty_sm_wish",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	else
+		data_node = {
+				{
+				value = -1,
+				text_id = "menu_any",
+				_meta = "option"
+			},
+			{
+				value = 2,
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = 3,
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = 4,
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = 5,
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = 6,
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	end
 	local new_item = node:create_item(data_node, params)
 
 	new_item:set_value(managers.network.matchmake:difficulty_filter())
@@ -373,9 +511,15 @@ function MenuCallbackHandler:is_contract_difficulty_allowed(item)
 
 	if job_data.professional and item:value() < 3 then
 		return false
-	end
+	end	
+	if item:value() == 7 then
+		return false
+	end	
+	if item:value() == 6 then
+		return false
+	end	
 
-	if not job_data.professional and item:value() > 5 then
+	if not job_data.professional and item:value() > 2 then
 		-- Nothing
 	end
 
@@ -383,7 +527,11 @@ function MenuCallbackHandler:is_contract_difficulty_allowed(item)
 	local difficulty_jc = (item:value() - 2) * 10
 	local plvl = managers.experience:current_level()
 	local prank = managers.experience:current_rank()
-	if prank >= 1 then
+	if prank >= 15 then
+		self._level_lock = tweak_data.difficulty_level_locks_infamy[item:value()] or 0
+	elseif prank >= 11 then
+		self._level_lock = tweak_data.difficulty_level_locks_infamy_elite[item:value()] or 0
+	elseif prank >= 1 then
 		self._level_lock = tweak_data.difficulty_level_locks_infamy[item:value()] or 0
 	else
 		self._level_lock = tweak_data.difficulty_level_locks[item:value()] or 0
@@ -398,6 +546,7 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 
 	node:clean_items()
 
+	local prank = managers.experience:current_rank()
 	local params = {
 		callback = "_on_chill_change_difficulty",
 		name = "difficulty",
@@ -405,34 +554,100 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 		help_id = "menu_diff_help",
 		filter = true
 	}
-	local data_node = {
-		{
-			value = "normal",
-			text_id = "menu_difficulty_normal",
-			_meta = "option"
-		},
-		{
-			value = "hard",
-			text_id = "menu_difficulty_hard",
-			_meta = "option"
-		},
-		{
-			value = "overkill",
-			text_id = "menu_difficulty_very_hard",
-			_meta = "option"
-		},
-		{
-			value = "overkill_145",
-			text_id = "menu_difficulty_overkill",
-			_meta = "option"
-		},
-		{
-			value = "overkill_290",
-			text_id = "menu_difficulty_apocalypse",
-			_meta = "option"
-		},
-		type = "MenuItemMultiChoice"
-	}
+	local data_node
+	if prank >= 15 then
+		data_node = {
+			{
+				value = "normal",
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = "hard",
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill",
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill_145",
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = "overkill_290",
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	elseif prank >= 11 then
+		data_node = {
+			{
+				value = "normal",
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = "hard",
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill",
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill_145",
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = "overkill_290",
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			{
+				value = "sm_wish",
+				text_id = "menu_difficulty_sm_wish",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	else
+		data_node = {
+			{
+				value = "normal",
+				text_id = "menu_difficulty_normal",
+				_meta = "option"
+			},
+			{
+				value = "hard",
+				text_id = "menu_difficulty_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill",
+				text_id = "menu_difficulty_very_hard",
+				_meta = "option"
+			},
+			{
+				value = "overkill_145",
+				text_id = "menu_difficulty_overkill",
+				_meta = "option"
+			},
+			{
+				value = "overkill_290",
+				text_id = "menu_difficulty_apocalypse",
+				_meta = "option"
+			},
+			type = "MenuItemMultiChoice"
+		}
+	end
 	local new_item = node:create_item(data_node, params)
 
 	new_item:set_enabled(true)
@@ -522,7 +737,5 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 	return node
 end
 
-function MenuCallbackHandler:restart_level_visible()
-end
-function MenuCallbackHandler:restart_vote_visible()
-end
+function MenuCallbackHandler:restart_level_visible() end
+function MenuCallbackHandler:restart_vote_visible() end

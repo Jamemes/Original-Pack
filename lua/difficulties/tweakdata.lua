@@ -1,24 +1,7 @@
-tweak_data.difficulty_level_locks = {
-	0,
-	0,
-	0,
-	0,
-	0,
-	80,
-	1337,
-	1337
-}
-tweak_data.difficulty_level_locks_infamy = {
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	1337,
-	1337
-}
-
+tweak_data.difficulty_level_locks = 					{ 	0, 	0, 	0, 	0, 	0, 	80,	1337,	1337 }
+tweak_data.difficulty_level_locks_infamy = 				{ 	0, 	0, 	0, 	0, 	0, 	0, 	1337, 	1337 }
+tweak_data.difficulty_level_locks_infamy_elite = 		{ 	0, 	0, 	0, 	0, 	0, 	0, 	0, 		1337 }
+	
 tweak_data.difficulties = {
 	"easy",
 	"normal",
@@ -26,6 +9,7 @@ tweak_data.difficulties = {
 	"overkill",
 	"overkill_145",
 	"overkill_290",
+	"sm_wish",
 	"sm_wish"
 }
 tweak_data.experience_manager.difficulty_multiplier = {
@@ -33,9 +17,9 @@ tweak_data.experience_manager.difficulty_multiplier = {
 	5,
 	10,
 	13,
+	18,
 	18
 }
-
 tweak_data.experience_manager.loot_drop_value.xp10 = 130000
 tweak_data.experience_manager.loot_drop_value.xp20 = 150000
 tweak_data.experience_manager.loot_drop_value.xp30 = 170000

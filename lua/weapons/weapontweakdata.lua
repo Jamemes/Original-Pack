@@ -4,7 +4,9 @@ local PICKUP = {
 	AR_HIGH_CAPACITY = 2,
 	OTHER = 1,
 	SNIPER_LOW_DAMAGE = 5,
-	AR_MED_CAPACITY = 3
+	AR_MED_CAPACITY = 3,
+	LMG_HIGH_CAPACITY = 7,
+	LMG_MED_CAPACITY = 8
 }
 local SELECTION = {
 	SECONDARY = 1, 
@@ -17,7 +19,28 @@ function WeaponTweakData:init(tweak_data)
 	local total_damage_primary = 300
 	local total_damage_secondary = 150
 
-	
+	self.alert_size = {
+		30000, 
+		20000, 
+		15000, 
+		10000, 
+		7500, 
+		6000, 
+		4500, 
+		4000, 
+		3500, 
+		1800, 
+		1500, 
+		1200, 
+		1000, 
+		900, 
+		800, 
+		700, 
+		600, 
+		500, 
+		400, 
+		200
+	}
 	self.stats.damage = {
 		1,
 		1.1,
@@ -2513,6 +2536,17 @@ function WeaponTweakData:init(tweak_data)
 	self.flamethrower_mk2.has_description = true
 	self.system.has_description = true
 	
+	self.gre_m79.desc_id = "bm_w_rpg7_desc"
+	self.m32.desc_id = "bm_w_rpg7_desc"
+	self.m95.desc_id = "bm_w_rpg7_desc"
+	self.slap.desc_id = "bm_w_rpg7_desc"
+	self.china.desc_id = "bm_w_rpg7_desc"
+	self.arbiter.desc_id = "bm_w_rpg7_desc"
+	self.m134.desc_id = "bm_w_rpg7_desc"
+	self.shuno.desc_id = "bm_w_rpg7_desc"
+	self.flamethrower_mk2.desc_id = "bm_w_rpg7_desc"
+	self.system.desc_id = "bm_w_rpg7_desc"
+	
 	self.x_legacy.global_value = nil
 	self.m95.global_value = nil
 	self.m134.global_value = nil
@@ -2524,17 +2558,6 @@ function WeaponTweakData:init(tweak_data)
 	self.ecp.global_value = nil
 	self.elastic.global_value = nil
 	self.hunter.global_value = nil
-	
-	self.gre_m79.desc_id = "bm_w_rpg7_desc"
-	self.m32.desc_id = "bm_w_rpg7_desc"
-	self.m95.desc_id = "bm_w_rpg7_desc"
-	self.slap.desc_id = "bm_w_rpg7_desc"
-	self.china.desc_id = "bm_w_rpg7_desc"
-	self.arbiter.desc_id = "bm_w_rpg7_desc"
-	self.m134.desc_id = "bm_w_rpg7_desc"
-	self.shuno.desc_id = "bm_w_rpg7_desc"
-	self.flamethrower_mk2.desc_id = "bm_w_rpg7_desc"
-	self.system.desc_id = "bm_w_rpg7_desc"
 	
 	self.wa2000.can_shoot_through_shield = false
 	self.tti.can_shoot_through_shield = false
@@ -2685,15 +2708,14 @@ function WeaponTweakData:init(tweak_data)
 	self.lemming.AMMO_PICKUP = self:_pickup_chance(self.lemming.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
 	self.asval.AMMO_PICKUP = self:_pickup_chance(self.asval.AMMO_MAX, PICKUP.OTHER)
 	self.contraband.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-	
-	self.hk21.AMMO_PICKUP = self:_pickup_chance(80, 1.5)
-	self.m249.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
-	self.par.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
-	self.rpk.AMMO_PICKUP = self:_pickup_chance(100, 1.5)
+	self.rpk.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	self.hk21.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	self.m249.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	self.par.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	self.mg42.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
 	self.scorpion.AMMO_PICKUP = self:_pickup_chance(180, 1)
 	self.tec9.AMMO_PICKUP = self:_pickup_chance(160, 1)
 	self.uzi.AMMO_PICKUP = self:_pickup_chance(100, 1)
-	self.mg42.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
 	self.sterling.AMMO_PICKUP = self:_pickup_chance(100, 1)
 	self.m1928.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
 	self.l85a2.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
@@ -2721,27 +2743,7 @@ end
 function WeaponTweakData:_pickup_chance(max_ammo, selection_index)
 	local low, high = nil
 
-	if _G.IS_VR then
-		if selection_index == PICKUP.AR_HIGH_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.AR_MED_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SHOTGUN_HIGH_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SNIPER_LOW_DAMAGE then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SNIPER_HIGH_DAMAGE then
-			low = 0.005
-			high = 0.015
-		else
-			low = 0.01
-			high = 0.035
-		end
-	elseif selection_index == PICKUP.AR_HIGH_CAPACITY then
+	if selection_index == PICKUP.AR_HIGH_CAPACITY then
 		low = 0.02
 		high = 0.05
 	elseif selection_index == PICKUP.AR_MED_CAPACITY then
@@ -2756,6 +2758,12 @@ function WeaponTweakData:_pickup_chance(max_ammo, selection_index)
 	elseif selection_index == PICKUP.SNIPER_HIGH_DAMAGE then
 		low = 0.005
 		high = 0.015
+	elseif selection_index == PICKUP.LMG_HIGH_CAPACITY then
+		low = 10.005
+		high = 10.015
+	elseif selection_index == PICKUP.LMG_MED_CAPACITY then
+		low = 10.005
+		high = 10.015
 	else
 		low = 0.01
 		high = 0.035

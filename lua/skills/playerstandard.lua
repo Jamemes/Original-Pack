@@ -3,6 +3,8 @@ local mvec_pos_new = Vector3()
 local mvec_achieved_walk_vel = Vector3()
 local mvec_move_dir_normalized = Vector3()
 local _update_movement_original = PlayerStandard._update_movement
+local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 
 function PlayerStandard:_update_movement(t, dt, ...)
 	local cur_pos = pos_new or self._pos
@@ -14,7 +16,12 @@ function PlayerStandard:_update_movement(t, dt, ...)
 		if self._move_dir and self._running and not self._state_data.ducking and not managers.groupai:state():enemy_weapons_hot() then
 			local alert_epicenter = mvector3.copy(self._last_sent_pos)
 			mvector3.set_z(alert_epicenter, alert_epicenter.z + 150)
-			local alert_rad = 450 * mvector3.length(self._move_dir)
+			local alert_rad
+			if difficulty_index == 7 then
+				alert_rad = 1100 * mvector3.length(self._move_dir)
+			else
+				alert_rad = 450 * mvector3.length(self._move_dir)
+			end
 			local footstep_alert = {
 				"footstep",
 				alert_epicenter,

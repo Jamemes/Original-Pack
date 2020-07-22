@@ -1,4 +1,4 @@
-local num = "1.1.1"
+local num = "1.2"
 
 local version = "Version " .. num
 

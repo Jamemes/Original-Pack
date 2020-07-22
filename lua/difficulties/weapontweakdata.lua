@@ -1,13 +1,11 @@
-data = WeaponTweakData.init
+local data = WeaponTweakData.init
 function WeaponTweakData:init(tweak_data)
     data(self, tweak_data)
-	self.saiga_npc.DAMAGE = 5
-	self.saiga_npc.CLIP_AMMO_MAX = 20
-	self.saiga_npc.NR_CLIPS_MAX = 4
 	self.g36_npc.CLIP_AMMO_MAX = 20
 	self.g36_npc.NR_CLIPS_MAX = 5
 	self.mp9_npc.CLIP_AMMO_MAX = 32
 	self.mp9_npc.NR_CLIPS_MAX = 5
+	self.contraband_npc.DAMAGE = 3
 end
 
 function WeaponTweakData:_set_normal()
@@ -76,11 +74,9 @@ function WeaponTweakData:_set_overkill_290()
 end
 
 function WeaponTweakData:_set_sm_wish()
-	self.ak47_ass_npc.DAMAGE = 3
-	self.mp5_npc.DAMAGE = 2
-	self.m4_npc.DAMAGE = 3
-	self.m4_yellow_npc.DAMAGE = 3
-	self.g36_npc.DAMAGE = 4
+	self.c45_npc.DAMAGE = 2.5
+	self.mp5_npc.DAMAGE = 1.5
+	self.saiga_npc.DAMAGE = 5
 	self.r870_npc.DAMAGE = 7
 	self.swat_van_turret_module.HEALTH_INIT = 4000
 	self.swat_van_turret_module.SHIELD_HEALTH_INIT = 700

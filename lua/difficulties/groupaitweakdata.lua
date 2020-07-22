@@ -6,103 +6,311 @@ function GroupAITweakData:init(tweak_data)
 	local access_type_walk_only = {walk = true}
 	local access_type_all = {acrobatic = true, walk = true}
 	local is_console = SystemInfo:platform() ~= Idstring("WIN32")
-	
-	self.enemy_chatter.aggressive = {
-		radius = 1000,
-		max_nr = 3,
-		duration = {1, 3},
-		interval = {2, 5},
-		group_min = 3,
-		queue = "g90"
-	}
-	self.enemy_chatter.retreat = {
-		radius = 900,
-		max_nr = 2,
-		duration = {2, 4},
-		interval = {0.75, 1.5},
-		group_min = 3,
-		queue = "m01"
-	}
-	self.enemy_chatter.follow_me = {
-		radius = 700,
-		max_nr = 1,
-		duration = {5, 10},
-		interval = {0.75, 1.5},
-		group_min = 2,
-		queue = "mov"
-	}
-	self.enemy_chatter.clear = {
-		radius = 700,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.75, 1.5},
-		group_min = 3,
-		queue = "clr"
-	}
-	self.enemy_chatter.go_go = {
-		radius = 700,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.75, 1.2},
-		group_min = 0,
-		queue = "mov"
-	}
-	self.enemy_chatter.ready = {
-		radius = 700,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.75, 1.2},
-		group_min = 3,
-		queue = "rdy"
-	}
-	self.enemy_chatter.smoke = {
-		radius = 0,
-		max_nr = 1,
-		duration = {0, 0},
-		interval = {0, 0},
-		group_min = 2,
-		queue = "d01"
-	}
-	self.enemy_chatter.flash_grenade = {
-		radius = 0,
-		max_nr = 1,
-		duration = {0, 0},
-		interval = {0, 0},
-		group_min = 2,
-		queue = "d02"
-	}
-	self.enemy_chatter.incomming_tank = {
-		radius = 1500,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.5, 1},
-		group_min = 0,
-		queue = "bdz"
-	}
-	self.enemy_chatter.incomming_spooc = {
-		radius = 1200,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.5, 1},
-		group_min = 0,
-		queue = "clk"
-	}
-	self.enemy_chatter.incomming_shield = {
-		radius = 1500,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.5, 1},
-		group_min = 0,
-		queue = "shd"
-	}
-	self.enemy_chatter.incomming_taser = {
-		radius = 1500,
-		max_nr = 1,
-		duration = {60, 60},
-		interval = {0.5, 1},
-		group_min = 0,
-		queue = "tsr"
-	}
+		--[[
+		notes:
+		radius seems to do nothing, game theory how many cops in a radius can say a certain chatter (should test this)
+		max_nr how many chatter calls can go off at once
+		duration ??? longer ones i grabbed from v009/pdth
+		interval is cooldown
+		group_min how many cops need to be in a group for the line to play
+		queue what call is used in chatter
+		]]--
+		self.enemy_chatter.csalpha = {
+			radius = 6000,
+		    max_nr = 1,
+		    duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    queue = "gr2a"
+		}
+		self.enemy_chatter.csbravo = {
+			radius = 6000,
+		   	max_nr = 1,
+		   	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    queue = "gr2b"
+		}
+		self.enemy_chatter.cscharlie = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    	queue = "gr2c"
+		}
+		self.enemy_chatter.csdelta = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    	queue = "gr2d"
+		}
+		self.enemy_chatter.hrtalpha = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+			queue = "gr1a"
+		}
+		self.enemy_chatter.hrtbravo = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    	queue = "gr1b"
+		}
+		self.enemy_chatter.hrtcharlie = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    	queue = "gr1c"
+		}
+		self.enemy_chatter.hrtdelta = {
+			radius = 6000,
+		    	max_nr = 1,
+		    	duration = {3, 4},
+			interval = {2, 4},
+			group_min = 0,
+		    	queue = "gr1d"
+		}
+		self.enemy_chatter.aggressive = {
+			radius = 700,
+			max_nr = 10,
+			duration = {3, 4},
+			interval = {1.5, 2},
+			group_min = 0,
+			queue = "g90"
+		}
+		self.enemy_chatter.aggressive_assault = {--cops use less idle chatter during assaults 
+			radius = 700,
+			max_nr = 10,
+			duration = {3, 4},
+			interval = {2, 2.5},
+			group_min = 0,
+			queue = "g90"
+		}
+		self.enemy_chatter.open_fire = {
+			radius = 1000,
+			max_nr = 10,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "att"
+		}
+		self.enemy_chatter.aggressive_captain = {
+			radius = 700,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "a05"
+		}			
+		self.enemy_chatter.retreat = {
+			radius = 700,
+			max_nr = 3,
+			duration = {2, 4},
+			interval = {2, 4},
+			group_min = 0,
+			queue = "m01"
+		}		
+		self.enemy_chatter.deathguard = { --this isnt actually kill lines those are done in playerdamage
+			radius = 700,
+			max_nr = 5,
+			duration = {2, 4},
+			interval = {2, 3},
+			group_min = 0,
+			queue = "r01"
+		}
+		self.enemy_chatter.contact = {
+			radius = 700,
+			max_nr = 5,
+			duration = {1, 3},
+			interval = {0.75, 1.5},
+			group_min = 2,
+			queue = "c01"
+		}
+		self.enemy_chatter.clear = {
+			radius = 700,
+		    max_nr = 3,
+		    duration = {60, 60},
+		    interval = {0.75, 1.5},
+		    group_min = 2,
+		    queue = "clr"
+		}
+		self.enemy_chatter.clear_whisper = {
+		    radius = 700,
+		    max_nr = 2,
+		    duration = {60, 60},
+		    interval = {5, 5},
+		    group_min = 0,
+		    queue = "a05"
+		}		
+		self.enemy_chatter.clear_whisper_2 = {
+		    radius = 700,
+		    max_nr = 2,
+		    duration = {60, 60},
+		    interval = {5, 5},
+		    group_min = 0,
+		    queue = "a06"
+		}		
+		self.enemy_chatter.go_go = {
+			radius =  1000,
+			max_nr = 20,
+			duration = {2, 2},
+			interval = {0.75, 1},
+			group_min = 0,
+			queue = "mov"
+		}
+		self.enemy_chatter.push = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "pus"
+		}
+		self.enemy_chatter.reload = {
+			radius = 700,
+			max_nr = 3,
+			duration = {2, 4},
+			interval = {15, 15},
+			group_min = 0,
+			queue = "rrl"
+		}
+		self.enemy_chatter.look_for_angle = {
+			radius = 700,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "t01"
+		}
+		self.enemy_chatter.ready = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "rdy"
+		}
+		self.enemy_chatter.smoke = {
+			radius = 1000,
+			max_nr = 3,
+		    duration = {2, 2},
+		    interval = {0.1, 0.1},
+			group_min = 0,
+			queue = "d01"
+		}
+		self.enemy_chatter.flash_grenade = {
+			radius = 1000,
+			max_nr = 3,
+		    duration = {2, 2},
+		    interval = {0.1, 0.1},
+			group_min = 0,
+			queue = "d02"
+		}
+		self.enemy_chatter.ecm = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "ch3"
+		}
+		self.enemy_chatter.saw = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "ch4"
+		}
+		self.enemy_chatter.trip_mines = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "ch1"
+		}
+		self.enemy_chatter.sentry = {
+			radius = 1000,
+			max_nr = 20,
+			duration = {2, 4},
+			interval = {0.75, 1.5},
+			group_min = 0,
+			queue = "ch2"
+		}
+		self.enemy_chatter.incomming_captain = {
+			radius = 1500,
+			max_nr = 1,
+			duration = {10, 10},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "att"
+		}
+		self.enemy_chatter.incomming_gren = {
+			radius = 1500,
+			max_nr = 1,
+			duration = {10, 10},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "bak"
+		}
+		self.enemy_chatter.incomming_tank = {
+			radius = 1500,
+			max_nr = 1,
+			duration = {10, 10},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "lk3b"
+		}
+		self.enemy_chatter.incomming_spooc = {
+			radius = 1200,
+			max_nr = 1,
+			duration = {10, 10},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "r01"
+		}
+		self.enemy_chatter.incomming_shield = {
+			radius = 1500,
+			max_nr = 1,
+			duration = {10, 10},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "pos"
+		}
+		self.enemy_chatter.incomming_taser = {
+			radius = 1500,
+			max_nr = 1,
+			duration = {60, 60},
+			interval = {0.5, 1},
+			group_min = 0,
+			queue = "bak"
+		}
+		self.enemy_chatter.heal_chatter = {
+			radius = 700,
+			max_nr = 10,
+			duration = {2, 4},
+			interval = {1.5, 3.5},
+			group_min = 0,
+			queue = "heal"
+		}	
+		self.enemy_chatter.heal_chatter_winters = {
+			radius = 700,
+			max_nr = 10,
+			duration = {2, 4},
+			interval = {8.5, 10.5},
+			group_min = 0,
+			queue = "a05"
+		}	
 
 	if difficulty_index <= 2 then
 		self.special_unit_spawn_limits = {
@@ -147,7 +355,35 @@ function GroupAITweakData:init(tweak_data)
 			special_type = "spooc",
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_mp9"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker_heavy/ene_zeal_cloaker_heavy_ump")
+				},
+				russia = {
+					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_spooc_asval_smg/ene_akan_fbi_spooc_asval_smg")
+				},
+				zombie = {
+					Idstring("units/pd2_dlc_hvh/characters/ene_spook_hvh_1/ene_spook_hvh_1")
+				},
+				murkywater = {
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_cloaker/ene_murkywater_cloaker")
+				},
+				federales = {
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_cloaker_policia_federale/ene_swat_cloaker_policia_federale")
+				}
+			},
+			access = access_type_all
+		}
+	elseif difficulty_index < 6 then
+		self.unit_categories.spooc = {
+			special_type = "spooc",
+			unit_types = {
+				america = {
+					Idstring("units/payday2/characters/ene_spook_1/ene_spook_1")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_spooc_asval_smg/ene_akan_fbi_spooc_asval_smg")
@@ -191,7 +427,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_cop_C45_R870 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
@@ -212,7 +449,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_cop_stealth_MP5 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
@@ -279,7 +517,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_swat_MP5 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_swat_ak47_ass/ene_akan_cs_swat_ak47_ass")
@@ -299,7 +538,7 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_swat_R870 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_swat_r870/ene_akan_cs_swat_r870")
@@ -362,7 +601,7 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_heavy_M4 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_heavy_ak47_ass/ene_akan_cs_heavy_ak47_ass")
@@ -383,7 +622,7 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_heavy_R870 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_heavy_r870/ene_akan_cs_heavy_r870")
@@ -403,7 +642,7 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.CS_heavy_M4_w = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_heavy_ak47_ass/ene_akan_cs_heavy_ak47_ass")
@@ -487,7 +726,13 @@ function GroupAITweakData:init(tweak_data)
 			special_type = "taser",
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_g36"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_tazer_heavy/ene_zeal_tazer_heavy_sniper")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_cs_tazer_ak47_ass/ene_akan_cs_tazer_ak47_ass")
@@ -576,7 +821,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.FBI_suit_C45_M4 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_drm/characters/ene_zeal_swat_heavy_sniper/ene_zeal_swat_heavy_sniper")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_c45"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_2/ene_secret_service_2_raging_bull")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
@@ -615,22 +861,24 @@ function GroupAITweakData:init(tweak_data)
 			access = access_type_all
 		}
 		self.unit_categories.FBI_suit_stealth_MP5 = {
-			special_type = "spooc",
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_cloaker/ene_zeal_cloaker")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_mp5"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_light/ene_zeal_swat_light_ump"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_mp5"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_secret_service_1/ene_secret_service_1_ump")
 				},
 				russia = {
-					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_spooc_asval_smg/ene_akan_fbi_spooc_asval_smg")
+					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
 				},
 				zombie = {
-					Idstring("units/pd2_dlc_hvh/characters/ene_spook_hvh_1/ene_spook_hvh_1")
+					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_cloaker/ene_murkywater_cloaker")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
 				},
 				federales = {
-					Idstring("units/pd2_dlc_bex/characters/ene_swat_cloaker_policia_federale/ene_swat_cloaker_policia_federale")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
 				}
 			},
 			access = access_type_all
@@ -750,7 +998,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.FBI_swat_M4 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_m4"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_g36")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_swat_dw_ak47_ass/ene_akan_fbi_swat_dw_ak47_ass")
@@ -793,7 +1042,7 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.FBI_swat_R870 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat/ene_zeal_swat_benelli")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_swat_dw_r870/ene_akan_fbi_swat_dw_r870")
@@ -811,10 +1060,32 @@ function GroupAITweakData:init(tweak_data)
 			access = access_type_all
 		}
 	end
-	if difficulty_index < 8 then
+	if difficulty_index < 6 then
 		self.unit_categories.FBI_heavy_G36 = {
 			unit_types = {
 				america = {
+					Idstring("units/payday2/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
+				},
+				russia = {
+					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
+				},
+				zombie = {
+					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
+				},
+				murkywater = {
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+				},
+				federales = {
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_r870/ene_swat_heavy_policia_federale_fbi_r870")
+				}
+			},
+			access = access_type_all
+		}
+	elseif difficulty_index < 8 then
+		self.unit_categories.FBI_heavy_G36 = {
+			unit_types = {
+				america = {
+					Idstring("units/payday2/characters/ene_city_heavy_m4/ene_city_heavy_m4"),
 					Idstring("units/payday2/characters/ene_fbi_heavy_1/ene_fbi_heavy_1")
 				},
 				russia = {
@@ -836,7 +1107,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.FBI_heavy_G36 = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
@@ -854,10 +1126,32 @@ function GroupAITweakData:init(tweak_data)
 			access = access_type_all
 		}
 	end
-	if difficulty_index < 8 then
+	if difficulty_index < 6 then
 		self.unit_categories.FBI_heavy_G36_w = {
 			unit_types = {
 				america = {
+					Idstring("units/payday2/characters/ene_fbi_heavy_1/ene_fbi_heavy_1")
+				},
+				russia = {
+					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
+				},
+				zombie = {
+					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
+				},
+				murkywater = {
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+				},
+				federales = {
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_r870/ene_swat_heavy_policia_federale_fbi_r870")
+				}
+			},
+			access = access_type_walk_only
+		}
+	elseif difficulty_index < 8 then
+		self.unit_categories.FBI_heavy_G36_w = {
+			unit_types = {
+				america = {
+					Idstring("units/payday2/characters/ene_city_heavy_m4/ene_city_heavy_m4"),
 					Idstring("units/payday2/characters/ene_fbi_heavy_1/ene_fbi_heavy_1")
 				},
 				russia = {
@@ -879,7 +1173,8 @@ function GroupAITweakData:init(tweak_data)
 		self.unit_categories.FBI_heavy_G36_w = {
 			unit_types = {
 				america = {
-					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_op/ene_zeal_swat_heavy_op")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_heavy_g36/ene_akan_fbi_heavy_g36")
@@ -1004,7 +1299,11 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"),
 					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"),
 					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"),
-					Idstring("units/pd2_dlc_drm/characters/ene_bulldozer_medic/ene_bulldozer_medic")
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2"),
+					Idstring("units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3"),
+					Idstring("units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_1"),
+					Idstring("units/pd2_dlc_drm/characters/ene_bulldozer_minigun/ene_bulldozer_skullzeal_2")
 				},
 				russia = {
 					Idstring("units/pd2_dlc_mad/characters/ene_akan_fbi_tank_r870/ene_akan_fbi_tank_r870"),
@@ -1039,7 +1338,8 @@ function GroupAITweakData:init(tweak_data)
 	    CS_cop = {
 			"provide_coverfire",
 			"provide_support",
-			"ranged_fire"
+			"ranged_fire",
+			"groupcsr"
 		},
 		CS_cop_stealth = {
 			"flank",
@@ -1052,21 +1352,24 @@ function GroupAITweakData:init(tweak_data)
 			"provide_coverfire",
 			"provide_support",
 			"ranged_fire",
-			"deathguard"
+			"deathguard",
+			"groupcsr"
 		},
 		CS_swat_shotgun = {
 			"smoke_grenade",
 			"charge",
 			"provide_coverfire",
 			"provide_support",
-			"shield_cover"
+			"shield_cover",
+			"groupcsr"
 		},
 		CS_swat_heavy = {
 			"smoke_grenade",
 			"charge",
 			"flash_grenade",
 			"provide_coverfire",
-			"provide_support"
+			"provide_support",
+			"groupcsr"
 		},
 		CS_shield = {
 			"charge",
@@ -1123,13 +1426,15 @@ function GroupAITweakData:init(tweak_data)
 		FBI_suit = {
 			"flank",
 			"ranged_fire",
-			"flash_grenade"
+			"flash_grenade",
+			"grouphrtr"
 		},
 		FBI_suit_stealth = {
 			"provide_coverfire",
 			"provide_support",
 			"flash_grenade",
-			"flank"
+			"flank",
+			"grouphrtr"
 		},
 		FBI_swat_rifle = {
 			"smoke_grenade",
@@ -1137,14 +1442,16 @@ function GroupAITweakData:init(tweak_data)
 			"provide_coverfire",
 			"charge",
 			"provide_support",
-			"ranged_fire"
+			"ranged_fire",
+			"groupcsr"
 		},
 		FBI_swat_shotgun = {
 			"smoke_grenade",
 			"flash_grenade",
 			"charge",
 			"provide_coverfire",
-			"provide_support"
+			"provide_support",
+			"groupcsr"
 		},
 		FBI_heavy = {
 			"smoke_grenade",
@@ -1153,7 +1460,8 @@ function GroupAITweakData:init(tweak_data)
 			"provide_coverfire",
 			"provide_support",
 			"shield_cover",
-			"deathguard"
+			"deathguard",
+			"groupcsr"
 		},
 		FBI_shield = {
 			"smoke_grenade",
@@ -1813,7 +2121,7 @@ function GroupAITweakData:init(tweak_data)
 		self.smoke_and_flash_grenade_timeout = {4, 6}
 	end
 	if difficulty_index == 8 then
-		self.flash_grenade.timer = 0
+		self.flash_grenade.timer = 0.5
 	elseif difficulty_index >= 5 then
 		self.flash_grenade.timer = 1
 	else

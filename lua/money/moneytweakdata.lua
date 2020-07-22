@@ -1,7 +1,13 @@
 local data = MoneyTweakData.init
 function MoneyTweakData:init(tweak_data)
     data(self, tweak_data)
-
+	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+	if difficulty_index >= 8 then
+		self.killing_civilian_deduction = self._create_value_table(20000, 500000, 10, true, 2)
+	else
+		self.killing_civilian_deduction = self._create_value_table(2000, 50000, 10, true, 2)
+	end
 	self.bag_values.meth = 3250
 	self.bag_values.gold = 2200
 	self.bag_values.warhead = 2300
@@ -54,7 +60,8 @@ function MoneyTweakData:init(tweak_data)
 		hard = 1.25,
 		overkill = 1.5,
 		overkill_145 = 2,
-		easy_wish = 2.5
+		easy_wish = 2.5,
+		overkill_290 = 4
 	}
 	self.buy_premium_static_fee = {
 		easy = 100000,
@@ -62,7 +69,8 @@ function MoneyTweakData:init(tweak_data)
 		hard = 150000,
 		overkill = 200000,
 		overkill_145 = 300000,
-		easy_wish = 360000
+		easy_wish = 360000,
+		overkill_290 = 760000
 	}
 	self.difficulty_multiplier = {
 		4,
@@ -70,7 +78,7 @@ function MoneyTweakData:init(tweak_data)
 		12,
 		20,
 		40,
-		47
+		50
 	}
 	self.difficulty_multiplier_payout = {
 		1,

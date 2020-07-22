@@ -119,7 +119,6 @@ function UpgradesTweakData:init(tweak_data)
 				"akm",
 				"g36",
 				"iceaxe",
-				"zeus",
 				"flint",
 				"oxide",
 				"sword"
@@ -306,7 +305,6 @@ function UpgradesTweakData:init(tweak_data)
 				"galil",
 				"cleaver",
 				"mateba",
-				"taser",
 				"desertfox",
 				"wpn_prj_target",
 				"tti"
@@ -485,6 +483,13 @@ function UpgradesTweakData:init(tweak_data)
 				"mg42"
 			}
 		},
+		[72] = {
+			name_id = "weapons",
+			upgrades = {
+				"taser",
+				"zeus"
+			}
+		},
 		[75] = {
 			name_id = "weapons",
 			upgrades = {
@@ -511,7 +516,7 @@ function UpgradesTweakData:init(tweak_data)
 		}
 	}
 
-
+	self.values.team.health.passive_multiplier = {1.15}
 	self.values.player.passive_xp_multiplier = {1.40}	
 	self.values.team.stamina.multiplier = {2.5}
 	self.values.player.uncover_multiplier = {1.35}
@@ -613,6 +618,10 @@ function UpgradesTweakData:init(tweak_data)
 	}
 	
 	
+	self.weapon_movement_penalty = {
+		lmg = 0.8,
+		minigun = 0.6
+	}
 	
 	self.values.player.body_armor.dodge = {0.1, 0.05, 0.03, -0.03, -0.1, -0.3, -0.5}
 	self.values.player.body_armor.armor = {0, 1, 2, 3, 5, 7, 15}

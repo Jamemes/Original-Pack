@@ -188,6 +188,7 @@ function NarrativeTweakData:init(tweak_data)
 	self.jobs.branchbank_gold_prof.jc = 20
 	self.jobs.branchbank_cash.jc = 10
 	self.jobs.branchbank_deposit.jc = 10
+	self.jobs.branchbank_pro.jc = 10
 	self.jobs.kosugi.jc = 10
 	self.jobs.arm_cro.jc = 50
 	self.jobs.arm_fac.jc = 40

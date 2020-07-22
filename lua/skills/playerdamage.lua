@@ -150,14 +150,19 @@ function PlayerDamage:damage_bullet(attack_data)
 	health_subtracted = health_subtracted + self:_calc_health_damage(attack_data)
 	self._next_allowed_dmg_t = Application:digest_value(managers.player:player_timer():time() + self._dmg_interval, true)
 	self._last_received_dmg = health_subtracted
-
-	if not self._bleed_out and health_subtracted > 0 then
-		self:_send_damage_drama(attack_data, health_subtracted)
-	elseif self._bleed_out and attack_data.attacker_unit and attack_data.attacker_unit:alive() and attack_data.attacker_unit:base()._tweak_table == "tank" then
-		self._kill_taunt_clbk_id = "kill_taunt" .. tostring(self._unit:key())
-
-		managers.enemy:add_delayed_clbk(self._kill_taunt_clbk_id, callback(self, self, "clbk_kill_taunt", attack_data), TimerManager:game():time() + tweak_data.timespeed.downed.fade_in + tweak_data.timespeed.downed.sustain + tweak_data.timespeed.downed.fade_out)
-	end
+		
+		if not self._bleed_out and health_subtracted > 0 then
+			self:_send_damage_drama(attack_data, health_subtracted)
+		elseif self._bleed_out and attack_data.attacker_unit and attack_data.attacker_unit:alive() and attack_data.attacker_unit:base()._tweak_table == "tank" then
+			self._kill_taunt_clbk_id = "kill_taunt" .. tostring(self._unit:key())
+			managers.enemy:add_delayed_clbk(self._kill_taunt_clbk_id, callback(self, self, "clbk_kill_taunt", attack_data), TimerManager:game():time() + 0.1 + 0.1 + 0.1)	
+		elseif self._bleed_out and attack_data.attacker_unit and attack_data.attacker_unit:alive() and attack_data.attacker_unit:base()._tweak_table == "taser" then
+			self._kill_taunt_clbk_id = "kill_taunt" .. tostring(self._unit:key())
+			managers.enemy:add_delayed_clbk(self._kill_taunt_clbk_id, callback(self, self, "clbk_kill_taunt_tase", attack_data), TimerManager:game():time() + 0.1 + 0.1 + 0.1)	
+		elseif self._bleed_out and attack_data.attacker_unit and attack_data.attacker_unit:alive() then
+			self._kill_taunt_clbk_id = "kill_taunt" .. tostring(self._unit:key())
+			managers.enemy:add_delayed_clbk(self._kill_taunt_clbk_id, callback(self, self, "clbk_kill_taunt_common", attack_data), TimerManager:game():time() + 0.1 + 0.1 + 0.1)			
+		end
 
 	pm:send_message(Message.OnPlayerDamage, nil, attack_data)
 	self:_call_listeners(damage_info)
@@ -192,3 +197,60 @@ function PlayerDamage:_hit_direction(position_vector)
 	else
 	end
 end
+	
+function PlayerDamage:damage_tase(attack_data)
+    if self._god_mode then
+    	return
+    end
+       
+    local cur_state = self._unit:movement():current_state_name()
+       
+    if cur_state ~= "tased" and cur_state ~= "fatal" then
+    	self:on_tased(false)
+       
+    	self._tase_data = attack_data
+       
+    	managers.player:set_player_state("tased")
+       
+    	local damage_info = {
+    		result = {
+    			variant = "tase",
+    			type = "hurt"
+    		}
+    	}
+       
+    	self:_call_listeners(damage_info)
+       
+    	if attack_data.attacker_unit and attack_data.attacker_unit:alive() and attack_data.attacker_unit:base()._tweak_table == "taser" then
+    		attack_data.attacker_unit:sound():say("post_tasing_taunt")
+    
+    		if managers.blackmarket:equipped_mask().mask_id == tweak_data.achievement.its_alive_its_alive.mask then
+    			managers.achievment:award_progress(tweak_data.achievement.its_alive_its_alive.stat)
+    		end
+    	end
+    end
+	if cur_state == "tased" then
+	    if attack_data.attacker_unit:base()._tweak_table == "taser" or attack_data.attacker_unit:base()._tweak_table == "taser_titan" then
+	       attack_data.attacker_unit:sound():say("post_tasing_taunt")
+		end
+	end	
+   end
+	
+function PlayerDamage:clbk_kill_taunt_tase(attack_data)
+	if attack_data.attacker_unit and attack_data.attacker_unit:alive() then
+		self._kill_taunt_clbk_id = nil
+
+		attack_data.attacker_unit:sound():say("post_tasing_taunt")
+	end
+end		
+
+function PlayerDamage:clbk_kill_taunt_common(attack_data)
+	if attack_data.attacker_unit and attack_data.attacker_unit:alive() then
+		if not attack_data.attacker_unit:base()._tweak_table then
+			return
+		end
+		self._kill_taunt_clbk_id = nil
+
+		attack_data.attacker_unit:sound():say("i03")
+	end
+end	

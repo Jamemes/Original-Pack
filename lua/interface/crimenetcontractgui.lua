@@ -416,8 +416,12 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 		menu_risk_id = "menu_risk_fbi"
 	elseif job_data.difficulty == "overkill_145" then
 		menu_risk_id = "menu_risk_special"
+	elseif job_data.difficulty == "easy_wish" then
+		menu_risk_id = "menu_risk_sm_wish"
 	elseif job_data.difficulty == "overkill_290" then
 		menu_risk_id = "menu_risk_elite"
+	elseif job_data.difficulty == "sm_wish" then
+		menu_risk_id = "menu_risk_sm_wish"
 	end
 
 	local risk_stats_panel = self._contract_panel:panel({
@@ -443,6 +447,11 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 
 	if not Global.SKIP_OVERKILL_290 then
 		table.insert(risks, "risk_murder_squad")
+	end
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+	elseif prank >= 11 then
+		table.insert(risks, "risk_sm_wish")
 	end
 
 	local max_x = 0
@@ -531,18 +540,7 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 
 	self:make_fine_text(potential_rewards_title)
 	potential_rewards_title:set_top(math.round(risk_stats_panel:bottom() + 4))
-	
-	local paygrade_title = self._contract_panel:text({
-		x = 20,
-		font = font,
-		font_size = font_size,
-		text = managers.localization:to_upper_text("cn_menu_contract_paygrade_header"),
-		color = tweak_data.screen_colors.text
-	})
 
-	self:make_fine_text(paygrade_title)
-	paygrade_title:set_top(math.round(potential_rewards_title:bottom()))
-	
 	local jobpay_title = self._contract_panel:text({
 		x = 20,
 		font = font,
@@ -552,10 +550,8 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 	})
 
 	self:make_fine_text(jobpay_title)
-	jobpay_title:set_top(math.round(paygrade_title:bottom()))
+	jobpay_title:set_top(math.round(potential_rewards_title:bottom()))
 
-
-	
 	self._potential_rewards_title = potential_rewards_title
 	local experience_title = self._contract_panel:text({
 		x = 20,
@@ -582,23 +578,6 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 		32,
 		32
 	}
-	local job_stars = math.ceil(narrative.jc/10)
-	local cy = paygrade_title:center_y()
-	local level_data = { 
-			texture="guis/textures/pd2/mission_briefing/difficulty_icons", 
-			texture_rect = filled_star_rect, 
-			w = 18, 
-			h = 18, 
-			color = tweak_data.screen_colors.text, 
-			alpha = 1 
-	}
-	for i = 1, job_stars do
-		local x = sx + (i - 1) * 18
-		local star_data = level_data
-		local star = self._contract_panel:bitmap( star_data )
-		star:set_x(x)
-		star:set_center_y( math.round(cy))
-	end
 	local contract_visuals = job_data.contract_visuals or {}
 	local cy = experience_title:center_y()
 	local xp_min = contract_visuals.min_mission_xp and (type(contract_visuals.min_mission_xp) == "table" and contract_visuals.min_mission_xp[difficulty_stars + 1] or contract_visuals.min_mission_xp) or 0
@@ -1015,6 +994,11 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 	if not Global.SKIP_OVERKILL_290 then
 		table.insert(self._data.gui_objects.risks, "risk_murder_squad")
 	end
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+	elseif prank >= 11 then
+		table.insert(self._data.gui_objects.risks, "risk_sm_wish")
+	end
 
 	self._data.gui_objects.num_stars = 10
 	self._wait_t = 0
@@ -1053,7 +1037,7 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 	}
 
 	if self._customizable then
-		if self._briefing_len_panel then
+	if self._briefing_len_panel then
 			self._briefing_len_panel:hide()
 		end
 
@@ -1068,17 +1052,17 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 			color = tweak_data.screen_colors.button_stage_3
 		})
 		local offshore_account = self._contract_panel:text({
-			text = managers.experience:cash_string(managers.money:offshore()),
+			text = "",
 			name = "offshore_account",
 			wrap = true,
 			blend_mode = "add",
 			word_wrap = true,
 			font_size = font_size,
 			font = font,
-			color = tweak_data.screen_colors.button_stage_2
+			color = tweak_data.screen_colors.friend_color
 		})
 		local offshore_text = self._contract_panel:text({
-			text = managers.localization:to_upper_text("menu_offshore_account") .. ": ",
+			text = managers.localization:to_upper_text("menu_offshore_remains") .. ": ",
 			name = "offshore_text",
 			wrap = true,
 			blend_mode = "add",
@@ -1087,14 +1071,18 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 			font = font,
 			color = tweak_data.screen_colors.button_stage_3
 		})
-
+		local can_afford = managers.money:can_afford_buy_premium_contract(job_data.job_id, job_data.difficulty_id)
+		if not can_afford then
+			offshore_account:set_text(managers.experience:cash_string(0))
+		else
+			offshore_account:set_text(managers.experience:cash_string(managers.money:offshore() - managers.money:get_cost_of_premium_contract(job_data.job_id, job_data.difficulty_id)))
+		end
 		premium_text:set_top(contact_text:bottom() + padding)
 		offshore_text:set_top(contact_text:bottom() + padding * 3 + 1)
 		offshore_account:set_top(contact_text:bottom() + padding * 3 + 1)
 		premium_text:set_left(contact_text:left())
-		premium_text:set_w(contact_image:w())
 		offshore_text:set_left(contact_text:left())
-		offshore_account:set_left(offshore_text:center() / 1.5 + 1)
+		offshore_account:set_left(offshore_text:right() * 0.462)
 		
 		self._contact_text_header:set_text(managers.localization:to_upper_text("menu_cn_premium_buy_desc") .. ": " .. managers.localization:to_upper_text(narrative.name_id))
 
@@ -1135,7 +1123,6 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 
 	self._potential_show_max = false
 end
-
 function CrimeNetContractGui:set_potential_rewards(show_max)
 	if self._step <= #self._steps then
 		return
@@ -1151,7 +1138,6 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 	local job_heat_value = managers.job:get_job_heat(job_data.job_id)
 	local contract_visuals = job_data.contract_visuals or {}
 	local total_xp, dissected_xp, total_payout, base_payout, risk_payout = nil
-	local offshore_title = gui_panel:child("offshore_title")
 
 	if show_max then
 		local xp_max = contract_visuals.max_mission_xp and (type(contract_visuals.max_mission_xp) == "table" and contract_visuals.max_mission_xp[difficulty_stars + 1] or contract_visuals.max_mission_xp) or 0
@@ -1236,6 +1222,11 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 	if not Global.SKIP_OVERKILL_290 then
 		table.insert(risks, "risk_murder_squad")
 	end
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+	elseif prank >= 11 then
+		table.insert(risks, "risk_sm_wish")
+	end
 
 	for i, risk in ipairs(risks) do
 		gui_panel:child(risk):set_alpha(i <= difficulty_stars and 1 or 0.25)
@@ -1244,7 +1235,8 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 		local this_difficulty = i == difficulty_stars
 		local active = i <= difficulty_stars
 		local color = active and tweak_data.screen_colors.risk or Color.white
-		local alpha = this_difficulty and 1 or 0.5
+		local alpha
+		alpha = this_difficulty and 1 or this_difficulty == 8 and 1 or 0.5
 
 		gui_panel:child("risk_stats_panel"):child(risk):set_color(color)
 		gui_panel:child("risk_stats_panel"):child(risk):set_alpha(alpha)
@@ -1292,10 +1284,23 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 
 	text_string = string.gsub(text_string, "##", "")
 	local premium_text = gui_panel:child("premium_text")
-
+	local offshore_account = gui_panel:child("offshore_account")
+	local offshore_text = gui_panel:child("offshore_text")
 	if alive(premium_text) then
+		local offshore = managers.money:offshore()
+		local contract_cost = managers.money:get_cost_of_premium_contract(job_data.job_id, job_data.difficulty_id)
+		local offshore_account_string
+		if not can_afford then
+			offshore_account_string = managers.experience:cash_string(0)
+		else
+			offshore_account_string = managers.experience:cash_string(offshore - contract_cost)
+		end
+		offshore_account:set_text(offshore_account_string)
+		offshore_account:set_color(tweak_data.screen_colors.friend_color)
+		offshore_account:clear_range_color(1, utf8.len(offshore_account_string))
 		premium_text:set_text(text_string)
 		premium_text:clear_range_color(1, utf8.len(text_string))
+		offshore_account:set_left(offshore_text:right() * 0.462)
 
 		if #start_ci ~= #end_ci then
 			Application:error("CrimeNetContractGui: Not even amount of ##'s in skill description string!", #start_ci, #end_ci)
@@ -1305,7 +1310,6 @@ function CrimeNetContractGui:set_potential_rewards(show_max)
 			end
 		end
 	end
-	
 end
 
 function CrimeNetContractGui:set_all(t, dt)
@@ -1385,6 +1389,11 @@ function CrimeNetContractGui:set_all(t, dt)
 
 	if not Global.SKIP_OVERKILL_290 then
 		table.insert(risks, "risk_murder_squad")
+	end
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+	elseif prank >= 11 then
+		table.insert(risks, "risk_sm_wish")
 	end
 
 	for i, risk in ipairs(risks) do
@@ -1468,7 +1477,9 @@ function CrimeNetContractGui:set_difficulty_id(difficulty_id)
 		"hard",
 		"overkill",
 		"overkill_145",
-		"overkill_290"
+		"overkill_290",
+		"sm_wish",
+		"sm_wish"
 	}
 	job_data.difficulty_id = difficulty_id
 	job_data.difficulty = diffs[difficulty_id]
@@ -1480,8 +1491,12 @@ function CrimeNetContractGui:set_difficulty_id(difficulty_id)
 		menu_risk_id = "menu_risk_fbi"
 	elseif job_data.difficulty == "overkill_145" then
 		menu_risk_id = "menu_risk_special"
+	elseif job_data.difficulty == "easy_wish" then
+		menu_risk_id = "menu_risk_elite"
 	elseif job_data.difficulty == "overkill_290" then
 		menu_risk_id = "menu_risk_elite"
+	elseif job_data.difficulty == "sm_wish" then
+		menu_risk_id = "menu_risk_sm_wish"
 	end
 
 	local stat = managers.statistics:completed_job(job_data.job_id, tweak_data:index_to_difficulty(difficulty_id))

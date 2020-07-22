@@ -256,9 +256,12 @@ function IngameContractGui:init(ws, node)
 		menu_risk_id = "menu_risk_fbi"
 	elseif Global.game_settings.difficulty == "overkill_145" then
 		menu_risk_id = "menu_risk_special"
+	elseif Global.game_settings.difficulty == "easy_wish" then
+		menu_risk_id = "menu_risk_easy_wish"
 	elseif Global.game_settings.difficulty == "overkill_290" then
 		menu_risk_id = "menu_risk_elite"
-
+	elseif Global.game_settings.difficulty == "sm_wish" then
+		menu_risk_id = "menu_risk_sm_wish"
 	end
 
 	local risk_stats_panel = text_panel:panel({
@@ -282,6 +285,11 @@ function IngameContractGui:init(ws, node)
 
 		if not Global.SKIP_OVERKILL_290 then
 			table.insert(risks, "risk_murder_squad")
+		end
+		local prank = managers.experience:current_rank()
+		if prank >= 15 then
+		elseif prank >= 11 then
+			table.insert(risks, "risk_sm_wish")
 		end
 
 		local max_y = 0
@@ -367,23 +375,15 @@ function IngameContractGui:init(ws, node)
 			blend_mode = "add",
 			font = tweak_data.menu.pd2_small_font,
 			font_size = font_size,
-			text = self:get_text("menu_potential_rewards"),
-			color = tweak_data.screen_colors.text
+			text = self:get_text(show_max and "menu_potential_rewards_max" or "menu_potential_rewards_min", {
+				BTN_Y = managers.localization:btn_macro("menu_modify_item")
+			}),
+			color = managers.menu:is_pc_controller() and tweak_data.screen_colors.button_stage_3 or tweak_data.screen_colors.text
 		})
 
 		managers.hud:make_fine_text(potential_rewards_title)
 		potential_rewards_title:set_top(risk_stats_panel:bottom() + 4)
-		
-		local paygrade_title = text_panel:text({
-			font = tweak_data.menu.pd2_small_font,
-			font_size = font_size,
-			text = managers.localization:to_upper_text("cn_menu_contract_paygrade_header"),
-			color = tweak_data.screen_colors.text,
-			x = 10
-		})
-		managers.hud:make_fine_text(paygrade_title)
-		paygrade_title:set_top(math.round(potential_rewards_title:bottom()))
-		
+
 		local jobpay_title = text_panel:text({
 			x = 10,
 			font = tweak_data.menu.pd2_small_font,
@@ -393,7 +393,7 @@ function IngameContractGui:init(ws, node)
 		})
 
 		managers.hud:make_fine_text(jobpay_title)
-		jobpay_title:set_top(math.round(paygrade_title:bottom()))
+		jobpay_title:set_top(math.round(potential_rewards_title:bottom()))
 
 		local experience_title = text_panel:text({
 			x = 10,
@@ -405,30 +405,7 @@ function IngameContractGui:init(ws, node)
 
 		managers.hud:make_fine_text(experience_title)
 		experience_title:set_top(math.round(jobpay_title:bottom()))
-		
-		local sx = math.max(jobpay_title:right(), experience_title:right())
-		sx = sx + 8
-		local filled_star_rect = {
-			0,
-			32,
-			32,
-			32
-		}
-		local cy = paygrade_title:center_y()
-		local level_data = {
-			texture = "guis/textures/pd2/mission_briefing/difficulty_icons", 
-			texture_rect = filled_star_rect, 
-			w = 16, 
-			h = 16, 
-			color = tweak_data.screen_colors.text, 
-			alpha = 1
-		}
-		for i = 1, job_stars do
-			local star = text_panel:bitmap(job_stars and level_data)
-			star:set_x( sx + (i-1) * 18)
-			star:set_center_y( cy )
-		end
-		
+
 		self._potential_rewards_title = potential_rewards_title
 		self._jobpay_title = jobpay_title
 		self._experience_title = experience_title
@@ -451,15 +428,4 @@ function IngameContractGui:init(ws, node)
 			1
 		}
 	})
-end
-
-function IngameContractGui:_toggle_potential_rewards()
-	if alive(self._potential_rewards_title) then
-		self._potential_show_max = not self._potential_show_max
-
-		self._potential_rewards_title:set_text(managers.localization:to_upper_text("menu_potential_rewards"))
-		managers.hud:make_fine_text(self._potential_rewards_title)
-		self:set_potential_rewards(self._potential_show_max)
-		managers.menu_component:post_event("menu_enter")
-	end
 end

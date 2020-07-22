@@ -268,7 +268,12 @@ function HUDMissionBriefing:init(hud, workspace)
 	if not Global.SKIP_OVERKILL_290 then
 		table.insert(risks, "risk_murder_squad")
 	end
-	
+	local prank = managers.experience:current_rank()
+	if prank >= 15 then
+	elseif prank >= 11 then
+		table.insert(risks, "risk_sm_wish")
+	end
+
 	for i = 1, job_stars do
 		local is_risk = i>job_stars
 		

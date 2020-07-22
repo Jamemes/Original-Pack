@@ -1750,7 +1750,7 @@ function SkillTreeTweakData:init(tweak_data)
 			10
 		}
 	}
-	self.skills.awareness 				= {{upgrades = {"player_tier_armor_multiplier_1", "player_tier_armor_multiplier_2",
+	self.skills.awareness 				= {{upgrades = {"player_tier_armor_multiplier_1",
 				"player_movement_speed_multiplier"
 			},
 			cost = self.costs.default
@@ -1768,7 +1768,7 @@ function SkillTreeTweakData:init(tweak_data)
 			10
 		}
 	}
-	self.skills.alpha_dog 				= {{upgrades = {"player_tier_armor_multiplier_1", "player_tier_armor_multiplier_2",
+	self.skills.alpha_dog 				= {{upgrades = {"player_tier_armor_multiplier_1",
 				"player_crouch_dodge_chance_1"
 			},
 			cost = self.costs.default
@@ -1786,7 +1786,7 @@ function SkillTreeTweakData:init(tweak_data)
 			11
 		}
 	}
-	self.skills.up_you_go 				= {{upgrades = {"player_tier_armor_multiplier_1", "player_tier_armor_multiplier_2",
+	self.skills.up_you_go 				= {{upgrades = {"player_tier_armor_multiplier_1",
 				"player_revived_damage_resist_1"
 			},
 			cost = self.costs.default
@@ -2129,7 +2129,7 @@ function SkillTreeTweakData:init(tweak_data)
 			desc_id = "menu_bonus_small_money_desc",
 			{
 				upgrades = {
-					"player_small_loot_multiplier2"
+					"player_small_loot_multiplier_1"
 				},
 				cost = 50,
 				icon_xy = {1, 0},
