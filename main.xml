@@ -1,5 +1,5 @@
 <mod name="Original Pack" global_key="Original Pack">
-    <AssetUpdates id="15996" version="1.2.1.2" provider="modworkshop"/>
+    <AssetUpdates id="15996" version="1.2.1.3" provider="modworkshop"/>
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crimespreetweakdata.lua"/>
 		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crimespreemanager.lua"/>

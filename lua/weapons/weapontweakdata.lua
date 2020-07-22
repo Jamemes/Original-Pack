@@ -2508,13 +2508,21 @@ function WeaponTweakData:init(tweak_data)
 		concealment = 25
 	}
 
+	self.m60.stats.damage = 12
+	self.r700.stats.damage = 1
+	self.holt.stats.damage = 10
+	self.x_holt.stats.damage = 10
+	self.r700.stats_modifiers = 	{damage = 10}
 
 	self.saw_secondary = nil
-	self.plainsrider = nil
-	self.frankish = nil
-	self.long = nil
-	self.arblast = nil
-	
+	self.plainsrider.stats.damage = 1
+	self.frankish.stats.damage = 1
+	self.long.stats.damage = 1
+	self.arblast.stats.damage = 1
+	self.plainsrider.stats_modifiers = 	{damage = 8.5}
+	self.frankish.stats_modifiers = 	{damage = 8.5}
+	self.long.stats_modifiers = 		{damage = 9.5}
+	self.arblast.stats_modifiers = 		{damage = 9.5}
 	
 	self.china.use_data = {selection_index = SELECTION.PRIMARY}
 	self.rpg7.use_data = {selection_index = SELECTION.PRIMARY}
