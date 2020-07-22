@@ -395,5 +395,14 @@ function DLCTweakData:init(tweak_data)
 				item_entry = "tam"
 			}
 		}
+		for key, _ in pairs(tweak_data.weapon) do
+			if tweak_data.blackmarket.weapon_skins[key .. "_tam"] then
+				local drop = {
+					type_items = "weapon_skins",
+					item_entry = key .. "_tam"
+				}
 
+				table.insert(self.ami_13.content.loot_drops, drop)
+			end
+		end
 end

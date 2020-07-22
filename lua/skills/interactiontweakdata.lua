@@ -3,8 +3,11 @@ local data = InteractionTweakData.init
 function InteractionTweakData:init(tweak_data)
     data(self, tweak_data)
 	
+	if Global.game_settings and Global.game_settings.level_id == "pbr2" then
+	else
+		self.money_wrap.no_contour = true
+	end
 	self.safe_loot_pickup.no_contour = true
-	self.money_wrap.no_contour = true
 	self.gold_pile.no_contour = true
 	
 	self.shaped_sharge.requires_upgrade = {

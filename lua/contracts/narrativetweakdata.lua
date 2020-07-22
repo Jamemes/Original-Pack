@@ -180,8 +180,8 @@ function NarrativeTweakData:init(tweak_data)
 	self.jobs.cage.jc = 50
 	self.jobs.arena.jc = 30
 	self.jobs.roberts.jc = 50
-	self.jobs.rvd.jc = 20
-	self.jobs.rvd_pro.jc = 30
+	self.jobs.rvd.jc = 30
+	self.jobs.rvd_pro.jc = 40
 	self.jobs.rat.jc = 50
 	self.jobs.family.jc = 20
 	self.jobs.branchbank_prof.jc = 20

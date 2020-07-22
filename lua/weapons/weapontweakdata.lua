@@ -1224,7 +1224,7 @@ function WeaponTweakData:init(tweak_data)
 	}
 	self.asval.stats = {
 		reload = 11,
-		damage = 16,
+		damage = 13,
 		spread = 9,
 		recoil = 6,
 		spread_moving = 6,
@@ -2497,9 +2497,6 @@ function WeaponTweakData:init(tweak_data)
 	self.rpg7.use_data = {selection_index = SELECTION.PRIMARY}
 	self.ray.use_data = {selection_index = SELECTION.PRIMARY}
 	self.ecp.use_data = {selection_index = SELECTION.PRIMARY}
-	self.sub2000.use_data = {selection_index = SELECTION.SECONDARY}
-	self.sub2000_crew.use_data.selection_index = SELECTION.SECONDARY
-	self.sub2000.categories = {"pistol"}
 	self.rpg7.NR_CLIPS_MAX = 1
 	self.ray.NR_CLIPS_MAX = 1
 	self.rpg7.AMMO_MAX = self.rpg7.CLIP_AMMO_MAX * self.rpg7.NR_CLIPS_MAX
@@ -2559,6 +2556,10 @@ function WeaponTweakData:init(tweak_data)
 	self.winchester1874.can_shoot_through_shield = false
 	self.mosin.can_shoot_through_shield = false
 	
+	self.peacemaker.can_shoot_through_enemy = true
+	self.lemming.can_shoot_through_shield = false
+	self.lemming.can_shoot_through_wall = false
+	
 	
 	self.huntsman.stats_modifiers = 	{damage = 0.85}
 	self.b682.stats_modifiers = 		{damage = 0.85}
@@ -2576,23 +2577,23 @@ function WeaponTweakData:init(tweak_data)
 	self.tti.stats_modifiers = 			{damage = 1.8, suppression = 3, spread = 0.83}
 	self.siltstone.stats_modifiers = 	{damage = 1.8, suppression = 3}
 	
-	self.m95.stats_modifiers = {damage = 24, suppression = 5, spread = 0.83}
-	self.gre_m79.stats_modifiers = {damage = 3.4}
-	self.rpg7.stats_modifiers = {damage = 100}
-	self.m32.stats_modifiers = {damage = 3.4}
-	self.peacemaker.stats_modifiers = {damage = 2}
-	self.hunter.stats_modifiers = {damage = 2}
-	self.contraband_m203.stats_modifiers = {damage = 3.4}
-	self.elastic.stats_modifiers = {damage = 1.23}
-	self.hunter.stats_modifiers = {damage = 1.5}
-	self.ecp.stats_modifiers = {damage = 1.187}
-	self.hajk.stats_modifiers = {damage = 0.738}
+	self.m95.stats_modifiers = 				{damage = 24, suppression = 5, spread = 0.83}
+	self.gre_m79.stats_modifiers = 			{damage = 3.4}
+	self.rpg7.stats_modifiers = 			{damage = 100}
+	self.m32.stats_modifiers = 				{damage = 3.4}
+	self.peacemaker.stats_modifiers = 		{damage = 2}
+	self.hunter.stats_modifiers = 			{damage = 2}
+	self.contraband_m203.stats_modifiers = 	{damage = 3.4}
+	self.elastic.stats_modifiers = 			{damage = 1.23}
+	self.hunter.stats_modifiers = 			{damage = 1.5}
+	self.ecp.stats_modifiers = 				{damage = 1.187}
+	self.hajk.stats_modifiers = 			{damage = 0.738}
 
 	
-	self.slap.stats_modifiers = {damage = 3.4}
-	self.china.stats_modifiers = {damage = 3.4}
-	self.ray.stats_modifiers = {damage = 25}
-	self.arbiter.stats_modifiers = {damage = 1.786}
+	self.slap.stats_modifiers = 	{damage = 3.4}
+	self.china.stats_modifiers = 	{damage = 3.4}
+	self.ray.stats_modifiers = 		{damage = 25}
+	self.arbiter.stats_modifiers = 	{damage = 1.786}
 	
 	self.wa2000.fire_mode_data.fire_rate = 0.5
 
@@ -2602,6 +2603,37 @@ function WeaponTweakData:init(tweak_data)
 	self.system.CLIP_AMMO_MAX = 100
 	self.system.NR_CLIPS_MAX = 4
 	self.system.AMMO_MAX = self.system.CLIP_AMMO_MAX * self.system.NR_CLIPS_MAX
+	
+	self.s552.CLIP_AMMO_MAX = 30
+	self.s552.NR_CLIPS_MAX = 5
+	self.s552.AMMO_MAX = self.s552.CLIP_AMMO_MAX * self.s552.NR_CLIPS_MAX
+	self.scar.CLIP_AMMO_MAX = 20
+	self.scar.NR_CLIPS_MAX = 4
+	self.scar.AMMO_MAX = self.scar.CLIP_AMMO_MAX * self.scar.NR_CLIPS_MAX
+	self.g36.CLIP_AMMO_MAX = 30
+	self.g36.NR_CLIPS_MAX = 5
+	self.g36.AMMO_MAX = self.g36.CLIP_AMMO_MAX * self.g36.NR_CLIPS_MAX
+	self.famas.CLIP_AMMO_MAX = 30
+	self.famas.NR_CLIPS_MAX = 5
+	self.famas.AMMO_MAX = self.famas.CLIP_AMMO_MAX * self.famas.NR_CLIPS_MAX
+	self.asval.CLIP_AMMO_MAX = 20
+	self.asval.NR_CLIPS_MAX = 4
+	self.asval.AMMO_MAX = self.asval.CLIP_AMMO_MAX * self.asval.NR_CLIPS_MAX
+	self.contraband.CLIP_AMMO_MAX = 20
+	self.contraband.NR_CLIPS_MAX = 5
+	self.contraband.AMMO_MAX = self.contraband.CLIP_AMMO_MAX * self.contraband.NR_CLIPS_MAX
+	self.fal.CLIP_AMMO_MAX = 20
+	self.fal.NR_CLIPS_MAX = 4
+	self.fal.AMMO_MAX = self.fal.CLIP_AMMO_MAX * self.fal.NR_CLIPS_MAX
+	self.g3.CLIP_AMMO_MAX = 20
+	self.g3.NR_CLIPS_MAX = 4
+	self.g3.AMMO_MAX = self.g3.CLIP_AMMO_MAX * self.g3.NR_CLIPS_MAX
+	self.new_m14.CLIP_AMMO_MAX = 10
+	self.new_m14.NR_CLIPS_MAX = 4
+	self.new_m14.AMMO_MAX = self.new_m14.CLIP_AMMO_MAX * self.new_m14.NR_CLIPS_MAX
+	self.ching.CLIP_AMMO_MAX = 8
+	self.ching.NR_CLIPS_MAX = 5
+	self.ching.AMMO_MAX = self.ching.CLIP_AMMO_MAX * self.ching.NR_CLIPS_MAX
 
 	self.r870.damage_near = 700
 	self.r870.damage_far = 1500

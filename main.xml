@@ -1,5 +1,5 @@
 <mod name="Original Pack" global_key="Original Pack">
-    <AssetUpdates id="15996" version="1.0" provider="modworkshop"/>
+    <AssetUpdates id="15996" version="1.1" provider="modworkshop"/>
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crimespreetweakdata.lua"/>
 		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crimespreemanager.lua"/>
@@ -12,6 +12,9 @@
 		<hook source_file="lib/managers/experiencemanager"							file="contracts/narrativeexperience.lua"/>
 		<hook source_file="lib/units/interactions/interactionext"					file="contracts/interactionext.lua"/>
 		<hook source_file="lib/tweak_data/missiondoortweakdata"						file="contracts/missiondoortweakdata.lua"/>
+		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="contracts/coreelementrandom.lua"/>
+		<hook source_file="lib/tweak_data/assetstweakdata"							file="contracts/assetstweakdata.lua"/>
+		<hook source_file="lib/tweak_data/preplanningtweakdata"						file="contracts/preplanningtweakdata.lua"/>
 		<hook source_file="lib/utils/inventorydescription"							file="weapons/inventorydescription.lua"/>
 		<hook source_file="lib/tweak_data/dlctweakdata"								file="weapons/dlctweakdata.lua"/>
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
@@ -44,7 +47,8 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/coplogictravel.lua"/>
 		<hook source_file="lib/units/props/securitycamera"							file="difficulties/securitycamera.lua"/>
-		<hook source_file="lib/units/equipment/sentry_gun/sentrygunbase"			file="difficulties/sentrygunbase.lua"/>
+		<hook source_file="lib/managers/criminalsmanager"							file="difficulties/criminalsmanager.lua"/>
+		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionshoot"	file="difficulties/copactionshoot.lua"/>
 		<hook source_file="lib/network/base/session_states/hoststateingame"			file="infamy/infamousjoiningame.lua"/>
 		<hook source_file="lib/network/base/session_states/hoststateinlobby"		file="infamy/infamousjoinlobby.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="infamy/becomeinfamous.lua"/>
@@ -83,6 +87,7 @@
 		<hook source_file="lib/tweak_data/blackmarket/maskstweakdata"				file="content/maskstweakdata.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/materialstweakdata"			file="content/materialstweakdata.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/texturestweakdata"			file="content/texturestweakdata.lua"/>
+		<hook source_file="lib/tweak_data/achievementstweakdata"					file="content/achievementstweakdata.lua"/>
 		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="game/networkmatchmakingsteam.lua"/>
 		<hook source_file="lib/managers/savefilemanager"							file="game/savefile.lua"/>
 		<hook source_file="lib/managers/menu/menunodegui"							file="game/version.lua"/>
@@ -100,6 +105,8 @@
 
     <AddFiles directory="assets">
 
+		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
+		
 						<!-- Logo -->
 		<texture path="guis/textures/menu_original_pack_logo" force="true"/>
 		<texture path="guis/textures/menu_original_pack_version" force="true"/>

@@ -1,3 +1,4 @@
+
 function GroupAIStateBesiege:_upd_assault_task()
 	local task_data = self._task_data.assault
 

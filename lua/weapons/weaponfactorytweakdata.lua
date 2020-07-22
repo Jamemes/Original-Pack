@@ -117,7 +117,23 @@ function WeaponFactoryTweakData:init(tweak_data)
 		damage = 14,
 		concealment = -4
 	}
-
+	self.parts.wpn_fps_ass_g3_b_short.stats = {
+		value = 2,
+		recoil = 2,
+		spread = -2,
+		concealment = 4,
+		damage = -5,
+		total_ammo_mod = 5
+	}
+	self.parts.wpn_fps_ass_g3_b_sniper.stats = {
+		value = 2,
+		recoil = -2,
+		spread = 2,
+		concealment = -2,
+		total_ammo_mod = -10,
+		damage = 8,
+		extra_ammo = -5
+	}
 	self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats = {ammo_pickup_min_mul = 0.5, ammo_pickup_max_mul = 0.5}
 	self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats = {ammo_pickup_min_mul = 0.8, ammo_pickup_max_mul = 0.8}
 	self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.custom_stats = {ammo_pickup_min_mul = 0.5, ammo_pickup_max_mul = 0.5}
@@ -276,7 +292,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 			"wpn_fps_upg_ns_ass_smg_v6"
 		}
 
-	self.parts.wpn_fps_ass_sub2000_m_standard.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_pis_beretta_body_modern.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_pis_deagle_b_modern.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_pis_deagle_extra.pcs = {10, 20, 30, 40}
@@ -327,7 +342,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 	self.parts.wpn_fps_ass_famas_b_short.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_ass_famas_b_sniper.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_ass_famas_b_suppressed.pcs = {10, 20, 30, 40}
-	self.parts.wpn_fps_ass_famas_body_standard.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_ass_famas_g_retro.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_ass_g3_b_short.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_ass_g3_b_sniper.pcs = {10, 20, 30, 40}
@@ -477,7 +491,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 	self.parts.wpn_fps_upg_o_spot.pcs = {10, 20, 30, 40}
 	self.parts.wpn_fps_upg_smg_olympic_fg_lr300.pcs = {10, 20, 30, 40}
 	
-	self.parts.wpn_fps_ass_sub2000_m_standard.stats.value = 6
 	self.parts.wpn_fps_pis_beretta_body_modern.stats.value = 6
 	self.parts.wpn_fps_pis_deagle_b_modern.stats.value = 6
 	self.parts.wpn_fps_pis_deagle_extra.stats.value = 6
@@ -527,7 +540,6 @@ function WeaponFactoryTweakData:init(tweak_data)
 	self.parts.wpn_fps_ass_famas_b_short.stats.value = 7
 	self.parts.wpn_fps_ass_famas_b_sniper.stats.value = 7
 	self.parts.wpn_fps_ass_famas_b_suppressed.stats.value = 7
-	self.parts.wpn_fps_ass_famas_body_standard.stats.value = 7
 	self.parts.wpn_fps_ass_famas_g_retro.stats.value = 7
 	self.parts.wpn_fps_ass_g3_b_short.stats.value = 7
 	self.parts.wpn_fps_ass_g3_b_sniper.stats.value = 7

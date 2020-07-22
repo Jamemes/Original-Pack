@@ -200,7 +200,8 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy"),
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy_g36/ene_murkywater_heavy_g36")
 				},
 				federales = {
 					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
@@ -223,7 +224,7 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
 				},
 				federales = {
-					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_r870/ene_swat_heavy_policia_federale_fbi_r870")
 				}
 			},
 			access = access_type_all
@@ -245,14 +246,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_4/ene_cop_hvh_4")
 				},
 				murkywater = {
-					Idstring("units/payday2/characters/ene_cop_1/ene_cop_1"),
-					Idstring("units/payday2/characters/ene_cop_3/ene_cop_3"),
-					Idstring("units/payday2/characters/ene_cop_4/ene_cop_4")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_light_fbi/ene_murkywater_light_fbi")
 				},
 				federales = {
-					Idstring("units/payday2/characters/ene_cop_1/ene_cop_1"),
-					Idstring("units/payday2/characters/ene_cop_3/ene_cop_3"),
-					Idstring("units/payday2/characters/ene_cop_4/ene_cop_4")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi/ene_swat_policia_federale_fbi")
 				}
 			},
 			access = access_type_walk_only
@@ -269,10 +266,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_cop_hvh_2/ene_cop_hvh_2")
 				},
 				murkywater = {
-					Idstring("units/payday2/characters/ene_cop_2/ene_cop_2")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_light_fbi/ene_murkywater_light_fbi")
 				},
 				federales = {
-					Idstring("units/payday2/characters/ene_cop_2/ene_cop_2")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi/ene_swat_policia_federale_fbi")
 				}
 			},
 			access = access_type_walk_only
@@ -374,7 +371,8 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_swat_heavy_hvh_1/ene_swat_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy"),
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy_g36/ene_murkywater_heavy_g36")
 				},
 				federales = {
 					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale/ene_swat_heavy_policia_federale")
@@ -653,12 +651,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_2/ene_fbi_hvh_2")
 				},
 				murkywater = {
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_1"),
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_2")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_light_fbi/ene_murkywater_light_fbi")
 				},
 				federales = {
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_1"),
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_2")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi/ene_swat_policia_federale_fbi")
 				}
 			},
 			access = access_type_all
@@ -678,12 +674,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_3/ene_fbi_hvh_3")
 				},
 				murkywater = {
-					Idstring("units/payday2/characters/ene_fbi_2/ene_fbi_2"),
-					Idstring("units/payday2/characters/ene_fbi_2/ene_fbi_3")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_light_fbi/ene_murkywater_light_fbi")
 				},
 				federales = {
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_2"),
-					Idstring("units/payday2/characters/ene_fbi_1/ene_fbi_3")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi/ene_swat_policia_federale_fbi")
 				}
 			},
 			access = access_type_all
@@ -700,10 +694,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_hvh_3/ene_fbi_hvh_3")
 				},
 				murkywater = {
-					Idstring("units/payday2/characters/ene_fbi_3/ene_fbi_3")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_light_fbi/ene_murkywater_light_fbi")
 				},
 				federales = {
-					Idstring("units/payday2/characters/ene_fbi_3/ene_fbi_3")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_policia_federale_fbi/ene_swat_policia_federale_fbi")
 				}
 			},
 			access = access_type_all
@@ -830,10 +824,10 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy_g36/ene_murkywater_heavy_g36")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
 				},
 				federales = {
-					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_r870/ene_swat_heavy_policia_federale_fbi_r870")
 				}
 			},
 			access = access_type_all
@@ -851,7 +845,7 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy_g36/ene_murkywater_heavy_g36")
 				},
 				federales = {
 					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
@@ -876,7 +870,7 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
 				},
 				federales = {
-					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
+					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_r870/ene_swat_heavy_policia_federale_fbi_r870")
 				}
 			},
 			access = access_type_walk_only
@@ -894,7 +888,7 @@ function GroupAITweakData:init(tweak_data)
 					Idstring("units/pd2_dlc_hvh/characters/ene_fbi_heavy_hvh_1/ene_fbi_heavy_hvh_1")
 				},
 				murkywater = {
-					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy/ene_murkywater_heavy")
+					Idstring("units/pd2_dlc_bph/characters/ene_murkywater_heavy_g36/ene_murkywater_heavy_g36")
 				},
 				federales = {
 					Idstring("units/pd2_dlc_bex/characters/ene_swat_heavy_policia_federale_fbi_g36/ene_swat_heavy_policia_federale_fbi_g36")
@@ -1820,7 +1814,7 @@ function GroupAITweakData:init(tweak_data)
 	end
 	if difficulty_index == 8 then
 		self.flash_grenade.timer = 0
-	elseif difficulty_index == 7 then
+	elseif difficulty_index >= 5 then
 		self.flash_grenade.timer = 1
 	else
 		self.flash_grenade.timer = 2
@@ -1933,7 +1927,7 @@ function GroupAITweakData:init(tweak_data)
 		}
 	end
 	if is_console then
-		if difficulty_index <= 2 then
+		if difficulty_index <= 1 then
 			self.besiege.assault.force_balance_mul = {
 				1,
 				1.1,
@@ -1945,21 +1939,21 @@ function GroupAITweakData:init(tweak_data)
 				1.1,
 				1.2,
 				1.3
+			}
+		elseif difficulty_index == 2 then
+			self.besiege.assault.force_balance_mul = {
+				1.2,
+				1.4,
+				1.6,
+				1.8
+			}
+			self.besiege.assault.force_pool_balance_mul = {
+				1.2,
+				1.4,
+				1.6,
+				1.8
 			}
 		elseif difficulty_index == 3 then
-			self.besiege.assault.force_balance_mul = {
-				1.2,
-				1.4,
-				1.6,
-				1.8
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				1.2,
-				1.4,
-				1.6,
-				1.8
-			}
-		elseif difficulty_index == 4 then
 			self.besiege.assault.force_balance_mul = {
 				1.6,
 				1.8,
@@ -1972,7 +1966,7 @@ function GroupAITweakData:init(tweak_data)
 				2.2,
 				2.4
 			}
-		elseif difficulty_index == 5 then
+		elseif difficulty_index == 4 then
 			self.besiege.assault.force_balance_mul = {
 				1.8,
 				2.1,
@@ -1999,7 +1993,7 @@ function GroupAITweakData:init(tweak_data)
 				2.8
 			}
 		end
-	elseif difficulty_index <= 2 then
+	elseif difficulty_index <= 1 then
 		self.besiege.assault.force_balance_mul = {
 			0.9,
 			1.5,
@@ -2012,7 +2006,7 @@ function GroupAITweakData:init(tweak_data)
 			2,
 			3
 		}
-	elseif difficulty_index == 3 then
+	elseif difficulty_index == 2 then
 		self.besiege.assault.force_balance_mul = {
 			1,
 			1.4,
@@ -2025,7 +2019,7 @@ function GroupAITweakData:init(tweak_data)
 			1.6,
 			1.9
 		}
-	elseif difficulty_index == 4 then
+	elseif difficulty_index == 3 then
 		self.besiege.assault.force_balance_mul = {
 			1.4,
 			1.8,
@@ -2038,7 +2032,7 @@ function GroupAITweakData:init(tweak_data)
 			2.2,
 			2.5
 		}
-	elseif difficulty_index == 5 then
+	elseif difficulty_index == 4 then
 		self.besiege.assault.force_balance_mul = {
 			2,
 			2.5,

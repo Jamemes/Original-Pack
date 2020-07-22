@@ -1,6 +1,178 @@
 local data = CharacterTweakData.init
 function CharacterTweakData:init(tweak_data)
     data(self, tweak_data)
+	self.presets.weapon.gang_member.is_pistol.aim_delay = {0, 1}
+	self.presets.weapon.gang_member.is_pistol.focus_dis = 2000
+	self.presets.weapon.gang_member.is_pistol.miss_dis = 20
+	self.presets.weapon.gang_member.is_pistol.RELOAD_SPEED = 1.5
+	self.presets.weapon.gang_member.is_pistol.FALLOFF = {
+		{
+			r = 300,
+			acc = {0.7, 1},
+			dmg_mul = 3.5,
+			recoil = {0.25, 0.45},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			r = 2000,
+			acc = {0.1, 0.6},
+			dmg_mul = 1,
+			recoil = {0.25, 2},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			r = 10000,
+			acc = {0, 0.15},
+			dmg_mul = 1,
+			recoil = {2, 3},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	}
+	self.presets.weapon.gang_member.is_rifle.aim_delay = {0, 1}
+	self.presets.weapon.gang_member.is_rifle.FALLOFF = {
+		{
+			r = 300,
+			acc = {0.7, 1},
+			dmg_mul = 3.5,
+			recoil = {0.25, 0.45},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		},
+		{
+			r = 2000,
+			acc = {0.1, 0.6},
+			dmg_mul = 0.5,
+			recoil = {0.25, 2},
+			mode = {
+				2,
+				2,
+				5,
+				8
+			}
+		},
+		{
+			r = 10000,
+			acc = {0, 0.15},
+			dmg_mul = 0.5,
+			recoil = {2, 3},
+			mode = {
+				2,
+				1,
+				1,
+				0.01
+			}
+		}
+	}
+	self.presets.weapon.gang_member.is_sniper.aim_delay = {0.5, 2}
+	self.presets.weapon.gang_member.is_sniper.FALLOFF[1].dmg_mul = 5
+	self.presets.weapon.gang_member.is_sniper.FALLOFF[2].dmg_mul = 5
+	self.presets.weapon.gang_member.is_sniper.FALLOFF[3].dmg_mul = 5
+	self.presets.weapon.gang_member.is_sniper.FALLOFF[4].dmg_mul = 2.5
+	self.presets.weapon.gang_member.is_sniper.FALLOFF[5].dmg_mul = 2.5
+	self.presets.weapon.gang_member.is_lmg.aim_delay = {0, 1}
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[1].dmg_mul = 2
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[2].dmg_mul = 1.5
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[3].dmg_mul = 1
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[4].dmg_mul = 0.5
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[5].dmg_mul = 0.2
+	self.presets.weapon.gang_member.is_lmg.FALLOFF[6].dmg_mul = 0.1
+	self.presets.weapon.gang_member.is_shotgun_pump.aim_delay = {0, 0.02}
+	self.presets.weapon.gang_member.is_shotgun_pump.FALLOFF = {
+		{
+			r = 300,
+			acc = {0.7, 1},
+			dmg_mul = 3.5,
+			recoil = {2, 2},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			r = 1000,
+			acc = {0.1, 0.6},
+			dmg_mul = 1,
+			recoil = {2, 2},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			r = 4000,
+			acc = {0, 0.15},
+			dmg_mul = 0.1,
+			recoil = {2, 4},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	}
+	self.presets.weapon.gang_member.is_shotgun_mag.aim_delay = {0, 0.02}
+	self.presets.weapon.gang_member.is_shotgun_mag.FALLOFF = {
+		{
+			r = 300,
+			acc = {0.7, 1},
+			dmg_mul = 3.5,
+			recoil = {2, 2},
+			mode = {
+				1,
+				1,
+				4,
+				6
+			}
+		},
+		{
+			r = 1000,
+			acc = {0.1, 0.6},
+			dmg_mul = 1,
+			recoil = {2, 2},
+			mode = {
+				1,
+				1,
+				4,
+				6
+			}
+		},
+		{
+			r = 4000,
+			acc = {0, 0.15},
+			dmg_mul = 0.1,
+			recoil = {2, 4},
+			mode = {
+				2,
+				1,
+				0,
+				0
+			}
+		}
+	}
 	self.presets.move_speed.very_slow_but_faster = {
 		stand = {
 			walk = {
@@ -537,7 +709,7 @@ function CharacterTweakData:init(tweak_data)
 		entrance = true
 	}
 	self.spooc.headshot_dmg_mul = self.spooc.HEALTH_INIT / 14
-	self.shield.HEALTH_INIT = 10
+	self.shield.HEALTH_INIT = 13
 	self.shield.headshot_dmg_mul = self.shield.HEALTH_INIT / 6
 	self.shield.move_speed = self.presets.move_speed.fast
 	self.shield.weapon.is_smg.FALLOFF[2].dmg_mul = 3
@@ -700,9 +872,10 @@ function CharacterTweakData:_set_normal()
 	self.mobster_boss.HEALTH_INIT = 50
 	self.biker_boss.HEALTH_INIT = 100
 	self.chavez_boss.HEALTH_INIT = 100
+	self.shield.HEALTH_INIT = 10
 	self.presets.gang_member_damage.REGENERATE_TIME = 1.5
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.2
-	self.presets.gang_member_damage.HEALTH_INIT = 125
+	self.presets.gang_member_damage.HEALTH_INIT = 60
 	
 	self:_set_characters_weapon_preset("normal")
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
@@ -737,7 +910,7 @@ function CharacterTweakData:_set_hard()
 
 	self:_set_characters_weapon_preset("normal")
 
-	self.presets.gang_member_damage.HEALTH_INIT = 160
+	self.presets.gang_member_damage.HEALTH_INIT = 80
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -750,6 +923,7 @@ function CharacterTweakData:_set_hard()
 	self.presets.weapon.gang_member.is_shotgun_mag = deep_clone(self.presets.weapon.gang_member.is_shotgun_pump)
 	self.flashbang_multiplier = 1.25
 	self.concussion_multiplier = 1
+	self.shield.HEALTH_INIT = 10
 	self.shadow_spooc.shadow_spooc_attack_timeout = {
 		8,
 		10
@@ -828,7 +1002,7 @@ function CharacterTweakData:_set_overkill()
 	self.mobster_boss.HEALTH_INIT = 300
 	self.biker_boss.HEALTH_INIT = 300
 	self.chavez_boss.HEALTH_INIT = 300
-	self.phalanx_minion.HEALTH_INIT = 3
+	self.phalanx_minion.HEALTH_INIT = 30
 	self.phalanx_minion.DAMAGE_CLAMP_BULLET = 15
 	self.phalanx_minion.DAMAGE_CLAMP_EXPLOSION = self.phalanx_minion.DAMAGE_CLAMP_BULLET
 	self.phalanx_vip.HEALTH_INIT = 60
@@ -836,7 +1010,7 @@ function CharacterTweakData:_set_overkill()
 	self.phalanx_vip.DAMAGE_CLAMP_EXPLOSION = self.phalanx_vip.DAMAGE_CLAMP_BULLET
 	self.presets.gang_member_damage.REGENERATE_TIME = 2
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 200
+	self.presets.gang_member_damage.HEALTH_INIT = 100
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -920,9 +1094,9 @@ end
 
 function CharacterTweakData:_set_overkill_145()
 	if SystemInfo:platform() == Idstring("PS3") then
-		self:_multiply_all_hp(1, 1)
+		self:_multiply_all_hp(1.7, 0.75)
 	else
-		self:_multiply_all_hp(1, 1)
+		self:_multiply_all_hp(1.7, 0.75)
 	end
 
 	self:_multiply_all_speeds(1.05, 1.05)
@@ -947,10 +1121,12 @@ function CharacterTweakData:_set_overkill_145()
 
 	self.presets.gang_member_damage.REGENERATE_TIME = 2
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 250
+	self.presets.gang_member_damage.HEALTH_INIT = 125
 
 	self:_set_characters_weapon_preset("expert")
-
+	
+	self.shield.HEALTH_INIT = 17
+	self.fbi_swat.HEALTH_INIT = 17
 	self.shadow_spooc.shadow_spooc_attack_timeout = {
 		3.5,
 		5
@@ -1040,7 +1216,7 @@ function CharacterTweakData:_set_overkill_290()
 
 	self.presets.gang_member_damage.REGENERATE_TIME = 1.8
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 300
+	self.presets.gang_member_damage.HEALTH_INIT = 150
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -1701,8 +1877,9 @@ function CharacterTweakData:_set_overkill_290()
 			}
 		}
 	}
+	self.shield.HEALTH_INIT = 17
+	self.fbi_swat.HEALTH_INIT = 17
 	self.city_swat.HEALTH_INIT = 24
-	self.fbi_swat.HEALTH_INIT = 13
 	self.city_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 8
 	self.city_swat.damage.explosion_damage_mul = 1
 	self.city_swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
@@ -1737,7 +1914,7 @@ function CharacterTweakData:_set_sm_wish()
 
 	self.presets.gang_member_damage.REGENERATE_TIME = 1.8
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 300
+	self.presets.gang_member_damage.HEALTH_INIT = 150
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol

@@ -192,11 +192,3 @@ function PlayerDamage:_hit_direction(position_vector)
 	else
 	end
 end
-
-function PlayerDamage:_chk_can_take_dmg()
-
-	local can_take_damage = self._can_take_dmg_timer > 0 and self._can_take_dmg_timer < 0
-	can_take_damage = managers.modifiers:modify_value("PlayerDamage:CheckCanTakeDamage", can_take_damage)
-
-	return can_take_damage
-end
