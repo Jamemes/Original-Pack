@@ -116,7 +116,11 @@
 	"menu_not_enough_offshore_desc":		"You need $200.000.000 to reset the Infamy tree.",
 	"menu_reset_infamy_tree":				"Reset Infamy Tree",
 	"menu_reset_infamy_tree_desc":			"Are you sure you want to reset the Infamy tree?\n\nWhen you confirm, you will spend $200.000.000 from your offshore account.\n\nAre you sure you want to continue?",
-	"menu_asset_lock_additional_assets":	"You need ''Inside Man'' skill",
+	
+	"menu_asset_lock_additional_assets":	"Requires the ''Inside Man'' Skill to unlock",
+	"menu_asset_lock_buy_bodybags_asset":	"Requires the ''Cleaner'' Skill to unlock",
+	"menu_asset_lock_buy_spotter_asset":	"Requires the ''Spotter'' Skill to unlock",
+	
 	"menu_difficulty_easy_wish":			"Death Wish",
 	"menu_owned":							"##Tier bonus owned##: ",
 	"menu_tier":							"$tier",

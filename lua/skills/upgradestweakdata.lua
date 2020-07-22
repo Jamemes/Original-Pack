@@ -658,7 +658,7 @@ function UpgradesTweakData:init(tweak_data)
 			category = "player"
 		}
 	}
-	self.values.player.long_dis_revive = {0.75, 1}
+	self.values.cooldown.long_dis_revive = {{0.75, 1}}
 	
 	self.values.player.suppression_multiplier = {1.25, 1.75}
 	self.values.temporary.dmg_dampener_outnumbered = {

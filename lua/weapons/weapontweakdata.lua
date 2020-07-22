@@ -2502,12 +2502,6 @@ function WeaponTweakData:init(tweak_data)
 	self.rpg7.AMMO_MAX = self.rpg7.CLIP_AMMO_MAX * self.rpg7.NR_CLIPS_MAX
 	self.ray.AMMO_MAX = self.ray.CLIP_AMMO_MAX * self.ray.NR_CLIPS_MAX
 	
-	self.gre_m79.AMMO_PICKUP = {0, 0}
-	self.m32.AMMO_PICKUP = {0, 0}
-	self.m95.AMMO_PICKUP = {0, 0}
-	self.slap.AMMO_PICKUP = {0, 0}
-	self.china.AMMO_PICKUP = {0, 0}
-	self.arbiter.AMMO_PICKUP = {0, 0}
 	self.gre_m79.has_description = true
 	self.m32.has_description = true
 	self.m95.has_description = true
@@ -2559,7 +2553,6 @@ function WeaponTweakData:init(tweak_data)
 	self.peacemaker.can_shoot_through_enemy = true
 	self.lemming.can_shoot_through_shield = false
 	self.lemming.can_shoot_through_wall = false
-	
 	
 	self.huntsman.stats_modifiers = 	{damage = 0.85}
 	self.b682.stats_modifiers = 		{damage = 0.85}
@@ -2634,7 +2627,10 @@ function WeaponTweakData:init(tweak_data)
 	self.ching.CLIP_AMMO_MAX = 8
 	self.ching.NR_CLIPS_MAX = 5
 	self.ching.AMMO_MAX = self.ching.CLIP_AMMO_MAX * self.ching.NR_CLIPS_MAX
-
+	self.slap.CLIP_AMMO_MAX = 1
+	self.slap.NR_CLIPS_MAX = 3
+	self.slap.AMMO_MAX = self.slap.CLIP_AMMO_MAX * self.slap.NR_CLIPS_MAX
+	
 	self.r870.damage_near = 700
 	self.r870.damage_far = 1500
 	self.saiga.damage_near = 700
@@ -2686,6 +2682,10 @@ function WeaponTweakData:init(tweak_data)
 	self.coach.damage_near = 1000
 	self.coach.damage_far = 2000
 	
+	self.lemming.AMMO_PICKUP = self:_pickup_chance(self.lemming.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	self.asval.AMMO_PICKUP = self:_pickup_chance(self.asval.AMMO_MAX, PICKUP.OTHER)
+	self.contraband.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+	
 	self.hk21.AMMO_PICKUP = self:_pickup_chance(80, 1.5)
 	self.m249.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
 	self.par.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
@@ -2697,18 +2697,25 @@ function WeaponTweakData:init(tweak_data)
 	self.sterling.AMMO_PICKUP = self:_pickup_chance(100, 1)
 	self.m1928.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
 	self.l85a2.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
+	
 	self.m134.AMMO_PICKUP = self:_pickup_chance(0, 2)
 	self.shuno.AMMO_PICKUP = self:_pickup_chance(0, 2)
 	self.flamethrower_mk2.AMMO_PICKUP = self:_pickup_chance(0, 1)
 	self.system.AMMO_PICKUP = self:_pickup_chance(0, 1)
+	self.gre_m79.AMMO_PICKUP = {0, 0}
+	self.m32.AMMO_PICKUP = {0, 0}
+	self.m95.AMMO_PICKUP = {0, 0}
+	self.slap.AMMO_PICKUP = {0, 0}
+	self.china.AMMO_PICKUP = {0, 0}
+	self.arbiter.AMMO_PICKUP = {0, 0}
+	self.contraband_m203.AMMO_PICKUP = {0, 0}
 	
-	self.m95.AMMO_PICKUP = {0.05, 0.65}
 	self.msr.AMMO_PICKUP = {1, 1}
 	self.r93.AMMO_PICKUP = {0.7, 1}
 	self.mosin.AMMO_PICKUP = {0.7, 1}
 	self.model70.AMMO_PICKUP = {0.7, 1}
-	self.m32.AMMO_PICKUP = {0.05, 0.65}
-	self.winchester1874.AMMO_PICKUP = {0.7, 1}	
+	self.winchester1874.AMMO_PICKUP = {0.7, 1}
+	
 end
 
 function WeaponTweakData:_pickup_chance(max_ammo, selection_index)
