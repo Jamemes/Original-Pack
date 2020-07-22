@@ -39,20 +39,20 @@ function MoneyTweakData:init(tweak_data)
 	self.loot_drop_cash.cash100 = 100000 * 14
 	self.skill_switch_cost = {
 		{spending = 0, offshore = 0},
-		{spending = 20000000, offshore = 700000000},
-		{spending = 30000000, offshore = 800000000},
-		{spending = 40000000, offshore = 900000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000},
-		{spending = 50000000, offshore = 1000000000}
+		{spending = 20000000, offshore = 70000000},
+		{spending = 30000000, offshore = 80000000},
+		{spending = 40000000, offshore = 90000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000},
+		{spending = 50000000, offshore = 100000000}
 	}
 	self.buy_premium_multiplier = {
 		easy = 0.5,
