@@ -68,7 +68,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 		OriginalPackOptions.settings.Enable_Max_Progress = item:value() == "on" and true or false
 		OriginalPackOptions:Save()
 		os.execute("start steam://rungameid/218620")
-		restart_the_game_playa()
+		os.exit()
 	end
 	MenuHelper:AddToggle({
 		id = "OriginalPackOptions_menu_Enable_Max_Progress_callback",

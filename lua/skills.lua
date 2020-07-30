@@ -2073,24 +2073,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			}
 		}
 
-		self.skill_switches = {
-			{name_id = "menu_st_skill_switch_1"},
-			{name_id = "menu_st_skill_switch_2"},
-			{name_id = "menu_st_skill_switch_3"},
-			{name_id = "menu_st_skill_switch_4"},
-			{name_id = "menu_st_skill_switch_5"},
-			{name_id = "menu_st_skill_switch_6"},
-			{name_id = "menu_st_skill_switch_7"},
-			{name_id = "menu_st_skill_switch_8"},
-			{name_id = "menu_st_skill_switch_9"},
-			{name_id = "menu_st_skill_switch_10"},
-			{name_id = "menu_st_skill_switch_11"},
-			{name_id = "menu_st_skill_switch_12"},
-			{name_id = "menu_st_skill_switch_13"},
-			{name_id = "menu_st_skill_switch_14"},
-			{name_id = "menu_st_skill_switch_15"}
-		}
-
+		self.skill_switches[2].locks = {achievement = "frog_1"}
+		self.skill_switches[15].locks = {level = 100}
+		
 		self.specialization_convertion_rate = {
 			10000,
 			10000,
@@ -3711,29 +3696,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 
 	function PlayerTweakData:_set_normal()
 		self.damage.automatic_respawn_time = 120
-		self.alarm_pager = {
-			first_call_delay = {2, 4},
-			call_duration = {
-				{6, 6},
-				{6, 6}
-			},
-			nr_of_calls = {2, 2},
-			bluff_success_chance = {
-				1,
-				1,
-				1,
-				1,
-				0
-			},
-			bluff_success_chance_w_skill = {
-				1,
-				1,
-				1,
-				1,
-				0
-			}
+		self.alarm_pager.call_duration = {
+			{6, 6},
+			{6, 6}
 		}
-		self.fall_damage_alert_size = 1000
+		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
 	end
 
 	function PlayerTweakData:_set_hard()
@@ -3741,29 +3708,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 		self.damage.DOWNED_TIME_DEC = 7
 		self.damage.DOWNED_TIME_MIN = 5
 		self.damage.automatic_respawn_time = 120
-		self.alarm_pager = {
-			first_call_delay = {2, 4},
-			call_duration = {
-				{6, 6},
-				{6, 6}
-			},
-			nr_of_calls = {2, 2},
-			bluff_success_chance = {
-				1,
-				1,
-				1,
-				1,
-				0
-			},
-			bluff_success_chance_w_skill = {
-				1,
-				1,
-				1,
-				1,
-				0
-			}
+		self.alarm_pager.call_duration = {
+			{6, 6},
+			{6, 6}
 		}
-		self.fall_damage_alert_size = 1000
+		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
@@ -3807,6 +3756,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_pickup"
 		}
+		self.take_pardons.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pickup"
+		}
 		
 		
 		self.key.requires_mask_off_upgrade = {
@@ -3829,7 +3782,58 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
 		}
-		
+		self.vit_keycard_use.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}		
+		self.cas_button_01.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_02.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_03.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_04.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_05.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_06.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_07.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_08.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_09.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_button_0.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}			
+		self.cas_button_clear.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}			
+		self.cas_button_enter.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
 		
 		self.hospital_phone.requires_mask_off_upgrade = {
 			category = "player",
@@ -3851,7 +3855,58 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_desktop_interaction"
 		}
-		
+		self.hold_search_c4.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.vit_search.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.vit_search_clues.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.vit_take_usb_key.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.vit_insert_usb.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.start_hacking.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.postpone_update.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.reboot_computer.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.bypass_the_firewall.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.uno_use_device.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.uno_assemble_device.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.vit_remove_painting.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.hold_open_the_safe.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
 		
 		self.open_door_with_keys.requires_mask_off_upgrade = {
 			category = "player",
@@ -3874,6 +3929,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_pick_lock"
 		}
 		self.pick_lock_hard_no_skill.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pick_lock"
+		}
+		self.pick_lock_hard_no_skill_deactivated.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_pick_lock"
 		}
@@ -4163,7 +4222,7 @@ end
 if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebase" then
 	local _upd_criminal_suspicion_progress_original = GroupAIStateBase._upd_criminal_suspicion_progress
 	function GroupAIStateBase:_upd_criminal_suspicion_progress(...)
-		if self._ai_enabled then
+		if self._ai_enabled and managers.groupai:state():whisper_mode() then
 			for obs_key, obs_susp_data in pairs(self._suspicion_hud_data or {}) do
 				local unit = obs_susp_data.u_observer
 				

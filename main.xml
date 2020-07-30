@@ -147,14 +147,18 @@
 		<stream path="soundbanks/streamed/menu/794130307" force="true"/>
 		<stream path="soundbanks/streamed/menu/914273783" force="true"/>
 		
+						<!-- Old textures -->
+		<texture path="units/payday2/props/gen_prop_door_metal/gen_prop_door_metal_df" force="true"/>
+		<texture path="units/payday2/props/gen_prop_door_metal/gen_prop_door_metal_nm" force="true"/>
+		
 						<!-- Old classy swat -->
 		<texture path="units/payday2/characters/shared_textures/helmets_atlas_df" force="true"/>
 		<texture path="units/payday2/characters/shared_textures/swat_city_df" force="true"/>
-		<texture path="units/payday2/characters/shared_textures/swat_m4_body_df" force="true"/>
+		<texture path="units/payday2/characters/shared_textures/swat_fbi_body_df" force="true"/>
 
 		<texture path="units/payday2/characters/shared_textures/spook_heavy_df"/>
 		
-		<model path="units/payday2/characters/ene_m4_swat_1/ene_m4_swat_1"/>
+		<model path="units/payday2/characters/ene_fbi_swat_1/ene_fbi_swat_1"/>
 		<model path="units/payday2/characters/ene_city_swat_1/ene_city_swat_1"/>
 		
 		<model path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>

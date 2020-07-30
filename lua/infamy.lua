@@ -830,7 +830,7 @@ if string.lower(RequiredScript) == "lib/managers/menumanager" then
 		local rank = managers.experience:current_rank() + 1
 
 		managers.experience:reset()
-		managers.skilltree:reset()
+		managers.skilltree:reset_specializations()
 		managers.experience:set_current_rank(rank)
 
 		local offshore_cost = Application:digest_value(tweak_data.infamy.ranks[rank], false)

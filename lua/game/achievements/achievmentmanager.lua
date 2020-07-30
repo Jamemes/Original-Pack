@@ -68,7 +68,7 @@ function CustomAchiHandler:set_achievement(id)
 end
 
 local function SaveData()
-	local progress = _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
+	local progress = tweak_data.test and 'Achievements_OP_TEST.txt' or _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
 	local file = io.open(SavePath .. progress, "w")
 	if file then
 		file:write(json.encode({ achievements = CustomAchiHandler.achievements, stats = CustomAchiHandler.stats or {} }))
@@ -122,7 +122,7 @@ function AchievmentManager:init_finalize(...)
 		CustomAchiHandler.achievements[k] = { awarded = false, received = 0 }
 	end
 	
-	local progress = _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
+	local progress = tweak_data.test and 'Achievements_OP_TEST.txt' or _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
 	local file = io.open(SavePath .. progress, "r")
 	if file then
 		local data = json.decode(file:read("*all")) or {}

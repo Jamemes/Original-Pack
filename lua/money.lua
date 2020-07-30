@@ -40,20 +40,20 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.loot_drop_cash.cash100 = 100000 * 14
 		self.skill_switch_cost = {
 			{spending = 0, offshore = 0},
-			{spending = 20000000, offshore = 70000000},
+			{spending = 0, offshore = 0},
 			{spending = 30000000, offshore = 80000000},
 			{spending = 40000000, offshore = 90000000},
-			{spending = 50000000, offshore = 100000000},
-			{spending = 60000000, offshore = 100000000},
-			{spending = 70000000, offshore = 100000000},
-			{spending = 80000000, offshore = 100000000},
-			{spending = 90000000, offshore = 100000000},
-			{spending = 100000000, offshore = 100000000},
-			{spending = 110000000, offshore = 100000000},
-			{spending = 120000000, offshore = 100000000},
-			{spending = 130000000, offshore = 100000000},
-			{spending = 140000000, offshore = 100000000},
-			{spending = 150000000, offshore = 100000000}
+			{spending = 50000000, offshore = 110000000},
+			{spending = 60000000, offshore = 120000000},
+			{spending = 70000000, offshore = 130000000},
+			{spending = 80000000, offshore = 140000000},
+			{spending = 90000000, offshore = 150000000},
+			{spending = 100000000, offshore = 160000000},
+			{spending = 110000000, offshore = 170000000},
+			{spending = 120000000, offshore = 180000000},
+			{spending = 130000000, offshore = 190000000},
+			{spending = 140000000, offshore = 200000000},
+			{spending = 150000000, offshore = 210000000}
 		}
 		self.buy_premium_multiplier = {
 			easy = 0.5,

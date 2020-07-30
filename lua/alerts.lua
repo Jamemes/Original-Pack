@@ -65,24 +65,19 @@ elseif string.lower(RequiredScript) == "lib/managers/gameplaycentralmanager" the
 	end)
 elseif string.lower(RequiredScript) == "lib/units/props/drill" then
 	--==Зона тревоги нпс от дрели==--
-	local investigate_zone = tweak_data.drill_investigate_zone --Зона "проверки" шума дрели, чтобы охранник шел к источнику звука. (Радиус по умолчанию - 500)
+	local investigate_zone = tweak_data.drill_investigate_zone_multipler -- Множитель зоны "проверки" шума дрели, чтобы охранник шел к источнику звука.
 	Hooks:PreHook(Drill, "_set_alert_state", "Drill_set_alert_state", function(self, state)
 		if state then
-			if not self.is_hacking_device then
-				self:drill_alert_noise()
-			end
+			local alert_event = {
+				"aggression",
+				self._unit:position(),
+				(self._alert_radius or 0) / investigate_zone,
+				managers.groupai:state():get_unit_type_filter("civilians_enemies"),
+				self._unit
+			}
+			managers.groupai:state():propagate_alert(alert_event)
 		end
 	end)
-	function Drill:drill_alert_noise()
-		local alert_event = {
-			"aggression",
-			self._unit:position(),
-			self._alert_radius - investigate_zone,
-			managers.groupai:state():get_unit_type_filter("civilians_enemies"),
-			self._unit
-		}
-		managers.groupai:state():propagate_alert(alert_event)
-	end
 	--==Удержание зоны тревоги нпс во время работы дрели через "проверку" охранников==--
 	Hooks:PreHook(Drill, "clbk_investigate_SO_verification", "Drill_clbk_investigate_SO_verification", function(self, candidate_unit)
 		local candidate_listen_pos = candidate_unit:movement():m_head_pos()
@@ -95,7 +90,7 @@ elseif string.lower(RequiredScript) == "lib/units/props/drill" then
 					local alert_event = {
 						"aggression",
 						self._unit:position(),
-						self._alert_radius - investigate_zone,
+						(self._alert_radius or 0) / investigate_zone,
 						managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 						self._unit
 					}

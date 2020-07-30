@@ -384,6 +384,18 @@
 	"achievement_bulldog_1_desc":				"Complete the Hoxton Breakout job on any difficulty.",
 	"achievement_sah_1_desc":					"Complete the Shacklethorne Auction job on any difficulty.",
 	"achievement_melt_2_desc":					"Complete the Meltdown job on any difficulty.",
+	"achievement_cow_6_desc":					"Complete The Bomb: Dockyard job on any difficulty.",
+	"achievement_cow_1_desc":					"Complete The Bomb: Forest job on any difficulty.",
+
+
+	"achievement_jerry_5_desc":							"Complete the Birth of Sky job, have the entire crew use only pistols and Two Piece Suits on the Hard difficulty or above.",	
+	"achievement_flake_1_desc":							"Complete the Framing Frame job on the Hard difficulty or above with each crew member using no skills, wearing suits, wielding Platypus 70 sniper rifles and Judge shotguns..",
+	"achievement_ovk_4_desc":							"Complete the Watchdogs job with each crew member using no skills, wielding the AMCAR Rifle and Chimano 88 Pistol on Hard difficulty or above.",
+	"achievement_cac_23_desc":							"Complete the Undercover job with every crew member using only a bow without any modifications on the Very Hard difficulty or above.",
+	"menu_challenge_monthly_rats_objective":			"Complete the Rats job on Hard or above using only AMCAR Rifle, Chimano 88 Pistol, the Two-piece Suit and no skills.",
+	"menu_challenge_monthly_firestarter_objective":		"Complete the Firestarter job on Hard or above with your crew using only the AMCAR Rifle, Chimano 88 Pistol, the Two-piece Suit and no skills.",
+	"menu_challenge_ovk_4_objective":					"Complete the Watchdogs job with each crew member using no skills, wielding the AMCAR Rifle and Chimano 88 Pistol on Hard difficulty or above.",
+	"menu_challenge_monthly_tabula_obj":				"Complete a Crime Spree of rank 25 or above, with all heisters using the AMCAR rifle, Chimano 88 pistol. To complete this challenge, you have to have played the heist from start to end.",
 	
 	"bm_wp_upg_bonus_team_exp_money_p3_desc":	"+5% Experience & money reward for you and your crew.",
 	

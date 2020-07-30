@@ -1671,7 +1671,7 @@ function AchievementsTweakData:init(tweak_data)
 			award = "ovk_4",
 			need_full_job = true,
 			jobs = {"watchdogs_wrapper", "watchdogs_wrapper_pro"},
-			difficulty = overkill_or_above,
+			difficulty = hard_or_above,
 			equipped_team = {
 				num_skills = 0,
 				primaries = {
@@ -1804,7 +1804,7 @@ function AchievementsTweakData:init(tweak_data)
 		jerry_5 = {
 			award = "jerry_5",
 			job = "pbr2",
-			difficulty = overkill_or_above,
+			difficulty = hard_or_above,
 			equipped_team = {
 				secondary_category = "pistol",
 				armor = "level_1",
@@ -1845,7 +1845,7 @@ function AchievementsTweakData:init(tweak_data)
 			award = "flake_1",
 			need_full_job = true,
 			jobs = {"framing_frame", "framing_frame_pro"},
-			difficulty = overkill_or_above,
+			difficulty = hard_or_above,
 			equipped_team = {
 				num_skills = 0,
 				armor = "level_1",
@@ -2041,7 +2041,7 @@ function AchievementsTweakData:init(tweak_data)
 			everyone_used_weapon_category = "bow",
 			everyone_killed_by_melee = 0,
 			no_bots = true,
-			difficulty = overkill_or_above,
+			difficulty = veryhard_or_above,
 			equipped_team = {
 				primary_unmodded = true,
 				primary_category = "bow"
@@ -2190,7 +2190,7 @@ function AchievementsTweakData:init(tweak_data)
 			challenge_award = "monthly_rats",
 			need_full_job = true,
 			jobs = {"alex", "alex_pro"},
-			difficulty = overkill_or_above,
+			difficulty = hard_or_above,
 			equipped_team = {
 				num_skills = 0,
 				armor = "level_1",
@@ -2206,7 +2206,7 @@ function AchievementsTweakData:init(tweak_data)
 			challenge_award = "monthly_firestarter",
 			need_full_job = true,
 			jobs = {"firestarter", "firestarter_pro"},
-			difficulty = overkill_or_above,
+			difficulty = hard_or_above,
 			equipped_team = {
 				num_skills = 0,
 				armor = "level_1",
@@ -2385,9 +2385,8 @@ function AchievementsTweakData:init(tweak_data)
 		},
 		monthly_tabula = {
 			challenge_award = "monthly_tabula",
-			crime_spree = 100,
+			crime_spree = 25,
 			equipped_team = {
-				num_skills = 0,
 				primaries = {
 					"wpn_fps_ass_amcar"
 				},
@@ -4608,7 +4607,12 @@ function AchievementsTweakData:_init_non_auto_generated(tweak_data)
 	}
 	self.visual.armored_2.need_unlock_icons = false
 	self.visual.fin_1.need_unlock_icons = false
-
+	self.visual.frog_1.unlock_icons = {
+		{
+			type_items = "kill_slot",
+			texture = "guis/dlcs/trk/textures/pd2/skills_slot_unlock_icon"
+		}
+	}
 	for k, v in pairs(self.complete_heist_stats_achievements) do
 		if v.award and self.visual[v.award] then
 			self.visual[v.award].progress = from_complete_heist_stats_item(self, v)
