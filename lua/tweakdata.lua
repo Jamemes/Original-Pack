@@ -1,6 +1,6 @@
 local self = tweak_data
 
-self.version = "1.3.1"
+self.version = "1.3.1.1"
 self.test = false
 self.testing_text = ''
 

@@ -242,7 +242,7 @@ function HUDStatsScreen:recreate_left()
 	self:_update_stats_screen_loot(self._left:child("loot_wrapper_panel"))
 	local num_forced = #managers.achievment:get_force_tracked()
 	local mutators_active = managers.mutators:are_mutators_active()
-	if _G.OriginalPackOptions.settings.Enable_Achievements and num_forced >= 1 and not mutators_active then
+	if num_forced >= 1 and not mutators_active then
 		self:_create_tracked_list(self._left)
 	elseif mutators_active then
 		self:_create_mutators_list(self._left)

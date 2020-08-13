@@ -158,6 +158,7 @@ function AchievmentManager:init()
 
 	if SystemInfo:platform() == Idstring("WIN32") then
 		if SystemInfo:distribution() == Idstring("STEAM") then
+			self.oldest_achievement_callback_handler = CoreEvent.CallbackEventHandler:new()
 			AchievmentManager.do_award = AchievmentManager.award_steam
 
 			if not Global.achievment_manager then
