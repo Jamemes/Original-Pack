@@ -1,4 +1,4 @@
-if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
+if string.lower(RequiredScript) == "lib/tweak_data/skirmishtweakdata" then
 	local data = SkirmishTweakData.init
 	function SkirmishTweakData:init(tweak_data)
 		data(self, tweak_data)
@@ -111,282 +111,29 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			}
 		}
 	end
-
 	function SkirmishTweakData:_init_spawn_group_weights(tweak_data)
 		local nice_human_readable_table = {
-			{
-				18,
-				18,
-				18,
-				18,
-				3,
-				4,
-				3,
-				5,
-				5,
-				3,
-				5
-			},
-			{
-				17.71,
-				17.71,
-				17.71,
-				17.71,
-				3.1,
-				4.1,
-				3.1,
-				5.13,
-				5.13,
-				3.1,
-				5.5
-			},
-			{
-				17.43,
-				17.43,
-				17.43,
-				17.43,
-				3.2,
-				4.2,
-				3.2,
-				5.25,
-				5.25,
-				3.2,
-				6
-			},
-			{
-				17.14,
-				17.14,
-				17.14,
-				17.14,
-				3.3,
-				4.3,
-				3.3,
-				5.38,
-				5.38,
-				3.3,
-				6.5
-			},
-			{
-				16.85,
-				16.85,
-				16.85,
-				16.85,
-				3.4,
-				4.4,
-				3.4,
-				5.5,
-				5.5,
-				3.4,
-				7
-			},
-			{
-				16.56,
-				16.56,
-				16.56,
-				16.56,
-				3.5,
-				4.5,
-				3.5,
-				5.63,
-				5.63,
-				3.5,
-				7.5
-			},
-			{
-				16.28,
-				16.28,
-				16.28,
-				16.28,
-				3.6,
-				4.6,
-				3.6,
-				5.75,
-				5.75,
-				3.6,
-				8
-			},
-			{
-				15.99,
-				15.99,
-				15.99,
-				15.99,
-				3.7,
-				4.7,
-				3.7,
-				5.88,
-				5.88,
-				3.7,
-				8.5
-			},
-			{
-				15.7,
-				15.7,
-				15.7,
-				15.7,
-				3.8,
-				4.8,
-				3.8,
-				6,
-				6,
-				3.8,
-				9
-			},
-			{
-				15.41,
-				15.41,
-				15.41,
-				15.41,
-				3.9,
-				4.9,
-				3.9,
-				6.13,
-				6.13,
-				3.9,
-				9.5
-			},
-			{
-				15.13,
-				15.13,
-				15.13,
-				15.13,
-				4,
-				5,
-				4,
-				6.25,
-				6.25,
-				4,
-				10
-			},
-			{
-				14.84,
-				14.84,
-				14.84,
-				14.84,
-				4.1,
-				5.1,
-				4.1,
-				6.38,
-				6.38,
-				4.1,
-				10.5
-			},
-			{
-				14.55,
-				14.55,
-				14.55,
-				14.55,
-				4.2,
-				5.2,
-				4.2,
-				6.5,
-				6.5,
-				4.2,
-				11
-			},
-			{
-				14.26,
-				14.26,
-				14.26,
-				14.26,
-				4.3,
-				5.3,
-				4.3,
-				6.63,
-				6.63,
-				4.3,
-				11.5
-			},
-			{
-				13.98,
-				13.98,
-				13.98,
-				13.98,
-				4.4,
-				5.4,
-				4.4,
-				6.75,
-				6.75,
-				4.4,
-				12
-			},
-			{
-				13.69,
-				13.69,
-				13.69,
-				13.69,
-				4.5,
-				5.5,
-				4.5,
-				6.88,
-				6.88,
-				4.5,
-				12.5
-			},
-			{
-				13.4,
-				13.4,
-				13.4,
-				13.4,
-				4.6,
-				5.6,
-				4.6,
-				7,
-				7,
-				4.6,
-				13
-			},
-			{
-				13.11,
-				13.11,
-				13.11,
-				13.11,
-				4.7,
-				5.7,
-				4.7,
-				7.13,
-				7.13,
-				4.7,
-				13.5
-			},
-			{
-				12.83,
-				12.83,
-				12.83,
-				12.83,
-				4.8,
-				5.8,
-				4.8,
-				7.25,
-				7.25,
-				4.8,
-				14
-			},
-			{
-				12.54,
-				12.54,
-				12.54,
-				12.54,
-				4.9,
-				5.9,
-				4.9,
-				7.38,
-				7.38,
-				4.9,
-				14.5
-			},
-			{
-				12.25,
-				12.25,
-				12.25,
-				12.25,
-				5,
-				6,
-				5,
-				7.5,
-				7.5,
-				5,
-				15
-			}
+			{18, 		18, 		18, 		18, 		3, 		4, 		3, 		5, 		5, 		3, 		5 		},
+			{17.71, 	17.71, 		17.71, 		17.71, 		3.1,	4.1,	3.1,	5.13, 	5.13, 	3.1,	5.5		},
+			{17.43, 	17.43, 		17.43, 		17.43, 		3.2,	4.2,	3.2,	5.25, 	5.25, 	3.2,	6 		},
+			{17.14, 	17.14, 		17.14, 		17.14, 		3.3,	4.3,	3.3,	5.38, 	5.38, 	3.3,	6.5		},
+			{16.85, 	16.85, 		16.85, 		16.85, 		3.4,	4.4,	3.4,	5.5, 	5.5, 	3.4,	7 		},
+			{16.56, 	16.56, 		16.56, 		16.56, 		3.5,	4.5,	3.5,	5.63, 	5.63, 	3.5,	7.5		},
+			{16.28, 	16.28, 		16.28, 		16.28, 		3.6,	4.6,	3.6,	5.75, 	5.75, 	3.6,	8 		},
+			{15.99, 	15.99, 		15.99, 		15.99, 		3.7,	4.7,	3.7,	5.88, 	5.88, 	3.7,	8.5		},
+			{15.7, 		15.7, 		15.7, 		15.7, 		3.8,	4.8,	3.8,	6, 		6, 		3.8,	9 		},
+			{15.41, 	15.41, 		15.41, 		15.41, 		3.9,	4.9,	3.9,	6.13, 	6.13, 	3.9,	9.5		},
+			{15.13, 	15.13, 		15.13, 		15.13, 		4, 		5, 		4, 		6.25, 	6.25, 	4, 		10 		},
+			{14.84, 	14.84, 		14.84, 		14.84, 		4.1,	5.1,	4.1,	6.38, 	6.38, 	4.1,	10.5	},
+			{14.55, 	14.55, 		14.55, 		14.55, 		4.2,	5.2,	4.2,	6.5, 	6.5, 	4.2,	11 		},
+			{14.26, 	14.26, 		14.26, 		14.26, 		4.3,	5.3,	4.3,	6.63, 	6.63, 	4.3,	11.5	},
+			{13.98, 	13.98, 		13.98, 		13.98, 		4.4,	5.4,	4.4,	6.75, 	6.75, 	4.4,	12 		},
+			{13.69, 	13.69, 		13.69, 		13.69, 		4.5,	5.5,	4.5,	6.88, 	6.88, 	4.5,	12.5 	},
+			{13.4, 		13.4, 		13.4, 		13.4, 		4.6,	5.6,	4.6,	7, 		7, 		4.6,	13 		},
+			{13.11, 	13.11, 		13.11, 		13.11, 		4.7,	5.7,	4.7,	7.13, 	7.13, 	4.7,	13.5 	},
+			{12.83, 	12.83, 		12.83, 		12.83, 		4.8,	5.8,	4.8,	7.25, 	7.25, 	4.8,	14 		},
+			{12.54, 	12.54, 		12.54, 		12.54, 		4.9,	5.9,	4.9,	7.38, 	7.38, 	4.9,	14.5 	},
+			{12.25, 	12.25, 		12.25, 		12.25, 		5, 		6, 		5, 		7.5, 	7.5, 	5, 		15 		},
 		}
 		local ordered_spawn_group_names = {
 			"FBI_swats",
@@ -448,7 +195,48 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 
 		setmetatable(tweak_data.group_ai.skirmish.assault, skirmish_assault_meta)
 	end
-elseif string.lower(RequiredScript) == "lib/managers/crimespreemanager" then
+elseif string.lower(RequiredScript) == "lib/managers/menumanager" then
+
+	function MenuCallbackHandler:accept_skirmish_contract(item)
+		local node = item:parameters().gui_node.node
+
+		managers.menu:active_menu().logic:navigate_back(true)
+		managers.menu:active_menu().logic:navigate_back(true)
+
+		local job_id = (node:parameters().menu_component_data or {}).job_id
+		local job_data = {
+			difficulty = "hard",
+			customize_contract = true,
+			job_id = job_id or managers.skirmish:random_skirmish_job_id(),
+			difficulty_id = tweak_data:difficulty_to_index("hard")
+		}
+
+		managers.job:on_buy_job(job_data.job_id, job_data.difficulty_id or 1)
+
+		if Global.game_settings.single_player then
+			MenuCallbackHandler:start_single_player_job(job_data)
+		else
+			MenuCallbackHandler:start_job(job_data)
+		end
+	end
+
+	function MenuCallbackHandler:accept_skirmish_weekly_contract(item)
+		managers.menu:active_menu().logic:navigate_back(true)
+
+		local weekly_skirmish = managers.skirmish:active_weekly()
+		local job_data = {
+			difficulty = "hard",
+			weekly_skirmish = true,
+			job_id = weekly_skirmish.id
+		}
+
+		if Global.game_settings.single_player then
+			MenuCallbackHandler:start_single_player_job(job_data)
+		else
+			MenuCallbackHandler:start_job(job_data)
+		end
+	end
+elseif string.lower(RequiredScript) == "lib/managers/skirmishmanager" then
 	function SkirmishManager:is_unlocked()
 		return managers.experience:current_rank() >= tweak_data.unlock_skirmish
 	end

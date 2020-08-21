@@ -8,81 +8,15 @@ function CharacterTweakData:init(tweak_data)
 	self.presets.weapon.gang_member.is_pistol.miss_dis = 20
 	self.presets.weapon.gang_member.is_pistol.RELOAD_SPEED = 1.5
 	self.presets.weapon.gang_member.is_pistol.FALLOFF = {
-		{
-			r = 300,
-			acc = {0.7, 1},
-			dmg_mul = 3.5,
-			recoil = {0.25, 0.45},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 2000,
-			acc = {0.1, 0.6},
-			dmg_mul = 1,
-			recoil = {0.25, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 10000,
-			acc = {0, 0.15},
-			dmg_mul = 1,
-			recoil = {2, 3},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {0.25, 0.45}, 	mode = {1, 0, 0, 0}},
+		{r = 2000, 	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {0.25, 2}, 	mode = {1, 0, 0, 0}},
+		{r = 10000, acc = {0, 0.15}, 	dmg_mul = 1, 	recoil = {2, 3}, 		mode = {1, 0, 0, 0}}
 	}
 	self.presets.weapon.gang_member.is_rifle.aim_delay = {0, 1}
 	self.presets.weapon.gang_member.is_rifle.FALLOFF = {
-		{
-			r = 300,
-			acc = {0.7, 1},
-			dmg_mul = 3.5,
-			recoil = {0.25, 0.45},
-			mode = {
-				0.1,
-				0.3,
-				4,
-				7
-			}
-		},
-		{
-			r = 2000,
-			acc = {0.1, 0.6},
-			dmg_mul = 0.5,
-			recoil = {0.25, 2},
-			mode = {
-				2,
-				2,
-				5,
-				8
-			}
-		},
-		{
-			r = 10000,
-			acc = {0, 0.15},
-			dmg_mul = 0.5,
-			recoil = {2, 3},
-			mode = {
-				2,
-				1,
-				1,
-				0.01
-			}
-		}
+		{r = 300,	acc = {0.7, 1},		dmg_mul = 3.5,	recoil = {0.25, 0.45},	mode = {0.1, 0.3, 4, 7}},
+		{r = 2000,	acc = {0.1, 0.6},	dmg_mul = 0.5,	recoil = {0.25, 2},		mode = {2, 2, 5, 8}},
+		{r = 10000,	acc = {0, 0.15},	dmg_mul = 0.5,	recoil = {2, 3},		mode = {2, 1, 1, 0.01}}
 	}
 	self.presets.weapon.gang_member.is_sniper.aim_delay = {0.5, 2}
 	self.presets.weapon.gang_member.is_sniper.FALLOFF[1].dmg_mul = 5
@@ -99,250 +33,96 @@ function CharacterTweakData:init(tweak_data)
 	self.presets.weapon.gang_member.is_lmg.FALLOFF[6].dmg_mul = 0.1
 	self.presets.weapon.gang_member.is_shotgun_pump.aim_delay = {0, 0.02}
 	self.presets.weapon.gang_member.is_shotgun_pump.FALLOFF = {
-		{
-			r = 300,
-			acc = {0.7, 1},
-			dmg_mul = 3.5,
-			recoil = {2, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 1000,
-			acc = {0.1, 0.6},
-			dmg_mul = 1,
-			recoil = {2, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 4000,
-			acc = {0, 0.15},
-			dmg_mul = 0.1,
-			recoil = {2, 4},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {2, 2},	mode = {1, 0, 0, 0}},
+		{r = 1000,	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {2, 2},	mode = {1, 0, 0, 0}},
+		{r = 4000,	acc = {0, 0.15}, 	dmg_mul = 0.1, 	recoil = {2, 4},	mode = {1, 0, 0, 0}}
 	}
 	self.presets.weapon.gang_member.is_shotgun_mag.aim_delay = {0, 0.02}
 	self.presets.weapon.gang_member.is_shotgun_mag.FALLOFF = {
-		{
-			r = 300,
-			acc = {0.7, 1},
-			dmg_mul = 3.5,
-			recoil = {2, 2},
-			mode = {
-				1,
-				1,
-				4,
-				6
-			}
-		},
-		{
-			r = 1000,
-			acc = {0.1, 0.6},
-			dmg_mul = 1,
-			recoil = {2, 2},
-			mode = {
-				1,
-				1,
-				4,
-				6
-			}
-		},
-		{
-			r = 4000,
-			acc = {0, 0.15},
-			dmg_mul = 0.1,
-			recoil = {2, 4},
-			mode = {
-				2,
-				1,
-				0,
-				0
-			}
-		}
+		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {2, 2},	mode = {1, 1, 4, 6}},
+		{r = 1000, 	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {2, 2},	mode = {1, 1, 4, 6}},
+		{r = 4000, 	acc = {0, 0.15}, 	dmg_mul = 0.1, 	recoil = {2, 4},	mode = {2, 1, 0, 0}}
 	}
 	self.presets.move_speed.very_slow_but_faster = {
 		stand = {
-			walk = {
-				ntl = {
-					fwd = 220,
-					strafe = 170,
-					bwd = 144
-				},
-				hos = {
-					fwd = 220,
-					strafe = 170,
-					bwd = 144
-				},
-				cbt = {
-					fwd = 220,
-					strafe = 170,
-					bwd = 144
-				}
-			},
-			run = {
-				hos = {
-					fwd = 220,
-					strafe = 190,
-					bwd = 144
-				},
-				cbt = {
-					fwd = 220,
-					strafe = 150,
-					bwd = 156
-				}
-			}
+			walk = 	{ntl = {fwd = 220, strafe = 170, bwd = 144},		hos = {fwd = 220, strafe = 170, bwd = 144},	cbt = {fwd = 220, strafe = 170, bwd = 144}},
+			run = 	{hos = {fwd = 220, strafe = 190, bwd = 144},		cbt = {fwd = 220, strafe = 150, bwd = 156}}
 		},
 		crouch = {
-			walk = {
-				hos = {
-					fwd = 220,
-					strafe = 170,
-					bwd = 144
-				},
-				cbt = {
-					fwd = 220,
-					strafe = 170,
-					bwd = 144
-				}
-			},
-			run = {
-				hos = {
-					fwd = 220,
-					strafe = 190,
-					bwd = 144
-				},
-				cbt = {
-					fwd = 220,
-					strafe = 150,
-					bwd = 156
-				}
-			}
+			walk = 	{hos = {fwd = 220, strafe = 170, bwd = 144},		cbt = {fwd = 220, strafe = 170, bwd = 144}},
+			run = 	{hos = {fwd = 220, strafe = 190, bwd = 144},		cbt = {fwd = 220, strafe = 150, bwd = 156}}
 		}
 	}
 	self.presets.hurt_severities.tough_light_hurt_and_fire = {
 		tase = true,
 		bullet = {
 			health_reference = 1,
-			zones = {
-				{
-					light = 1
-				}
-			}
+			zones = {{light = 1}}
 		},
 		explosion = {
 			health_reference = 1,
-			zones = {
-				{
-					moderate = 0.5,
-					explode = 1
-				}
-			}
+			zones = {{moderate = 0.5, explode = 1}}
 		},
 		melee = {
 			health_reference = 1,
-			zones = {
-				{
-					light = 1
-				}
-			}
+			zones = {{light = 1}}
 		},
 		fire = {
 			health_reference = 1,
-			zones = {
-				{
-					fire = 1
-				}
-			}
+			zones = {{fire = 1}}
 		},
 		poison = {
 			health_reference = 1,
-			zones = {
-				{
-					none = 1
-				}
-			}
+			zones = {{none = 1}}
 		}
 	}
 	self.presets.hurt_severities.dodge_light_hurt_and_fire = {
 		tase = true,
 		bullet = {
 			health_reference = 1,
-			zones = {
-				{
-					light = 1
-				}
-			}
+			zones = {{light = 1}}
 		},
 		explosion = {
 			health_reference = 1,
-			zones = {
-				{
-					moderate = 1
-				}
-			}
+			zones = {{moderate = 1}}
 		},
 		melee = {
 			health_reference = 1,
-			zones = {
-				{
-					light = 1
-				}
-			}
+			zones = {{light = 1}}
 		},
 		fire = {
 			health_reference = 1,
-			zones = {
-				{
-					fire = 1
-				}
-			}
+			zones = {{fire = 1}}
 		},
 		poison = {
 			health_reference = 1,
-			zones = {
-				{
-					none = 1
-				}
-			}
+			zones = {{none = 1}}
 		}
 	}
-	self.russian.move_speed = self.presets.move_speed.fast
-	self.german.move_speed = self.presets.move_speed.fast
-	self.spanish.move_speed = self.presets.move_speed.fast
-	self.american.move_speed = self.presets.move_speed.fast
-	self.jowi.move_speed = self.presets.move_speed.fast
-	self.old_hoxton.move_speed = self.presets.move_speed.fast
-	self.female_1.move_speed = self.presets.move_speed.fast
-	self.dragan.move_speed = self.presets.move_speed.fast
-	self.jacket.move_speed = self.presets.move_speed.fast
-	self.bonnie.move_speed = self.presets.move_speed.fast
-	self.sokol.move_speed = self.presets.move_speed.fast
-	self.dragon.move_speed = self.presets.move_speed.fast
-	self.bodhi.move_speed = self.presets.move_speed.fast
-	self.jimmy.move_speed = self.presets.move_speed.fast
-	self.sydney.move_speed = self.presets.move_speed.fast
-	self.wild.move_speed = self.presets.move_speed.fast
-	self.chico.move_speed = self.presets.move_speed.fast
-	self.max.move_speed = self.presets.move_speed.fast
-	self.joy.move_speed = self.presets.move_speed.fast
-	self.myh.move_speed = self.presets.move_speed.fast
-	self.ecp_female.move_speed = self.presets.move_speed.fast
-	self.ecp_male.move_speed = self.presets.move_speed.fast
+
+	self.russian.move_speed 	= 		self.presets.move_speed.fast
+	self.german.move_speed 		= 		self.presets.move_speed.fast
+	self.spanish.move_speed 	= 		self.presets.move_speed.fast
+	self.american.move_speed 	= 		self.presets.move_speed.fast
+	self.jowi.move_speed 		= 		self.presets.move_speed.fast
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.fast
+	self.female_1.move_speed 	=  		self.presets.move_speed.fast
+	self.dragan.move_speed 		=  		self.presets.move_speed.fast
+	self.jacket.move_speed 		=  		self.presets.move_speed.fast
+	self.bonnie.move_speed 		=  		self.presets.move_speed.fast
+	self.sokol.move_speed 		=  		self.presets.move_speed.fast
+	self.dragon.move_speed 		=  		self.presets.move_speed.fast
+	self.bodhi.move_speed 		=  		self.presets.move_speed.fast
+	self.jimmy.move_speed 		=  		self.presets.move_speed.fast
+	self.sydney.move_speed 		= 		self.presets.move_speed.fast
+	self.wild.move_speed 		= 		self.presets.move_speed.fast
+	self.chico.move_speed 		=		self.presets.move_speed.fast
+	self.max.move_speed 		= 		self.presets.move_speed.fast
+	self.joy.move_speed 		= 		self.presets.move_speed.fast
+	self.myh.move_speed 		= 		self.presets.move_speed.fast
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.fast
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.fast
+
 	self.presets.gang_member_damage.hurt_severity.bullet = {
 		health_reference = "current",
 		zones = {
@@ -383,194 +163,29 @@ function CharacterTweakData:init(tweak_data)
 	self.presets.weapon.expert.is_rifle.RELOAD_SPEED = 1.2
 	self.presets.weapon.expert.is_rifle.melee_dmg = 20
 	self.presets.weapon.expert.is_rifle.FALLOFF = {
-		{
-			r = 100,
-			acc = {0.6, 0.9},
-			dmg_mul = 6,
-			recoil = {0.4, 0.8},
-			mode = {
-				0,
-				3,
-				3,
-				1
-			}
-		},
-		{
-			r = 500,
-			acc = {0.55, 0.95},
-			dmg_mul = 5.75,
-			recoil = {0.45, 0.8},
-			mode = {
-				0,
-				3,
-				3,
-				1
-			}
-		},
-		{
-			r = 1000,
-			acc = {0.525, 0.8},
-			dmg_mul = 5.75,
-			recoil = {0.35, 0.75},
-			mode = {
-				1,
-				2,
-				2,
-				0
-			}
-		},
-		{
-			r = 2000,
-			acc = {0.5, 0.7},
-			dmg_mul = 5.5,
-			recoil = {0.4, 1.2},
-			mode = {
-				3,
-				2,
-				2,
-				0
-			}
-		},
-		{
-			r = 3000,
-			acc = {0.2, 0.4},
-			dmg_mul = 5.25,
-			recoil = {1.5, 3},
-			mode = {
-				3,
-				1,
-				1,
-				0
-			}
-		}
+		{r = 100, 	acc = {0.6, 0.9}, 		dmg_mul = 6, 		recoil = {0.4, 0.8}, 	mode = {0, 3, 3, 1}},
+		{r = 500, 	acc = {0.55, 0.95}, 	dmg_mul = 5.75, 	recoil = {0.45, 0.8}, 	mode = {0, 3, 3, 1}},
+		{r = 1000,	acc = {0.525, 0.8}, 	dmg_mul = 5.75, 	recoil = {0.35, 0.75}, 	mode = {1, 2, 2, 0}},
+		{r = 2000,	acc = {0.5, 0.7}, 		dmg_mul = 5.5, 		recoil = {0.4, 1.2}, 	mode = {3, 2, 2, 0}},
+		{r = 3000,	acc = {0.2, 0.4}, 		dmg_mul = 5.25, 	recoil = {1.5, 3}, 		mode = {3, 1, 1, 0}}
 	}
 	self.presets.weapon.expert.is_bullpup.melee_dmg = 20
 	self.presets.weapon.expert.is_shotgun_pump.focus_delay = 2
 	self.presets.weapon.expert.is_shotgun_pump.RELOAD_SPEED = 1.2
 	self.presets.weapon.expert.is_shotgun_pump.melee_dmg = 20
 	self.presets.weapon.expert.is_shotgun_pump.FALLOFF = {
-		{
-			r = 100,
-			acc = {0.6, 0.95},
-			dmg_mul = 6.5,
-			recoil = {1, 1.5},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 500,
-			acc = {0.5, 0.9},
-			dmg_mul = 5.5,
-			recoil = {1.5, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 1000,
-			acc = {0.4, 0.75},
-			dmg_mul = 4,
-			recoil = {1.5, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 2000,
-			acc = {0.1, 0.55},
-			dmg_mul = 3.5,
-			recoil = {1.5, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			r = 3000,
-			acc = {0.1, 0.35},
-			dmg_mul = 2.5,
-			recoil = {1.5, 2},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{r = 100,	acc = {0.6, 0.95},	dmg_mul = 6.5,	recoil = {1, 1.5},	mode = {1, 0, 0, 0}},
+		{r = 500,	acc = {0.5, 0.9},	dmg_mul = 5.5,	recoil = {1.5, 2},	mode = {1, 0, 0, 0}},
+		{r = 1000,	acc = {0.4, 0.75},	dmg_mul = 4,	recoil = {1.5, 2},	mode = {1, 0, 0, 0}},
+		{r = 2000,	acc = {0.1, 0.55},	dmg_mul = 3.5,	recoil = {1.5, 2},	mode = {1, 0, 0, 0}},
+		{r = 3000,	acc = {0.1, 0.35},	dmg_mul = 2.5,	recoil = {1.5, 2},	mode = {1, 0, 0, 0}}
 	}
 	self.presets.weapon.expert.is_smg.FALLOFF = {
-		{
-			r = 100,
-			acc = {0.6, 0.9},
-			dmg_mul = 5,
-			recoil = {0.5, 0.6},
-			mode = {
-				0,
-				3,
-				3,
-				1
-			}
-		},
-		{
-			r = 500,
-			acc = {0.5, 0.85},
-			dmg_mul = 4,
-			recoil = {0.5, 0.65},
-			mode = {
-				0,
-				1,
-				3,
-				1
-			}
-		},
-		{
-			r = 1000,
-			acc = {0.3, 0.65},
-			dmg_mul = 3.5,
-			recoil = {0.55, 0.85},
-			mode = {
-				2,
-				1,
-				3,
-				0
-			}
-		},
-		{
-			r = 2000,
-			acc = {0.35, 0.55},
-			dmg_mul = 3,
-			recoil = {0.65, 1},
-			mode = {
-				2,
-				1,
-				3,
-				0
-			}
-		},
-		{
-			r = 3000,
-			acc = {0.2, 0.35},
-			dmg_mul = 2.5,
-			recoil = {0.65, 1.2},
-			mode = {
-				4,
-				1,
-				0,
-				0
-			}
-		}
+		{r = 100,	acc = {0.6, 0.9},	dmg_mul = 5,	recoil = {0.5, 0.6},	mode = {0, 3, 3, 1}},
+		{r = 500,	acc = {0.5, 0.85},	dmg_mul = 4,	recoil = {0.5, 0.65},	mode = {0, 1, 3, 1}},
+		{r = 1000,	acc = {0.3, 0.65},	dmg_mul = 3.5,	recoil = {0.55, 0.85},	mode = {2, 1, 3, 0}},
+		{r = 2000,	acc = {0.35, 0.55},	dmg_mul = 3,	recoil = {0.65, 1},		mode = {2, 1, 3, 0}},
+		{r = 3000,	acc = {0.2, 0.35},	dmg_mul = 2.5,	recoil = {0.65, 1.2},	mode = {4, 1, 0, 0}}
 	}
 	
 	self.presets.surrender = {
@@ -864,7 +479,7 @@ function CharacterTweakData:init(tweak_data)
 	    suppress = true
 	}
 	self.fbi_swat.HEALTH_INIT = 17
-	self.fbi_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 4
+	self.fbi_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 5
 	self.fbi_swat.surrender = self.presets.surrender.hard
 	
 	self.fbi_heavy_swat.chatter = {
@@ -985,6 +600,15 @@ function CharacterTweakData:init(tweak_data)
 	
 	self.taser.HEALTH_INIT = 36
 	self.taser.headshot_dmg_mul = self.taser.HEALTH_INIT / 20
+	
+	self.shield.surrender = nil
+	self.taser.surrender = nil
+	self.medic.surrender = nil
+	self.spooc.surrender = nil
+	self.tank_medic.surrender = nil
+	self.tank.surrender = nil
+	self.tank_mini.surrender = nil
+	
 end
 
 function CharacterTweakData:_multiply_all_hp(hp_mul, hs_mul)
@@ -1194,69 +818,12 @@ function CharacterTweakData:_set_hard()
 	self.presets.weapon.gang_member.is_shotgun_mag = deep_clone(self.presets.weapon.gang_member.is_shotgun_pump)
 	self.flashbang_multiplier = 1.25
 	self.concussion_multiplier = 1
-	self.shadow_spooc.shadow_spooc_attack_timeout = {
-		8,
-		10
-	}
-	self.spooc.spooc_attack_timeout = {
-		8,
-		10
-	}
+	self.shadow_spooc.shadow_spooc_attack_timeout = {8, 10}
+	self.spooc.spooc_attack_timeout = {8, 10}
 	self.sniper.weapon.is_rifle.FALLOFF = {
-		{
-			dmg_mul = 7,
-			r = 700,
-			acc = {
-				0.6,
-				1
-			},
-			recoil = {
-				3,
-				5
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 6,
-			r = 4000,
-			acc = {
-				0.5,
-				0.9
-			},
-			recoil = {
-				4,
-				5
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 3,
-			r = 10000,
-			acc = {
-				0,
-				0.3
-			},
-			recoil = {
-				4,
-				6
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{dmg_mul = 7,	r = 700,	acc = {0.6, 1},		recoil = {3, 5},	mode = {1, 0, 0, 0}},
+		{dmg_mul = 6,	r = 4000,	acc = {0.5, 0.9},	recoil = {4, 5},	mode = {1, 0, 0, 0}},
+		{dmg_mul = 3,	r = 10000,	acc = {0, 0.3},		recoil = {4, 6},	mode = {1, 0, 0, 0}}
 	}
 end
 
@@ -1294,69 +861,12 @@ function CharacterTweakData:_set_overkill()
 
 	self:_set_characters_weapon_preset("good")
 
-	self.shadow_spooc.shadow_spooc_attack_timeout = {
-		6,
-		8
-	}
-	self.spooc.spooc_attack_timeout = {
-		6,
-		8
-	}
+	self.shadow_spooc.shadow_spooc_attack_timeout = {6, 8}
+	self.spooc.spooc_attack_timeout = {6, 8}
 	self.sniper.weapon.is_rifle.FALLOFF = {
-		{
-			dmg_mul = 8,
-			r = 700,
-			acc = {
-				0.7,
-				1
-			},
-			recoil = {
-				3,
-				6
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 6,
-			r = 4000,
-			acc = {
-				0.5,
-				0.95
-			},
-			recoil = {
-				4,
-				6
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 3.5,
-			r = 10000,
-			acc = {
-				0,
-				0.3
-			},
-			recoil = {
-				4,
-				6
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{dmg_mul = 8, 	r = 700, 	acc = {0.7, 1}, 	recoil = {3, 6}, mode = {1, 0, 0, 0}},
+		{dmg_mul = 6, 	r = 4000, 	acc = {0.5, 0.95}, 	recoil = {4, 6}, mode = {1, 0, 0, 0}},
+		{dmg_mul = 3.5, r = 10000, 	acc = {0, 0.3}, 	recoil = {4, 6}, mode = {1, 0, 0, 0}}
 	}
 	self.flashbang_multiplier = 1.5
 	self.concussion_multiplier = 1
@@ -1389,72 +899,39 @@ function CharacterTweakData:_set_overkill_145()
 
 	self:_set_characters_weapon_preset("expert")
 
-	self.shadow_spooc.shadow_spooc_attack_timeout = {
-		3.5,
-		5
-	}
-	self.spooc.spooc_attack_timeout = {
-		3.5,
-		5
-	}
+	self.shadow_spooc.shadow_spooc_attack_timeout = {3.5, 5}
+	self.spooc.spooc_attack_timeout = {3.5, 5}
 	self.sniper.weapon.is_rifle.FALLOFF = {
-		{
-			dmg_mul = 10,
-			r = 700,
-			acc = {
-				0.7,
-				1
-			},
-			recoil = {
-				3,
-				5
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 10,
-			r = 4000,
-			acc = {
-				0.6,
-				0.95
-			},
-			recoil = {
-				3,
-				5
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		},
-		{
-			dmg_mul = 6,
-			r = 10000,
-			acc = {
-				0.2,
-				0.5
-			},
-			recoil = {
-				3,
-				5
-			},
-			mode = {
-				1,
-				0,
-				0,
-				0
-			}
-		}
+		{dmg_mul = 10, 	r = 700, 	acc = {0.7, 1}, 	recoil = {3, 5}, mode = {1, 0, 0, 0}},
+		{dmg_mul = 10, 	r = 4000, 	acc = {0.6, 0.95}, 	recoil = {3, 5}, mode = {1, 0, 0, 0}},
+		{dmg_mul = 6, 	r = 10000, 	acc = {0.2, 0.5}, 	recoil = {3, 5}, mode = {1, 0, 0, 0}}
 	}
 	self.flashbang_multiplier = 1.75
 	self.concussion_multiplier = 1
+	
+	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
+	self.german.move_speed 		= 		self.presets.move_speed.very_fast
+	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
+	self.american.move_speed 	= 		self.presets.move_speed.very_fast
+	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
+	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
+	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
+	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
+	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
+	self.chico.move_speed 		=		self.presets.move_speed.very_fast
+	self.max.move_speed 		= 		self.presets.move_speed.very_fast
+	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
+	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
+	
 end
 
 function CharacterTweakData:_set_overkill_290()
@@ -1488,14 +965,8 @@ function CharacterTweakData:_set_overkill_290()
 
 	self:_set_characters_weapon_preset("deathwish")
 
-	self.shadow_spooc.shadow_spooc_attack_timeout = {
-		3,
-		4
-	}
-	self.spooc.spooc_attack_timeout = {
-		3,
-		4
-	}
+	self.shadow_spooc.shadow_spooc_attack_timeout = {3, 4}
+	self.spooc.spooc_attack_timeout = {3, 4}
 	self.sniper.weapon.is_rifle.FALLOFF = {
 		{dmg_mul = 12,	r = 700,	acc = {0.7, 1},		recoil = {3, 5},	mode = {1, 0, 0, 0}},
 		{dmg_mul = 12,	r = 4000,	acc = {0.6, 0.95},	recoil = {3, 5},	mode = {1, 0, 0, 0}},
@@ -1587,6 +1058,29 @@ function CharacterTweakData:_set_overkill_290()
 	self.phalanx_vip.DAMAGE_CLAMP_EXPLOSION = self.phalanx_vip.DAMAGE_CLAMP_BULLET
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
+
+	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
+	self.german.move_speed 		= 		self.presets.move_speed.very_fast
+	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
+	self.american.move_speed 	= 		self.presets.move_speed.very_fast
+	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
+	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
+	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
+	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
+	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
+	self.chico.move_speed 		=		self.presets.move_speed.very_fast
+	self.max.move_speed 		= 		self.presets.move_speed.very_fast
+	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
+	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
 end
 
 function CharacterTweakData:_set_sm_wish()
@@ -1620,23 +1114,14 @@ function CharacterTweakData:_set_sm_wish()
 
 	self:_set_characters_weapon_preset("deathwish")
 
-	self.shadow_spooc.shadow_spooc_attack_timeout = {
-		3,
-		4
-	}
-	self.spooc.spooc_attack_timeout = {
-		3,
-		4
-	}
+	self.shadow_spooc.shadow_spooc_attack_timeout = {3, 4}
+	self.spooc.spooc_attack_timeout = {3, 4}
 	self.sniper.weapon.is_rifle.FALLOFF = {
 		{dmg_mul = 12,	r = 700,	acc = {0.7, 1},		recoil = {3, 5},	mode = {1, 0, 0, 0}},
 		{dmg_mul = 12,	r = 4000,	acc = {0.6, 0.95},	recoil = {3, 5},	mode = {1, 0, 0, 0}},
 		{dmg_mul = 12,	r = 10000,	acc = {0.2, 0.8},	recoil = {3, 5},	mode = {1, 0, 0, 0}}
 	}
-	self.tank.weapon.is_shotgun_mag.aim_delay = {
-		0,
-		0
-	}
+	self.tank.weapon.is_shotgun_mag.aim_delay = {0, 0}
 	self.tank.weapon.is_shotgun_mag.focus_delay = 0
 	self.tank.weapon.is_shotgun_mag.focus_dis = 200
 	self.tank.weapon.is_shotgun_mag.FALLOFF = {
@@ -1650,10 +1135,7 @@ function CharacterTweakData:_set_sm_wish()
 	self.tank.weapon.is_shotgun_pump.FALLOFF[1].dmg_mul = 9
 	self.tank.weapon.is_shotgun_pump.FALLOFF[2].dmg_mul = 8
 	self.tank.weapon.is_shotgun_pump.FALLOFF[3].dmg_mul = 7
-	self.tank.weapon.is_rifle.aim_delay = {
-		0,
-		0
-	}
+	self.tank.weapon.is_rifle.aim_delay = {0, 0}
 	self.tank.weapon.is_rifle.focus_delay = 0
 	self.tank.weapon.is_rifle.FALLOFF = {
 		{dmg_mul = 5,	r = 100, 	acc = {0.7, 0.9}, 	recoil = {0.4, 0.7},	mode = {0, 0, 0, 1}},
@@ -1662,10 +1144,7 @@ function CharacterTweakData:_set_sm_wish()
 		{dmg_mul = 5,	r = 2000,	acc = {0.25, 0.55}, recoil = {1, 1},		mode = {0, 0, 2, 6}},
 		{dmg_mul = 5,	r = 3000,	acc = {0.15, 0.5}, 	recoil = {1, 2},		mode = {0, 0, 2, 6}}
 	}
-	self.tank.weapon.mini.aim_delay = {
-		0,
-		0
-	}
+	self.tank.weapon.mini.aim_delay = {0, 0}
 	self.tank.weapon.mini.focus_delay = 0
 	self.tank.weapon.mini.FALLOFF = {
 		{dmg_mul = 5,	r = 100, 	acc = {0.7, 0.9}, 	recoil = {0.4, 0.7},	mode = {0, 0, 0, 1}},
@@ -1674,10 +1153,7 @@ function CharacterTweakData:_set_sm_wish()
 		{dmg_mul = 5,	r = 2000,	acc = {0.25, 0.55},	recoil = {1, 1},		mode = {0, 0, 2, 6}},
 		{dmg_mul = 5,	r = 3000,	acc = {0.15, 0.5}, 	recoil = {1, 2},		mode = {0, 0, 2, 6}}
 	}
-	self.shield.weapon.is_smg.aim_delay = {
-		0,
-		0
-	}
+	self.shield.weapon.is_smg.aim_delay = {0, 0}
 	self.shield.weapon.is_smg.focus_delay = 0
 	self.shield.weapon.is_smg.focus_dis = 200
 	self.shield.weapon.is_smg.FALLOFF = {
@@ -1687,10 +1163,7 @@ function CharacterTweakData:_set_sm_wish()
 		{dmg_mul = 7,	r = 2000,	acc = {0.5, 0.7}, 	recoil = {0.35, 1}, 	mode = {2, 5, 6, 4}},
 		{dmg_mul = 7,	r = 3000,	acc = {0.5, 0.5}, 	recoil = {0.5, 1.2}, 	mode = {6, 4, 2, 0}}
 	}
-	self.shield.weapon.is_pistol.aim_delay = {
-		0,
-		0
-	}
+	self.shield.weapon.is_pistol.aim_delay = {0, 0}
 	self.shield.weapon.is_pistol.focus_delay = 0
 	self.shield.weapon.is_pistol.FALLOFF = {
 		{dmg_mul = 7.5, r = 0,		acc = {0.6, 0.9},	recoil = {0.35, 0.45},	mode = {1, 0, 0, 0}},
@@ -1708,12 +1181,7 @@ function CharacterTweakData:_set_sm_wish()
 	}
 	
 	self.spooc.dodge_with_grenade = {
-		flash = {
-			duration = {
-				8,
-				12
-			}
-		},
+		flash = {duration = {8, 12}},
 		check = function (t, nr_grenades_used)
 			local delay_till_next_use = math.lerp(17, 45, math.min(1, (nr_grenades_used or 0) / 4))
 			local chance = math.lerp(1, 0.5, math.min(1, (nr_grenades_used or 0) / 10))
@@ -1778,6 +1246,29 @@ function CharacterTweakData:_set_sm_wish()
 	self.phalanx_vip.DAMAGE_CLAMP_EXPLOSION = self.phalanx_vip.DAMAGE_CLAMP_BULLET
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
+	
+	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
+	self.german.move_speed 		= 		self.presets.move_speed.very_fast
+	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
+	self.american.move_speed 	= 		self.presets.move_speed.very_fast
+	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
+	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
+	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
+	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
+	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
+	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
+	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
+	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
+	self.chico.move_speed 		=		self.presets.move_speed.very_fast
+	self.max.move_speed 		= 		self.presets.move_speed.very_fast
+	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
+	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
 end
 
 local origin_charmap = CharacterTweakData.character_map
@@ -1792,7 +1283,7 @@ function CharacterTweakData:character_map() -- thanks fuglore
 			"ene_secret_service_2"
 		}
 	}
-	char_map.bph = {
+	char_map.op_bph = {
 		path = "units/pd2_dlc_bph/characters/",
 		list = {
 			"ene_murkywater_secret_service",
@@ -1800,7 +1291,7 @@ function CharacterTweakData:character_map() -- thanks fuglore
 			"ene_murkywater_city_g36"
 		}
 	}
-	char_map.bex = {
+	char_map.op_bex = {
 		path = "units/pd2_dlc_bex/characters/",
 		list = {
 			"ene_swat_policia_federale_fbi_r870",

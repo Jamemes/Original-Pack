@@ -2051,7 +2051,7 @@ function init_auto_generated_achievement_data(tags)
 			icon_id = "C_Elephant_H_FramingFrame_WeDoIt",
 			tags = {
 				tags.progress.heisting,
-				tags.difficulty.overkill,
+				tags.difficulty.hard,
 				tags.tactics.loud,
 				tags.tactics.stealth,
 				tags.inventory.weapon,
@@ -2228,9 +2228,11 @@ function init_auto_generated_achievement_data(tags)
 			icon_id = "C_Dentist_H_HoxtonBreakout_TabulaRasa",
 			sort_name = "C_Dentist_H_HoxtonBreakout_TabulaRasa",
 			additional_id = true,
+			unlock_id = true,
 			tags = {
 				tags.progress.heisting,
 				tags.difficulty.overkill,
+				tags.unlock.skill_slot,
 				tags.tactics.loud,
 				tags.inventory.weapon,
 				tags.teamwork.players_1_to_4,
@@ -3878,7 +3880,7 @@ function init_auto_generated_achievement_data(tags)
 			icon_id = "C_Locke_H_BirthOfSky_BlackTie",
 			tags = {
 				tags.progress.heisting,
-				tags.difficulty.overkill,
+				tags.difficulty.hard,
 				tags.tactics.loud,
 				tags.inventory.weapon,
 				tags.teamwork.players_4,
@@ -4542,7 +4544,7 @@ function init_auto_generated_achievement_data(tags)
 			icon_id = "C_Hector_H_Watchdogs_WeAreRockstars",
 			tags = {
 				tags.progress.heisting,
-				tags.difficulty.overkill,
+				tags.difficulty.hard,
 				tags.tactics.loud,
 				tags.inventory.weapon,
 				tags.teamwork.players_1_to_4,
@@ -5916,7 +5918,7 @@ function init_auto_generated_achievement_data(tags)
 			}
 		},
 		fin_1 = {
-			additional_id = true,
+			unlock_id = true,
 			sort_name = "Other_The_End_Offshore_PAYDAY",
 			icon_id = "Other_The_End_Offshore_PAYDAY",
 			tags = {
@@ -7043,7 +7045,7 @@ function init_auto_generated_achievement_data(tags)
 			icon_id = "C_Classics_H_Undercover_IFeelLike",
 			tags = {
 				tags.progress.heisting,
-				tags.difficulty.overkill,
+				tags.difficulty.very_hard,
 				tags.tactics.loud,
 				tags.inventory.weapon,
 				tags.teamwork.players_1_to_4,
@@ -7593,6 +7595,60 @@ function init_auto_generated_achievement_data(tags)
 				tags.difficulty.death_wish,
 				tags.tactics.loud,
 				tags.contracts.bain
+			}
+		},
+		pex_6 = {
+			icon_id = "C_Locke_H_BreakfastInTijuana_AllDiffs_D5",
+			ladder = "H_Breakfast",
+			sort_name = "C_Locke_H_BreakfastInTijuana_AllDiffs_D5",
+			additional_id = true,
+			tags = {
+				tags.progress.completion,
+				tags.difficulty.death_wish,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.locke
+			}
+		},
+		pex_9 = {
+			need_unlock_icons = true,
+			icon_id = "C_Locke_H_BreakfastInTijuana_LowMurder",
+			sort_name = "C_Locke_H_BreakfastInTijuana_LowMurder",
+			additional_id = true,
+			unlock_id = true,
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.unlock.weapon_color,
+				tags.tactics.stealth,
+				tags.contracts.locke
+			}
+		},
+		pex_10 = {
+			additional_id = true,
+			sort_name = "C_Locke_H_BreakfastInTijuana_PaidInFull",
+			icon_id = "C_Locke_H_BreakfastInTijuana_PaidInFull",
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.locke
+			}
+		},
+		pex_11 = {
+			need_unlock_icons = true,
+			icon_id = "C_Locke_H_BreakfastInTijuana_StolenValor",
+			sort_name = "C_Locke_H_BreakfastInTijuana_StolenValor",
+			additional_id = true,
+			unlock_id = true,
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.unlock.weapon_color,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.locke
 			}
 		}
 	}

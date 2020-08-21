@@ -2059,6 +2059,7 @@ function GroupAITweakData:init(tweak_data)
 	else
 		self.smoke_and_flash_grenade_timeout = {4, 6}
 	end
+	
 	if difficulty_index == 8 then
 		self.flash_grenade.timer = 0.5
 	elseif difficulty_index >= 5 then

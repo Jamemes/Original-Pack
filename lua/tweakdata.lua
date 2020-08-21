@@ -1,16 +1,14 @@
 local self = tweak_data
 
-self.version = "1.3"
-self.test = false
+self.version = "1.3.2"
 self.testing_text = ''
 
-self.alert_stats = false
 self.hate_multipler = 1.5
 self.bullet_hit_alert_radius = 300
 self.footstep_alert_radius = 450
 self.neighbours_alert_radius_trigger = 2500
 self.neighbours_trigger_delay = math.random(3, 7)
-self.drill_investigate_zone = 500 							-- чем больше радиус проверки, тем меньше радиус шума
+self.drill_investigate_zone_multipler = 1.25 							-- чем больше радиус проверки, тем меньше радиус шума
 
 local pro_rank = 5
 self.unlock_safehouse = pro_rank

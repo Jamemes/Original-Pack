@@ -2,6 +2,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 	local data = NarrativeTweakData.init
 	function NarrativeTweakData:init(tweak_data)
 		data(self, tweak_data)
+		
 		self.STARS[ 1 ] = { jcs = { 50, 40, 30, 20, 10 } } -- OK
 		self.STARS[ 2 ] = { jcs = { 70, 60, 50, 40, 30, 20, 10 } } -- OK
 		self.STARS[ 3 ] = { jcs = { 80, 70, 60, 50, 40, 30, 20, 10 } } -- OK
@@ -17,9 +18,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.DEFAULT_HEAT = {this_job = -15, other_jobs = 10}
 		self.contacts.classic.name_id = "heist_contact_bain"
 		self.contacts.the_dentist_hidden = deep_clone(self.contacts.the_dentist)
-		self.contacts.the_dentist_hidden.hidden = true
+		
 		self.contacts.classic.hidden = true
 		self.contacts.events.hidden = true
+		self.contacts.the_dentist_hidden.hidden = true
 		self.jobs.kenaz_pro = deep_clone(self.jobs.kenaz)
 		self.jobs.kenaz.contact = "the_dentist_hidden"
 		
@@ -181,8 +183,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.cage.jc = 50
 		self.jobs.arena.jc = 30
 		self.jobs.roberts.jc = 50
-		self.jobs.rvd.jc = 30
-		self.jobs.rvd_pro.jc = 40
+		self.jobs.rvd.jc = 40
+		self.jobs.rvd_pro.jc = 50
 		self.jobs.rat.jc = 50
 		self.jobs.family.jc = 20
 		self.jobs.branchbank_prof.jc = 20
@@ -226,7 +228,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.kenaz.jc = 60
 		self.jobs.kenaz_pro.jc = 70
 		self.jobs.hox_3.jc = 20
-		self.jobs.hox_pro.jc = 50
+		self.jobs.hox.jc = 50
 		self.jobs.hox_pro.jc = 60
 		
 		self.jobs.mad.jc = 50
@@ -250,6 +252,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.pbr2.jc = 40
 		self.jobs.pbr.jc = 50
 		self.jobs.des.jc = 60
+		self.jobs.sah.jc = 20
 
 		self.jobs.crojob1.jc = 40
 		self.jobs.crojob_wrapper.jc = 70
@@ -259,13 +262,28 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.framing_frame_pro.jc = 60
 		self.jobs.born_pro.jc = 40
 		
-		self.jobs.haunted.jc = 60
-		self.jobs.nail.jc = 50
-		self.jobs.hvh.jc = 40
-		self.jobs.help.jc = 50
+		local rarity = {
+			1, 1, 1, 1, 1, 1, 1, 1, 1,
+			2, 2, 2, 2, 2, 2, 2, 2,
+			3, 3, 3, 3, 3, 3, 3,
+			4, 4, 4, 4, 4, 4,
+			5, 5, 5, 5, 5,
+			6, 6, 6, 6,
+			7, 7, 7,
+			8, 8,
+			9
+		}
+		self.jobs.haunted.jc = rarity[math.random(45)] * 10
+		self.jobs.nail.jc = rarity[math.random(45)] * 10
+		self.jobs.hvh.jc = rarity[math.random(45)] * 10
+		self.jobs.help.jc = rarity[math.random(45)] * 10
 		
+		local rand = {true, false}
+		self.jobs.haunted.professional = rand[math.random(0, 1)]
+		self.jobs.nail.professional = rand[math.random(0, 1)]
+		self.jobs.hvh.professional = rand[math.random(0, 1)]
+		self.jobs.help.professional = rand[math.random(0, 1)]
 		
-			
 		self.jobs.arm_wrapper = deep_clone(self.jobs.arm_und)
 		self.jobs.arm_wrapper.name_id = "heist_arm"
 		self.jobs.arm_wrapper.chain = {}
@@ -487,6 +505,11 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "election_day_pro" then mission_xp_dissect = 7500 or self:mission_xp() elseif
 			job_id == "kosugi" then mission_xp_dissect = 6000 or self:mission_xp() elseif
 			job_id == "arm_wrapper" then mission_xp_dissect = 7143 or self:mission_xp() elseif
+			job_id == "arm_fac_single" then mission_xp_dissect = 7143 or self:mission_xp() elseif
+			job_id == "arm_par_single" then mission_xp_dissect = 7143 or self:mission_xp() elseif
+			job_id == "arm_hcm_single" then mission_xp_dissect = 15000 or self:mission_xp() elseif
+			job_id == "arm_und_single" then mission_xp_dissect = 7857 or self:mission_xp() elseif
+			job_id == "arm_cro_single" then mission_xp_dissect = 15714 or self:mission_xp() elseif
 			job_id == "arm_fac" then mission_xp_dissect = 7143 or self:mission_xp() elseif
 			job_id == "arm_par" then mission_xp_dissect = 7143 or self:mission_xp() elseif
 			job_id == "arm_hcm" then mission_xp_dissect = 15000 or self:mission_xp() elseif
@@ -532,10 +555,10 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "born_pro" then mission_xp_dissect = 7857 or self:mission_xp() elseif
 			job_id == "chill_combat" then mission_xp_dissect = 6643 or self:mission_xp() elseif
 			job_id == "friend" then mission_xp_dissect = 6929 or self:mission_xp() elseif
-			job_id == "nail" then mission_xp_dissect = math.random(50000) or self:mission_xp() elseif
-			job_id == "help" then mission_xp_dissect = math.random(50000) or self:mission_xp() elseif
-			job_id == "haunted" then mission_xp_dissect = math.random(50000) or self:mission_xp() elseif
-			job_id == "hvh" then mission_xp_dissect = math.random(50000) or self:mission_xp() elseif
+			job_id == "nail" then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600) or self:mission_xp() elseif
+			job_id == "help" then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600) or self:mission_xp() elseif
+			job_id == "haunted" then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600) or self:mission_xp() elseif
+			job_id == "hvh" then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600) or self:mission_xp() elseif
 			job_id == "spa" then mission_xp_dissect = 12857 or self:mission_xp() elseif
 			job_id == "fish" then mission_xp_dissect = 6357 or self:mission_xp() elseif
 			job_id == "moon" then mission_xp_dissect = 7000 or self:mission_xp() elseif
@@ -555,9 +578,8 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "safehouse" then mission_xp_dissect = 1000 or self:mission_xp() elseif
 			job_id == "short1" then mission_xp_dissect = 1000 or self:mission_xp() elseif
 			job_id == "short2" then mission_xp_dissect = 2000 or self:mission_xp() elseif
-			job_id == "skm_red2" or "skm_mus" or "skm_run" or "skm_watchdogs_stage2" or "skm_cas" or "skm_big2" or "skm_mallcrasher" or "skm_arena" or "skm_bex" then mission_xp_dissect = params.mission_xp or self:mission_xp() elseif
 			job_id == "vit" then mission_xp_dissect = 50000 or self:mission_xp() else
-			mission_xp_dissect = 0 or self:mission_xp() end
+			mission_xp_dissect = params.mission_xp or self:mission_xp() end
 		end
 		
 		base_xp = job_xp_dissect + stage_xp_dissect + mission_xp_dissect
@@ -671,13 +693,18 @@ if string.lower(RequiredScript) == "lib/tweak_data/missiondoortweakdata" then
 	function MissionDoorTweakData:init(tweak_data)
 		data(self, tweak_data)
 		self.train_cargo_door.devices.drill = {
-		{
-			align = "a_drill",
-			unit = Idstring("units/payday2/equipment/item_door_drill_small/item_door_drill_small"),
-			can_jam = true,
-			timer = 180
+			{
+				align = "a_drill",
+				unit = Idstring("units/payday2/equipment/item_door_drill_small/item_door_drill_small"),
+				can_jam = true,
+				timer = 180
+			}
 		}
-	}	
+		self.reinforced_door_single.devices.c4[1].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
+		self.keycard_door_single.devices.c4[1].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
+		self.keycard_door_single.devices.c4[2].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
+		self.cage_door_deluxe.devices.c4[1].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
+		self.cage_door_deluxe_non_jamming.devices.c4[1].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/musicmanager" then
@@ -685,6 +712,11 @@ if string.lower(RequiredScript) == "lib/managers/musicmanager" then
 	function MusicManager:jukebox_default_tracks()
 			local default_options = data()
 			default_options.heist_branchbank_hl = "track_03"
+			
+			if managers.dlc:has_dlc_or_soundtrack_or_cce("armored_transport") then
+				default_options.heist_arm = "track_09"
+			end
+			
 		return default_options
 	end
 end
@@ -782,148 +814,8 @@ if RequiredScript == 'lib/managers/group_ai_states/groupaistatebase' then
 	local id = Global.game_settings.level_id
 	function GroupAIStateBase:set_reason_called(called_reason)
 		self._called_reason = self._called_reason or called_reason
-		if not managers.job:is_current_job_professional() then
-			if Global.game_settings.job_plan == 2 then
-				if id == "kosugi" or
-				id == "cage" or
-				id == "dark" or
-				id == "fish" or
-				id == "tag" or
-				id == "election_day_3" or
-				id == "election_day_3_skip1" or
-				id == "election_day_3_skip2" or
-				id == "welcome_to_the_jungle_2" or
-				id == "watchdogs_1" or
-				id == "watchdogs_2" or
-				id == "watchdogs_1_night" or
-				id == "watchdogs_2_day" or
-				id == "alex_1" or
-				id == "alex_2" or
-				id == "alex_3" or
-				id == "escape_cafe" or
-				id == "escape_park" or
-				id == "escape_cafe_day" or
-				id == "escape_park_day" or
-				id == "escape_street" or
-				id == "escape_overpass" or
-				id == "escape_garage" or
-				id == "escape_overpass_night" or
-				id == "arm_fac" or
-				id == "arm_par" or
-				id == "arm_hcm" or
-				id == "arm_cro" or
-				id == "arm_und" or
-				id == "mia_1" or
-				id == "mia_2" or
-				id == "mia2_new" or
-				id == "hox_1" or
-				id == "hox_2" or
-				id == "pines" or
-				id == "crojob3" or
-				id == "crojob3_night" or
-				id == "rat" or
-				id == "shoutout_raid" or
-				id == "driving_escapes_industry_day" or
-				id == "driving_escapes_city_day" or
-				id == "jolly" or
-				id == "cane" or
-				id == "dinner" or
-				id == "pbr" or
-				id == "pbr2" or
-				id == "peta" or
-				id == "peta2" or
-				id == "pal" or
-				id == "nail" or
-				id == "man" or
-				id == "mad" or
-				id == "born" or
-				id == "chew" or
-				id == "flat" or
-				id == "help" or
-				id == "haunted" or
-				id == "moon" or
-				id == "spa" or
-				id == "run" or
-				id == "glace" or
-				id == "rvd1" or
-				id == "rvd2" or
-				id == "hvh" or
-				id == "wwh" or
-				id == "brb" or
-				id == "des" or
-				id == "nmh" or
-				id == "bph" or
-				id == "mex_cooking" then
-				elseif id == "framing_frame_1" or
-				id == "framing_frame_2" or
-				id == "election_day_1" or
-				id == "election_day_2" or
-				id == "firestarter_1" or
-				id == "firestarter_2" or
-				id == "firestarter_3" or
-				id == "ukrainian_job" or
-				id == "four_stores" or
-				id == "mallcrasher" or
-				id == "nightclub" or
-				id == "branchbank" or
-				id == "crojob2" or
-				id == "arm_for" or
-				id == "big" or
-				id == "gallery" or
-				id == "kenaz" or
-				id == "red2" or
-				id == "friend" or
-				id == "sah" or
-				id == "pex" or
-				id == "mex" or
-				id == "bex" then
-					managers.chat:feed_system_message(ChatManager.GAME, managers.localization:text("ingame_restart_available") or "Offline")
-				else
-					managers.vote:_restart_counter()
-				end
-			end
+		if not managers.job:is_level_ghostable_required(managers.job:current_level_id()) and managers.job:is_level_ghostable(managers.job:current_level_id()) and not managers.groupai:state():whisper_mode() and not managers.job:is_current_job_professional() and Global.game_settings.job_plan == 2 then
+			managers.chat:feed_system_message(ChatManager.GAME, managers.localization:text("ingame_restart_available") or "Offline")
 		end
-	end
-elseif RequiredScript == 'lib/managers/chatmanager' then
-	local id = Global.game_settings.level_id
-	local restart = {"!r*", "!re*", "!res*", "!rest*", "!resta*", "!restar*", "!restart*"}
-	local _receive_message_original = ChatManager._receive_message
-	function ChatManager:_receive_message(channel_id, name, message, ...)
-		for i, msg in ipairs(restart) do
-			if message:match("^" .. msg .. "$") then
-				if not managers.groupai:state():whisper_mode() then
-					if Global.game_settings.job_plan == 2 then
-						if not managers.job:is_current_job_professional() then
-							if id == "framing_frame_1" or
-							id == "framing_frame_2" or
-							id == "election_day_1" or
-							id == "election_day_2" or
-							id == "firestarter_1" or
-							id == "firestarter_2" or
-							id == "firestarter_3" or
-							id == "ukrainian_job" or
-							id == "four_stores" or
-							id == "mallcrasher" or
-							id == "nightclub" or
-							id == "branchbank" or
-							id == "crojob2" or
-							id == "arm_for" or
-							id == "big" or
-							id == "gallery" or
-							id == "kenaz" or
-							id == "red2" or
-							id == "friend" or
-							id == "sah" or
-							id == "pex" or
-							id == "mex" or
-							id == "bex" then
-								managers.vote:_restart_counter()
-							end
-						end
-					end
-				end
-			end
-		end
-		return _receive_message_original(self, channel_id, name, message, ...)
 	end
 end

@@ -1,5 +1,6 @@
 <mod name="Original Pack" global_key="Original Pack">
     <AssetUpdates id="15996" provider="modworkshop"/>
+	
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/tweakdata"								file="tweakdata.lua"/>
 		<hook source_file="lib/units/beings/player/states/playerstandard"			file="alerts.lua"/>
@@ -10,6 +11,7 @@
 		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crime_spree.lua"/>
 		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="gamemodes/skirmish.lua"/>
 		<hook source_file="lib/managers/skirmishmanager"							file="gamemodes/skirmish.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="gamemodes/skirmish.lua"/>
 		<hook source_file="lib/tweak_data/customsafehousetweakdata"					file="safehouse.lua"/>
 		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse.lua"/>
 		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative.lua"/>
@@ -21,13 +23,14 @@
 		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="narrative.lua"/>
 		<hook source_file="lib/units/interactions/interactionext"					file="narrative.lua"/>
 		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative.lua"/>
-		<hook source_file="lib/managers/chatmanager"								file="narrative.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="narrative.lua"/>
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/tweakdata"								file="weapons.lua"/>
+		<hook source_file="lib/units/weapons/raycastweaponbase"						file="weapons.lua"/>
+		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="weapons.lua"/>
 		<hook source_file="lib/utils/inventorydescription"							file="weapons.lua"/>
         <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills.lua"/>
         <hook source_file="lib/tweak_data/upgradestweakdata"						file="skills.lua"/>
@@ -93,6 +96,7 @@
 		<hook source_file="lib/managers/hud/hudassaultcorner"						file="interface/hudassaultcorner.lua"/>
 		<hook source_file="lib/managers/hud/hudblackscreen"							file="interface/hudblackscreen.lua"/>
 		<hook source_file="lib/managers/menu/crewmanagementgui"						file="interface/crewmanagementgui.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="interface/crewmanagementgui.lua"/>
 		<hook source_file="lib/managers/votemanager"								file="interface/votemanager.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="interface/menumanager.lua"/>
 		<hook source_file="lib/managers/menumanagerpd2"								file="interface/menumanagerpd2.lua"/>
@@ -147,14 +151,18 @@
 		<stream path="soundbanks/streamed/menu/794130307" force="true"/>
 		<stream path="soundbanks/streamed/menu/914273783" force="true"/>
 		
+						<!-- Old textures -->
+		<texture path="units/payday2/props/gen_prop_door_metal/gen_prop_door_metal_df" force="true"/>
+		<texture path="units/payday2/props/gen_prop_door_metal/gen_prop_door_metal_nm" force="true"/>
+		
 						<!-- Old classy swat -->
 		<texture path="units/payday2/characters/shared_textures/helmets_atlas_df" force="true"/>
 		<texture path="units/payday2/characters/shared_textures/swat_city_df" force="true"/>
-		<texture path="units/payday2/characters/shared_textures/swat_m4_body_df" force="true"/>
+		<texture path="units/payday2/characters/shared_textures/swat_fbi_body_df" force="true"/>
 
 		<texture path="units/payday2/characters/shared_textures/spook_heavy_df"/>
 		
-		<model path="units/payday2/characters/ene_m4_swat_1/ene_m4_swat_1"/>
+		<model path="units/payday2/characters/ene_fbi_swat_1/ene_fbi_swat_1"/>
 		<model path="units/payday2/characters/ene_city_swat_1/ene_city_swat_1"/>
 		
 		<model path="units/pd2_dlc_bex/characters/ene_swat_policia_federale_city_g36/ene_swat_policia_federale_city_g36"/>
@@ -302,361 +310,5 @@
 		<animation path="anims/shared/special/lobby_generic_idle3" force="true"/>
 		<animation path="anims/shared/special/lobby_generic_idle4" force="true"/>
 		<texture path="units/menu/menu_scene/infamy_card_df" force="true"/>
-		
-						<!-- Tons of old third person animations -->
-		<!-- <animation path="anims/shared/boss/tank/cbt_std_arrest_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_0" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_180" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_enter" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_exit" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_bleedout_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_cbt_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_cbt_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_cbt_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_turn_180_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_turn_l_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_idle_to_turn_r_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_reload" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_bwd_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_fwd_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_l_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_run_r_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_to_std" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_walk_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_walk_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_walk_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_crh_walk_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_fatal_death" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_fatal_enter" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_fatal_exit" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_fatal_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sprint_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sprint_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sprint_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sprint_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_arrest_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_comehere_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_halt_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_idle_to_cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_melee" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_point_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/combat/cbt_sup_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_hos_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_hos_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_hos_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_turn_180_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_turn_l_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_idle_to_turn_r_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_bwd_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_fwd_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_l_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_run_r_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_to_std" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_walk_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_walk_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_walk_l" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_crh_walk_r" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_call" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_idle_to_hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_supprised_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/hos_sup_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/sprint_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/sprint_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/sprint_left" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/hostile/sprint_right" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk1/ntl_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk2/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk2/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk2/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk3/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk3/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk3/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk4/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk4/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/husk4/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/pistol/neutral/ntl_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_cbt_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_cbt_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_cbt_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_turn_180_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_turn_l_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_idle_to_turn_r_cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_rel" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_bwd_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_fwd_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_l_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_run_r_to_cbt_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_shotgun_rel" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_shotgun_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_to_std" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_walk_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_walk_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_walk_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_crh_walk_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sprint_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sprint_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sprint_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sprint_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_arrest_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_comehere_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_halt_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_idle_to_cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_melee" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_point_gesture_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_shotgun_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_hurt_lowbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_hurt_lowbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_hurt_upbdy_back" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_hurt_upbdy_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_hurt_upbdy_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_shoot_aut" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_shotgun_shoot" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/combat/cbt_sup_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var3" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var4" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var5" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var6" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_lowbdy_fwd_var7" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var3" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var4" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var5" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var6" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var8" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var11" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var18" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var19" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_dth_range_upbdy_fwd_var20" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_revive_enter" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_revive_exit" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_revive_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_dodge_bwd_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_dodge_fwd_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_dodge_left_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_dodge_right_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_panicdodge_bwd_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_panicdodge_fwd_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_panicdodge_l_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_std_panicdodge_r_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_sup_lvl1_enter_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_sup_lvl1_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_sup_lvl2_enter_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_sup_lvl2_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_untie_enter" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_untie_exit" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/gen_untie_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/generic/possessed_cop" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_hos_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_hos_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_hos_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_turn_180_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_turn_l_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_idle_to_turn_r_hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_bwd_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_fwd_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_l_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_run_r_to_hos_crh_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_to_std" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_walk_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_walk_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_walk_l" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_crh_walk_r" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_call" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_idle_to_hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_supprised_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_to_crh" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/hos_sup_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/sprint_bwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/sprint_fwd" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/sprint_left" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/hostile/sprint_right" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk1/ntl_std_turn_r135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk2/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk2/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk2/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk3/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk3/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk3/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk4/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk4/ntl_std_idle_var1" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/husk4/ntl_std_idle_var2" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_equip" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_idle" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_l45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_l90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_l135" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_r45" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_r90" force="true"/> -->
-		<!-- <animation path="anims/shared/rifle/neutral/ntl_std_turn_r135" force="true"/> -->
     </AddFiles>
 </mod>

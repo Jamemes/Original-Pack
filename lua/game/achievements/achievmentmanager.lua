@@ -68,7 +68,7 @@ function CustomAchiHandler:set_achievement(id)
 end
 
 local function SaveData()
-	local progress = _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
+	local progress = _G.OriginalPackOptions.settings.Enable_Test and 'Achievements_OP_TEST.txt' or _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
 	local file = io.open(SavePath .. progress, "w")
 	if file then
 		file:write(json.encode({ achievements = CustomAchiHandler.achievements, stats = CustomAchiHandler.stats or {} }))
@@ -85,6 +85,7 @@ function CustomAchiHandler:store_data()
 		
 		if managers.achievment.achievments[id] then
 			managers.achievment.achievments[id].awarded = true
+			managers.achievment:_give_reward(id)
 		end
 	end
 	
@@ -122,7 +123,7 @@ function AchievmentManager:init_finalize(...)
 		CustomAchiHandler.achievements[k] = { awarded = false, received = 0 }
 	end
 	
-	local progress = _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
+	local progress = _G.OriginalPackOptions.settings.Enable_Test and 'Achievements_OP_TEST.txt' or _G.OriginalPackOptions.settings.Enable_Max_Progress and 'Achievements_OP_MAX.txt' or 'Achievements_OP.txt'
 	local file = io.open(SavePath .. progress, "r")
 	if file then
 		local data = json.decode(file:read("*all")) or {}
@@ -158,6 +159,7 @@ function AchievmentManager:init()
 
 	if SystemInfo:platform() == Idstring("WIN32") then
 		if SystemInfo:distribution() == Idstring("STEAM") then
+			self.oldest_achievement_callback_handler = CoreEvent.CallbackEventHandler:new()
 			AchievmentManager.do_award = AchievmentManager.award_steam
 
 			if not Global.achievment_manager then

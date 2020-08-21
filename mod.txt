@@ -5,5 +5,16 @@
 	"version" : "",
 	"priority" : 0,
 	"blt_version" : 2,
-	"image" : "assets/OP.png"
+	"image" : "assets/OP.png",
+	"persist_scripts" : [
+		{"global" : "OP", "script_path" : "lua/game/global.lua"}
+	],
+	"updates" : [
+		{
+			"identifier" : "OrPack",
+			"host" : {
+				"meta" : "https://raw.githubusercontent.com/Jamemes/OP-self-update/master/update.json"
+			}
+		}
+	]
 }

@@ -7,44 +7,6 @@ local medium_font_size = tweak_data.menu.pd2_medium_font_size
 local safehouse = Global.game_settings and Global.game_settings.level_id == "safehouse"
 local new_safehouse = Global.game_settings and Global.game_settings.level_id == "chill"
 
-function HUDStatsScreen:_create_objectives_list()
-	local placer = UiPlacer:new(31, 0, 0, 8)
-	
-	placer:add_bottom(self._left:fine_text({
-		vertical = "top",
-		align = "left",
-		font_size = tweak_data.hud_stats.objectives_title_size,
-		font = tweak_data.hud_stats.objectives_font,
-		text = managers.localization:to_upper_text("hud_objective")
-	}), 13)
-	placer:new_row(8, -1)
-
-	local row_w = self._left:w() - placer:current_left() * 2
-
-	for i, data in pairs(managers.objectives:get_active_objectives()) do
-		placer:add_bottom(self._left:fine_text({
-			word_wrap = true,
-			wrap = true,
-			align = "left",
-			text = utf8.to_upper(data.text),
-			font = tweak_data.hud.medium_font,
-			font_size = tweak_data.hud.active_objective_title_font_size,
-			w = row_w
-		}))
-		local objective_desc = self._left:fine_text({
-			name = "objective_desc",
-			word_wrap = true,
-			wrap = true,
-			font_size = 24,
-			align = "left",
-			text = "",
-			font = tweak_data.hud_stats.objective_desc_font,
-			w = row_w
-		})
-		placer:add_bottom(objective_desc)
-	end
-end
-
 function HUDStatsScreen:recreate_left()
 	if safehouse or new_safehouse then
 		self._left:set_visible(false)
@@ -68,10 +30,6 @@ function HUDStatsScreen:recreate_left()
 
 	lb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
 	lb:child("bg"):set_alpha(1)
-
-	local placer = UiPlacer:new(31, 0, 0, 8)
-	local job_data = managers.job:current_job_data()
-
 	
 	local pad = 8
 	local x, y = managers.gui_data:corner_safe_to_full(0, 0)
@@ -242,7 +200,7 @@ function HUDStatsScreen:recreate_left()
 	self:_update_stats_screen_loot(self._left:child("loot_wrapper_panel"))
 	local num_forced = #managers.achievment:get_force_tracked()
 	local mutators_active = managers.mutators:are_mutators_active()
-	if _G.OriginalPackOptions.settings.Enable_Achievements and num_forced >= 1 and not mutators_active then
+	if num_forced >= 1 and not mutators_active then
 		self:_create_tracked_list(self._left)
 	elseif mutators_active then
 		self:_create_mutators_list(self._left)
@@ -251,28 +209,395 @@ function HUDStatsScreen:recreate_left()
 	end
 end
 
+function HUDStatsScreen:recreate_right()
+	if safehouse or new_safehouse then
+		self._right:set_visible(false)
+		return
+	end
+	self._right:set_w(417)
+	self._right:clear()
+	local blur = self._right:bitmap({
+		texture = "guis/textures/test_blur_df",
+		layer = -1,
+		render_template = "VertexColorTexturedBlur3D",
+		valign = "grow",
+		w = self._right:w(),
+		h = self._right:h()
+	})
+
+	local rb = HUDBGBox_create(self._right, {}, {
+		blend_mode = "normal",
+		color = Color.white
+	})
+	rb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
+	rb:child("bg"):set_alpha(1)
+	
+	local placer = UiPlacer:new(20, 13, 0, 8)
+	local job_data = managers.job:current_job_data()
+	local level_data = managers.job:current_level_data()
+	local stage_data = managers.job:current_stage_data()
+	local job_chain = managers.job:current_job_chain_data()
+	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
+	local level_tweak = tweak_data.levels[managers.job:current_level_id()]
+	local narrator = level_tweak.narrator or "bain"
+	local briefing_id = stage_data.briefing_id or level_data.briefing_id
+	
+	if stage_data then
+		local job_chain = managers.job:current_job_chain_data()
+		local day = managers.job:current_stage()
+		local days = job_chain and #job_chain or 0
+		local day_title = self._right:fine_text({
+			font = tweak_data.hud_stats.objectives_font,
+			font_size = tweak_data.hud_stats.loot_size,
+			text = managers.localization:to_upper_text("hud_days_title", {
+				DAY = day,
+				DAYS = days
+			}),
+			
+			rotation = 360
+		})
+		placer:add_right(day_title)
+		
+		if managers.crime_spree:is_active() then
+			day_title:set_text(managers.localization:to_upper_text("menu_es_crime_spree_summary"))
+			day_title:set_color(tweak_data.screen_colors.crime_spree_risk)
+		end
+		if managers.job:is_level_ghostable(managers.job:current_level_id()) then
+			local ghost_color = is_whisper_mode and Color.white or tweak_data.screen_colors.important_1
+			local ghost = placer:add_right(self._right:bitmap({
+				texture = "guis/textures/pd2/cn_minighost",
+				name = "ghost_icon",
+				h = 16,
+				blend_mode = "add",
+				w = 16,
+				color = ghost_color
+			}))
+
+			if managers.crime_spree:is_active() then
+				ghost:set_alpha(0)
+			end
+			ghost:set_center_y(day_title:center_y())
+		end
+		placer:new_row(8, 1)
+
+		local level_data = managers.job:current_level_data()
+
+		if level_data then
+			placer:add_bottom(self._right:fine_text({
+				font = large_font,
+				font_size = tweak_data.hud_stats.objectives_title_size,
+				text = managers.skirmish:is_skirmish() and managers.localization:to_upper_text("menu_cn_skirmish") or managers.localization:to_upper_text(level_data.name_id),
+				color = managers.skirmish:is_skirmish() and tweak_data.screen_colors.skirmish_color or tweak_data.screen_colors.text
+			}))
+			if managers.job:is_current_job_professional() then
+				placer:add_right(self._right:fine_text({
+					font = large_font,
+					font_size = tweak_data.hud_stats.loot_size + 1,
+					text = managers.localization:to_upper_text("cn_menu_pro_job"),
+					color = tweak_data.screen_colors.pro_color
+				}), 7, 90)
+			end
+		end
+		
+		if not managers.crime_spree:is_active() then
+			placer:new_row(8, 1)
+			placer:add_bottom(self._right:fine_text({
+				font = medium_font,
+				font_size = tweak_data.hud_stats.loot_size,
+				text = managers.localization:to_upper_text("cn_menu_contract_paygrade_header"),
+				color = tweak_data.screen_colors.text
+			}), 0)
+			placer:add_right(self._right:fine_text({
+				font = medium_font,
+				font_size = tweak_data.hud_stats.loot_size,
+				text = "",
+				color = tweak_data.screen_colors.text
+			}), 3)
+			local filled_star_rect = {0, 32, 32, 32}
+			local empty_star_rect = {32, 32, 32, 32}
+			local cy = self._right:center_y() - 4
+			local sx = self._right:right() + 8
+			local job_stars = managers.job:current_job_stars()
+			local level_data = { 
+				texture = "guis/textures/pd2/mission_briefing/difficulty_icons", 
+				texture_rect = filled_star_rect, 
+				w = 22, 
+				h = 22, 
+				color = tweak_data.screen_colors.text, 
+				alpha = 1
+			}
+			for i = 1, job_stars do
+				local x = sx + (i - 1) * 26
+				local is_risk = i > job_stars
+				local star_data = level_data
+				local star = placer:add_right(self._right:bitmap(star_data), 2)
+			end
+		end
+		placer:new_row(8, 1)
+		placer:add_bottom(self._right:fine_text({
+			font = medium_font,
+			font_size = tweak_data.hud_stats.loot_size,
+			text = managers.skirmish:is_skirmish() and managers.localization:to_upper_text("cn_menu_skirmish_contract_waves_header") or managers.localization:to_upper_text("menu_lobby_difficulty_title"),
+			color = tweak_data.screen_colors.text
+		}), 0)
+		if job_data then
+			local str = managers.localization:text("menu_cs_level", {
+				level = managers.experience:cash_string(managers.crime_spree:server_spree_level(), "")
+			})
+			local job_stars = managers.job:current_job_stars()
+			local difficulty_stars = managers.job:current_difficulty_stars()
+			local difficulty = tweak_data.difficulties[difficulty_stars + 2] or 1
+			
+			local difficulty_string = managers.localization:to_upper_text(tweak_data.difficulty_name_ids[difficulty])
+			local difficulty_text = self._right:fine_text({
+				name = "difficulty_text",
+				font = medium_font,
+				font_size = tweak_data.hud_stats.loot_size,
+				text = difficulty_string,
+				color = difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text
+			})
+			if managers.crime_spree:is_active() then
+				difficulty_text:set_text(str)
+				difficulty_text:set_color(tweak_data.screen_colors.crime_spree_risk)
+			else
+				difficulty_text:set_text(difficulty_string)
+				difficulty_text:set_color(difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
+			end
+			if Global.game_settings.one_down then
+				local one_down_string = managers.localization:to_upper_text("menu_one_down")
+				local modifier_string = difficulty_string .. "  " .. "##" .. one_down_string .. "##"
+				local text_dissected = utf8.characters(modifier_string)
+				local idsp = Idstring("#")
+				local start_ci = {}
+				local end_ci = {}
+				local first_ci = true
+				for i, c in ipairs(text_dissected) do
+					if Idstring(c) == idsp then
+						local next_c = text_dissected[i + 1]
+
+						if next_c and Idstring(next_c) == idsp then
+							if first_ci then
+								table.insert(start_ci, i)
+							else
+								table.insert(end_ci, i)
+							end
+
+							first_ci = not first_ci
+						end
+					end
+				end
+
+				if #start_ci == #end_ci then
+					for i = 1, #start_ci, 1 do
+						start_ci[i] = start_ci[i] - ((i - 1) * 4 + 1)
+						end_ci[i] = end_ci[i] - (i * 4 - 1)
+					end
+				end
+
+				modifier_string = string.gsub(modifier_string, "##", "")
+				if alive(difficulty_text) then
+					difficulty_text:set_text(modifier_string)
+					difficulty_text:clear_range_color(1, utf8.len(modifier_string))
+
+					if #start_ci ~= #end_ci then
+						Application:error("CrimeNetContractGui: Not even amount of ##'s in skill description string!", #start_ci, #end_ci)
+					else
+						for i = 1, #start_ci, 1 do
+							difficulty_text:set_range_color(start_ci[i], end_ci[i], i == 1 and tweak_data.screen_colors.one_down)
+						end
+					end
+				end
+			end
+
+			local _, _, tw, th = difficulty_text:text_rect()
+
+			difficulty_text:set_size(tw, th)
+			placer:add_right((difficulty_text), 4)
+		end
+
+		placer:new_row(8, 0)
+		
+		if not managers.crime_spree:is_active() then
+			local payout = managers.localization:text("hud_day_payout", {
+				MONEY = managers.experience:cash_string(managers.money:get_potential_payout_from_current_stage())
+			})
+
+			placer:add_bottom(self._right:fine_text({
+				keep_w = true,
+				font = tweak_data.hud_stats.objectives_font,
+				font_size = tweak_data.hud_stats.loot_size,
+				text = payout
+			}), 0)
+		end
+		
+		placer:new_row(8, 20)
+		placer:add_bottom(self._right:fine_text({
+			keep_w = true,
+			font = tweak_data.hud_stats.objective_desc_font,
+			font_size = tweak_data.hud_stats.day_description_size + 2,
+			text = managers.localization:to_upper_text("menu_description_" .. narrator)
+		}), 0)
+		placer:new_row(8, 0)
+		local desc_panel = placer:add_bottom(self._right:panel({
+			y = 0,
+			h = self._right:h() / 2,
+			w = self._right:w() / 1.15 - 2,
+			x = 0
+		}))
+
+		local text = desc_panel:text({
+			wrap = true,
+			text = managers.localization:text(briefing_id),
+			font = tweak_data.hud_stats.objective_desc_font,
+			font_size = tweak_data.hud_stats.day_description_size,
+			w = 350
+		})
+		managers.hud:make_fine_text(text)
+		local _, _, _, h = text:text_rect()
+
+		while h > desc_panel:h() - text:top() do
+			text:set_font_size(text:font_size() * 0.99)
+
+			_, _, _, h = text:text_rect()
+		end
+		placer:new_row()
+		self:extended_inventory()
+	end
+end
+
+function HUDStatsScreen:recreate_bottom()
+	self._bottom:clear()
+	self._bottom:bitmap({
+		texture = "guis/textures/test_blur_df",
+		layer = -1,
+		render_template = "VertexColorTexturedBlur3D",
+		valign = "grow",
+		w = self._bottom:w(),
+		h = self._bottom:h()
+	})
+
+	local rb = HUDBGBox_create(self._bottom, {}, {
+		blend_mode = "normal",
+		color = Color.white
+	})
+
+	rb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
+	rb:child("bg"):set_alpha(1)
+	self:exp_progress()
+end
+	
+function HUDStatsScreen:update(t, dt)
+	local difficulty_text = self._right:child("difficulty_text")
+	local job_data = managers.job:current_job_data()
+	if managers.skirmish:is_skirmish() then
+		difficulty_text:set_text(managers.skirmish:is_skirmish() and tostring(managers.skirmish:current_wave_number()))
+		difficulty_text:set_color(managers.skirmish:current_wave_number() >= 7 and tweak_data.screen_colors.skirmish_color or managers.skirmish:current_wave_number() >= 5 and tweak_data.screen_colors.heat_warm_color or managers.skirmish:current_wave_number() >= 3 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
+	end
+			
+	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
+	for _, v in pairs(self._tracked_items or {}) do
+		v:update_progress()
+	end
+	
+	local profile_wrapper_panel = self._bottom:child("profile_wrapper_panel")
+	local gain_xp_text = profile_wrapper_panel:child("gain_xp_text")
+	local at_max_level_text = profile_wrapper_panel:child("at_max_level_text")
+	if alive(gain_xp_text) then
+		local gain_xp = managers.experience:get_xp_dissected(true, 0, true)
+		local text = managers.localization:to_upper_text("hud_potential_xp", {
+			XP = managers.money:add_decimal_marks_to_string(tostring(gain_xp))
+		})
+		gain_xp_text:set_text(text)
+	end
+	local lvl = Global.game_settings.level_id
+	local halloween = lvl == "nail" or lvl == "help" or lvl == "haunted" or lvl == "hvh"
+	if halloween and alive(at_max_level_text) then
+		local chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
+		local U = chars[math.random(26)]
+		local B = chars[math.random(26)]
+		local E = chars[math.random(26)]
+		local R = chars[math.random(26)]
+		local H = chars[math.random(26)]
+		local A = chars[math.random(26)]
+		local T = chars[math.random(26)]
+		local r = chars[math.random(26)]
+		local e = chars[math.random(26)]
+		local D = chars[math.random(26)]
+		at_max_level_text:set_text(D..e..r..T..A..H..R..E..E.." "..U..E..B..A.." "..r..e..t..A..R..D)
+	end
+	
+	local accuracy_panel = self._right:child("accuracy_panel")
+	if alive(accuracy_panel) then
+		accuracy_panel:child("accuracy_counter"):set_text(managers.statistics:session_hit_accuracy() .. "%")
+	end
+	
+	local kill_panel = self._right:child("kill_panel")
+	if alive(kill_panel) then
+		local kill_counter = kill_panel:child("kill_counter")
+		kill_counter:set_text(managers.statistics:session_total_kills() < 10 and "00" .. managers.statistics:session_total_kills() or managers.statistics:session_total_kills() < 100 and "0" .. managers.statistics:session_total_kills() or managers.statistics:session_total_kills())
+		kill_counter:set_range_color(0, managers.statistics:session_total_kills() <= 0 and 3 or managers.statistics:session_total_kills() < 10 and 2 or managers.statistics:session_total_kills() < 100 and 1 or 0, tweak_data.screen_colors.text:with_alpha(0.6))
+	end
+	
+	local pager_panel = self._right:child("pager_panel")
+	if alive(pager_panel) and managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+		local pager_counter = pager_panel:child("pager_counter")
+		local pagers_used = managers.groupai:state():get_nr_successful_alarm_pager_bluffs()
+		local max_pagers_data = managers.player:has_category_upgrade("player", "corpse_alarm_pager_bluff") and tweak_data.player.alarm_pager.bluff_success_chance_w_skill or tweak_data.player.alarm_pager.bluff_success_chance
+		local max_num_pagers = #max_pagers_data
+
+		for i, chance in ipairs(max_pagers_data) do
+			if chance == 0 then
+				max_num_pagers = i - 1
+
+				break
+			end
+		end
+		pager_counter:set_text(pagers_used .. "/" .. max_num_pagers)
+		pager_counter:set_range_color(0, 1, pagers_used >= max_num_pagers and tweak_data.screen_colors.pro_color or pagers_used == 0 and tweak_data.screen_colors.text:with_alpha(0.6) or tweak_data.screen_colors.text)
+	end
+end
+
+function HUDStatsScreen:_create_objectives_list()
+	local placer = UiPlacer:new(31, 0, 0, 8)
+	
+	placer:add_bottom(self._left:fine_text({
+		vertical = "top",
+		align = "left",
+		font_size = tweak_data.hud_stats.objectives_title_size,
+		font = tweak_data.hud_stats.objectives_font,
+		text = managers.localization:to_upper_text("hud_objective")
+	}), 13)
+	placer:new_row(8, -1)
+
+	local row_w = self._left:w() - placer:current_left() * 2
+
+	for i, data in pairs(managers.objectives:get_active_objectives()) do
+		placer:add_bottom(self._left:fine_text({
+			word_wrap = true,
+			wrap = true,
+			align = "left",
+			text = utf8.to_upper(data.text),
+			font = tweak_data.hud.medium_font,
+			font_size = tweak_data.hud.active_objective_title_font_size,
+			w = row_w
+		}))
+		local objective_desc = self._left:fine_text({
+			name = "objective_desc",
+			word_wrap = true,
+			wrap = true,
+			font_size = 24,
+			align = "left",
+			text = "",
+			font = tweak_data.hud_stats.objective_desc_font,
+			w = row_w
+		})
+		placer:add_bottom(objective_desc)
+	end
+end
+
 function HUDStatsScreen:_create_tracked_list(panel)
 	local placer = UiPlacer:new(10, 10, 0, 8)
-
-	placer:add_bottom(self._left:fine_text({
-		text_id = "hud_stats_tracked",
-		font = large_font,
-		font_size = tweak_data.hud_stats.objectives_title_size
-	}))
-
 	local tracked = managers.achievment:get_tracked_fill()
-
-	if #tracked == 0 then
-		placer:add_bottom(self._left:fine_text({
-			wrap = true,
-			word_wrap = true,
-			text_id = "hud_stats_no_tracked",
-			font = medium_font,
-			font_size = medium_font_size,
-			w = self._left:w() - placer:current_left() * 2
-		}))
-	end
-
 	self._tracked_items = {}
 	local placer = UiPlacer:new(0, placer:most().bottom, 0, 0)
 	local with_bg = true
@@ -453,542 +778,181 @@ function HUDStatsScreen:_update_stats_screen_loot(loot_wrapper_panel)
 	instant_cash_text:set_alpha(instant_vis and 1 or 0.5)
 end
 
-function HUDStatsScreen:recreate_right()
-	if safehouse or new_safehouse then
-		self._right:set_visible(false)
-
-		return
-	end
-	self._right:set_w(417)
-	self._right:clear()
-	local blur = self._right:bitmap({
-		texture = "guis/textures/test_blur_df",
-		layer = -1,
-		render_template = "VertexColorTexturedBlur3D",
-		valign = "grow",
-		w = self._right:w(),
-		h = self._right:h()
-	})
-
-	local rb = HUDBGBox_create(self._right, {}, {
-		blend_mode = "normal",
-		color = Color.white
-	})
-	rb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
-	rb:child("bg"):set_alpha(1)
-	
-	local placer = UiPlacer:new(20, 13, 0, 8)
-	local job_data = managers.job:current_job_data()
-	local level_data = managers.job:current_level_data()
-	local stage_data = managers.job:current_stage_data()
-	local job_chain = managers.job:current_job_chain_data()
+function HUDStatsScreen:extended_inventory()
+	local flat = Global.game_settings and Global.game_settings.level_id == "flat"
+	local ach = managers.achievment.achievments
+	local accuracy_requirements = ach.flat_5.forced and flat or ach.ovk_7.forced or ach.gage4_5.forced
+	local kill_requirements = ach.ovk_7.forced or ach.gage4_5.forced
 	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
-	local level_tweak = tweak_data.levels[managers.job:current_level_id()]
-	local narrator = level_tweak.narrator or "bain"
-	local briefing_id = stage_data.briefing_id or level_data.briefing_id
+	local extended = UiPlacer:new(36, (self._right:h() / 1.05) + 19, 0, 8)
+	extended:new_row(0, 0)
 	
-	if stage_data then
-		local job_chain = managers.job:current_job_chain_data()
-		local day = managers.job:current_stage()
-		local days = job_chain and #job_chain or 0
-		local day_title = self._right:fine_text({
-			font = tweak_data.hud_stats.objectives_font,
-			font_size = tweak_data.hud_stats.loot_size,
-			text = managers.localization:to_upper_text("hud_days_title", {
-				DAY = day,
-				DAYS = days
-			}),
-			
-			rotation = 360
-		})
-		placer:add_right(day_title)
-		
-		if managers.crime_spree:is_active() then
-			day_title:set_text(managers.localization:to_upper_text("menu_es_crime_spree_summary"))
-			day_title:set_color(tweak_data.screen_colors.crime_spree_risk)
-		elseif managers.skirmish:is_skirmish() then
-			day_title:set_text(managers.localization:to_upper_text("menu_cn_skirmish"))
-			day_title:set_color(tweak_data.screen_colors.skirmish_color)
-		end
-		if managers.job:is_level_ghostable(managers.job:current_level_id()) then
-			local ghost_color = is_whisper_mode and Color.white or tweak_data.screen_colors.important_1
-			local ghost = placer:add_right(self._right:bitmap({
-				texture = "guis/textures/pd2/cn_minighost",
-				name = "ghost_icon",
-				h = 16,
-				blend_mode = "add",
-				w = 16,
-				color = ghost_color
-			}))
-
-			if managers.crime_spree:is_active() then
-				ghost:set_alpha(0)
-			end
-			ghost:set_center_y(day_title:center_y())
-		end
-		placer:new_row(8, 1)
-
-		local level_data = managers.job:current_level_data()
-
-		if level_data then
-			placer:add_bottom(self._right:fine_text({
-				font = large_font,
-				font_size = tweak_data.hud_stats.objectives_title_size,
-				text = managers.localization:to_upper_text(level_data.name_id)
-			}))
-			if managers.job:is_current_job_professional() then
-				placer:add_right(self._right:fine_text({
-					font = large_font,
-					font_size = tweak_data.hud_stats.loot_size + 1,
-					text = managers.localization:to_upper_text("cn_menu_pro_job"),
-					color = tweak_data.screen_colors.pro_color
-				}), 7, 90)
-			end
-		end
-		
-		if not managers.crime_spree:is_active() then
-			placer:new_row(8, 1)
-			placer:add_bottom(self._right:fine_text({
-				font = medium_font,
-				font_size = tweak_data.hud_stats.loot_size,
-				text = managers.localization:to_upper_text("cn_menu_contract_paygrade_header"),
-				color = tweak_data.screen_colors.text
-			}), 0)
-			placer:add_right(self._right:fine_text({
-				font = medium_font,
-				font_size = tweak_data.hud_stats.loot_size,
-				text = "",
-				color = tweak_data.screen_colors.text
-			}), 3)
-			local filled_star_rect = {0, 32, 32, 32}
-			local empty_star_rect = {32, 32, 32, 32}
-			local cy = self._right:center_y() - 4
-			local sx = self._right:right() + 8
-			local job_stars = managers.job:current_job_stars()
-			local level_data = { 
-				texture = "guis/textures/pd2/mission_briefing/difficulty_icons", 
-				texture_rect = filled_star_rect, 
-				w = 22, 
-				h = 22, 
-				color = tweak_data.screen_colors.text, 
-				alpha = 1
-			}
-			for i = 1, job_stars do
-				local x = sx + (i - 1) * 26
-				local is_risk = i > job_stars
-				local star_data = level_data
-				local star = placer:add_right(self._right:bitmap(star_data), 2)
-			end
-		end
-		placer:new_row(8, 1)
-		placer:add_bottom(self._right:fine_text({
-			font = medium_font,
-			font_size = tweak_data.hud_stats.loot_size,
-			text = managers.localization:to_upper_text("menu_lobby_difficulty_title"),
-			color = tweak_data.screen_colors.text
-		}), 0)
-
-		if job_data then
-			local str = managers.localization:text("menu_cs_level", {
-				level = managers.experience:cash_string(managers.crime_spree:server_spree_level(), "")
-			})
-			local job_stars = managers.job:current_job_stars()
-			local difficulty_stars = managers.job:current_difficulty_stars()
-			local difficulty = tweak_data.difficulties[difficulty_stars + 2] or 1
-			local difficulty_string = managers.localization:to_upper_text(tweak_data.difficulty_name_ids[difficulty])
-			local difficulty_text = self._right:fine_text({
-				font = medium_font,
-				font_size = tweak_data.hud_stats.loot_size,
-				text = difficulty_string,
-				color = difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text
-			})
-			if managers.crime_spree:is_active() then
-				difficulty_text:set_text(str)
-				difficulty_text:set_color(tweak_data.screen_colors.crime_spree_risk)
-			else
-				difficulty_text:set_text(difficulty_string)
-				difficulty_text:set_color(difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
-			end
-			if Global.game_settings.one_down then
-				local one_down_string = managers.localization:to_upper_text("menu_one_down")
-				local modifier_string = difficulty_string .. "  " .. "##" .. one_down_string .. "##"
-				local text_dissected = utf8.characters(modifier_string)
-				local idsp = Idstring("#")
-				local start_ci = {}
-				local end_ci = {}
-				local first_ci = true
-				for i, c in ipairs(text_dissected) do
-					if Idstring(c) == idsp then
-						local next_c = text_dissected[i + 1]
-
-						if next_c and Idstring(next_c) == idsp then
-							if first_ci then
-								table.insert(start_ci, i)
-							else
-								table.insert(end_ci, i)
-							end
-
-							first_ci = not first_ci
-						end
-					end
-				end
-
-				if #start_ci == #end_ci then
-					for i = 1, #start_ci, 1 do
-						start_ci[i] = start_ci[i] - ((i - 1) * 4 + 1)
-						end_ci[i] = end_ci[i] - (i * 4 - 1)
-					end
-				end
-
-				modifier_string = string.gsub(modifier_string, "##", "")
-				if alive(difficulty_text) then
-					difficulty_text:set_text(modifier_string)
-					difficulty_text:clear_range_color(1, utf8.len(modifier_string))
-
-					if #start_ci ~= #end_ci then
-						Application:error("CrimeNetContractGui: Not even amount of ##'s in skill description string!", #start_ci, #end_ci)
-					else
-						for i = 1, #start_ci, 1 do
-							difficulty_text:set_range_color(start_ci[i], end_ci[i], i == 1 and tweak_data.screen_colors.one_down)
-						end
-					end
-				end
-			end
-
-			local _, _, tw, th = difficulty_text:text_rect()
-
-			difficulty_text:set_size(tw, th)
-			placer:add_right((difficulty_text), 4)
-		end
-
-		placer:new_row(8, 0)
-		
-		if not managers.crime_spree:is_active() then
-			local payout = managers.localization:text("hud_day_payout", {
-				MONEY = managers.experience:cash_string(managers.money:get_potential_payout_from_current_stage())
-			})
-
-			placer:add_bottom(self._right:fine_text({
-				keep_w = true,
-				font = tweak_data.hud_stats.objectives_font,
-				font_size = tweak_data.hud_stats.loot_size,
-				text = payout
-			}), 0)
-		end
-		
-		placer:new_row(8, 20)
-		placer:add_bottom(self._right:fine_text({
-			keep_w = true,
-			font = tweak_data.hud_stats.objective_desc_font,
-			font_size = tweak_data.hud_stats.day_description_size + 2,
-			text = managers.localization:to_upper_text("menu_description_" .. narrator)
-		}), 0)
-		placer:new_row(8, 0)
-		local desc_panel = placer:add_bottom(self._right:panel({
-			y = 0,
-			h = self._right:h() / 1.75,
-			w = self._right:w() / 1.15 - 2,
-			x = 0
-		}))
-
-		local text = desc_panel:text({
-			wrap = true,
-			text = managers.localization:text(briefing_id),
-			font = tweak_data.hud_stats.objective_desc_font,
-			font_size = tweak_data.hud_stats.day_description_size,
-			w = 350
-		})
-		managers.hud:make_fine_text(text)
-		local _, _, _, h = text:text_rect()
-
-		while h > desc_panel:h() - text:top() do
-			text:set_font_size(text:font_size() * 0.99)
-
-			_, _, _, h = text:text_rect()
-		end
-
-		local extended = UiPlacer:new(self._right:w() / 1.1 - 3, self._right:h() / 1.05, 0, 8)
-		extended:new_row(0, 0)
-		local extended_inventory_title = self._right:fine_text({
+	local extended_inventory_panel
+	local accuracy_panel
+	local kill_panel
+	local pager_panel
+	local body_bags_panel
+	
+	-- if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+		body_bags_panel = extended:add_top(self._right:panel({name = "body_bags_panel", h = 19, w = self._right:w() / 1.2}))
+	-- end
+	
+	if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+		pager_panel = extended:add_top(self._right:panel({name = "pager_panel", h = 19, w = self._right:w() / 1.2}), 5)
+	end
+	
+	if _G.OriginalPackOptions.settings.Anlways_Show_Kills or kill_requirements then
+		kill_panel = extended:add_top(self._right:panel({name = "kill_panel", h = 19, w = self._right:w() / 1.2}), 5)
+	end
+	
+	if _G.OriginalPackOptions.settings.Anlways_Show_Accuracy or accuracy_requirements then
+		accuracy_panel = extended:add_top(self._right:panel({name = "accuracy_panel", h = 19, w = self._right:w() / 1.2}), 5)
+	end
+	
+	if alive(body_bags_panel) or alive(pager_panel) or alive(kill_panel) or alive(accuracy_panel) then
+		extended_inventory_panel = extended:add_top(self._right:panel({name = "extended_inventory_panel", h = 26, w = self._right:w() / 1.2}))
+		extended_inventory_panel:text({
+			x = -1,
+			align = "right",
 			text = managers.localization:to_upper_text("hud_extended_inventory"),
 			font_size = tweak_data.hud_stats.loot_title_size,
 			font = tweak_data.hud_stats.objectives_font
 		})
-		extended:add_left(self._right:fine_text({
+	end
+	
+	if alive(accuracy_panel) then
+		local accuracy_title = accuracy_panel:text({
+			align = "right",
+			x = -53,
+			text = managers.localization:to_upper_text("menu_accuracy"),
+			font_size = tweak_data.hud_stats.loot_title_size - 6,
+			font = tweak_data.hud_stats.objectives_font
+		})
+		accuracy_panel:bitmap({
+			rotation = 360,
+			x = accuracy_panel:w() - 44,
+			w = 19,
+			h = 19,
+			texture = "guis/textures/pd2/skilltree/op_icons_atlas",
+			texture_rect = {
+				424,
+				356,
+				20,
+				20
+			}
+		})
+		local accuracy_counter = accuracy_panel:text({
+			rotation = 360,
+			align = "center",
+			x = (accuracy_panel:w() / 2) - 6,
+			text = "",
+			name = "accuracy_counter",
+			font_size = 20,
+			alpha = 1,
+			font = "fonts/font_medium_mf",
+			color = tweak_data.screen_colors.text
+		})
+	end
+	
+	if alive(kill_panel) then
+		local kill_title = kill_panel:text({
+			align = "right",
+			x = -53,
+			text = managers.localization:to_upper_text("menu_kills"),
+			font_size = tweak_data.hud_stats.loot_title_size - 6,
+			font = tweak_data.hud_stats.objectives_font
+		})
+		kill_panel:bitmap({
+			rotation = 360,
+			x = kill_panel:w() - 44,
+			w = 21,
+			h = 21,
+			texture = "guis/textures/pd2/hud_difficultymarkers",
+			texture_rect = {
+				0,
+				0,
+				32,
+				32
+			}
+		})
+		local kill_counter = kill_panel:text({
+			rotation = 360,
+			align = "center",
+			x = (kill_panel:w() / 2) - 9,
+			text = "",
+			name = "kill_counter",
+			font_size = 20,
+			alpha = 1,
+			font = "fonts/font_medium_mf",
+			color = tweak_data.screen_colors.text
+		})
+	end
+	
+	if alive(pager_panel) then
+		local pagers_texture, pagers_rect = tweak_data.hud_icons:get_icon_data("pagers_used")
+		local pager_title = pager_panel:text({
+			align = "right",
+			x = -53,
+			text = managers.localization:to_upper_text("hud_stats_pagers_used"),
+			font_size = tweak_data.hud_stats.loot_title_size - 6,
+			font = tweak_data.hud_stats.objectives_font
+		})
+		local pager_icon = pager_panel:bitmap({
+			rotation = 360,
+			x = pager_panel:w() - 44,
+			w = 21,
+			h = 20,
+			texture = pagers_texture,
+			texture_rect = pagers_rect
+		})
+		if managers.player:has_category_upgrade("player", "corpse_alarm_pager_bluff") then
+			pager_icon:set_color(tweak_data.screen_colors.skill_color)
+		end
+		local pager_counter = pager_panel:text({
+			x = 2,
+			rotation = 360,
+			align = "right",
+			text = "",
+			name = "pager_counter",
+			font_size = 22,
+			alpha = 1,
+			font = "fonts/font_medium_mf",
+			color = tweak_data.screen_colors.text
+		})
+	end
+	
+	if alive(body_bags_panel) then
+		local body_texture, body_rect = tweak_data.hud_icons:get_icon_data("equipment_body_bag")
+		local body_bags = managers.player:get_body_bags_amount()
+		local body_bags_title = body_bags_panel:text({
+			align = "right",
+			x = -53,
 			text = managers.localization:to_upper_text("hud_body_bags"),
 			font_size = tweak_data.hud_stats.loot_title_size - 6,
 			font = tweak_data.hud_stats.objectives_font
-		}), 45)
-		local body_texture, body_rect = tweak_data.hud_icons:get_icon_data("equipment_body_bag")
-		extended:add_right(self._right:bitmap({
+		})
+		body_bags_panel:bitmap({
+			rotation = 360,
+			x = body_bags_panel:w() - 44,
 			w = 21,
 			h = 20,
 			texture = body_texture,
 			texture_rect = body_rect
-		}), 8)
-		
-		local body_bags = managers.player:get_body_bags_amount()
-		local body_bags_count = extended:add_left(self._right:fine_text({
-			text = body_bags < 10 and "0" .. body_bags,
+		})
+		local body_bags_count = body_bags_panel:text({
+			align = "right",
+			text = 10 >= body_bags and "0" .. body_bags,
 			name = "body_bags_count",
 			font_size = 22,
 			alpha = 1,
 			font = "fonts/font_medium_mf",
 			color = tweak_data.screen_colors.text
-		}), -45)
-		body_bags_count:set_range_color(0, body_bags >= 1 and 1 or 2, body_bags < 10 and tweak_data.screen_colors.text:with_alpha(0.6) or tweak_data.screen_colors.text:with_alpha(0))
-
-		if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
-			extended:new_row(0, -47)
-			extended:add_left(self._right:fine_text({
-				text = managers.localization:to_upper_text("hud_stats_pagers_used"),
-				font_size = tweak_data.hud_stats.loot_title_size - 6,
-				font = tweak_data.hud_stats.objectives_font
-			}), 45)
-			local pagers_texture, pagers_rect = tweak_data.hud_icons:get_icon_data("pagers_used")
-			local pager_icon = extended:add_right(self._right:bitmap({
-				w = 21,
-				h = 20,
-				texture = pagers_texture,
-				texture_rect = pagers_rect
-			}), 8)
-			if managers.player:has_category_upgrade("player", "corpse_alarm_pager_bluff") then
-				pager_icon:set_color(tweak_data.screen_colors.skill_color)
-			end
-			local pager_counter = self._right:text({
-				name = "pager_counter",
-				text = "",
-				font = "fonts/font_medium_mf",
-				font_size = 22
-			})
-			extended:add_right(pager_counter, 4)
-			extended:add_top(extended_inventory_title, 4)
-			extended:add_left(extended_inventory_title, -19)
-		else
-			extended:add_top(extended_inventory_title, 4)
-			extended:add_left(extended_inventory_title, -19)
-		end
-		extended:new_row()
-		placer:new_row()
-	end
-end
-		
-function HUDStatsScreen:update(t, dt)
-	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
-	for _, v in pairs(self._tracked_items or {}) do
-		v:update_progress()
-	end
-	
-	local profile_wrapper_panel = self._bottom:child("profile_wrapper_panel")
-	local gain_xp_text = profile_wrapper_panel:child("gain_xp_text")
-	local at_max_level_text = profile_wrapper_panel:child("at_max_level_text")
-	if alive(gain_xp_text) then
-		local gain_xp = managers.experience:get_xp_dissected(true, 0, true)
-		local text = managers.localization:to_upper_text("hud_potential_xp", {
-			XP = managers.money:add_decimal_marks_to_string(tostring(gain_xp))
 		})
-		gain_xp_text:set_text(text)
-	end
-	local lvl = Global.game_settings.level_id
-	local halloween = lvl == "nail" or lvl == "help" or lvl == "haunted" or lvl == "hvh"
-	if halloween and alive(at_max_level_text) then
-		local chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
-		local U = chars[math.random(26)]
-		local B = chars[math.random(26)]
-		local E = chars[math.random(26)]
-		local R = chars[math.random(26)]
-		local H = chars[math.random(26)]
-		local A = chars[math.random(26)]
-		local T = chars[math.random(26)]
-		local r = chars[math.random(26)]
-		local e = chars[math.random(26)]
-		local D = chars[math.random(26)]
-		at_max_level_text:set_text(D..e..r..T..A..H..R..E..E.." "..U..E..B..A.." "..r..e..t..A..R..D)
-	end
-	
-
-	self._bottom:child("accuracy"):set_text(managers.localization:to_upper_text("victory_hit_accuracy") .. " " .. managers.statistics:session_hit_accuracy() .. "%")
-	self._bottom:child("kill_counter"):set_text(managers.localization:to_upper_text("victory_total_kills") .. " " .. managers.statistics:session_total_kills())
-	local pager_counter = self._right:child("pager_counter")
-	if alive(pager_counter) and managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
-		local pagers_used = managers.groupai:state():get_nr_successful_alarm_pager_bluffs()
-		local max_pagers_data = managers.player:has_category_upgrade("player", "corpse_alarm_pager_bluff") and tweak_data.player.alarm_pager.bluff_success_chance_w_skill or tweak_data.player.alarm_pager.bluff_success_chance
-		local max_num_pagers = #max_pagers_data
-
-		for i, chance in ipairs(max_pagers_data) do
-			if chance == 0 then
-				max_num_pagers = i - 1
-
-				break
-			end
-		end
-		pager_counter:set_text(pagers_used .. "/" .. max_num_pagers)
-		pager_counter:set_range_color(0, 1, pagers_used >= max_num_pagers and tweak_data.screen_colors.pro_color or pagers_used == 0 and tweak_data.screen_colors.text:with_alpha(0.6) or tweak_data.screen_colors.text)
-	
+		body_bags_count:set_range_color(0, body_bags >= 1 and 1 or 2, body_bags < 10 and tweak_data.screen_colors.text:with_alpha(0.6) or tweak_data.screen_colors.text:with_alpha(0))
 	end
 end
 
-local original_init = HUDStatsScreen.init
-function HUDStatsScreen:init(...)
-	original_init(self, ...)
-	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
-	self._bottom = ExtendedPanel:new(self, {
-		w = 407,
-		h = 127
-	})
-	self._bottom:set_center_x(self._full_hud_panel:center_x())
-	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
-	self:recreate_bottom()
-end
-
-local original_init = HUDStatsScreen._animate_show_stats_left_panel
-function HUDStatsScreen:_animate_show_stats_left_panel(...)
-	original_init(self, ...)
-	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
-	self._bottom:set_center_x(self._full_hud_panel:center_x())
-	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
-end
-
-function HUDStatsScreen:bottom()
-	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
-	self._bottom:set_center_x(self._full_hud_panel:center_x())
-	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
-end
-
-function HUDStatsScreen:_animate_text_pulse(text, exp_gain_ring, exp_ring, bg_ring)
-	local t = 0
-	local c = text:color()
-	local w, h = text:size()
-	local cx, cy = text:center()
-	local ecx, ecy = exp_gain_ring:center()
-
-	while true do
-		local dt = coroutine.yield()
-		t = t + dt
-		local alpha = math.abs(math.sin(t * 180 * 1))
-
-		text:set_size(math.lerp(w * 2, w, alpha), math.lerp(h * 2, h, alpha))
-		text:set_font_size(math.lerp(25, tweak_data.menu.pd2_small_font_size, alpha * alpha))
-		text:set_center_y(cy)
-		exp_gain_ring:set_size(math.lerp(72, 64, alpha * alpha), math.lerp(72, 64, alpha * alpha))
-		exp_gain_ring:set_center(ecx, ecy)
-		exp_ring:set_size(exp_gain_ring:size())
-		exp_ring:set_center(exp_gain_ring:center())
-		bg_ring:set_size(exp_gain_ring:size())
-		bg_ring:set_center(exp_gain_ring:center())
-	end
-end
-
-function HUDStatsScreen:recreate_bottom()
-	self._bottom:clear()
-	self._bottom:bitmap({
-		texture = "guis/textures/test_blur_df",
-		layer = -1,
-		render_template = "VertexColorTexturedBlur3D",
-		valign = "grow",
-		w = self._bottom:w(),
-		h = self._bottom:h()
-	})
-
-	local rb = HUDBGBox_create(self._bottom, {}, {
-		blend_mode = "normal",
-		color = Color.white
-	})
-
-	rb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
-	rb:child("bg"):set_alpha(1)
-	
-	local hate = Global.game_settings.difficulty == "sm_wish" and tweak_data.hate_multipler or 1
-	local font_stats = 7
-	local flat = Global.game_settings and Global.game_settings.level_id == "flat"
-	local ach = managers.achievment.achievments
-	local accuracy_requirements = ach.flat_5.forced and flat or ach.ovk_7.forced or ach.gage4_5.forced
-	local kill_requirements = ach.ovk_7.forced or ach.gage4_5.forced
-	local tracker_info_text = self._bottom:text({
-		name = "tracker_info_text",
-		align = "right",
-		text = managers.localization:to_upper_text("tracked_info_text"),
-		font_size = tweak_data.menu.pd2_small_font_size,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(tracker_info_text)
-	local neigbours_alert = self._bottom:text({
-		name = "neigbours_alert",
-		align = "right",
-		text = managers.localization:to_upper_text("neigbours_alert_text") .. ": " .. tostring(math.floor((tweak_data.neighbours_alert_radius_trigger / hate) / 200)) .. "m",
-		font_size = tweak_data.menu.pd2_small_font_size - font_stats,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(neigbours_alert)
-	local footstep_alert = self._bottom:text({
-		name = "footstep_alert",
-		align = "right",
-		text = managers.localization:to_upper_text("footstep_alert_text") .. ": " .. tostring(math.floor((tweak_data.footstep_alert_radius * hate) / 200)) .. "m",
-		font_size = tweak_data.menu.pd2_small_font_size - font_stats,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(footstep_alert)
-	local bullet_alert = self._bottom:text({
-		name = "bullet_alert",
-		align = "right",
-		text = managers.localization:to_upper_text("bullet_alert_text") .. ": " .. tostring(math.floor((tweak_data.bullet_hit_alert_radius * hate) / 200)) .. "m",
-		font_size = tweak_data.menu.pd2_small_font_size - font_stats,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(bullet_alert)
-	local accuracy = self._bottom:text({
-		name = "accuracy",
-		align = "right",
-		text = "accuracy",
-		font_size = tweak_data.menu.pd2_small_font_size - font_stats,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(accuracy)
-	local kill_counter = self._bottom:text({
-		name = "kill_counter",
-		align = "right",
-		text = "kill_counter",
-		font_size = tweak_data.menu.pd2_small_font_size - font_stats,
-		font = tweak_data.menu.pd2_small_font,
-		rotation = 360,
-		visible = false
-	})
-	managers.hud:make_fine_text(kill_counter)
-
-		
-	if tweak_data.alert_stats then
-		neigbours_alert:set_visible(true)
-		footstep_alert:set_visible(true)
-		bullet_alert:set_visible(true)
-	end
-	if accuracy_requirements then
-		accuracy:set_visible(true)
-	end
-	if kill_requirements then
-		kill_counter:set_visible(true)
-	end
-	if tweak_data.test and tweak_data.alert_stats or kill_requirements or accuracy_requirements then
-		tracker_info_text:set_visible(true)
-	end
-		
-	tracker_info_text:set_righttop(self._bottom:w() - 10, 10)
-	neigbours_alert:set_righttop(self._bottom:w() - 10, tracker_info_text:bottom())
-	footstep_alert:set_righttop(self._bottom:w() - 10, neigbours_alert:visible() and neigbours_alert:bottom() or tracker_info_text:bottom())
-	bullet_alert:set_righttop(self._bottom:w() - 10, footstep_alert:visible() and footstep_alert:bottom() or neigbours_alert:visible() and neigbours_alert:bottom() or tracker_info_text:bottom())
-	accuracy:set_righttop(self._bottom:w() - 10, bullet_alert:visible() and bullet_alert:bottom() or footstep_alert:visible() and footstep_alert:bottom() or neigbours_alert:visible() and neigbours_alert:bottom() or tracker_info_text:bottom())
-	kill_counter:set_righttop(self._bottom:w() - 10, accuracy:visible() and accuracy:bottom() or bullet_alert:visible() and bullet_alert:bottom() or footstep_alert:visible() and footstep_alert:bottom() or neigbours_alert:visible() and neigbours_alert:bottom() or tracker_info_text:bottom())
-	
-	local fsr = tracker_info_text:visible() and 4 or 0
+function HUDStatsScreen:exp_progress()
 	local profile_wrapper_panel = self._bottom:panel({
 		name = "profile_wrapper_panel",
 		x = 10,
@@ -1113,11 +1077,62 @@ function HUDStatsScreen:recreate_bottom()
 
 	local track_text = self._bottom:fine_text({
 		text = managers.localization:to_upper_text("menu_es_playing_track") .. " " .. managers.music:current_track_string(),
-		font_size = tweak_data.menu.pd2_small_font_size - fsr,
+		font_size = tweak_data.menu.pd2_small_font_size,
 		font = tweak_data.menu.pd2_small_font,
 		color = tweak_data.screen_colors.text
 	})
-	track_text:set_lefttop(14, 14)
+	track_text:set_leftbottom(14, exp_ring:top() - 28)
+end
+
+local original_init = HUDStatsScreen.init
+function HUDStatsScreen:init(...)
+	original_init(self, ...)
+	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
+	self._bottom = ExtendedPanel:new(self, {
+		w = 407,
+		h = 127
+	})
+	self._bottom:set_center_x(self._full_hud_panel:center_x())
+	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
+	self:recreate_bottom()
+end
+
+local original_init = HUDStatsScreen._animate_show_stats_left_panel
+function HUDStatsScreen:_animate_show_stats_left_panel(...)
+	original_init(self, ...)
+	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
+	self._bottom:set_center_x(self._full_hud_panel:center_x())
+	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
+end
+
+function HUDStatsScreen:bottom()
+	self._full_hud_panel = managers.hud:script(managers.hud.STATS_SCREEN_FULLSCREEN).panel
+	self._bottom:set_center_x(self._full_hud_panel:center_x())
+	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
+end
+
+function HUDStatsScreen:_animate_text_pulse(text, exp_gain_ring, exp_ring, bg_ring)
+	local t = 0
+	local c = text:color()
+	local w, h = text:size()
+	local cx, cy = text:center()
+	local ecx, ecy = exp_gain_ring:center()
+
+	while true do
+		local dt = coroutine.yield()
+		t = t + dt
+		local alpha = math.abs(math.sin(t * 180 * 1))
+
+		text:set_size(math.lerp(w * 2, w, alpha), math.lerp(h * 2, h, alpha))
+		text:set_font_size(math.lerp(25, tweak_data.menu.pd2_small_font_size, alpha * alpha))
+		text:set_center_y(cy)
+		exp_gain_ring:set_size(math.lerp(72, 64, alpha * alpha), math.lerp(72, 64, alpha * alpha))
+		exp_gain_ring:set_center(ecx, ecy)
+		exp_ring:set_size(exp_gain_ring:size())
+		exp_ring:set_center(exp_gain_ring:center())
+		bg_ring:set_size(exp_gain_ring:size())
+		bg_ring:set_center(exp_gain_ring:center())
+	end
 end
 
 function HUDStatsScreen:on_ext_inventory_changed()

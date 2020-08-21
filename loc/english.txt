@@ -2,7 +2,30 @@
 	"trophy_courtesy_objective":		"Complete Beneath the Mountain heist without killing any medics on Death Wish difficulty.",
 	"trophy_smwish_objective":			"Complete all contracts on the Death Wish difficulty with One Down modifier turned on.",
 	"trophy_friendly_car_objective":	"Complete the Scarface Mansion job on the Death Wish difficulty in loud with four players. To complete this challange, you have to have played the job from start to finish.",
+	"trophy_tiara_objective":			"Finish the Ukrainian job on Death Wish difficulty, with no crew members equipping ECM jammers.",
+	"trophy_discoball_objective":		"Finish the Night Club heist in stealth on DEATH WISH difficulty.",
+	"trophy_golden_grin_objective":		"Complete the Golden Grin Casino heist on DEATH WISH difficulty, equipped with only silenced pistols.",
+	"trophy_train_bomb_objective":		"Finish the Bomb: Forest heist on Death Wish difficulty. To complete this challenge, you have to have played the job from start to finish.",
+	"trophy_flawless_objective":		"Complete any heist with the Friendly Fire mutator active, without hurting another player, and on the DEATH WISH difficulty. This trophy requires four players in the heist.",
 
+	"daily_coke_run_objective":			"On day 2 of the Hotline Miami job, reach the Commisar's saferoom before he can destroy any bags of cocaine, on the Death Wish difficulty.",
+	"daily_phobia_objective":			"Complete any loud only transport heist on Death Wish without ever using a drill on armored van.",
+	"daily_whats_stealth_objective":	"Complete the Shadow Raid job on the Death Wish difficulty, with all team members wearing the Improved Combined Tactical Vest. To complete this challenge, you have to have played the heist from start to finish.",
+
+	"menu_challenge_monthly_rats_objective":			"Complete the Rats job on Hard or above using only AMCAR Rifle, Chimano 88 Pistol, the Two-piece Suit and no skills.",
+	"menu_challenge_monthly_firestarter_objective":		"Complete the Firestarter job on Hard or above with your crew using only the AMCAR Rifle, Chimano 88 Pistol, the Two-piece Suit and no skills.",
+	"menu_challenge_ovk_4_objective":					"Complete the Watchdogs job with each crew member using no skills, wielding the AMCAR Rifle and Chimano 88 Pistol on Hard difficulty or above.",
+	"menu_challenge_monthly_tabula_obj":				"Complete a Crime Spree of rank 25 or above, with all heisters using the AMCAR rifle, Chimano 88 pistol. To complete this challenge, you have to have played the heist from start to end.",
+	"menu_challenge_orange_4_objective":				"On the Prison Nightmare job, get on the train in less than 4 min and 44 sec on the Death Wish difficulty. You have to have played the heist from the start.",
+	"menu_challenge_slakt_5_objective":					"In the Firestarter job, complete day 3 with you and your crew staying inside the vault while all of the money burns out on the Death Wish difficulty.",
+	"menu_challenge_monthly_overdrill_obj":				"In the First World Bank job, solve the PAYDAY: The Heist secret on the Death Wish difficulty and enter the OVERVAULT. To complete this challenge, you have to have played the heist from start to end.",
+	"menu_challenge_ovk_10_objective":					"In the Firestarter job, complete day one having burned all weapons on the Death Wish difficulty.",
+
+	"menu_challenge_winters_mutated":			"Here Comes the Pain Train",
+	"menu_challenge_winters_mutated_obj":		"In the Firestarter job, complete the heist on the OVERKILL difficulty or above, with all days done in loud and with a crew of 4 players using unmodified "AK Rifle" rifles and "PARA" submachine guns.",
+	"menu_challenge_fwb_no_medics_obj":			"Complete the Safe House Raid on OVERKILL difficulty or above, without anybody ever killing a medic. To complete this challenge, you have to have played the heist from start to end.",
+	"menu_challenge_pink_panther_objective":	"On day 1 of the Framing Frame job, steal 9 sold paintings without being seen.",
+	
 	"menu_hostage_taker":					"Hostage Taker",
 	"menu_hostage_taker_desc":				"BASIC: ##$basic## \nCivilians remain intimidated ##50%## longer.\n\nACE: ##$pro## \nInteraction with hostages to move them is reduced by ##95%##.",
 	"menu_smooth_talker":					"Smooth Talker",	
@@ -140,7 +163,7 @@
 	
 	"menu_risk_sm_wish":					"Hate Crime",
 	"tracked_info_text":					"Tracked",
-	"ingame_restart_available":				"Restart is available. Type in chat - !r.",
+	"ingame_restart_available":				"Restart is available. Press F5 to restart a stage.",
 	"menu_risk_easy_wish":					"Death Wish",
 	"menu_difficulty_easy_wish":			"Death Wish",
 	"menu_offshore_remains":				"Offshore Remains",
@@ -156,13 +179,14 @@
 	"menu_unlock_tool_desc":			"A special item requires special study in order not to kill yourself in the process of use.",
 
 	"bm_w_lemming_desc":				"Penetrates body armor.",
-	"bm_w_wa2000_desc":					"Penetrates body armor and enemies.",
-	"bm_w_msr_desc":					"Penetrates body armor, enemies and walls.",
-	"bm_w_m95_desc":					"Penetrates body armor, enemies, walls and shields.\n\nAmmo pickups are disabled for this weapon.",
+	"bm_w_peacemaker_desc":				"15% chance to penetrate body armor, enemies, walls and shields.",
+	"bm_w_wa2000_desc":					"20% chance to penetrate body armor, enemies, walls and shields.",
+	"bm_w_msr_desc":					"40% chance to penetrate body armor, enemies, walls and shields.",
+	"bm_w_m95_desc":					"100% chance to penetrate body armor, enemies, walls and shields.\n\nAmmo pickups are disabled for this weapon.",
 	"bm_wp_upg_a_explosive_desc":		"Stuns enemies.\n\nAmmo pickups are disabled for this weapon.",
-	"bm_wp_upg_a_dragons_breath_desc":	"Set enemies on fire.\n\nAmmo pickups are disabled for this weapon.",
+	"bm_wp_upg_a_dragons_breath_desc":	"Set enemies on fire.\n75% chance to set on fire enemy through the shield.\n\nAmmo pickups are disabled for this weapon.",
 	"bm_wp_upg_a_piercing_desc":		"Penetrates body armor.\n\nVery low ammo pickup.",
-	"bm_wp_upg_a_slug_desc":			"Penetrates body armor, enemies, walls and shields.\n\nVery low ammo pickup.",
+	"bm_wp_upg_a_slug_desc":			"75% chance to penetrate body armor, enemies, walls and shields.\n\nVery low ammo pickup.",
 	"bm_wp_upg_a_custom_desc":			"Low ammo pickup.",
 
 	"menu_m95_desc":				"Has the largest damage in the game among rifles. Capable to kill almost everyone with a single shot. A significant drawback of this rifle is the small capacity of the magazine and a modest supply of ammunition.",
@@ -192,7 +216,6 @@
 	"achievement_ameno_1_desc":				"In the Nightclub job, complete the heist on any difficulty with each crew member using the OVE9000 saw as primary weapons.",
 	"achievement_cac_15_desc":				"In a single day of any job, place at least 24 trip mines while in stealth.",
 	"achievement_steel_1_desc":				"Complete any heist on the OVERKILL difficulty or above with 4 players using only Gage Chivalry Pack masks and melee, having bows or crossbows on primary slot and Ballistic Vests or heavier armors.",
-	"achievement_gage3_10_desc":			"Kill 10 Shields by shooting through their shields using only the Thanatos .50 cal sniper rifle.",
 	"achievement_cac_19_desc":				"In the Art Gallery job, secure 9 paintings in stealth without killing any security guards.",
 	"achievement_gmod_1_desc":				"Collect 100 packeges with the green mantis stamp to earn a green crate.",
 	"achievement_gmod_2_desc":				"Collect 100 packeges with the yellow bull stamp to earn a yellow crate.",
@@ -343,6 +366,7 @@
 	"achievement_deer_4_desc":					"Complete the White Xmas job on the OVERKILL difficulty.",
 	"achievement_deer_5_desc":					"Complete the White Xmas job on the Death Wish difficulty.",
 	"achievement_deer_6_desc":					"Complete the White Xmas job, complete the heist on the Death Wish difficulty while each crew member wears a different ''2014 Xmax'' mask each.",
+	"achievement_pex_6_desc":					"Complete the Breakfast in Tijuana on the Death Wish difficulty.",
 	"achievement_death_16_additional":					"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
 	"achievement_death_17_additional":					"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
 	"achievement_death_18_additional":					"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
@@ -372,7 +396,7 @@
 	"achievement_nbm_4_additional":						"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
 	"achievement_halloween_nightmare_5_additional":		"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
 	"achievement_kenaz_1_additional":					"This contract is only found in Crime.net, it cannot be purchased in contract broker.",
-	"achievement_trk_a_0_desc":						"Complete all contracts on the Normal difficulty.",
+	"achievement_trk_a_0_desc":						"Complete all contracts on any difficulty.",
 	"achievement_death_27_desc":					"Complete all contracts on the Hard difficulty.",
 	"achievement_death_28_desc":					"Complete all contracts on the Very Hard difficulty.",
 	"achievement_death_29_desc":					"Complete all contracts on the OVERKILL difficulty.",
@@ -384,7 +408,19 @@
 	"achievement_bulldog_1_desc":				"Complete the Hoxton Breakout job on any difficulty.",
 	"achievement_sah_1_desc":					"Complete the Shacklethorne Auction job on any difficulty.",
 	"achievement_melt_2_desc":					"Complete the Meltdown job on any difficulty.",
-	
+	"achievement_cow_6_desc":					"Complete The Bomb: Dockyard job on any difficulty.",
+	"achievement_cow_1_desc":					"Complete The Bomb: Forest job on any difficulty.",
+
+	"achievement_jerry_5_desc":					"Complete the Birth of Sky job, have the entire crew use only pistols and Two Piece Suits on the Hard difficulty or above.",	
+	"achievement_flake_1_desc":					"Complete the Framing Frame job on the Hard difficulty or above with each crew member using no skills, wearing suits, wielding Platypus 70 sniper rifles and Judge shotguns..",
+	"achievement_ovk_4_desc":					"Complete the Watchdogs job with each crew member using no skills, wielding the AMCAR Rifle and Chimano 88 Pistol on Hard difficulty or above.",
+	"achievement_cac_23_desc":					"Complete the Undercover job with every crew member using only a bow without any modifications on the Very Hard difficulty or above.",
+	"achievement_frog_1_desc":					"In the Hoxton Breakout job, complete the heist on the Very Hard difficulty or above with each crew member using no skills, wearing suits, wielding Golden AK.762 rifles and Chicago Typewriter submachine guns.",
+
+	"achievement_ovk_3_desc":					"Fire the Vulcan Minigun for 15 seconds without reloading or letting go of the trigger.",
+
+	"achievement_cee_3_unlock":					"Unlock masks:",
+
 	"bm_wp_upg_bonus_team_exp_money_p3_desc":	"+5% Experience & money reward for you and your crew.",
 	
 	"bm_menu_skill_locked_chico_injector":		"You must open this item in the perks section",
@@ -401,9 +437,9 @@
 	"bm_menu_skill_locked_ecp":					"You must open this weapon in the perks section",
 	"bm_menu_skill_locked_elastic":				"You must open this weapon in the perks section",
 	"bm_menu_skill_locked_hunter":				"You must open this weapon in the perks section",
-	"bm_menu_skill_locked_plainsrider":				"You must open this weapon in the perks section",
-	"bm_menu_skill_locked_long":					"You must open this weapon in the perks section",
-	"bm_menu_skill_locked_frankish":				"You must open this weapon in the perks section",
+	"bm_menu_skill_locked_plainsrider":			"You must open this weapon in the perks section",
+	"bm_menu_skill_locked_long":				"You must open this weapon in the perks section",
+	"bm_menu_skill_locked_frankish":			"You must open this weapon in the perks section",
 	"bm_menu_skill_locked_arblast":				"You must open this weapon in the perks section",
 	
 	"bm_menu_skill_locked_x_akmsu":			"Requires the Gunzerker skill",
@@ -454,14 +490,23 @@
 	"bm_menu_skill_locked_x_g18c":			"Requires the Akimbo skill",
 	"bm_menu_skill_locked_x_2006m":			"Requires the Akimbo skill",
 	
-	"neigbours_alert_text":						"Neighbours",
-	"footstep_alert_text":						"Sprint noise",
-	"bullet_alert_text":						"Hit noise",
+	"menu_accuracy": 						"Accuracy",
+	"menu_kills": 							"Total Kills",
+	"neigbours_alert_text":					"Neighbours",
+	"footstep_alert_text":					"Sprint noise",
+	"bullet_alert_text":					"Hit noise",
 	
-	"menu_enable_max_progress_title":			"Enable Max Progress Mode",
-	"menu_enable_max_progress_desc":			"That will restart your game",
+	"menu_enable_max_progress_title":		"Enable Max Progress Mode",
+	"menu_enable_max_progress_desc":		"That will restart your game",
+	"menu_always_show_accuracy_title":		"Always show accuracy counter",
+	"menu_always_show_kills_title":			"Always show kill counter",
 	
-	"menu_achievements_disabled_desc":						"Achievements progress has been disabled.\n\nYou can enable it in MOD OPTIONS.\n\nAchievement Soft Reset from andole was implemented, which makes possible to unlock already unlocked achievements again. But achievements that were not unlocked can be received in the Steam account progress.\n\nAchievements can give you rewards like Continental Coins, Weapon Mods, Masks, Patterns and Materials.\n\nSome of the achievements have been changed, and some achievements may create an incorrect achievements progress.\nExample: Death Wish contract achievement can be unlocked before lower difficulties, which will raise questions from other players. So progress of achievements was disabled by default.\n\nIf you have all achievements on your account, or you don't care about the achievement progress order, feel free to enable it.",
-	"menu_achievements_disabled_max_progress_desc":			"Achievements progress is disabled while you in Max Progress Mode.",
-	"menu_achievements_teamwork_players_2_to_4":			"2-4 Players"
+	"menu_prof_mod_contract":			"If you fail, the entire contract will be terminated.",
+	"menu_prof_mod_hostage":			"The amount of hostages is unknown during the assault.",
+	"menu_prof_mod_flash":				"Flashbang thrown by the enemy have no delay.",
+	"menu_prof_mod_inventory":			"Special equipment is not transferred if the player is taken into custody.",
+	
+	"menu_achievements_teamwork_players_2_to_4":			"2-4 Players",
+	
+	"cn_menu_contract_day":		"$stages day"
 }

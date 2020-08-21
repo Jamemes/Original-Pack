@@ -27,7 +27,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.bag_values.shells = 1400
 		self.bag_values.turret = 7500
 		self.bag_values.red_diamond = 40000
-
+		self.bag_values.mus_artifact_bag = 1500
+		self.bag_values.stones = 2200
+		self.bag_values.sah_artifact_bag = 500
+		
+		
 		self.loot_drop_cash.cash10 = 100000 * 2
 		self.loot_drop_cash.cash20 = 100000 * 4
 		self.loot_drop_cash.cash30 = 100000 * 6
@@ -40,20 +44,20 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.loot_drop_cash.cash100 = 100000 * 14
 		self.skill_switch_cost = {
 			{spending = 0, offshore = 0},
-			{spending = 20000000, offshore = 70000000},
+			{spending = 0, offshore = 0},
 			{spending = 30000000, offshore = 80000000},
 			{spending = 40000000, offshore = 90000000},
-			{spending = 50000000, offshore = 100000000},
-			{spending = 60000000, offshore = 100000000},
-			{spending = 70000000, offshore = 100000000},
-			{spending = 80000000, offshore = 100000000},
-			{spending = 90000000, offshore = 100000000},
-			{spending = 100000000, offshore = 100000000},
-			{spending = 110000000, offshore = 100000000},
-			{spending = 120000000, offshore = 100000000},
-			{spending = 130000000, offshore = 100000000},
-			{spending = 140000000, offshore = 100000000},
-			{spending = 150000000, offshore = 100000000}
+			{spending = 50000000, offshore = 110000000},
+			{spending = 60000000, offshore = 120000000},
+			{spending = 70000000, offshore = 130000000},
+			{spending = 80000000, offshore = 140000000},
+			{spending = 90000000, offshore = 150000000},
+			{spending = 100000000, offshore = 160000000},
+			{spending = 110000000, offshore = 170000000},
+			{spending = 120000000, offshore = 180000000},
+			{spending = 130000000, offshore = 190000000},
+			{spending = 140000000, offshore = 200000000},
+			{spending = 150000000, offshore = 210000000}
 		}
 		self.buy_premium_multiplier = {
 			easy = 0.5,
@@ -100,6 +104,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/carrytweakdata" then
 			self.lance_bag.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
 			self.ammo.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
 		end
+		
+		if Global.game_settings and Global.game_settings.level_id == "sah" then
+			self.mus_artifact.bag_value = "sah_artifact_bag"
+		end
+		
+		self.diamonds_dah.bag_value = "stones"
 		self.engine_01.type = "mega_heavy"
 		self.engine_02.type = "mega_heavy"
 		self.engine_03.type = "mega_heavy"
