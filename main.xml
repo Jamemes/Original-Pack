@@ -125,6 +125,7 @@
 		<hook source_file="lib/managers/blackmarketmanager"							file="game/test.lua"/>
 		<hook source_file="lib/managers/dlcmanager"									file="game/test.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="game/test.lua"/>
+		<hook source_file="lib/tweak_data/tipstweakdata"							file="game/tips.lua"/>
     </Hooks>
 	<Localization directory="loc" default="english.txt">
         <localization language="russian" file="russian.txt"/>

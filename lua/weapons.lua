@@ -4532,20 +4532,13 @@ if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
 		self._next_fire_allowed = self._next_fire_allowed + next_fire
 		if self._ammo_data then
 			if self._ammo_data.can_shoot_through_shield ~= nil then
-				local yes = self._ammo_data.can_shoot_through_shield
-				local rand_through_shield = {yes, yes, yes, nil}
-				self._can_shoot_through_shield = rand_through_shield[math.random(4)]
+				self._can_shoot_through_shield = math.random(100) < 75 and self._ammo_data.can_shoot_through_shield or nil
+			end
+			if self._ammo_data.can_shoot_through_wall ~= nil then
+				self._can_shoot_through_wall = math.random(100) < 75 and self._ammo_data.can_shoot_through_wall or nil
 			end
 			if self._ammo_data.can_shoot_through_enemy ~= nil then
-				local yes = self._ammo_data.can_shoot_through_enemy
-				local rand_through_wall = {yes, yes, yes, nil}
-				self._can_shoot_through_enemy = rand_through_shield[math.random(4)]
-			end
-
-			if self._ammo_data.can_shoot_through_wall ~= nil then
-				local yes = self._ammo_data.can_shoot_through_wall
-				local rand_through_wall = {yes, yes, yes, nil}
-				self._can_shoot_through_wall = rand_through_shield[math.random(4)]
+				self._can_shoot_through_enemy = math.random(100) < 75 and self._ammo_data.can_shoot_through_enemy or nil
 			end
 		end
 	end

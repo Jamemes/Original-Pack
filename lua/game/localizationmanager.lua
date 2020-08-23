@@ -9,7 +9,7 @@ OriginalPackOptions.settings = OriginalPackOptions.settings or {}
 function OriginalPackOptions:Reset()
 	self.settings = {
 		Enable_Max_Progress = false,
-		Enable_Test = true,
+		Enable_Test = false,
 		Anlways_Show_Accuracy = false,
 		Anlways_Show_Kills = false
 	}
@@ -70,14 +70,6 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 		NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version .. "_max_mode"
 		MenuNodeMainGui.version = "Version " .. tweak_data.version .. "  MAX PROGRESS MODE"
 	end
-	MenuCallbackHandler.OriginalPackOptions_menu_Enable_Max_Progress_callback = function(self, item)
-		OriginalPackOptions.settings.Enable_Max_Progress = item:value() == "on" and true or false
-		OriginalPackOptions:Save()
-		if not OriginalPackOptions.settings.Enable_Test then
-			os.execute("start steam://rungameid/218620")
-			os.exit()
-		end
-	end
 	MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Accuracy_callback = function(self, item)
 		OriginalPackOptions.settings.Anlways_Show_Accuracy = item:value() == "on" and true or false
 		OriginalPackOptions:Save()
@@ -86,6 +78,22 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 		OriginalPackOptions.settings.Anlways_Show_Kills = item:value() == "on" and true or false
 		OriginalPackOptions:Save()
 	end
+	MenuCallbackHandler.OriginalPackOptions_menu_Enable_Max_Progress_callback = function(self, item)
+		OriginalPackOptions.settings.Enable_Max_Progress = item:value() == "on" and true or false
+		OriginalPackOptions:Save()
+		if not OriginalPackOptions.settings.Enable_Test then
+			os.execute("start steam://rungameid/218620")
+			os.exit()
+		end
+	end
+	MenuHelper:AddToggle({
+		id = "OriginalPackOptions_menu_Enable_Max_Progress_callback",
+		title = "OriginalPackOptions_menu_Enable_Max_Progress_title",
+		desc = "OriginalPackOptions_menu_Enable_Max_Progress_desc",
+		callback = "OriginalPackOptions_menu_Enable_Max_Progress_callback",
+		value = OriginalPackOptions.settings.Enable_Max_Progress,
+		menu_id = OriginalPackOptions.options_menu,  
+	})
 	if OriginalPackOptions.settings.Enable_Test or OriginalPackOptions.settings.Dev then
 		MenuCallbackHandler.OriginalPackOptions_menu_Enable_Test_callback = function(self, item)
 			OriginalPackOptions.settings.Enable_Test = item:value() == "on" and true or false
@@ -101,14 +109,6 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 			menu_id = OriginalPackOptions.options_menu,  
 		})
 	end
-	MenuHelper:AddToggle({
-		id = "OriginalPackOptions_menu_Enable_Max_Progress_callback",
-		title = "OriginalPackOptions_menu_Enable_Max_Progress_title",
-		desc = "OriginalPackOptions_menu_Enable_Max_Progress_desc",
-		callback = "OriginalPackOptions_menu_Enable_Max_Progress_callback",
-		value = OriginalPackOptions.settings.Enable_Max_Progress,
-		menu_id = OriginalPackOptions.options_menu,  
-	})
 	MenuHelper:AddToggle({
 		id = "OriginalPackOptions_menu_Anlways_Show_Accuracy_callback",
 		title = "OriginalPackOptions_menu_Anlways_Show_Accuracy_title",

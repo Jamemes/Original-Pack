@@ -4336,11 +4336,6 @@ if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/playermanager" then
-	Hooks:PreHook(PlayerManager, "transfer_from_custody_special_equipment_to", "PlayerManager_transfer_from_custody_special_equipment_to", function(self)
-		if managers.job:is_current_job_professional() then
-			return
-		end
-	end)
 	function PlayerManager:critical_hit_chance()
 		local multiplier = 0
 		local weapon_unit = self:equipped_weapon_unit()

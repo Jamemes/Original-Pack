@@ -178,6 +178,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.born_pro.payout = {59000}
 		self.jobs.red2.payout = {13000}
 		self.jobs.fish.payout = {17000}
+		self.jobs.dah.payout = {5000}
 		
 		
 		self.jobs.cage.jc = 50

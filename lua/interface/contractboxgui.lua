@@ -468,6 +468,18 @@ Hooks:PreHook(ContractBoxGui, "update", "ContractBoxGui_update", function(self)
 		local xp_text_min = managers.money:add_decimal_marks_to_string(tostring(math.round(total_xp_min)))
 		job_xp:set_text(xp_text_min)
 	end
+	
+	if self._pro_tooltip then
+		local speed = 6
+		local x, y = managers.mouse_pointer:modified_mouse_pos()
+		local pro_text = self._panel:child("pro_text")
+		
+		if pro_text and pro_text:inside(x, y) then
+			self._pro_tooltip:set_alpha(math.clamp(self._pro_tooltip:alpha() + speed * TimerManager:main():delta_time(), 0, 1))
+		else
+			self._pro_tooltip:set_alpha(math.clamp(self._pro_tooltip:alpha() - speed * TimerManager:main():delta_time(), 0, 1))
+		end
+	end
 end)
 
 function ContractBoxGui:mouse_moved(x, y)
@@ -515,53 +527,6 @@ function ContractBoxGui:mouse_moved(x, y)
 	return used, pointer
 end
 
-function ContractBoxGui:update(t, dt)
-	for i = 1, tweak_data.max_players, 1 do
-		self:update_character(i)
-	end
-
-	if managers.job:current_contact_data() then
-		self._update_tooltip_t = (self._update_tooltip_t or 1) - dt
-
-		if self._update_tooltip_t < 0 then
-			self:check_update_mutators_tooltip()
-
-			self._update_tooltip_t = 1
-		end
-	end
-	if self._pro_tooltip then
-		local speed = 6
-		local x, y = managers.mouse_pointer:modified_mouse_pos()
-		local pro_text = self._panel:child("pro_text")
-		
-		if pro_text and pro_text:inside(x, y) then
-			self._pro_tooltip:set_alpha(math.clamp(self._pro_tooltip:alpha() + speed * TimerManager:main():delta_time(), 0, 1))
-		else
-			self._pro_tooltip:set_alpha(math.clamp(self._pro_tooltip:alpha() - speed * TimerManager:main():delta_time(), 0, 1))
-		end
-	end
-
-	if self._mutators_tooltip then
-		local speed = 6
-		local x, y = managers.mouse_pointer:modified_mouse_pos()
-		local mutators_text_header = self._contract_panel:child("mutators_text_header")
-		local mutators_text = self._contract_panel:child("mutators_text")
-		
-		if mutators_text_header and mutators_text_header:inside(x, y) or mutators_text and mutators_text:inside(x, y) then
-			self._mutators_tooltip:set_alpha(math.clamp(self._mutators_tooltip:alpha() + speed * TimerManager:main():delta_time(), 0, 1))
-		else
-			self._mutators_tooltip:set_alpha(math.clamp(self._mutators_tooltip:alpha() - speed * TimerManager:main():delta_time(), 0, 1))
-		end
-	end
-
-	if alive(self._lobby_mutators_text) then
-		local a = 0.75 + math.abs(math.sin(t * 120) * 0.25)
-
-		self._lobby_mutators_text:set_alpha(a)
-	end
-end
-
-
 function ContractBoxGui:create_mutators_tooltip()
 	if self._mutators_tooltip and alive(self._mutators_tooltip) then
 		self._fullscreen_panel:remove(self._mutators_tooltip)
@@ -576,7 +541,7 @@ function ContractBoxGui:create_mutators_tooltip()
 
 	self._pro_tooltip = self._fullscreen_panel:panel({
 		name = "pro_tooltip",
-		h = 130,
+		h = 110,
 		layer = 10,
 		w = self._panel:w() * 0.25
 	})
@@ -597,12 +562,12 @@ function ContractBoxGui:create_mutators_tooltip()
 	local modifier_1 = self._pro_tooltip:text({text = "1) " .. managers.localization:text("menu_prof_mod_contract"), name = "modifier_1", x = 10, h = 100, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, y = _y, h = tweak_data.menu.pd2_small_font_size})
 	local modifier_2 = self._pro_tooltip:text({text = "2) " .. managers.localization:text("menu_prof_mod_hostage"), name = "modifier_2", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
 	local modifier_3 = self._pro_tooltip:text({text = "3) " .. managers.localization:text("menu_prof_mod_flash"), name = "modifier_3", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
-	local modifier_4 = self._pro_tooltip:text({text = "4) " .. managers.localization:text("menu_prof_mod_inventory"), name = "modifier_4", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
+	-- local modifier_4 = self._pro_tooltip:text({text = "4) " .. managers.localization:text("menu_prof_mod_inventory"), name = "modifier_4", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
 
 	_y = modifier_1:bottom() + 2
 	modifier_2:set_top(modifier_1:bottom())
 	modifier_3:set_top(modifier_2:bottom())
-	modifier_4:set_top(modifier_3:bottom())
+	-- modifier_4:set_top(modifier_3:bottom())
 	
 	if managers.mutators:are_mutators_enabled() then
 		self._mutators_tooltip = self._fullscreen_panel:panel({
@@ -666,7 +631,7 @@ function ContractBoxGui:create_mutators_tooltip()
 		})
 		self._mutators_tooltip:set_alpha(0)
 	end
-	-- self._pro_tooltip:set_h(_y + 10)
+	
 	self._pro_tooltip:rect({
 		alpha = 0.8,
 		layer = -1,
