@@ -2213,7 +2213,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 					upgrades = {
 						"temporary_no_ammo_cost_1"
 					},
-					cost = high,
+					cost = medium,
 					icon_xy = {4, 1},
 					name_id = "menu_ammo_reservoir",
 					desc_id = "menu_ammo_reservoir_detailed_desc"
@@ -3027,6 +3027,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 			}
 		}
 
+		self.values.player.pocket_ecm_jammer_base = {{cooldown_drain = 8, duration = 8}}
+		self.values.temporary.chico_injector = {{0.8, 8}}
+
 		self.values.team.health.passive_multiplier = {1.15}
 		self.values.player.passive_xp_multiplier = {1.40}	
 		self.values.team.stamina.multiplier = {2.5}
@@ -3756,11 +3759,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_pickup"
 		}
-		self.take_pardons.requires_mask_off_upgrade = {
+		self.pickup_hotel_room_keycard.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_pickup"
 		}
-		
 		
 		self.key.requires_mask_off_upgrade = {
 			category = "player",
@@ -3785,52 +3787,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 		self.vit_keycard_use.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
-		}		
-		self.cas_button_01.requires_mask_off_upgrade = {
+		}
+		self.use_hotel_room_key.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
 		}
-		self.cas_button_02.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_03.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_04.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_05.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_06.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_07.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_08.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_09.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}
-		self.cas_button_0.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}			
-		self.cas_button_clear.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_keycard_insert"
-		}			
-		self.cas_button_enter.requires_mask_off_upgrade = {
+		self.use_hotel_room_key_no_access.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
 		}
@@ -3856,22 +3818,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_desktop_interaction"
 		}
 		self.hold_search_c4.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_desktop_interaction"
-		}
-		self.vit_search.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_desktop_interaction"
-		}
-		self.vit_search_clues.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_desktop_interaction"
-		}
-		self.vit_take_usb_key.requires_mask_off_upgrade = {
-			category = "player",
-			upgrade = "mask_off_desktop_interaction"
-		}
-		self.vit_insert_usb.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_desktop_interaction"
 		}
@@ -3933,6 +3879,14 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_pick_lock"
 		}
 		self.pick_lock_hard_no_skill_deactivated.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pick_lock"
+		}
+		self.cas_security_door.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pick_lock"
+		}
+		self.lockpick_locker.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_pick_lock"
 		}
@@ -6474,4 +6428,5 @@ if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 
 		return points
 	end
+
 end

@@ -828,9 +828,10 @@ if string.lower(RequiredScript) == "lib/managers/menumanager" then
 		end
 
 		local rank = managers.experience:current_rank() + 1
-
 		managers.experience:reset()
 		managers.skilltree:reset_specializations()
+		managers.skilltree._global.specializations.total_points = Application:digest_value(0, true)
+		managers.skilltree._global.specializations.points = Application:digest_value(0, true)
 		managers.experience:set_current_rank(rank)
 
 		local offshore_cost = Application:digest_value(tweak_data.infamy.ranks[rank], false)
@@ -932,7 +933,7 @@ if string.lower(RequiredScript) == "lib/managers/menu/menuscenegui" then
 end
 if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 	function ExperienceManager:rank_string(rank)
-		if tweak_data.test and rank >= 14 then
+		if _G.OriginalPackOptions.settings.Enable_Test and rank >= 14 then
 			return "TESTER"
 		elseif _G.OriginalPackOptions.settings.Enable_Max_Progress and rank >= 14 or rank >= 15 then
 			return "MAX"

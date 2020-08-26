@@ -566,9 +566,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		}
 		self.b682.stats = {
 			reload = 11,
-			damage = 10,
+			damage = 85,
 			spread = 8,
-			recoil = 85,
+			recoil = 10,
 			spread_moving = 6,
 			zoom = 3,
 			concealment = 5,
@@ -2555,6 +2555,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.r93.has_description = true
 		self.winchester1874.has_description = true
 		self.mosin.has_description = true
+		self.r700.has_description = true
+		self.peacemaker.has_description = true
 		
 		self.gre_m79.desc_id = "bm_w_rpg7_desc"
 		self.m32.desc_id = "bm_w_rpg7_desc"
@@ -2576,6 +2578,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.r93.desc_id = "bm_w_msr_desc"
 		self.winchester1874.desc_id = "bm_w_msr_desc"
 		self.mosin.desc_id = "bm_w_msr_desc"
+		self.r700.desc_id = "bm_w_msr_desc"
+		self.peacemaker.desc_id = "bm_w_peacemaker_desc"
 		
 		self.x_legacy.global_value = nil
 		self.m95.global_value = nil
@@ -2593,21 +2597,20 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.frankish.global_value = nil
 		self.arblast.global_value = nil
 		
-		self.wa2000.can_shoot_through_shield = false
-		self.tti.can_shoot_through_shield = false
-		self.siltstone.can_shoot_through_shield = false
-		self.wa2000.can_shoot_through_wall = false
-		self.tti.can_shoot_through_wall = false
-		self.siltstone.can_shoot_through_wall = false
+		self.wa2000.shoot_through_chance = 20
+		self.tti.shoot_through_chance = 20
+		self.siltstone.shoot_through_chance = 20
 		
-		self.msr.can_shoot_through_shield = false
-		self.model70.can_shoot_through_shield = false
-		self.desertfox.can_shoot_through_shield = false
-		self.r93.can_shoot_through_shield = false
-		self.winchester1874.can_shoot_through_shield = false
-		self.mosin.can_shoot_through_shield = false
+		self.msr.shoot_through_chance = 40
+		self.model70.shoot_through_chance = 40
+		self.desertfox.shoot_through_chance = 40
+		self.r93.shoot_through_chance = 40
+		self.winchester1874.shoot_through_chance = 40
+		self.mosin.shoot_through_chance = 40
 		
 		self.peacemaker.can_shoot_through_enemy = true
+		self.peacemaker.shoot_through_chance = 15
+
 		self.lemming.can_shoot_through_enemy = false
 		self.lemming.can_shoot_through_shield = false
 		self.lemming.can_shoot_through_wall = false
@@ -2856,7 +2859,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_ass_fal_fg_01.stats.damage = 2
 		self.parts.wpn_fps_ass_fal_fg_03.stats.damage = 2
 		self.parts.wpn_fps_ass_fal_fg_04.stats.damage = 2
-		self.parts.wpn_fps_sho_striker_b_suppressed.stats.damage = -5
+		self.parts.wpn_fps_sho_striker_b_suppressed.stats.damage = -1
 		self.parts.wpn_fps_sho_ksg_b_short.stats.damage = 5
 		self.parts.wpn_fps_ass_g3_b_sniper.stats = {value = 2, recoil = -2, spread = 2, concealment = -2, total_ammo_mod = -10, damage = 32, extra_ammo = -5}
 		self.parts.wpn_fps_ass_g3_b_short.stats = {value = 2, recoil = 2, spread = -2, concealment = 4, damage = -13, total_ammo_mod = 5}
@@ -2943,7 +2946,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_ass_tecci_ns_special.stats.damage = 5
 		self.parts.wpn_fps_smg_schakal_ns_silencer.stats.damage = -7
 		self.parts.wpn_fps_snp_desertfox_b_silencer.stats.damage = -2
-		self.parts.wpn_fps_sho_rota_b_silencer.stats.damage = -5
+		self.parts.wpn_fps_sho_rota_b_silencer.stats.damage = -1
 		self.parts.wpn_fps_upg_ns_duck.stats.damage = 5
 		self.parts.wpn_fps_snp_tti_ns_hex.stats.damage = -2
 		self.parts.wpn_fps_snp_siltstone_b_silenced.stats.damage = -2
@@ -3005,7 +3008,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_sho_aa12_barrel_silenced.has_description = true
 		self.parts.wpn_fps_snp_wa2000_b_suppressed.has_description = true
 		self.parts.wpn_fps_snp_siltstone_b_silenced.has_description = true
-		 
+		self.parts.wpn_fps_ass_sub2000_fg_suppressed.has_description = true
+		self.parts.wpn_fps_sho_rota_b_silencer.has_description = true
+		self.parts.wpn_fps_snp_tti_ns_hex.has_description = true
+		self.parts.wpn_fps_smg_mp5_fg_mp5sd.has_description = true
+
 		self.parts.wpn_fps_upg_ns_pis_large_kac.desc_id = 		"menu_silencer_radius_silent"
 		self.parts.wpn_fps_upg_ns_pis_large.desc_id = 			"menu_silencer_radius_silent"
 		self.parts.wpn_fps_upg_ns_pis_jungle.desc_id = 			"menu_silencer_radius_silent"
@@ -3018,6 +3025,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_upg_ns_ass_pbs1.desc_id = 			"menu_silencer_radius_silent"
 		self.parts.wpn_fps_smg_p90_b_ninja.desc_id = 			"menu_silencer_radius_silent"
 		self.parts.wpn_fps_smg_polymer_ns_silencer.desc_id = 	"menu_silencer_radius_silent"
+		self.parts.wpn_fps_ass_sub2000_fg_suppressed.desc_id = 	"menu_silencer_radius_silent"
+		self.parts.wpn_fps_smg_mp5_fg_mp5sd.desc_id = 			"menu_silencer_radius_silent"
+		
 		
 		self.parts.wpn_fps_upg_ns_ass_smg_large.stats.alert_size = 10		--очень малый
 		self.parts.wpn_fps_upg_ns_pis_medium.stats.alert_size = 10			--очень малый
@@ -3040,48 +3050,50 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_smg_schakal_ns_silencer.desc_id = 	"menu_silencer_radius_very_small"
 		self.parts.wpn_fps_ass_asval_b_proto.desc_id = 			"menu_silencer_radius_very_small"
 		
-		self.parts.wpn_fps_sho_striker_b_suppressed.stats.alert_size = 11	--малый
 		self.parts.wpn_fps_upg_ns_pis_small.stats.alert_size = 9			--малый
 		self.parts.wpn_fps_upg_ns_ass_smg_medium.stats.alert_size = 9		--малый
 		self.parts.wpn_fps_smg_sterling_b_e11.stats.alert_size = 8			--малый
 		self.parts.wpn_fps_smg_scorpion_b_suppressed.stats.alert_size = 9	--малый
-		self.parts.wpn_fps_sho_striker_b_suppressed.desc_id = 	"menu_silencer_radius_small"
+		self.parts.wpn_fps_upg_ns_sho_salvo_large.stats.alert_size = 9		--малый
 		self.parts.wpn_fps_upg_ns_pis_small.desc_id = 			"menu_silencer_radius_small"
 		self.parts.wpn_fps_upg_ns_ass_smg_medium.desc_id = 		"menu_silencer_radius_small"
 		self.parts.wpn_fps_smg_sterling_b_e11.desc_id = 		"menu_silencer_radius_small"
 		self.parts.wpn_fps_smg_scorpion_b_suppressed.desc_id = 	"menu_silencer_radius_small"
+		self.parts.wpn_fps_upg_ns_sho_salvo_large.desc_id = 	"menu_silencer_radius_small"
 		
 		self.parts.wpn_fps_upg_ns_ass_smg_small.stats.alert_size = 8		--средний
 		self.parts.wpn_fps_ass_famas_b_suppressed.stats.alert_size = 7		--средний
 		self.parts.wpn_fps_smg_uzi_b_suppressed.stats.alert_size = 6		--средний
 		self.parts.wpn_fps_ass_vhs_b_silenced.stats.alert_size = 6			--средний
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.stats.alert_size = 8		--средний
 		self.parts.wpn_fps_upg_ns_ass_filter.stats.alert_size = 8			--средний
 		self.parts.wpn_fps_sho_aa12_barrel_silenced.stats.alert_size = 8	--средний
 		self.parts.wpn_fps_snp_winchester_b_suppressed.stats.alert_size = 8	--средний
+		self.parts.wpn_fps_upg_ns_shot_thick.stats.alert_size = 8			--средний
 		self.parts.wpn_fps_upg_ns_ass_smg_small.desc_id = 			"menu_silencer_radius_medium"
 		self.parts.wpn_fps_ass_famas_b_suppressed.desc_id = 		"menu_silencer_radius_medium"
 		self.parts.wpn_fps_smg_uzi_b_suppressed.desc_id = 			"menu_silencer_radius_medium"
 		self.parts.wpn_fps_ass_vhs_b_silenced.desc_id = 			"menu_silencer_radius_medium"
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.desc_id = 		"menu_silencer_radius_medium"
 		self.parts.wpn_fps_upg_ns_ass_filter.desc_id = 				"menu_silencer_radius_medium"
 		self.parts.wpn_fps_sho_aa12_barrel_silenced.desc_id = 		"menu_silencer_radius_medium"
 		self.parts.wpn_fps_snp_winchester_b_suppressed.desc_id = 	"menu_silencer_radius_medium"
+		self.parts.wpn_fps_upg_ns_shot_thick.desc_id = 				"menu_silencer_radius_medium"
 		 
 		self.parts.wpn_fps_snp_r93_b_suppressed.stats.alert_size = 5		--большой
 		self.parts.wpn_fps_lmg_mg42_b_vg38.stats.alert_size = 5				--большой
-		self.parts.wpn_fps_upg_ns_shot_thick.stats.alert_size = 7			--большой
 		self.parts.wpn_fps_snp_wa2000_b_suppressed.stats.alert_size = 5		--большой
 		self.parts.wpn_fps_snp_mosin_b_sniper.stats.alert_size = 5			--большой
 		self.parts.wpn_fps_snp_tti_ns_hex.stats.alert_size = 5				--большой
 		self.parts.wpn_fps_snp_siltstone_b_silenced.stats.alert_size = 5	--большой
+		self.parts.wpn_fps_sho_rota_b_silencer.stats.alert_size = 5			--большой
+		self.parts.wpn_fps_sho_striker_b_suppressed.stats.alert_size = 5	--большой
 		self.parts.wpn_fps_snp_r93_b_suppressed.desc_id = 		"menu_silencer_radius_high"
 		self.parts.wpn_fps_lmg_mg42_b_vg38.desc_id = 			"menu_silencer_radius_high"
-		self.parts.wpn_fps_upg_ns_shot_thick.desc_id = 			"menu_silencer_radius_high"
 		self.parts.wpn_fps_snp_wa2000_b_suppressed.desc_id = 	"menu_silencer_radius_high"
 		self.parts.wpn_fps_snp_mosin_b_sniper.desc_id = 		"menu_silencer_radius_high"
 		self.parts.wpn_fps_snp_tti_ns_hex.desc_id = 			"menu_silencer_radius_high"
 		self.parts.wpn_fps_snp_siltstone_b_silenced.desc_id = 	"menu_silencer_radius_high"
+		self.parts.wpn_fps_sho_rota_b_silencer.desc_id = 		"menu_silencer_radius_high"
+		self.parts.wpn_fps_sho_striker_b_suppressed.desc_id = 	"menu_silencer_radius_high"
 		
 		self.parts.wpn_fps_snp_m95_barrel_suppressed.stats.alert_size = 4	--очень большой
 		self.parts.wpn_fps_saw_body_silent.stats.alert_size = 7				--очень большой
@@ -4398,9 +4410,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/projectilestweakd
 		self.projectiles.smoke_screen_grenade.dlc = nil
 		self.projectiles.chico_injector.base_cooldown = nil
 		self.projectiles.smoke_screen_grenade.base_cooldown = nil
+		self.projectiles.pocket_ecm_jammer.base_cooldown = nil
 		self.projectiles.chico_injector.max_amount = 3
 		self.projectiles.concussion.max_amount = 3
 		self.projectiles.smoke_screen_grenade.max_amount = 3
+		self.projectiles.pocket_ecm_jammer.max_amount = 3
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
@@ -4425,6 +4439,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 	self.projectiles.crossbow_arrow.damage = 10
 	self.projectiles.crossbow_poison_arrow.damage = 3.2
 	self.projectiles.crossbow_arrow_exp.damage = 15
+	self.projectiles.wpn_prj_four.damage = 1.1
 	self.projectiles.wpn_prj_jav.damage = 11
 	self.projectiles.arblast_arrow.damage = 10
 	self.projectiles.arblast_arrow_exp.damage = 13
@@ -4446,6 +4461,87 @@ if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 	self.projectiles.elastic_arrow.damage = 8
 	self.projectiles.elastic_arrow_exp.damage = 10.5
 	self.projectiles.elastic_arrow_poison.damage = 3.5
+	self.projectiles.elastic_arrow_poison.damage = 3.5
+	self.dot_types = {
+		poison = {
+			damage_class = "PoisonBulletBase",
+			dot_damage = 1.7,
+			dot_length = 4,
+			hurt_animation_chance = 1
+		}
+	}
+end
+if string.lower(RequiredScript) == "lib/units/weapons/raycastweaponbase" then
+	function RaycastWeaponBase:_collect_hits(from, to)
+		local shoot_through_chance = tweak_data.weapon[self._name_id].shoot_through_chance or 100
+		local can_shoot_through = self._can_shoot_through_wall or self._can_shoot_through_shield or self._can_shoot_through_enemy
+		local ray_hits = nil
+		local hit_enemy = false
+		local enemy_mask = managers.slot:get_mask("enemies")
+		local wall_mask = managers.slot:get_mask("world_geometry", "vehicles")
+		local shield_mask = managers.slot:get_mask("enemy_shield_check")
+		local ai_vision_ids = Idstring("ai_vision")
+		local bulletproof_ids = Idstring("bulletproof")
+
+		if self._can_shoot_through_wall then
+			ray_hits = World:raycast_wall("ray", from, to, "slot_mask", self._bullet_slotmask, "ignore_unit", self._setup.ignore_units, "thickness", 40, "thickness_mask", wall_mask)
+		else
+			ray_hits = World:raycast_all("ray", from, to, "slot_mask", self._bullet_slotmask, "ignore_unit", self._setup.ignore_units)
+		end
+
+		local units_hit = {}
+		local unique_hits = {}
+
+		for i, hit in ipairs(ray_hits) do
+			if not units_hit[hit.unit:key()] then
+				units_hit[hit.unit:key()] = true
+				unique_hits[#unique_hits + 1] = hit
+				hit.hit_position = hit.position
+				hit_enemy = hit_enemy or hit.unit:in_slot(enemy_mask)
+				local weak_body = hit.body:has_ray_type(ai_vision_ids)
+				weak_body = weak_body or hit.body:has_ray_type(bulletproof_ids)
+
+				if not self._can_shoot_through_enemy and hit_enemy then
+					break
+				elseif not self._can_shoot_through_wall and hit.unit:in_slot(wall_mask) and weak_body then
+					break
+				elseif not self._can_shoot_through_shield and hit.unit:in_slot(shield_mask) then
+					break
+				elseif self._can_shoot_through_enemy and hit_enemy then
+					if math.random(100) > shoot_through_chance then
+						break
+					end
+				elseif self._can_shoot_through_wall and hit.unit:in_slot(wall_mask) and weak_body then
+					if math.random(100) > shoot_through_chance then
+						break
+					end
+				elseif self._can_shoot_through_shield and hit.unit:in_slot(shield_mask) then
+					if math.random(100) > shoot_through_chance then
+						break
+					end
+				end
+			end
+		end
+
+		return unique_hits, hit_enemy
+	end
+end
+if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
+	function RaycastWeaponBase:update_next_shooting_time()
+		local next_fire = (tweak_data.weapon[self._name_id].fire_mode_data and tweak_data.weapon[self._name_id].fire_mode_data.fire_rate or 0) / self:fire_rate_multiplier()
+		self._next_fire_allowed = self._next_fire_allowed + next_fire
+		if self._ammo_data then
+			if self._ammo_data.can_shoot_through_shield ~= nil then
+				self._can_shoot_through_shield = math.random(100) < 75 and self._ammo_data.can_shoot_through_shield or nil
+			end
+			if self._ammo_data.can_shoot_through_wall ~= nil then
+				self._can_shoot_through_wall = math.random(100) < 75 and self._ammo_data.can_shoot_through_wall or nil
+			end
+			if self._ammo_data.can_shoot_through_enemy ~= nil then
+				self._can_shoot_through_enemy = math.random(100) < 75 and self._ammo_data.can_shoot_through_enemy or nil
+			end
+		end
+	end
 end
 if string.lower(RequiredScript) == "lib/utils/inventorydescription" then
 	WeaponDescription._stats_shown[5].percent = false

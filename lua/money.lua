@@ -27,7 +27,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.bag_values.shells = 1400
 		self.bag_values.turret = 7500
 		self.bag_values.red_diamond = 40000
-
+		self.bag_values.mus_artifact_bag = 1500
+		self.bag_values.stones = 2200
+		self.bag_values.sah_artifact_bag = 500
+		
+		
 		self.loot_drop_cash.cash10 = 100000 * 2
 		self.loot_drop_cash.cash20 = 100000 * 4
 		self.loot_drop_cash.cash30 = 100000 * 6
@@ -100,6 +104,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/carrytweakdata" then
 			self.lance_bag.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
 			self.ammo.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
 		end
+		
+		if Global.game_settings and Global.game_settings.level_id == "sah" then
+			self.mus_artifact.bag_value = "sah_artifact_bag"
+		end
+		
+		self.diamonds_dah.bag_value = "stones"
 		self.engine_01.type = "mega_heavy"
 		self.engine_02.type = "mega_heavy"
 		self.engine_03.type = "mega_heavy"

@@ -229,7 +229,7 @@ function AchievementsTweakData:init(tweak_data)
 	}
 	self.never_let_you_go = {
 		weapon_id = "m134",
-		timer = 25,
+		timer = 15,
 		award = "ovk_3"
 	}
 	self.nothing_to_see_here = {
@@ -782,13 +782,13 @@ function AchievementsTweakData:init(tweak_data)
 			attack_weapon_type = "sentry_gun",
 			challenge_stat = "sentry_kills"
 		},
-		challenge_winters_mutated = {
-			challenge_award = "challenge_winters_mutated",
-			is_vip = true,
-			mutators = {
-				"MutatorHydra"
-			}
-		},
+		-- challenge_winters_mutated = {
+			-- challenge_award = "challenge_winters_mutated",
+			-- is_vip = true,
+			-- mutators = {
+				-- "MutatorHydra"
+			-- }
+		-- },
 		any_kills = {
 			challenge_stat = "any_kills"
 		},
@@ -1619,6 +1619,24 @@ function AchievementsTweakData:init(tweak_data)
 			award = "ameno_1",
 			job = "nightclub",
 			equipped_team = {primary = "wpn_fps_saw"}
+		},
+		challenge_pain_train = {
+			loud = true,
+			num_players = 4,
+			challenge_award = "challenge_winters_mutated",
+			need_full_job = true,
+			jobs = {"firestarter", "firestarter_pro"},
+			difficulty = overkill_or_above,
+			equipped_team = {
+				secondary_unmodded = true,
+				primary_unmodded = true,
+				primaries = {
+					"wpn_fps_ass_74"
+				},
+				secondaries = {
+					"wpn_fps_smg_olympic"
+				}
+			}
 		},
 		pain_train = {
 			loud = true,
@@ -3079,7 +3097,7 @@ function AchievementsTweakData:init(tweak_data)
 		challenge_geneva = {
 			complete_job = true,
 			challenge_award = "challenge_geneva",
-			job = "red2",
+			job = "chill_combat",
 			difficulty = overkill_or_above,
 			killed = {
 				medic = 0
@@ -3403,7 +3421,8 @@ function AchievementsTweakData:init(tweak_data)
 			"vit",
 			"mex",
 			"mex_cooking",
-			"bex"
+			"bex",
+			"pex"
 		},
 		jimmy = {
 			"mad",
@@ -3568,7 +3587,7 @@ function AchievementsTweakData:init(tweak_data)
 		trk_a_0 = {
 			award = "trk_a_0",
 			contact = "all",
-			difficulty = normal
+			difficulty = any
 		},
 		trk_c_5 = {
 			award = "trk_c_5",
@@ -3732,7 +3751,7 @@ function AchievementsTweakData:init(tweak_data)
 			multi_kill = 3
 		},
 		max_peneration = {
-			weapon = "m95",
+			weapon = "r93",
 			stat = "gage3_10_stats",
 			obstacle = "shield",
 			enemy = "shield"
@@ -4323,6 +4342,11 @@ function AchievementsTweakData:init(tweak_data)
 		job = "rvd_pro",
 		difficulty = deathwish
 	}
+	self.complete_heist_achievements.pex_6 = {
+		award = "pex_6",
+		job = "pex",
+		difficulty = deathwish
+	}
 --=====================================================================================--
 --=====================================================================================--
 --=====================================================================================--
@@ -4606,7 +4630,7 @@ function AchievementsTweakData:_init_non_auto_generated(tweak_data)
 		}, get_texture_path(tweak_data, "melee_weapons", "toothbrush"))
 	}
 	self.visual.armored_2.need_unlock_icons = false
-	self.visual.fin_1.need_unlock_icons = false
+	self.visual.fin_1.need_unlock_icons = true
 	self.visual.frog_1.unlock_icons = {
 		{
 			type_items = "kill_slot",

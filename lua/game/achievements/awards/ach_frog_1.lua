@@ -5,6 +5,7 @@ function BlackMarketManager:check_frog_1()
 
 	local frog_1_memory = managers.job:get_memory("frog_1")
 	local is_correct_job = frog_1_memory ~= false and managers.job and managers.job:has_active_job() and (managers.job:current_real_job_id() == "hox" or managers.job:current_real_job_id() == "hox_pro") and table.contains({
+		"overkill",
 		"overkill_145",
 		"easy_wish",
 		"overkill_290",
