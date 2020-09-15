@@ -4,7 +4,7 @@ if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
 			local xp = 23400000
 			managers.experience:add_points(xp, false, true)
 			managers.skilltree:give_specialization_points(xp)
-			for rank = managers.experience:current_rank() - 10, #tweak_data.infamy.tree + 1 do
+			for rank = managers.experience:current_rank() - 1, #tweak_data.infamy.tree + 1 do
 				managers.experience:set_current_rank(rank)
 			end
 			local max_points = managers.skilltree:digest_value(Global.skilltree_manager.specializations.max_points, false)

@@ -24,6 +24,7 @@
 		<hook source_file="lib/units/interactions/interactionext"					file="narrative.lua"/>
 		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="narrative.lua"/>
+		<hook source_file="lib/managers/missionmanager"								file="narrative.lua"/>
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons.lua"/>
@@ -45,6 +46,7 @@
 		<hook source_file="lib/managers/menu/skilltreegui"							file="skills.lua"/>
         <hook source_file="lib/managers/menumanagerdialogs" 						file="skills.lua"/>
         <hook source_file="lib/managers/skilltreemanager" 							file="skills.lua"/>
+        <hook source_file="lib/units/equipment/ammo_bag/ammobagbase" 				file="skills.lua"/>
 		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
@@ -70,6 +72,7 @@
 		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/cop/copmovement.lua"/>
 		<hook source_file="lib/managers/menumanagerdialogs"							file="infamy.lua"/>
 		<hook source_file="lib/tweak_data/infamytweakdata"							file="infamy.lua"/>
+		<hook source_file="lib/managers/infamymanager"								file="infamy.lua"/>
 		<hook source_file="lib/managers/menu/infamytreegui"							file="infamy.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="infamy.lua"/>
 		<hook source_file="lib/managers/menu/menuscenegui"							file="infamy.lua"/>
@@ -106,8 +109,8 @@
 		<hook source_file="lib/tweak_data/dlctweakdata"								file="content.lua"/>
 		<hook source_file="lib/tweak_data/gageassignmenttweakdata"					file="content.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/maskstweakdata"				file="content.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/materialstweakdata"			file="content.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/texturestweakdata"			file="content.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/materialstweakdata"			file="content.lua"/>
 		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="game/networkmatchmakingsteam.lua"/>
 		<hook source_file="lib/managers/savefilemanager"							file="game/savefile.lua"/>
 		<hook source_file="lib/managers/menu/menunodegui"							file="game/version.lua"/>
@@ -119,9 +122,9 @@
 		<hook source_file="lib/managers/statisticsmanager"							file="game/achievements/statisticsmanager.lua"/>
 		<hook source_file="lib/tweak_data/hudiconstweakdata"						file="game/achievements/hudiconstweakdata.lua"/>
 		<hook source_file="lib/tweak_data/generatedachievementtweakdata"			file="game/achievements/generatedachievementtweakdata.lua"/>
-		<hook source_file="lib/tweak_data/achievementstweakdata"					file="game/achievements/awards/achievementstweakdata.lua"/>
-		<hook source_file="lib/managers/achievement/cac_customachievements"			file="game/achievements/awards/cac_customachievements.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="game/achievements/awards/ach_frog_1.lua"/>
+		<hook source_file="lib/tweak_data/achievementstweakdata"					file="game/achievements/awards.lua"/>
+		<hook source_file="lib/managers/achievement/cac_customachievements"			file="game/achievements/awards.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="game/achievements/awards.lua"/>
 		<hook source_file="lib/managers/blackmarketmanager"							file="game/test.lua"/>
 		<hook source_file="lib/managers/dlcmanager"									file="game/test.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="game/test.lua"/>
@@ -139,6 +142,7 @@
 
     <AddFiles directory="assets">
 
+		<texture path="guis/dlcs/infamous/textures/pd2/infamous_tree/infamous_tree_atlas" force="true"/>
 		<texture path="guis/textures/pd2/achievements/achievements" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
 		

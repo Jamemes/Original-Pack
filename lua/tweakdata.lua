@@ -16,6 +16,9 @@ self.unlock_crimespree = pro_rank
 self.unlock_skirmish = pro_rank
 self.unlock_profiles = pro_rank
 
+self.quickplay.default_level_diff = {0, 100}
+self.quickplay.max_level_diff = {100, 100}
+
 self.difficulty_level_locks = 					{ 	0, 	0, 	0, 	0, 	0, 	80,	1337,	1337 }
 self.difficulty_level_locks_infamy = 			{ 	0, 	0, 	0, 	0, 	0, 	0, 	1337, 	1337 }
 	

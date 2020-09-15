@@ -6430,3 +6430,6 @@ if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 	end
 
 end
+if string.lower(RequiredScript) == "lib/units/equipment/ammo_bag/ammobagbase" then
+	AmmoBagBase._BULLET_STORM = {5, 10}
+end
