@@ -16,11 +16,15 @@ self.unlock_crimespree = pro_rank
 self.unlock_skirmish = pro_rank
 self.unlock_profiles = pro_rank
 
+self.max_offshore = 1000000000
+self.max_spending_cash = 15000000
+self.max_coins = 250000
+		
 self.quickplay.default_level_diff = {0, 100}
 self.quickplay.max_level_diff = {100, 100}
 
-self.difficulty_level_locks = 					{ 	0, 	0, 	0, 	0, 	0, 	80,	1337,	1337 }
-self.difficulty_level_locks_infamy = 			{ 	0, 	0, 	0, 	0, 	0, 	0, 	1337, 	1337 }
+self.difficulty_level_locks = 					{0, 0, 0, 0, 0, 80, 1337, 1337}
+self.difficulty_level_locks_infamy = 			{0, 0, 0, 0, 0, 0, 1337, 1337}
 	
 self.difficulties = {
 	"easy",
@@ -32,14 +36,7 @@ self.difficulties = {
 	"sm_wish",
 	"sm_wish"
 }
-self.experience_manager.difficulty_multiplier = {
-	2,
-	5,
-	10,
-	13,
-	18,
-	18
-}
+self.experience_manager.difficulty_multiplier = {2, 5, 10, 13, 18, 18}
 self.experience_manager.loot_drop_value.xp10 = 130000
 self.experience_manager.loot_drop_value.xp20 = 150000
 self.experience_manager.loot_drop_value.xp30 = 170000

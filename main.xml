@@ -42,11 +42,11 @@
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="skills.lua"/>
 		<hook source_file="lib/units/pickups/ammoclip"								file="skills.lua"/>
 		<hook source_file="lib/managers/playermanager"								file="skills.lua"/>
-		<hook source_file="lib/managers/menu/skilltreeguinew"						file="skills.lua"/>
 		<hook source_file="lib/managers/menu/skilltreegui"							file="skills.lua"/>
-        <hook source_file="lib/managers/menumanagerdialogs" 						file="skills.lua"/>
         <hook source_file="lib/managers/skilltreemanager" 							file="skills.lua"/>
         <hook source_file="lib/units/equipment/ammo_bag/ammobagbase" 				file="skills.lua"/>
+        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills.lua"/>
+        <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills.lua"/>
 		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
@@ -79,6 +79,7 @@
 		<hook source_file="lib/managers/experiencemanager"							file="infamy.lua"/>
 		<hook source_file="lib/network/base/session_states/hoststateingame"			file="infamy.lua"/>
 		<hook source_file="lib/network/base/session_states/hoststateinlobby"		file="infamy.lua"/>
+		<hook source_file="lib/managers/menu/playerprofileguiobject"				file="interface/playerprofileguiobject.lua"/>
 		<hook source_file="lib/managers/chatmanager"								file="interface/chatmanager.lua"/>
 		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface/chatmanager.lua"/>
 		<hook source_file="core/lib/managers/coreenvironmentcontrollermanager"		file="interface/coreenvironmentcontrollermanager.lua"/>

@@ -364,49 +364,12 @@ function HUDStatsScreen:recreate_right()
 				difficulty_text:set_color(difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
 			end
 			if Global.game_settings.one_down then
-				local one_down_string = managers.localization:to_upper_text("menu_one_down")
-				local modifier_string = difficulty_string .. "  " .. "##" .. one_down_string .. "##"
-				local text_dissected = utf8.characters(modifier_string)
-				local idsp = Idstring("#")
-				local start_ci = {}
-				local end_ci = {}
-				local first_ci = true
-				for i, c in ipairs(text_dissected) do
-					if Idstring(c) == idsp then
-						local next_c = text_dissected[i + 1]
-
-						if next_c and Idstring(next_c) == idsp then
-							if first_ci then
-								table.insert(start_ci, i)
-							else
-								table.insert(end_ci, i)
-							end
-
-							first_ci = not first_ci
-						end
-					end
-				end
-
-				if #start_ci == #end_ci then
-					for i = 1, #start_ci, 1 do
-						start_ci[i] = start_ci[i] - ((i - 1) * 4 + 1)
-						end_ci[i] = end_ci[i] - (i * 4 - 1)
-					end
-				end
-
-				modifier_string = string.gsub(modifier_string, "##", "")
-				if alive(difficulty_text) then
-					difficulty_text:set_text(modifier_string)
-					difficulty_text:clear_range_color(1, utf8.len(modifier_string))
-
-					if #start_ci ~= #end_ci then
-						Application:error("CrimeNetContractGui: Not even amount of ##'s in skill description string!", #start_ci, #end_ci)
-					else
-						for i = 1, #start_ci, 1 do
-							difficulty_text:set_range_color(start_ci[i], end_ci[i], i == 1 and tweak_data.screen_colors.one_down)
-						end
-					end
-				end
+				local one_down_string = difficulty_string .. "  " .. "##" .. managers.localization:to_upper_text("menu_one_down") .. "##"
+				managers.menu:color_range(
+					difficulty_text,
+					tweak_data.screen_colors.one_down,
+					one_down_string
+				)
 			end
 
 			local _, _, tw, th = difficulty_text:text_rect()

@@ -546,7 +546,7 @@
 	"menu_normal_progress_dialog_title":	"Switching to Normal Progress",
 	"menu_normal_progress_dialog_message":	"Game will restart on its own as soon as you confirm switching to Normal Progress.\n\nDo you want switch to Normal Progress?",
 	"dialog_what_is_max_progress":			"What does Max Progress Mode?",
-	"dialog_what_is_max_progress_text":		"Maximum progress is a mode where you get all items, weapons, masks, materials, and etc. One for each type of item. (Only those items that you have from DLC)\nMaximum Infamy rank and 100 level.\nThis mode uses a different save file, which allows you to switch between the max and normal modes without spoiling your progress and also has its own progress of achievements. But you can only play with those players who also have the Max Progress enabled.\n\nStarter money kit:\nOffshore Account - $800.000.000.000\nSpending cash - $200.000.000.000\nContinental coins - © 1.000.000.000\n\nDo you want switch to Max Progress Mode?",
+	"dialog_what_is_max_progress_text":		"Maximum progress is a mode where you get all items, weapons, masks, materials, and etc. One for each type of item. (Only those items that you have from DLC)\nMaximum Infamy rank and 100 level.\nThis mode uses a different save file, which allows you to switch between the max and normal modes without spoiling your progress and also has its own progress of achievements. But you can only play with those players who also have the Max Progress enabled.\n\nStarter money kit:\nOffshore Account - $1.000.000.000\nSpending cash - $150.000.000\nContinental coins - © 250.000\n\nDo you want switch to Max Progress Mode?",
 	
 	"menu_always_show_body_bags_title":	"Always show body bags counter",
 	"menu_always_show_accuracy_title":	"Always show accuracy counter",
