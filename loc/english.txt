@@ -49,7 +49,7 @@
 	"menu_aggressive_shots":				"Aggressive Shots",
 	"menu_aggressive_shots_desc":			"BASIC: ##$basic## \nIncreases your reload speed with sniper rifles by ##25%##.\nAny killing headshot will increase your reload speed by additional ##20%## for ##4## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode. \n\nACE: ##$pro## \nYour weapon accuracy while moving with sniper rifles is increased by ##50%##.\n\nYou gain a ##30%## critical hit chance firing by SMGs, Assault Rifles and Sniper Rifles in single shot fire mode.",
 	"menu_cat_burglar_desc":				"BASIC: ##$basic## \nYou take ##75%## less damage from falling from non-lethal heights. \n\nACE: ##$pro## \nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
-	"menu_cleaner_desc":					"BASIC: ##$basic## \nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
+	"menu_cleaner_desc":					"BASIC: ##$basic## \n##1## body bag is added to your inventory.\n\nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
 	"menu_spotter":							"Spotter",
 	"menu_spotter_desc":					"BASIC: ##$basic## \nSpecial enemies marked by you take ##15%## additional damage. \n\nACE: ##$pro## \nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
 	"menu_mastercraftsman":					"Improved Crafting",
