@@ -2,6 +2,25 @@ if string.lower(RequiredScript) == "lib/tweak_data/skirmishtweakdata" then
 	local data = SkirmishTweakData.init
 	function SkirmishTweakData:init(tweak_data)
 		data(self, tweak_data)
+
+		self.weekly_rewards[3].masks = {
+			"skm_05",
+			"skm_06",
+			"skm_07",
+			"skm_08",
+			"smo_07",
+			"smo_08",
+			"smo_09",
+			"smo_10",
+			"smo_11",
+			"smo_12",
+			"ami_01",
+			"ami_02",
+			"ami_03",
+			"ami_04",
+			"ami_05",
+			"ami_06"
+		}
 		self.ransom_amounts = {
 			1000000,
 			1400000,

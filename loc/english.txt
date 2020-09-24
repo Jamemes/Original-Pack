@@ -49,7 +49,7 @@
 	"menu_aggressive_shots":				"Aggressive Shots",
 	"menu_aggressive_shots_desc":			"BASIC: ##$basic## \nIncreases your reload speed with sniper rifles by ##25%##.\nAny killing headshot will increase your reload speed by additional ##20%## for ##4## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode. \n\nACE: ##$pro## \nYour weapon accuracy while moving with sniper rifles is increased by ##50%##.\n\nYou gain a ##30%## critical hit chance firing by SMGs, Assault Rifles and Sniper Rifles in single shot fire mode.",
 	"menu_cat_burglar_desc":				"BASIC: ##$basic## \nYou take ##75%## less damage from falling from non-lethal heights. \n\nACE: ##$pro## \nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
-	"menu_cleaner_desc":					"BASIC: ##$basic## \nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
+	"menu_cleaner_desc":					"BASIC: ##$basic## \n##1## body bag is added to your inventory.\n\nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
 	"menu_spotter":							"Spotter",
 	"menu_spotter_desc":					"BASIC: ##$basic## \nSpecial enemies marked by you take ##15%## additional damage. \n\nACE: ##$pro## \nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
 	"menu_mastercraftsman":					"Improved Crafting",
@@ -58,7 +58,7 @@
 	"menu_second_wind":						"Second Wind",
 	"menu_second_wind_desc":				"BASIC: ##$basic## \nWhen your armor breaks your movement speed is increased by ##10%## for ##5## seconds. \n\nACE: ##$pro## \nYour chance to dodge is increased by ##5%## for ballistic vests.",
   	"menu_akimbo_skill":					"Akimbo",
-	"menu_akimbo_skill_desc":				"BASIC: ##$basic## \nYou can dual wield two pistols.\n\nDual wielded weapons have ##-16## stability penalty. \n\nACE: ##$pro## \nYour stability penalty with Akimbo weapons is set to ##-8## and increases the ammo capacity of your Akimbo weapons to ##50%##.",
+	"menu_akimbo_skill_desc":				"BASIC: ##$basic## \nYou can dual wield two pistols.\n\nDual wielded weapons have ##50%## stability penalty. \n\nACE: ##$pro## \nYour stability penalty with Akimbo weapons is set to ##25%## and increases the ammo capacity of your Akimbo weapons to ##50%##.",
 	"menu_backstab":						"Backstab",
 	"menu_backstab_desc":					"BASIC: ##$basic## \nWhen charging your melee weapon you will counterattack enemies that try to strike you, knocking them down. The knockdown does not deal any damage. \n\nACE: ##$pro## \nKilling a guard with a melee weapon you have a ##7%## chance that you won't have to answer his pager.\n\nNote: Skill doesn't work if the death was caused by poisoning.",
   	"menu_gunzerker":						"Gunzerker",
@@ -99,7 +99,9 @@
 	"menu_fire_trap_detailed_desc":				"Your trip mines now spread fire around the area of detonation for ##20## seconds in a ##6## meter diameter.",
 	"menu_hostage_situation":					"Hostage Situation"
 	"menu_hostage_situation_desc":				"Cover-up by hostages."
-	"menu_hostage_situation_detailed_desc":		"You and your crew gain ##0.5## damage absorption for each hostage you have. This effect stacks with up to a maximum of ##8## hostages.\n\nNote: This skill does not stack.",
+	"menu_hostage_situation_detailed_desc":		"You and your crew gain ##1## damage absorption for each hostage you have. This effect stacks with up to a maximum of ##12## hostages.\n\nNote: This skill does not stack.",
+	"menu_heavy_impact_desc":					"Knock down enemies with heavy firepower."
+	"menu_heavy_impact_detailed_desc":			"Your shots have a ##5%## chance to stagger all enemies except Bulldozers.",
 	
 	"menu_mastermind_tier_1":		"Increases your doctor bag interaction speed by ##20%##.",
 	"menu_mastermind_tier_2":		"Increases stamina for you and your crew by ##15%##.",
@@ -125,11 +127,11 @@
 	"menu_ghost_tier_4":			"You gain ##+5## increased concealment. When wearing armor, your movement speed is ##25%## less affected.",
 	"menu_ghost_tier_5":			"The time between swapping weapons is reduced for you by ##80%##.",
 	"menu_ghost_tier_6":			"Your chance of getting a higher quality item during a Payday is increased by ##10%##. All your weapons have a ##15%## chance to pierce enemy armor.",
-	"menu_hoxton_tier_1":			"You and your crew gains ##15%## more health.",
+	"menu_hoxton_tier_1":			"Your chance to be targeted while standing still and crouching is decreased by ##15%##.",
 	"menu_hoxton_tier_2":			"You gain ##10%## more armor.",
 	"menu_hoxton_tier_3":			"When you are surrounded by three enemies or more, you receive ##12%## less damage from enemies.",
 	"menu_hoxton_tier_4":			"You deal ##5%## more damage against special enemies.",
-	"menu_hoxton_tier_5":			"Your chance to be targeted while standing still and crouching is decreased by ##15%##.",
+	"menu_hoxton_tier_5":			"You bag corpses ##20%## faster.",
 	"menu_hoxton_tier_6":			"Standing still and crouching increases your armor recovery rate by ##15%##.",
 	
 	"heist_arm":	"Armored Transport",
@@ -510,7 +512,7 @@
 	"loading_op_gameplay_17":		"If your teammate has downed, make sure that he is not lying in an open area. Otherwise, you will be shotted while trying to get him up, and then you will have to get up both of you.",
 	"loading_op_gameplay_18":		"Don't be doubt to use the cover as long as it is necessary. Even if you have to sit for half an hour.",
 	"loading_op_gameplay_19":		"Perk points getting rate goes 10,000 to 1. If the contract gives less than 10,000 experience, then points will not be awarded.",
-	"loading_op_gameplay_20":		"If you do not want to play from scratch, then there is an option ''Maximum Progress Mode'' in MOD OPTIONS especially for you. But you can only play with the same players who have the maximum progress enabled.",
+	"loading_op_gameplay_20":		"If you do not want to play from scratch, then there is an option ''Max Progress'' in main menu especially for you. But you can only play with the same players who have the maximum progress enabled.",
 	"loading_op_gameplay_21":		"In standard game mode, Death Wish is maximum difficulty. Difficulty higher than that, you can find only in Crime Spree.",
 	"loading_op_gameplay_22":		"Original Pack achievements separated from the progress of Steam achievements.",
 	"loading_op_gameplay_23":		"New Safehouse, Profiles, Continental coins, Crime Spree, and Holdout unlocks when you reach Infamy V.",
@@ -521,17 +523,39 @@
 	"loading_op_gameplay_28":		"If you going loud without ammunition, your team less likely survived on the job.",
 	"loading_op_gameplay_29":		"Weapons with explosive and incendiary shells are more useful than usual weapons, but ammunition can be replenished only from ammo bags.",
 	"loading_op_gameplay_30":		"If an escape van is available and you are going to escape, make sure that the entire team has replenished their health. Otherwise, some of you may not be able to run away.",
+	"loading_op_gameplay_31":		"When the assault ends, you can intimidate enemies even if you don't have the Dominator skill. It's useful when there aren't any civilians in the area to tie up.",
+	"loading_op_gameplay_32":		"When you kill a civilian, you lose experience. You get a 1% deduction for each kill, 2% on OVERKILL difficulty, and 3% on Death Wish difficulty.",
+	"loading_op_gameplay_33":		"Laser module can disturb civilians and security guards. Flashlights are ignored, since each guard has his own and does not cause any suspicion than lasers.",
 
-	"menu_accuracy": 						"Accuracy",
-	"menu_kills": 							"Total Kills",
-	"neigbours_alert_text":					"Neighbours",
-	"footstep_alert_text":					"Sprint noise",
-	"bullet_alert_text":					"Hit noise",
+	"menu_accuracy": 					"Accuracy",
+	"menu_kills": 						"Total Kills",
+	"neigbours_alert_text":				"Neighbours",
+	"footstep_alert_text":				"Sprint noise",
+	"bullet_alert_text":				"Hit noise",
 	
-	"menu_enable_max_progress_title":		"Enable Max Progress Mode",
-	"menu_enable_max_progress_desc":		"That will restart your game",
-	"menu_always_show_accuracy_title":		"Always show accuracy counter",
-	"menu_always_show_kills_title":			"Always show kill counter",
+	"menu_infamy_name_immortal":			"Immortal",
+	"menu_infamy_desc_immortal":			"The power of such a being cannot be described in words or symbols.$NL;$NL;BONUSES:$NL;Experience gained is increased by ##$xpboost%##.$NL;$NL;ITEMS:$NL;$NL;",
+	"bm_askn_tam_unlock":					"Cannot be traded or sold.",
+	"bm_wskn_tam_locked":					"This weapon skin is an Infamy Reward, it cannot be traded or sold."
+
+	"menu_OP_changelog":					"Original Pack Changelog",
+	"menu_OP_changelog_desc":				"Changelog and update history.",
+	"menu_find_game":						"Find Game",
+	"menu_find_game_desc":					"Join to any lobby.",
+	"menu_max_progress_title":				"Max Progress",
+	"menu_max_progress_desc":				"Switch to maximum progress, you will have everything you want for play. Some kind of Creative mode.",
+	"menu_normal_progress_title":			"Normal Progress",
+	"menu_normal_progress_desc":			"Back to normal progress.",
+	"menu_max_progress_dialog_title":		"Switching to Max Progress Mode",
+	"menu_max_progress_dialog_message":		"Max Progress mode using a different save file.\n\nSo everything that you gain in normal mode will be saved, you can come back any time and continue with the resources that you earned earlier.\nGame will restart on its own as soon as you confirm switching to Max Progress.\n\nDo you want switch to Max Progress Mode?",
+	"menu_normal_progress_dialog_title":	"Switching to Normal Progress",
+	"menu_normal_progress_dialog_message":	"Game will restart on its own as soon as you confirm switching to Normal Progress.\n\nDo you want switch to Normal Progress?",
+	"dialog_what_is_max_progress":			"What does Max Progress Mode?",
+	"dialog_what_is_max_progress_text":		"Maximum progress is a mode where you get all items, weapons, masks, materials, and etc. One for each type of item. (Only those items that you have from DLC)\nMaximum Infamy rank and 100 level.\nThis mode uses a different save file, which allows you to switch between the max and normal modes without spoiling your progress and also has its own progress of achievements. But you can only play with those players who also have the Max Progress enabled.\n\nStarter money kit:\nOffshore Account - $1.000.000.000\nSpending cash - $150.000.000\nContinental coins - © 250.000\n\nDo you want switch to Max Progress Mode?",
+	
+	"menu_always_show_body_bags_title":	"Always show body bags counter",
+	"menu_always_show_accuracy_title":	"Always show accuracy counter",
+	"menu_always_show_kills_title":		"Always show kill counter",
 	
 	"menu_prof_mod_contract":			"If you fail, the entire contract will be terminated.",
 	"menu_prof_mod_hostage":			"The amount of hostages is unknown during the assault.",
@@ -539,6 +563,12 @@
 	"menu_prof_mod_inventory":			"Special equipment is not transferred if the player is taken into custody.",
 	
 	"menu_achievements_teamwork_players_2_to_4":			"2-4 Players",
+	
+	"menu_killed_civs_reduction_exp":		"Killed civilians penalty",
+	"menu_loose_money_collected_exp":		"Loose money found",
+	"menu_killed_civs":						"Civilians were killed! Experience reduced by ",
+	"menu_collected_packages":				"Gage packages found. Experience increased by ",
+	"menu_loose_money":						"Loose money found. Experience increased by ",
 	
 	"cn_menu_contract_day":		"$stages day"
 }

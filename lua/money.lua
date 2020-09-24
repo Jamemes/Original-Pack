@@ -93,7 +93,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 			13,
 			18
 		}
-		self.skilltree.respec.point_tier_cost = self._create_value_table(0, self.biggest_cashout * 0.18, 7, true, 1.1)
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/carrytweakdata" then

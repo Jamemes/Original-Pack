@@ -66,7 +66,8 @@ function HUDAssaultCorner:_show_icon_assaultbox(icon_assaultbox)
 		icon_assaultbox:set_alpha(alpha)
 	end
 
-	if managers.job:is_current_job_professional() or managers.crime_spree:is_active() then
+	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
+	if not is_whisper_mode and (managers.job:is_current_job_professional() or managers.crime_spree:is_active()) then
 		icon_assaultbox:animate(anim_pulse_glow)
 	else
 		icon_assaultbox:set_alpha(1)

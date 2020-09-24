@@ -25,8 +25,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/dlctweakdata" then
 					amount = 1
 				}
 			}
-			
-			
+
+			self.ami_2.content.loot_drops = {}
+			self.ami_4.content.loot_drops = {}
+			self.ami_6.content.loot_drops = {}
+			self.ami_8.content.loot_drops = {}
+			self.ami_10.content.loot_drops = {}
+			self.ami_12.content.loot_drops = {}
+			self.ami_13.content.loot_drops = {}
+	
 			self.starvr_free.content.loot_drops = {}
 			self.pd2_clan.content.loot_drops = {}
 			self.pd2_clan2.content.loot_drops = {}
@@ -1063,6 +1070,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/maskstweakdata" t
 	function BlackMarketTweakData:_init_masks(tweak_data)
 		data(self, tweak_data)
 		
+		self.masks.tam.infamy_lock = "infamy_maskpack_immortal"
+		
 		self.masks.unicorn.pcs = {10, 20, 30, 40}
 		self.masks.combusto.pcs = {10, 20, 30, 40}
 		self.masks.spackle.pcs = {10, 20, 30, 40}
@@ -1842,8 +1851,7 @@ end
 if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/texturestweakdata" then
 	local data = BlackMarketTweakData._init_textures
 	function BlackMarketTweakData:_init_textures(tweak_data)
-		data(self, tweak_data)
-		
+		data(self, tweak_data)	
 		self.textures.agatha.pcs = {10, 20, 30, 40}
 		self.textures.arena_logo.pcs = {10, 20, 30, 40}
 		self.textures.baba_yaga.pcs = {10, 20, 30, 40}

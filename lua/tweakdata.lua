@@ -1,6 +1,6 @@
 local self = tweak_data
 
-self.version = "1.3.2"
+self.version = "1.3.3"
 self.testing_text = ''
 
 self.hate_multipler = 1.5
@@ -16,8 +16,20 @@ self.unlock_crimespree = pro_rank
 self.unlock_skirmish = pro_rank
 self.unlock_profiles = pro_rank
 
-self.difficulty_level_locks = 					{ 	0, 	0, 	0, 	0, 	0, 	80,	1337,	1337 }
-self.difficulty_level_locks_infamy = 			{ 	0, 	0, 	0, 	0, 	0, 	0, 	1337, 	1337 }
+self.max_offshore = 1000000000
+self.max_spending_cash = 150000000
+self.max_coins = 250000
+
+tweak_data.killed_civs_penalty = {1, 2, 3}
+
+tweak_data.max_loose_money_boost = 30
+tweak_data.loose_money_exp_convertation_amount = 30000
+
+self.quickplay.default_level_diff = {0, 100}
+self.quickplay.max_level_diff = {100, 100}
+
+self.difficulty_level_locks = 					{0, 0, 0, 0, 0, 80, 1337, 1337}
+self.difficulty_level_locks_infamy = 			{0, 0, 0, 0, 0, 0, 1337, 1337}
 	
 self.difficulties = {
 	"easy",
@@ -29,14 +41,7 @@ self.difficulties = {
 	"sm_wish",
 	"sm_wish"
 }
-self.experience_manager.difficulty_multiplier = {
-	2,
-	5,
-	10,
-	13,
-	18,
-	18
-}
+self.experience_manager.difficulty_multiplier = {2, 5, 10, 13, 18, 18}
 self.experience_manager.loot_drop_value.xp10 = 130000
 self.experience_manager.loot_drop_value.xp20 = 150000
 self.experience_manager.loot_drop_value.xp30 = 170000

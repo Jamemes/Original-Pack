@@ -4,7 +4,7 @@ if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
 			local xp = 23400000
 			managers.experience:add_points(xp, false, true)
 			managers.skilltree:give_specialization_points(xp)
-			for rank = managers.experience:current_rank() - 10, #tweak_data.infamy.tree + 1 do
+			for rank = managers.experience:current_rank() + 1, #tweak_data.infamy.tree + 1 do
 				managers.experience:set_current_rank(rank)
 			end
 			local max_points = managers.skilltree:digest_value(Global.skilltree_manager.specializations.max_points, false)
@@ -28,8 +28,9 @@ if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
 			for _, infamy in pairs(tweak_data.infamy.tree) do
 				managers.infamy:unlock_item(infamy)
 			end
-			managers.money:add_to_total(1000000000000)
-			managers.custom_safehouse:add_coins(1000000000)
+			managers.money:_set_offshore(tweak_data.max_offshore)
+			managers.money:_set_total(tweak_data.max_spending_cash)
+			managers.custom_safehouse:set_coins(tweak_data.max_coins)
 			for name, item in pairs(tweak_data.blackmarket.weapon_mods) do
 				if not item.dlc or managers.dlc:is_dlc_unlocked(item.dlc) then
 					for i = 100, 100 do

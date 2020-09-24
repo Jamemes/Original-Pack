@@ -2,12 +2,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 	local data = CrimeSpreeTweakData.init
 	function CrimeSpreeTweakData:init(tweak_data)
 		data(self, tweak_data)
-		
-		local normal = 1
-		local hard = 2
-		local very_hard = 3
-		local OVERKILL = 4
-		
 		self.repeating_modifiers.forced = {
 			{
 				class = "ModifierEnemyHealthAndDamage",
@@ -20,12 +14,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 		self.base_difficulty = "sm_wish"
 		self.base_difficulty_index = 7
 		self.initial_cost = 12
-		self.cost_per_level = 0
-		self.continue_cost = {12, 0}
+		self.continue_cost = {
+			12,
+			0
+		}
 		self.catchup_bonus = 0
 		self.winning_streak = 0
 		self.starting_levels = {0}
 		self.crash_causes_loss = false
+		self.allow_highscore_continue = false
 		self.modifiers = {
 			forced = {
 				{
@@ -272,6 +269,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 				}
 			}
 		}
+
+		local normal = 1
+		local hard = 2
+		local very_hard = 3
+		local OVERKILL = 4
 		self.missions = {
 			{
 				{

@@ -146,7 +146,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		}
 		self.new_m4.stats = {
 			reload = 11,
-			damage = 23,
+			damage = 28,
 			spread = 7,
 			recoil = 7,
 			spread_moving = 7,
@@ -202,7 +202,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		}
 		self.g36.stats = {
 			reload = 11,
-			damage = 25,
+			damage = 33,
 			spread = 7,
 			recoil = 8,
 			spread_moving = 8,
@@ -217,7 +217,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.flint.stats = { --ak12
 			zoom = 3,
 			total_ammo_mod = 21,
-			damage = 28,
+			damage = 33,
 			spread = 6,
 			recoil = 7,
 			spread_moving = 6,
@@ -328,7 +328,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		}
 		self.ak5.stats = {
 			reload = 11,
-			damage = 20,
+			damage = 28,
 			spread = 9,
 			recoil = 12,
 			spread_moving = 6,
@@ -399,7 +399,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.contraband.stats = {
 			zoom = 3,
 			total_ammo_mod = 21,
-			damage = 28,
+			damage = 40,
 			spread = 7,
 			recoil = 14,
 			spread_moving = 5,
@@ -651,7 +651,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.basset.stats = {
 			zoom = 3,
 			total_ammo_mod = 21,
-			damage = 18,
+			damage = 28,
 			spread = 4,
 			recoil = 4,
 			spread_moving = 5,
@@ -665,7 +665,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.x_basset.stats = {
 			zoom = 3,
 			total_ammo_mod = 21,
-			damage = 18,
+			damage = 28,
 			spread = 4,
 			recoil = 4,
 			spread_moving = 5,
@@ -2624,6 +2624,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.system.NR_CLIPS_MAX = 4
 		self.system.AMMO_MAX = self.system.CLIP_AMMO_MAX * self.system.NR_CLIPS_MAX
 		
+		self.new_m4.CLIP_AMMO_MAX = 30
+		self.new_m4.NR_CLIPS_MAX = 4
+		self.new_m4.AMMO_MAX = self.new_m4.CLIP_AMMO_MAX * self.new_m4.NR_CLIPS_MAX
 		self.s552.CLIP_AMMO_MAX = 30
 		self.s552.NR_CLIPS_MAX = 5
 		self.s552.AMMO_MAX = self.s552.CLIP_AMMO_MAX * self.s552.NR_CLIPS_MAX
@@ -2631,7 +2634,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.scar.NR_CLIPS_MAX = 4
 		self.scar.AMMO_MAX = self.scar.CLIP_AMMO_MAX * self.scar.NR_CLIPS_MAX
 		self.g36.CLIP_AMMO_MAX = 30
-		self.g36.NR_CLIPS_MAX = 5
+		self.g36.NR_CLIPS_MAX = 4
 		self.g36.AMMO_MAX = self.g36.CLIP_AMMO_MAX * self.g36.NR_CLIPS_MAX
 		self.famas.CLIP_AMMO_MAX = 30
 		self.famas.NR_CLIPS_MAX = 5
@@ -2711,9 +2714,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.coach.damage_near = 1000
 		self.coach.damage_far = 2000
 		
+		self.g36.AMMO_PICKUP = self:_pickup_chance(self.m16.AMMO_MAX, PICKUP.OTHER)
 		self.lemming.AMMO_PICKUP = self:_pickup_chance(self.lemming.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
 		self.asval.AMMO_PICKUP = self:_pickup_chance(self.asval.AMMO_MAX, PICKUP.OTHER)
-		self.contraband.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+		self.contraband.AMMO_PICKUP = self:_pickup_chance(self.akm.AMMO_MAX, PICKUP.OTHER)
 		self.rpk.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
 		self.hk21.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
 		self.famas.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)

@@ -364,49 +364,12 @@ function HUDStatsScreen:recreate_right()
 				difficulty_text:set_color(difficulty_stars > 0 and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
 			end
 			if Global.game_settings.one_down then
-				local one_down_string = managers.localization:to_upper_text("menu_one_down")
-				local modifier_string = difficulty_string .. "  " .. "##" .. one_down_string .. "##"
-				local text_dissected = utf8.characters(modifier_string)
-				local idsp = Idstring("#")
-				local start_ci = {}
-				local end_ci = {}
-				local first_ci = true
-				for i, c in ipairs(text_dissected) do
-					if Idstring(c) == idsp then
-						local next_c = text_dissected[i + 1]
-
-						if next_c and Idstring(next_c) == idsp then
-							if first_ci then
-								table.insert(start_ci, i)
-							else
-								table.insert(end_ci, i)
-							end
-
-							first_ci = not first_ci
-						end
-					end
-				end
-
-				if #start_ci == #end_ci then
-					for i = 1, #start_ci, 1 do
-						start_ci[i] = start_ci[i] - ((i - 1) * 4 + 1)
-						end_ci[i] = end_ci[i] - (i * 4 - 1)
-					end
-				end
-
-				modifier_string = string.gsub(modifier_string, "##", "")
-				if alive(difficulty_text) then
-					difficulty_text:set_text(modifier_string)
-					difficulty_text:clear_range_color(1, utf8.len(modifier_string))
-
-					if #start_ci ~= #end_ci then
-						Application:error("CrimeNetContractGui: Not even amount of ##'s in skill description string!", #start_ci, #end_ci)
-					else
-						for i = 1, #start_ci, 1 do
-							difficulty_text:set_range_color(start_ci[i], end_ci[i], i == 1 and tweak_data.screen_colors.one_down)
-						end
-					end
-				end
+				local one_down_string = difficulty_string .. "  " .. "##" .. managers.localization:to_upper_text("menu_one_down") .. "##"
+				managers.menu:color_range(
+					difficulty_text,
+					tweak_data.screen_colors.one_down,
+					one_down_string
+				)
 			end
 
 			local _, _, tw, th = difficulty_text:text_rect()
@@ -463,6 +426,10 @@ function HUDStatsScreen:recreate_right()
 		placer:new_row()
 		self:extended_inventory()
 	end
+	local extended_inventory_panel = self._right:child("extended_inventory_panel")
+	if not alive(extended_inventory_panel) then
+		self:exp_progress()
+	end
 end
 
 function HUDStatsScreen:recreate_bottom()
@@ -483,7 +450,10 @@ function HUDStatsScreen:recreate_bottom()
 
 	rb:child("bg"):set_color(Color(0, 0, 0):with_alpha(0.75))
 	rb:child("bg"):set_alpha(1)
-	self:exp_progress()
+	local extended_inventory_panel = self._right:child("extended_inventory_panel")
+	if alive(extended_inventory_panel) then
+		self:exp_progress()
+	end
 end
 	
 function HUDStatsScreen:update(t, dt)
@@ -498,32 +468,33 @@ function HUDStatsScreen:update(t, dt)
 	for _, v in pairs(self._tracked_items or {}) do
 		v:update_progress()
 	end
-	
-	local profile_wrapper_panel = self._bottom:child("profile_wrapper_panel")
-	local gain_xp_text = profile_wrapper_panel:child("gain_xp_text")
-	local at_max_level_text = profile_wrapper_panel:child("at_max_level_text")
-	if alive(gain_xp_text) then
-		local gain_xp = managers.experience:get_xp_dissected(true, 0, true)
-		local text = managers.localization:to_upper_text("hud_potential_xp", {
-			XP = managers.money:add_decimal_marks_to_string(tostring(gain_xp))
-		})
-		gain_xp_text:set_text(text)
+	local extended_inventory_panel = self._right:child("extended_inventory_panel")
+	local side = alive(extended_inventory_panel) and self._bottom or self._right
+	if not alive(extended_inventory_panel) then
+		self._bottom:hide()
+	else
+		self._bottom:show()
 	end
-	local lvl = Global.game_settings.level_id
+	
+	local lvl = Global.game_settings and Global.game_settings.level_id
 	local halloween = lvl == "nail" or lvl == "help" or lvl == "haunted" or lvl == "hvh"
-	if halloween and alive(at_max_level_text) then
-		local chars = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
-		local U = chars[math.random(26)]
-		local B = chars[math.random(26)]
-		local E = chars[math.random(26)]
-		local R = chars[math.random(26)]
-		local H = chars[math.random(26)]
-		local A = chars[math.random(26)]
-		local T = chars[math.random(26)]
-		local r = chars[math.random(26)]
-		local e = chars[math.random(26)]
-		local D = chars[math.random(26)]
-		at_max_level_text:set_text(D..e..r..T..A..H..R..E..E.." "..U..E..B..A.." "..r..e..t..A..R..D)
+	local m = math.random
+	local c = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
+	local word = c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)].." "..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)].." "..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]..c[m(26)]
+	local profile_wrapper_panel = side:child("profile_wrapper_panel")
+	if alive(profile_wrapper_panel) then
+		local gain_xp_text = profile_wrapper_panel:child("gain_xp_text")
+		local at_max_level_text = profile_wrapper_panel:child("at_max_level_text")
+		if alive(gain_xp_text) then
+			local gain_xp = managers.experience:get_xp_dissected(true, 0, true)
+			local text = managers.localization:to_upper_text("hud_potential_xp", {
+				XP = managers.money:add_decimal_marks_to_string(tostring(gain_xp))
+			})
+			gain_xp_text:set_text(text)
+		end
+		if halloween and alive(at_max_level_text) then
+			at_max_level_text:set_text(word)
+		end
 	end
 	
 	local accuracy_panel = self._right:child("accuracy_panel")
@@ -539,7 +510,7 @@ function HUDStatsScreen:update(t, dt)
 	end
 	
 	local pager_panel = self._right:child("pager_panel")
-	if alive(pager_panel) and managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+	if alive(pager_panel) and  managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode or lvl == "welcome_to_the_jungle_2" and is_whisper_mode then
 		local pager_counter = pager_panel:child("pager_counter")
 		local pagers_used = managers.groupai:state():get_nr_successful_alarm_pager_bluffs()
 		local max_pagers_data = managers.player:has_category_upgrade("player", "corpse_alarm_pager_bluff") and tweak_data.player.alarm_pager.bluff_success_chance_w_skill or tweak_data.player.alarm_pager.bluff_success_chance
@@ -779,9 +750,9 @@ function HUDStatsScreen:_update_stats_screen_loot(loot_wrapper_panel)
 end
 
 function HUDStatsScreen:extended_inventory()
-	local flat = Global.game_settings and Global.game_settings.level_id == "flat"
+	local lvl = Global.game_settings and Global.game_settings.level_id
 	local ach = managers.achievment.achievments
-	local accuracy_requirements = ach.flat_5.forced and flat or ach.ovk_7.forced or ach.gage4_5.forced
+	local accuracy_requirements = ach.flat_5.forced and lvl == "flat" or ach.ovk_7.forced or ach.gage4_5.forced
 	local kill_requirements = ach.ovk_7.forced or ach.gage4_5.forced
 	local is_whisper_mode = managers.groupai and managers.groupai:state():whisper_mode()
 	local extended = UiPlacer:new(36, (self._right:h() / 1.05) + 19, 0, 8)
@@ -793,11 +764,11 @@ function HUDStatsScreen:extended_inventory()
 	local pager_panel
 	local body_bags_panel
 	
-	-- if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+	if _G.OriginalPackOptions.settings.Anlways_Show_Body_Bags or is_whisper_mode then
 		body_bags_panel = extended:add_top(self._right:panel({name = "body_bags_panel", h = 19, w = self._right:w() / 1.2}))
-	-- end
+	end
 	
-	if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode then
+	if managers.job:is_level_ghostable(managers.job:current_level_id()) and is_whisper_mode or lvl == "welcome_to_the_jungle_2" and is_whisper_mode then
 		pager_panel = extended:add_top(self._right:panel({name = "pager_panel", h = 19, w = self._right:w() / 1.2}), 5)
 	end
 	
@@ -953,11 +924,11 @@ function HUDStatsScreen:extended_inventory()
 end
 
 function HUDStatsScreen:exp_progress()
-	local profile_wrapper_panel = self._bottom:panel({
-		name = "profile_wrapper_panel",
-		x = 10,
-		y = -14
-	})
+	local extended_inventory_panel = self._right:child("extended_inventory_panel")
+	local side = alive(extended_inventory_panel) and self._bottom or self._right
+	
+	local offset = alive(extended_inventory_panel) and 10 or 20
+	local profile_wrapper_panel = side:panel({name = "profile_wrapper_panel", x = offset, y = -14})
 	
 	local next_level_data = managers.experience:next_level_data() or {}
 	local bg_ring = profile_wrapper_panel:bitmap({
@@ -1043,7 +1014,7 @@ function HUDStatsScreen:exp_progress()
 		})
 		local gain_xp_text = profile_wrapper_panel:text({
 			name = "gain_xp_text",
-			text = text,
+			text = text .. "								",
 			font_size = tweak_data.menu.pd2_small_font_size,
 			font = tweak_data.menu.pd2_small_font,
 			color = tweak_data.hud_stats.potential_xp_color
@@ -1075,13 +1046,13 @@ function HUDStatsScreen:exp_progress()
 		end
 	end
 
-	local track_text = self._bottom:fine_text({
+	local track_text = side:fine_text({
 		text = managers.localization:to_upper_text("menu_es_playing_track") .. " " .. managers.music:current_track_string(),
 		font_size = tweak_data.menu.pd2_small_font_size,
 		font = tweak_data.menu.pd2_small_font,
 		color = tweak_data.screen_colors.text
 	})
-	track_text:set_leftbottom(14, exp_ring:top() - 28)
+	track_text:set_leftbottom(offset + 4, exp_ring:top() - 28)
 end
 
 local original_init = HUDStatsScreen.init
@@ -1095,6 +1066,29 @@ function HUDStatsScreen:init(...)
 	self._bottom:set_center_x(self._full_hud_panel:center_x())
 	self._bottom:set_bottom(self._full_hud_panel:bottom() - 10)
 	self:recreate_bottom()
+end
+
+function HUDStatsScreen:show()
+	self:recreate_left()
+	self:recreate_right()
+	self:recreate_bottom()
+
+	local safe = managers.hud.STATS_SCREEN_SAFERECT
+	local full = managers.hud.STATS_SCREEN_FULLSCREEN
+
+	managers.hud:show(full)
+
+	local left_panel = self._left
+	local right_panel = self._right
+	local bottom_panel = self._bottom
+
+	left_panel:stop()
+
+	local teammates_panel = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2).panel:child("teammates_panel")
+	local objectives_panel = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2).panel:child("objectives_panel")
+	local chat_panel = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2).panel:child("chat_panel")
+
+	left_panel:animate(callback(self, self, "_animate_show_stats_left_panel"), right_panel, bottom_panel, teammates_panel, objectives_panel, chat_panel)
 end
 
 local original_init = HUDStatsScreen._animate_show_stats_left_panel

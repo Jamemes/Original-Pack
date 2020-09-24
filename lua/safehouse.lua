@@ -22,6 +22,9 @@ if RequiredScript == 'lib/tweak_data/customsafehousetweakdata' then
 		}
 	end
 elseif RequiredScript == 'lib/managers/customsafehousemanager' then
+	function CustomSafehouseManager:set_coins(value)
+		self._global.total = Application:digest_value(value, true)
+	end
 	function CustomSafehouseManager:unlocked()
 		return Global.mission_manager.has_played_tutorial and (tweak_data.unlock_safehouse <= managers.experience:current_rank())
 	end
