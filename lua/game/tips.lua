@@ -29,7 +29,10 @@ function TipsTweakData:init()
 		{cat_index = 27,	image = "heist_events",				consoles = true, category = "op_gameplay"},
 		{cat_index = 28,	image = "equipment_ammobag",		consoles = true, category = "op_gameplay"},
 		{cat_index = 29,	image = "weapon_explosives",		consoles = true, category = "op_gameplay"},
-		{cat_index = 30,	image = "general_escapes",			consoles = true, category = "op_gameplay"}
+		{cat_index = 30,	image = "general_escapes",			consoles = true, category = "op_gameplay"},
+		{cat_index = 31,	image = "general_hostages",			consoles = true, category = "op_gameplay"},
+		{cat_index = 32,	image = "general_cleanercosts",		consoles = true, category = "op_gameplay"},
+		{cat_index = 33,	image = "weapon_gadgets",			consoles = true, category = "op_gameplay"}
 	}
 	self.category_totals = {}
 

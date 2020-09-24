@@ -58,7 +58,7 @@
 	"menu_second_wind":						"Second Wind",
 	"menu_second_wind_desc":				"BASIC: ##$basic## \nWhen your armor breaks your movement speed is increased by ##10%## for ##5## seconds. \n\nACE: ##$pro## \nYour chance to dodge is increased by ##5%## for ballistic vests.",
   	"menu_akimbo_skill":					"Akimbo",
-	"menu_akimbo_skill_desc":				"BASIC: ##$basic## \nYou can dual wield two pistols.\n\nDual wielded weapons have ##-16## stability penalty. \n\nACE: ##$pro## \nYour stability penalty with Akimbo weapons is set to ##-8## and increases the ammo capacity of your Akimbo weapons to ##50%##.",
+	"menu_akimbo_skill_desc":				"BASIC: ##$basic## \nYou can dual wield two pistols.\n\nDual wielded weapons have ##50%## stability penalty. \n\nACE: ##$pro## \nYour stability penalty with Akimbo weapons is set to ##25%## and increases the ammo capacity of your Akimbo weapons to ##50%##.",
 	"menu_backstab":						"Backstab",
 	"menu_backstab_desc":					"BASIC: ##$basic## \nWhen charging your melee weapon you will counterattack enemies that try to strike you, knocking them down. The knockdown does not deal any damage. \n\nACE: ##$pro## \nKilling a guard with a melee weapon you have a ##7%## chance that you won't have to answer his pager.\n\nNote: Skill doesn't work if the death was caused by poisoning.",
   	"menu_gunzerker":						"Gunzerker",
@@ -99,7 +99,9 @@
 	"menu_fire_trap_detailed_desc":				"Your trip mines now spread fire around the area of detonation for ##20## seconds in a ##6## meter diameter.",
 	"menu_hostage_situation":					"Hostage Situation"
 	"menu_hostage_situation_desc":				"Cover-up by hostages."
-	"menu_hostage_situation_detailed_desc":		"You and your crew gain ##0.5## damage absorption for each hostage you have. This effect stacks with up to a maximum of ##8## hostages.\n\nNote: This skill does not stack.",
+	"menu_hostage_situation_detailed_desc":		"You and your crew gain ##1## damage absorption for each hostage you have. This effect stacks with up to a maximum of ##12## hostages.\n\nNote: This skill does not stack.",
+	"menu_heavy_impact_desc":					"Knock down enemies with heavy firepower."
+	"menu_heavy_impact_detailed_desc":			"Your shots have a ##5%## chance to stagger all enemies except Bulldozers.",
 	
 	"menu_mastermind_tier_1":		"Increases your doctor bag interaction speed by ##20%##.",
 	"menu_mastermind_tier_2":		"Increases stamina for you and your crew by ##15%##.",
@@ -125,11 +127,11 @@
 	"menu_ghost_tier_4":			"You gain ##+5## increased concealment. When wearing armor, your movement speed is ##25%## less affected.",
 	"menu_ghost_tier_5":			"The time between swapping weapons is reduced for you by ##80%##.",
 	"menu_ghost_tier_6":			"Your chance of getting a higher quality item during a Payday is increased by ##10%##. All your weapons have a ##15%## chance to pierce enemy armor.",
-	"menu_hoxton_tier_1":			"You and your crew gains ##15%## more health.",
+	"menu_hoxton_tier_1":			"Your chance to be targeted while standing still and crouching is decreased by ##15%##.",
 	"menu_hoxton_tier_2":			"You gain ##10%## more armor.",
 	"menu_hoxton_tier_3":			"When you are surrounded by three enemies or more, you receive ##12%## less damage from enemies.",
 	"menu_hoxton_tier_4":			"You deal ##5%## more damage against special enemies.",
-	"menu_hoxton_tier_5":			"Your chance to be targeted while standing still and crouching is decreased by ##15%##.",
+	"menu_hoxton_tier_5":			"You bag corpses ##20%## faster.",
 	"menu_hoxton_tier_6":			"Standing still and crouching increases your armor recovery rate by ##15%##.",
 	
 	"heist_arm":	"Armored Transport",
@@ -521,6 +523,9 @@
 	"loading_op_gameplay_28":		"If you going loud without ammunition, your team less likely survived on the job.",
 	"loading_op_gameplay_29":		"Weapons with explosive and incendiary shells are more useful than usual weapons, but ammunition can be replenished only from ammo bags.",
 	"loading_op_gameplay_30":		"If an escape van is available and you are going to escape, make sure that the entire team has replenished their health. Otherwise, some of you may not be able to run away.",
+	"loading_op_gameplay_31":		"When the assault ends, you can intimidate enemies even if you don't have the Dominator skill. It's useful when there aren't any civilians in the area to tie up.",
+	"loading_op_gameplay_32":		"When you kill a civilian, you lose experience. You get a 1% deduction for each kill, 2% on OVERKILL difficulty, and 3% on Death Wish difficulty.",
+	"loading_op_gameplay_33":		"Laser module can disturb civilians and security guards. Flashlights are ignored, since each guard has his own and does not cause any suspicion than lasers.",
 
 	"menu_accuracy": 					"Accuracy",
 	"menu_kills": 						"Total Kills",
@@ -558,6 +563,12 @@
 	"menu_prof_mod_inventory":			"Special equipment is not transferred if the player is taken into custody.",
 	
 	"menu_achievements_teamwork_players_2_to_4":			"2-4 Players",
+	
+	"menu_killed_civs_reduction_exp":		"Killed civilians penalty",
+	"menu_loose_money_collected_exp":		"Loose money found",
+	"menu_killed_civs":						"Civilians were killed! Experience reduced by ",
+	"menu_collected_packages":				"Gage packages found. Experience increased by ",
+	"menu_loose_money":						"Loose money found. Experience increased by ",
 	
 	"cn_menu_contract_day":		"$stages day"
 }

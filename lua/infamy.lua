@@ -334,38 +334,11 @@ if string.lower(RequiredScript) == "lib/managers/menu/infamytreegui" then
 
 		for index, item in pairs(self._tree_items) do
 			if tweak_data.infamy.tree[index] then
-				-- if tweak_data.infamy.tree[index] == "infamy_root" then
-					-- start_item = index
-				-- end
-
 				local infamy_tweak = tweak_data.infamy.items[tweak_data.infamy.tree[index]]
 				local texture_rect_x = infamy_tweak.icon_xy and infamy_tweak.icon_xy[1] or 0
 				local texture_rect_y = infamy_tweak.icon_xy and infamy_tweak.icon_xy[2] or 0
 				item.owned = managers.infamy:owned(tweak_data.infamy.tree[index])
 				item.unlocked = managers.infamy:available(tweak_data.infamy.tree[index])
-
-				-- if item.neighbour_left then
-					-- neighbour_left = index - 1
-
-					-- if self._tree_items[neighbour_left] then
-						-- item.neighbour_left[1]:set_image(item.owned and "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_df" or "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_2_df")
-						-- item.neighbour_left[2]:set_image(self._tree_items[neighbour_left].owned and "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_df" or "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_2_df")
-						-- item.neighbour_left[1]:set_alpha((item.owned and 1 or item.unlocked and 0.7 or 0.1) * (self._tree_items[neighbour_left].owned and 1 or 0.5))
-						-- item.neighbour_left[2]:set_alpha((self._tree_items[neighbour_left].owned and 1 or self._tree_items[neighbour_left].unlocked and 0.7 or 0.1) * (item.owned and 1 or 0.6))
-					-- end
-				-- end
-
-				-- if item.neighbour_top then
-					-- neighbour_top = index - tree_cols
-
-					-- if self._tree_items[neighbour_top] then
-						-- item.neighbour_top[1]:set_image(item.owned and "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_df" or "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_2_df")
-						-- item.neighbour_top[2]:set_image(self._tree_items[neighbour_top].owned and "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_df" or "guis/dlcs/infamous/textures/pd2/infamous_tree/connector_2_df")
-						-- item.neighbour_top[1]:set_alpha((item.owned and 1 or item.unlocked and 0.7 or 0.1) * (self._tree_items[neighbour_top].owned and 1 or 0.5))
-						-- item.neighbour_top[2]:set_alpha((self._tree_items[neighbour_top].owned and 1 or self._tree_items[neighbour_top].unlocked and 0.7 or 0.1) * (item.owned and 1 or 0.6))
-					-- end
-				-- end
-
 				item.select_size = item.owned and self._owned_selected_size or item.unlocked and self._unlocked_selected_size or self._locked_selected_size
 				item.unselect_size = item.owned and self._owned_unselected_size or item.unlocked and self._unlocked_unselected_size or self._locked_unselected_size
 				local color = item.owned and tweak_data.screen_colors.item_stage_1 or item.unlocked and tweak_data.screen_colors.item_stage_2 or tweak_data.screen_colors.item_stage_3

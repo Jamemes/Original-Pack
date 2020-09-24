@@ -118,10 +118,10 @@ function IngameContractGui:init(ws, node)
 
 	managers.hud:make_fine_text(modifiers_text)
 	modifiers_text:set_bottom(text_panel:h() * 0.5)
-
+	
+	local modifiers_amount = 0
 	local next_top = modifiers_text:bottom()
 	local one_down_warning_text = nil
-
 	if Global.game_settings.one_down then
 		one_down_warning_text = text_panel:text({
 			name = "one_down_warning_text",
@@ -132,10 +132,8 @@ function IngameContractGui:init(ws, node)
 		})
 
 		managers.hud:make_fine_text(one_down_warning_text)
-		one_down_warning_text:set_top(next_top)
 		one_down_warning_text:set_left(10)
-
-		next_top = one_down_warning_text:bottom()
+		modifiers_amount = modifiers_amount + 1
 	end
 
 	local job_heat_mul = managers.job:get_job_heat_multipliers(managers.job:current_job_id()) - 1
@@ -176,10 +174,8 @@ function IngameContractGui:init(ws, node)
 		})
 
 		managers.hud:make_fine_text(ghost_warning_text)
-		ghost_warning_text:set_top(next_top)
 		ghost_warning_text:set_left(10)
-
-		next_top = ghost_warning_text:bottom()
+		modifiers_amount = modifiers_amount + 1
 	end
 
 	local heat_warning_text = nil
@@ -202,10 +198,8 @@ function IngameContractGui:init(ws, node)
 		})
 
 		managers.hud:make_fine_text(heat_warning_text)
-		heat_warning_text:set_top(next_top)
 		heat_warning_text:set_left(10)
-
-		next_top = heat_warning_text:bottom()
+		modifiers_amount = modifiers_amount + 1
 	end
 
 	local pro_warning_text = nil
@@ -226,15 +220,122 @@ function IngameContractGui:init(ws, node)
 
 		managers.hud:make_fine_text(pro_warning_text)
 		pro_warning_text:set_h(pro_warning_text:h())
-		pro_warning_text:set_top(next_top)
 		pro_warning_text:set_left(10)
+		modifiers_amount = modifiers_amount + 1
+	end
+	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+	local killed_civ_text = nil
+	local killed_amount = managers.statistics:session_total_civilian_kills()
+	local diff_mul = difficulty_index < 5 and killed_amount * tweak_data.killed_civs_penalty[1] or difficulty_index < 6 and killed_amount * tweak_data.killed_civs_penalty[2] or killed_amount * tweak_data.killed_civs_penalty[3]
+	local total_amount = diff_mul >= 100 and "100" or diff_mul
+	if managers.statistics:session_total_civilian_kills() > 0 then
+		killed_civ_text = text_panel:text({
+			name = "killed_civ_text",
+			vertical = "top",
+			h = 128,
+			wrap = true,
+			align = "left",
+			word_wrap = true,
+			text = self:get_text("menu_killed_civs") .. total_amount .. "%.",
+			font = tweak_data.menu.pd2_small_font,
+			font_size = font_size,
+			color = tweak_data.screen_colors.pro_color
+		})
 
-		next_top = pro_warning_text:bottom()
+		managers.hud:make_fine_text(killed_civ_text)
+		killed_civ_text:set_h(killed_civ_text:h())
+		killed_civ_text:set_left(10)
+		modifiers_amount = modifiers_amount + 1
 	end
 
-	next_top = next_top + 5
+	local gage_courier_text = nil
+	local collected_packages = managers.gage_assignment:count_all_units() - managers.gage_assignment:count_active_units()
+	if collected_packages > 0 then
+		gage_courier_text = text_panel:text({
+			name = "gage_courier_text",
+			vertical = "top",
+			h = 128,
+			wrap = true,
+			align = "left",
+			word_wrap = true,
+			text = self:get_text("menu_collected_packages") .. math.floor(5 / managers.gage_assignment:count_all_units() * collected_packages) .. "%.",
+			font = tweak_data.menu.pd2_small_font,
+			font_size = font_size,
+			color = tweak_data.screen_colors.button_stage_2
+		})
+		managers.hud:make_fine_text(gage_courier_text)
+		gage_courier_text:set_h(gage_courier_text:h())
+		gage_courier_text:set_left(10)
+		modifiers_amount = modifiers_amount + 1
+	end
+	
+	local loose_money_text = nil
+	local loose_money = math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount)
+	local loose_money_exp = loose_money >= tweak_data.max_loose_money_boost and tweak_data.max_loose_money_boost or loose_money
+	if loose_money_exp > 0 then
+		loose_money_text = text_panel:text({
+			name = "loose_money_text",
+			vertical = "top",
+			h = 128,
+			wrap = true,
+			align = "left",
+			word_wrap = true,
+			text = self:get_text("menu_loose_money") .. loose_money_exp .. "%.",
+			font = tweak_data.menu.pd2_small_font,
+			font_size = font_size,
+			color = tweak_data.screen_colors.friend_color
+		})
+		managers.hud:make_fine_text(loose_money_text)
+		loose_money_text:set_h(loose_money_text:h())
+		loose_money_text:set_left(10)
+		modifiers_amount = modifiers_amount + 1
+	end
+	
+	local mul = modifiers_amount < 5 and 0 or modifiers_amount < 6 and 3 or modifiers_amount < 7 and 5 or 7
 
-	modifiers_text:set_visible(heat_warning_text or pro_warning_text or ghost_warning_text or one_down_warning_text)
+	if alive(modifiers_text) then
+		modifiers_text:set_font_size(modifiers_text:font_size() - (mul / 2))
+	end
+	if alive(one_down_warning_text) then
+		one_down_warning_text:set_top(next_top)
+		next_top = one_down_warning_text:bottom() - mul
+		one_down_warning_text:set_font_size(one_down_warning_text:font_size() - mul)
+	end
+	if alive(pro_warning_text) then
+		pro_warning_text:set_top(next_top)
+		next_top = pro_warning_text:bottom() - mul
+		pro_warning_text:set_font_size(pro_warning_text:font_size() - mul)
+	end
+	if alive(killed_civ_text) then
+		killed_civ_text:set_top(next_top)
+		next_top = killed_civ_text:bottom() - mul
+		killed_civ_text:set_font_size(killed_civ_text:font_size() - mul)
+	end
+	if alive(heat_warning_text) then
+		heat_warning_text:set_top(next_top)
+		next_top = heat_warning_text:bottom() - mul
+		heat_warning_text:set_font_size(heat_warning_text:font_size() - mul)
+	end
+	if alive(ghost_warning_text) then
+		ghost_warning_text:set_top(next_top)
+		next_top = ghost_warning_text:bottom() - mul
+		ghost_warning_text:set_font_size(ghost_warning_text:font_size() - mul)
+	end
+	if alive(gage_courier_text) then
+		gage_courier_text:set_top(next_top)
+		next_top = gage_courier_text:bottom() - mul
+		gage_courier_text:set_font_size(gage_courier_text:font_size() - mul)
+	end
+	if alive(loose_money_text) then
+		loose_money_text:set_top(next_top)
+		next_top = loose_money_text:bottom() - mul
+		loose_money_text:set_font_size(loose_money_text:font_size() - mul)
+	end
+	self._modifiers_amount = modifiers_amount
+	next_top = next_top + 5
+	
+	modifiers_text:set_visible(heat_warning_text or loose_money_text or gage_courier_text or killed_civ_text or pro_warning_text or ghost_warning_text or one_down_warning_text)
 
 	local risk_color = tweak_data.screen_colors.risk
 	local risk_title = text_panel:text({
@@ -634,6 +735,9 @@ function IngameContractGui:set_potential_rewards(show_max)
 
 	managers.hud:make_fine_text(payday_text)
 	payday_text:set_bottom(self._rewards_panel:h())
+	if self._modifiers_amount > 2 then
+		payday_text:set_right(self._rewards_panel:right())
+	end
 end
 
 function IngameContractGui:mouse_moved() end

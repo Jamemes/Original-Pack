@@ -189,7 +189,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			{
 				upgrades = {
 					"first_aid_kit",
-					""
+					"player_stand_still_crouch_camouflage_bonus_2"
 				},
 				cost = self.costs.unlock_tree,
 				desc_id = "menu_hoxton_tier_1"
@@ -207,7 +207,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_hoxton_tier_4"
 			},
 			{
-				upgrades = {"player_stand_still_crouch_camouflage_bonus_2"},
+				upgrades = {"player_corpse_dispose_speed_multiplier"},
 				desc_id = "menu_hoxton_tier_5"
 			},
 			{
@@ -217,6 +217,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		}
 			
 		self.default_upgrades = {
+			"player_extra_corpse_dispose_amount",
 			"armor_kit",
 			"cable_tie",
 			"ecm_jammer_affects_cameras",
@@ -224,7 +225,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			"player_hostage_trade",
 			"player_sec_camera_highlight",
 			"player_corpse_dispose",
-			"player_corpse_dispose_amount_1",
 			"player_civ_harmless_melee",
 			"striker_reload_speed_default",
 			"temporary_first_aid_damage_reduction",
@@ -298,7 +298,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"wolverine"
 					},
 					{
-						"heavy_impact",
+						"from_the_hip",
 						"bandoliers",
 						"portable_saw"
 					},
@@ -620,10 +620,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.shotgun_cqb.name_id = "menu_shotgun_cqb"
 		self.skills.shotgun_cqb.desc_id = "menu_shotgun_cqb_desc"
 		self.skills.wolverine.name_id = "menu_wolverine"
-		self.skills.heavy_impact[1].upgrades = {"shotgun_steelsight_range_inc_1", "shotgun_steelsight_accuracy_inc_1"}
-		self.skills.heavy_impact.icon_xy = {5, 12}
-		self.skills.heavy_impact.name_id = "menu_heavy_impact"
-		self.skills.heavy_impact.desc_id = "menu_heavy_impact_desc"
+		self.skills.from_the_hip.name_id = "menu_from_the_hip"
+		self.skills.from_the_hip.desc_id = "menu_from_the_hip_desc"
 		self.skills.bandoliers[2].upgrades = {"player_pick_up_ammo_multiplier", "player_pick_up_ammo_multiplier_2"}
 		self.skills.bandoliers.name_id = "menu_bandoliers"
 		self.skills.bandoliers.desc_id = "menu_bandoliers_desc"
@@ -640,6 +638,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.juggernaut.desc_id = "menu_juggernaut_desc"
 		self.skills.carbon_blade[1].upgrades = {"player_saw_speed_multiplier_1", "saw_lock_damage_multiplier_1"}
 		self.skills.carbon_blade[2].upgrades = {"player_saw_speed_multiplier_2", "saw_lock_damage_multiplier_2", "saw_enemy_slicer", "saw_reload_speed_multiplier"}
+		self.skills.carbon_blade.prerequisites = {"portable_saw"}
 		self.skills.carbon_blade.name_id = "menu_carbon_blade"
 		self.skills.carbon_blade.desc_id = "menu_carbon_blade_desc"
 		
@@ -746,6 +745,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.sentry_2_0.icon_xy = {1, 6}
 		self.skills.sentry_2_0.name_id = "menu_sentry_2_0"
 		self.skills.sentry_2_0.desc_id = "menu_defense_up_beta_desc"
+		self.skills.sentry_2_0.prerequisites = {"sentry_gun"}
 		self.skills.shaped_charge.name_id = "menu_shaped_charge"
 		self.skills.shaped_charge.desc_id = "menu_shaped_charge_desc"
 		self.skills.insulation.name_id = "menu_insulation"
@@ -761,6 +761,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			},
 			name_id = "menu_sentry_gun_2x",
 			desc_id = "menu_sentry_gun_2x_desc",
+			prerequisites = {"sentry_gun"},
 			icon_xy = {7, 6}
 		}
 		self.skills.aggressive_shots = {
@@ -1109,6 +1110,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			},
 			name_id = "menu_gunzerker",
 			desc_id = "menu_gunzerker_desc",
+			prerequisites = {"akimbo"},
 			icon_xy = {0, 13}
 		}
 		
@@ -1325,6 +1327,19 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 					icon_xy = {1, 1},
 					name_id = "menu_hostage_situation",
 					desc_id = "menu_hostage_situation_detailed_desc"
+				}
+			},
+			{
+				name_id = "menu_heavy_impact",
+				desc_id = "menu_heavy_impact_desc",
+				{
+					upgrades = {
+						"weapon_knock_down_1"
+					},
+					cost = high,
+					icon_xy = {5, 1},
+					name_id = "menu_heavy_impact",
+					desc_id = "menu_heavy_impact_detailed_desc"
 				}
 			},
 			
@@ -2066,6 +2081,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 			}
 		}
 
+		self.values.team.damage = {
+			hostage_absorption = {0.1},
+			hostage_absorption_limit = 12
+		}
+
 		self.values.player.pocket_ecm_jammer_base = {{cooldown_drain = 8, duration = 8}}
 		self.values.temporary.chico_injector = {{0.8, 8}}
 
@@ -2381,8 +2401,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"30%"}
 			},
 			leadership = {
-				{"4"},
-				{"8"}
+				{"25%"},
+				{"50%"}
 			},
 			painkillers = {
 				{"10%", "5"},
@@ -2452,12 +2472,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"50%"}
 			},
 			shotgun_impact = {
-				{"4"},
+				{"25%"},
 				{"35%"}
 			},
 			shades = {
 				{"25%"},
 				{"50%"}
+			},
+			from_the_hip = {
+				{"20%"},
+				{"20%"}
 			},
 			shotgun_cqb = {
 				{"50%"},
@@ -2499,15 +2523,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"50%"}
 			},
 			sharpshooter = {
-				{"4"},
-				{"8"}
+				{"20%"},
+				{"25%"}
 			},
 			hardware_expert = {
 				{"25%", "20%"},
 				{"30%", "50%"}
 			},
 			marksman = {
-				{"4", "8"},
+				{"4", "25%"},
 				{"8", "20%"}
 			},
 			combat_engineering = {
@@ -2591,8 +2615,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"25%"}
 			},
 			silence_expert = {
-				{"8", "100%"},
-				{"8", "15%"}
+				{"50%", "100%"},
+				{"50%", "15%"}
 			},
 			low_blow = {
 				{"3%", "3", "35", "30%"},
@@ -4301,6 +4325,7 @@ if string.lower(RequiredScript) == "lib/managers/menu/skilltreegui" then
 		})
 		self._spec_tab:move(0, 0)
 	end
+	
 end
 if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 	SkillTreeManager.VERSION = 11
@@ -4658,6 +4683,37 @@ if string.lower(RequiredScript) == "lib/managers/menu/menucomponentmanager" then
 	function MenuComponentManager:on_skill_unlocked(...)
 		if self._skilltree_gui then
 			self._skilltree_gui:on_skill_unlocked(...)
+		end
+	end
+end
+if string.lower(RequiredScript) == "lib/units/beings/player/states/playertased" then
+	function PlayerTased:call_teammate(line, t, no_gesture, skip_alert)
+		local voice_type, plural, prime_target = self:_get_unit_intimidation_action(true, false, false, true, false)
+		local interact_type, queue_name = nil
+
+		if voice_type == "stop_cop" or voice_type == "mark_cop" then
+			local prime_target_tweak = tweak_data.character[prime_target.unit:base()._tweak_table]
+			local shout_sound = prime_target_tweak.priority_shout
+
+			if managers.groupai:state():whisper_mode() then
+				shout_sound = prime_target_tweak.silent_priority_shout or shout_sound
+			end
+
+			if shout_sound then
+				interact_type = "cmd_point"
+				queue_name = "s07x_sin"
+
+				if managers.player:has_category_upgrade("player", "special_enemy_highlight") then
+					prime_target.unit:contour():add(managers.player:get_contour_for_marked_enemy(), true, managers.player:upgrade_value("player", "mark_enemy_time_multiplier", 1))
+				end
+				if not self._tase_ended and managers.player:has_category_upgrade("player", "taser_self_shock") and prime_target.unit:key() == self._unit:character_damage():tase_data().attacker_unit:key() then
+					self:_start_action_counter_tase(t, prime_target)
+				end
+			end
+		end
+
+		if interact_type then
+			self:_do_action_intimidate(t, not no_gesture and interact_type or nil, queue_name, skip_alert)
 		end
 	end
 end

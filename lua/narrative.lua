@@ -420,6 +420,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 end
 if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 	function ExperienceManager:get_xp_by_params(params)
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 		local job_id = params.job_id
 		local job_stars = params.job_stars or 0
 		local difficulty_stars = params.difficulty_stars or params.risk_stars or 0
@@ -465,6 +467,8 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 		local pro_job_xp_dissect = 0
 		local bonus_xp = 0
 		local bonus_mutators_dissect = 0
+		local killed_civs_dissect = 0
+		local loose_money_dissect = 0
 
 		if success and on_last_stage then
 			job_xp_dissect = managers.experience:get_job_xp_by_stars(total_stars) * job_mul
@@ -648,6 +652,15 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 		total_xp = total_xp + job_heat_dissect
 		local bonus_mutators_dissect = total_xp * managers.mutators:get_experience_reduction() * -1
 		total_xp = total_xp + bonus_mutators_dissect
+		local mul = difficulty_index < 5 and tweak_data.killed_civs_penalty[1] * 0.01 or difficulty_index < 6 and tweak_data.killed_civs_penalty[2] * 0.01 or tweak_data.killed_civs_penalty[3] * 0.01
+		local killed_mul = managers.statistics:session_total_civilian_kills() * mul
+		bonus_xp = killed_mul >= 1 and 0 or 1 - killed_mul
+		local killed_civs_dissect = math.round(total_xp * bonus_xp - total_xp)
+		total_xp = total_xp + killed_civs_dissect
+		local loose_money = math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount) >= tweak_data.max_loose_money_boost and tweak_data.max_loose_money_boost or math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount)
+		bonus_xp = 1 + (loose_money * 0.01) or 1
+		loose_money_dissect = math.round(total_xp * bonus_xp - total_xp)
+		total_xp = total_xp + loose_money_dissect
 		local dissection_table = {
 			bonus_risk = math.round(risk_dissect),
 			bonus_num_players = math.round(alive_crew_dissect),
@@ -664,6 +677,8 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			bonus_gage_assignment = math.round(gage_assignment_dissect),
 			bonus_mission_xp = math.round(mission_xp_dissect),
 			bonus_mutators = math.round(bonus_mutators_dissect),
+			loose_money_collected = math.round(loose_money_dissect),
+			killed_civs = math.round(killed_civs_dissect),
 			stage_xp = math.round(stage_xp_dissect),
 			job_xp = math.round(job_xp_dissect),
 			base = math.round(base_xp),
@@ -680,6 +695,231 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 
 		return math.round(total_xp), dissection_table
 	end
+end
+if string.lower(RequiredScript) == "lib/managers/hud/hudstageendscreen" then
+	local function make_fine_text(text)
+		local x, y, w, h = text:text_rect()
+
+		text:set_size(w, h)
+		text:set_position(math.round(text:x()), math.round(text:y()))
+
+		return x, y, w, h
+	end
+		function HUDStageEndScreen:stage_experience_init(t, dt)
+		local data = self._data
+
+		self._lp_text:show()
+		self._lp_circle:show()
+		self._lp_backpanel:child("bg_progress_circle"):show()
+		self._lp_forepanel:child("level_progress_text"):show()
+		
+		if data.gained == 0  then
+			self._lp_text:set_text(tostring(data.start_t.level))
+			self._lp_circle:set_color(Color(1, 1, 1))
+			managers.menu_component:post_event("box_tick")
+			
+			self:step_stage_to_end()
+			return
+		end
+
+		self._lp_circle:set_alpha(0)
+		self._lp_backpanel:child("bg_progress_circle"):set_alpha(0)
+		self._lp_text:set_alpha(0)
+
+		self._bonuses_panel = self._lp_forepanel:panel({
+			y = 10,
+			x = self._lp_xp_gained:x(),
+			w = self._lp_forepanel:w() - self._lp_xp_gained:left() - 10,
+			h = self._lp_xp_gained:top() - 10
+		})
+		self._anim_exp_bonus = nil
+		local bonus_params = {
+			panel = self._bonuses_panel,
+			color = tweak_data.screen_colors.text,
+			title = managers.localization:to_upper_text("menu_experience"),
+			bonus = 0
+		}
+		local exp = self:_create_bonus(bonus_params)
+
+		exp:child("sign"):hide()
+
+		self._experience_text_panel = exp
+
+		self._experience_text_panel:set_alpha(0)
+
+		self._experience_added = 0
+		self._bonuses = {}
+
+		if data.bonuses.stage_xp and data.bonuses.stage_xp ~= 0 then
+			bonus_params.title = managers.localization:to_upper_text("menu_es_base_xp_stage")
+			bonus_params.bonus = data.bonuses.stage_xp
+			local stage = self:_create_bonus(bonus_params)
+
+			stage:set_right(0)
+			stage:set_top(exp:bottom())
+			table.insert(self._bonuses, {
+				stage,
+				bonus_params.bonus
+			})
+		end
+
+		local job = nil
+
+		if data.bonuses.last_stage and data.bonuses.job_xp ~= 0 then
+			bonus_params.title = managers.localization:to_upper_text("menu_es_base_xp_job")
+			bonus_params.bonus = data.bonuses.job_xp
+			job = self:_create_bonus(bonus_params)
+
+			job:set_right(0)
+			job:set_top(exp:bottom())
+			table.insert(self._bonuses, {
+				job,
+				bonus_params.bonus
+			})
+		end
+
+		local heat_xp = self._bonuses.heat_xp or 0
+		local heat = managers.job:last_known_heat() or managers.job:has_active_job() and managers.job:get_job_heat(managers.job:current_job_id()) or 0
+		local heat_color = managers.job:get_heat_color(heat)
+		local bonuses_list = {
+			"bonus_mission_xp",
+			"bonus_days",
+			"bonus_pro_job",
+			"bonus_low_level",
+			"bonus_risk",
+			"bonus_failed",
+			"in_custody",
+			"bonus_num_players",
+			"bonus_skill",
+			"bonus_infamy",
+			"bonus_gage_assignment",
+			"bonus_extra",
+			"bonus_ghost",
+			"heat_xp",
+			"bonus_mutators",
+			"loose_money_collected",
+			"killed_civs"
+		}
+		local bonuses_params = {
+			bonus_mission_xp = {
+				color = tweak_data.screen_colors.text,
+				title = managers.localization:to_upper_text("menu_es_mission_xp_bonus")
+			},
+			bonus_days = {
+				color = tweak_data.screen_colors.text,
+				title = managers.localization:to_upper_text("menu_es_day_bonus")
+			},
+			bonus_pro_job = {
+				color = tweak_data.screen_colors.text,
+				title = managers.localization:to_upper_text("menu_es_pro_job_bonus")
+			},
+			bonus_low_level = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_es_alive_low_level_bonus")
+			},
+			bonus_risk = {
+				color = tweak_data.screen_colors.risk,
+				title = managers.localization:to_upper_text("menu_es_risk_bonus")
+			},
+			bonus_failed = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_es_alive_failed_bonus")
+			},
+			in_custody = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_es_in_custody_reduction")
+			},
+			bonus_num_players = {
+				color = tweak_data.screen_colors.risk,
+				title = managers.localization:to_upper_text("menu_es_alive_players_bonus")
+			},
+			bonus_skill = {
+				color = tweak_data.screen_colors.button_stage_2,
+				title = managers.localization:to_upper_text("menu_es_skill_bonus")
+			},
+			bonus_infamy = {
+				color = tweak_data.lootdrop.global_values.infamy.color,
+				title = managers.localization:to_upper_text("menu_es_infamy_bonus")
+			},
+			bonus_gage_assignment = {
+				color = tweak_data.screen_colors.button_stage_2,
+				title = managers.localization:to_upper_text("menu_es_gage_assignment_bonus")
+			},
+			bonus_extra = {
+				color = tweak_data.screen_colors.button_stage_2,
+				title = managers.localization:to_upper_text("menu_es_extra_bonus")
+			},
+			bonus_ghost = {
+				color = tweak_data.screen_colors.ghost_color,
+				title = managers.localization:to_upper_text("menu_es_ghost_bonus")
+			},
+			heat_xp = {
+				color = heat_color,
+				title = managers.localization:to_upper_text(heat >= 0 and "menu_es_heat_bonus" or "menu_es_heat_reduction")
+			},
+			bonus_mutators = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_mutators_reduction_exp")
+			},
+			bonus_mutators = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_mutators_reduction_exp")
+			},
+			loose_money_collected = {
+				color = tweak_data.screen_colors.friend_color,
+				title = managers.localization:to_upper_text("menu_loose_money_collected_exp")
+			},
+			killed_civs = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_killed_civs_reduction_exp")
+			}
+		}
+
+		for i, func_name in ipairs(bonuses_list) do
+			local bonus = data.bonuses[func_name] or 0
+
+			if bonus ~= 0 then
+				bonus_params.color = bonuses_params[func_name] and bonuses_params[func_name].color or Color.purple
+				bonus_params.title = bonuses_params[func_name] and bonuses_params[func_name].title or "ERR: " .. func_name
+				bonus_params.bonus = bonus
+				local b = self:_create_bonus(bonus_params)
+
+				b:set_right(0)
+				b:set_top(exp:bottom())
+				table.insert(self._bonuses, {
+					b,
+					bonus_params.bonus
+				})
+			end
+		end
+
+		local delay = 0.8
+		local y = 0
+		local sum_text = self._lp_forepanel:text({
+			text = "= ",
+			name = "sum_text",
+			alpha = 1,
+			align = "right",
+			font = tweak_data.menu.pd2_small_font,
+			font_size = tweak_data.menu.pd2_small_font_size
+		})
+
+		make_fine_text(sum_text)
+		sum_text:set_righttop(self._lp_xp_gain:left(), self._lp_xp_gain:top())
+		sum_text:hide()
+
+		self._sum_text = sum_text
+
+		self._lp_circle:set_color(Color(data.start_t.current / data.start_t.total, 1, 1))
+
+		self._wait_t = 0.5
+		self._start_ramp_up_t = 1
+		self._ramp_up_timer = 0
+
+		managers.menu_component:post_event("box_tick")
+		self:step_stage_up()
+	end
+	
 end
 if string.lower(RequiredScript) == "lib/tweak_data/preplanningtweakdata" then
 	local data = PrePlanningTweakData.init
@@ -722,7 +962,7 @@ if string.lower(RequiredScript) == "lib/managers/musicmanager" then
 	function MusicManager:jukebox_default_tracks()
 			local default_options = data()
 			default_options.heist_branchbank_hl = "track_03"
-			
+			default_options.loadout = "preplanning_music_old"
 			if managers.dlc:has_dlc_or_soundtrack_or_cce("armored_transport") then
 				default_options.heist_arm = "track_09"
 			end

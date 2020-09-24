@@ -7,6 +7,7 @@
 		<hook source_file="lib/managers/gameplaycentralmanager"						file="alerts.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="alerts.lua"/>
 		<hook source_file="lib/units/props/drill"									file="alerts.lua"/>
+		<hook source_file="lib/units/weapons/weaponlaser"							file="alerts.lua"/>
 		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="gamemodes/crime_spree.lua"/>
 		<hook source_file="lib/managers/crimespreemanager"							file="gamemodes/crime_spree.lua"/>
 		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="gamemodes/skirmish.lua"/>
@@ -16,6 +17,7 @@
 		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse.lua"/>
 		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative.lua"/>
 		<hook source_file="lib/managers/experiencemanager"							file="narrative.lua"/>
+		<hook source_file="lib/managers/hud/hudstageendscreen"						file="narrative.lua"/>
 		<hook source_file="lib/tweak_data/preplanningtweakdata"						file="narrative.lua"/>
 		<hook source_file="lib/tweak_data/assetstweakdata"							file="narrative.lua"/>
 		<hook source_file="lib/tweak_data/missiondoortweakdata"						file="narrative.lua"/>
@@ -47,6 +49,7 @@
         <hook source_file="lib/units/equipment/ammo_bag/ammobagbase" 				file="skills.lua"/>
         <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills.lua"/>
         <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills.lua"/>
+        <hook source_file="lib/units/beings/player/states/playertased" 				file="skills.lua"/>
 		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
