@@ -50,6 +50,7 @@
         <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills.lua"/>
         <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills.lua"/>
         <hook source_file="lib/units/beings/player/states/playertased" 				file="skills.lua"/>
+		<hook source_file="lib/managers/menumanagerdialogs"							file="skills.lua"/>
 		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
@@ -73,7 +74,6 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/cop/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/cop/coplogictravel.lua"/>
 		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/cop/copmovement.lua"/>
-		<hook source_file="lib/managers/menumanagerdialogs"							file="infamy.lua"/>
 		<hook source_file="lib/tweak_data/infamytweakdata"							file="infamy.lua"/>
 		<hook source_file="lib/managers/infamymanager"								file="infamy.lua"/>
 		<hook source_file="lib/managers/menu/infamytreegui"							file="infamy.lua"/>
