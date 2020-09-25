@@ -1,3 +1,8 @@
+if managers.custom_safehouse:unlocked() then
+	if not managers.achievment.achievments.flat_5.awarded then
+		managers.achievment:award("tip_the_scales")
+	end
+end
 if managers.money:offshore() > tweak_data.max_offshore then
 	managers.money:_set_offshore(tweak_data.max_offshore)
 end

@@ -1069,14 +1069,3 @@ if RequiredScript == 'lib/managers/group_ai_states/groupaistatebase' then
 		end
 	end
 end
-if string.lower(RequiredScript) == "lib/managers/missionmanager" then
-	function MissionManager:load_job_values(data)
-		local state = data.ProductMissionManager
-		if state then
-			Global.mission_manager.saved_job_values = state.saved_job_values
-			if managers.achievment.achievments.tip_the_scales.awarded then
-				Global.mission_manager.has_played_tutorial = state.has_played_tutorial
-			end
-		end
-	end
-end

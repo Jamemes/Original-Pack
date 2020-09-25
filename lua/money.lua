@@ -30,6 +30,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.bag_values.mus_artifact_bag = 1500
 		self.bag_values.stones = 2200
 		self.bag_values.sah_artifact_bag = 500
+		self.bag_values.old_wine = 400
 		
 		
 		self.loot_drop_cash.cash10 = 100000 * 2
