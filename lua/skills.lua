@@ -869,7 +869,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.smg_master.name_id = "menu_smg_master"
 		self.skills.smg_master.desc_id = "menu_smg_master_desc"
 		self.skills.magic_touch[1].upgrades = {"player_pick_lock_easy", "player_pick_lock_easy_speed_multiplier_1"}
-		self.skills.magic_touch[2].upgrades = {"player_pick_lock_easy", "player_pick_lock_easy_speed_multiplier_1"}
+		self.skills.magic_touch[2].upgrades = {"player_pick_lock_hard", "player_pick_lock_easy_speed_multiplier_2"}
 		self.skills.magic_touch.name_id = "menu_magic_touch"
 		self.skills.magic_touch.desc_id = "menu_magic_touch_desc"
 		self.skills.nine_lives[1].upgrades = {"player_additional_lives_1"}
@@ -2913,6 +2913,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_desktop_interaction"
 		}
 		self.hold_open_the_safe.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.security_station_keyboard.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_desktop_interaction"
 		}

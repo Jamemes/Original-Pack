@@ -170,7 +170,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	end
 	local position = 1
 	for index, item in pairs(menu_item._items) do
-		if item:name() == "fbi_files" then
+		if item:name() == "options" then
 			position = index
 			break
 		end
@@ -299,7 +299,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	end
 	local position = 1
 	for index, item in pairs(menu_item._items) do
-		if item:name() == "achievements" then
+		if item:name() == "options" then
 			position = index
 			break
 		end
