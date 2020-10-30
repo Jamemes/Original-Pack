@@ -44,10 +44,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		
 		self.jobs.branchbank_pro = deep_clone(self.jobs.branchbank_prof)
 		
+		self.jobs.kosugi_pro = deep_clone(self.jobs.kosugi)
+		
 		self.jobs.branchbank_deposit.contact = "classic"
 		self.jobs.branchbank_cash.contact = "classic"
 		self.jobs.branchbank_gold_prof.contact = "classic"
 		self.jobs.branchbank_prof.contact = "classic"
+		self.jobs.kosugi_pro.contact = "classic"
 			
 		self.jobs.watchdogs_wrapper_pro = {
 			name_id = "heist_watchdogs",
@@ -125,6 +128,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.kenaz_pro.professional = true
 		self.jobs.rvd_pro.professional = true
 		self.jobs.arm_for.professional = true
+		self.jobs.kosugi_pro.professional = true
 		
 		
 		self.jobs.ukrainian_job_prof.region = "professional"
@@ -143,6 +147,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.vit.region = "professional"
 		self.jobs.kenaz_pro.region = "professional"
 		self.jobs.rvd_pro.region = "professional"
+		self.jobs.kosugi_pro.region = "professional"
 
 		self.jobs.arena.payout = {12800}
 		self.jobs.rvd.payout = {19000}
@@ -194,6 +199,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.branchbank_deposit.jc = 10
 		self.jobs.branchbank_pro.jc = 10
 		self.jobs.kosugi.jc = 10
+		self.jobs.kosugi_pro.jc = 50
 		self.jobs.arm_cro.jc = 50
 		self.jobs.arm_fac.jc = 40
 		self.jobs.arm_hcm.jc = 50
@@ -264,12 +270,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.born_pro.jc = 40
 		
 		local rarity = {
-			1, 1, 1, 1, 1, 1, 1, 1, 1,
-			2, 2, 2, 2, 2, 2, 2, 2,
-			3, 3, 3, 3, 3, 3, 3,
-			4, 4, 4, 4, 4, 4,
-			5, 5, 5, 5, 5,
-			6, 6, 6, 6,
+			7, 7, 7, 7, 7, 7, 7, 7, 7,
+			7, 7, 7, 7, 7, 7, 7, 7,
+			7, 7, 7, 7, 7, 7, 7,
+			7, 7, 7, 7, 7, 7,
+			7, 7, 7, 7, 7,
+			7, 7, 7, 7,
 			7, 7, 7,
 			8, 8,
 			9
@@ -332,6 +338,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 			"election_day",
 			"election_day_pro",
 			"kosugi",
+			"kosugi_pro",
 			"arm_wrapper",
 			"arm_fac_single",
 			"arm_par_single",
@@ -469,6 +476,7 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 		local bonus_mutators_dissect = 0
 		local killed_civs_dissect = 0
 		local loose_money_dissect = 0
+		local easy_mode_dissect = 0
 
 		if success and on_last_stage then
 			job_xp_dissect = managers.experience:get_job_xp_by_stars(total_stars) * job_mul
@@ -518,6 +526,7 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "election_day"						then mission_xp_dissect = 4286	 or self:mission_xp() elseif
 			job_id == "election_day_pro"					then mission_xp_dissect = 7500	 or self:mission_xp() elseif
 			job_id == "kosugi"								then mission_xp_dissect = 6000	 or self:mission_xp() elseif
+			job_id == "kosugi_pro"							then mission_xp_dissect = 9000	 or self:mission_xp() elseif
 			job_id == "arm_wrapper"							then mission_xp_dissect = 7143	 or self:mission_xp() elseif
 			job_id == "arm_fac_single"						then mission_xp_dissect = 7143	 or self:mission_xp() elseif
 			job_id == "arm_par_single"						then mission_xp_dissect = 7143	 or self:mission_xp() elseif
@@ -652,15 +661,22 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 		total_xp = total_xp + job_heat_dissect
 		local bonus_mutators_dissect = total_xp * managers.mutators:get_experience_reduction() * -1
 		total_xp = total_xp + bonus_mutators_dissect
+
+		local loose_money = math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount) >= tweak_data.max_loose_money_boost and tweak_data.max_loose_money_boost or math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount)
+		bonus_xp = 1 + (loose_money * 0.01) or 1
+		loose_money_dissect = math.round(total_xp * bonus_xp - total_xp)
+		total_xp = total_xp + loose_money_dissect
+		
+		bonus_xp = Global.game_settings.one_down and (tweak_data.easy_mode_exp_penalty >= 100 and 0 or 1 - (tweak_data.easy_mode_exp_penalty * 0.01)) or 1
+		local easy_mode_dissect = math.round(total_xp * bonus_xp - total_xp)
+		total_xp = total_xp + easy_mode_dissect
+		
 		local mul = difficulty_index < 5 and tweak_data.killed_civs_penalty[1] * 0.01 or difficulty_index < 6 and tweak_data.killed_civs_penalty[2] * 0.01 or tweak_data.killed_civs_penalty[3] * 0.01
 		local killed_mul = managers.statistics:session_total_civilian_kills() * mul
 		bonus_xp = killed_mul >= 1 and 0 or 1 - killed_mul
 		local killed_civs_dissect = math.round(total_xp * bonus_xp - total_xp)
 		total_xp = total_xp + killed_civs_dissect
-		local loose_money = math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount) >= tweak_data.max_loose_money_boost and tweak_data.max_loose_money_boost or math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount)
-		bonus_xp = 1 + (loose_money * 0.01) or 1
-		loose_money_dissect = math.round(total_xp * bonus_xp - total_xp)
-		total_xp = total_xp + loose_money_dissect
+		
 		local dissection_table = {
 			bonus_risk = math.round(risk_dissect),
 			bonus_num_players = math.round(alive_crew_dissect),
@@ -678,6 +694,7 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			bonus_mission_xp = math.round(mission_xp_dissect),
 			bonus_mutators = math.round(bonus_mutators_dissect),
 			loose_money_collected = math.round(loose_money_dissect),
+			easy_mode = math.round(easy_mode_dissect),
 			killed_civs = math.round(killed_civs_dissect),
 			stage_xp = math.round(stage_xp_dissect),
 			job_xp = math.round(job_xp_dissect),
@@ -798,6 +815,7 @@ if string.lower(RequiredScript) == "lib/managers/hud/hudstageendscreen" then
 			"heat_xp",
 			"bonus_mutators",
 			"loose_money_collected",
+			"easy_mode",
 			"killed_civs"
 		}
 		local bonuses_params = {
@@ -861,13 +879,13 @@ if string.lower(RequiredScript) == "lib/managers/hud/hudstageendscreen" then
 				color = tweak_data.screen_colors.important_1,
 				title = managers.localization:to_upper_text("menu_mutators_reduction_exp")
 			},
-			bonus_mutators = {
-				color = tweak_data.screen_colors.important_1,
-				title = managers.localization:to_upper_text("menu_mutators_reduction_exp")
-			},
 			loose_money_collected = {
 				color = tweak_data.screen_colors.friend_color,
 				title = managers.localization:to_upper_text("menu_loose_money_collected_exp")
+			},
+			easy_mode = {
+				color = tweak_data.screen_colors.important_1,
+				title = managers.localization:to_upper_text("menu_one_down")
 			},
 			killed_civs = {
 				color = tweak_data.screen_colors.important_1,
@@ -1064,7 +1082,7 @@ if RequiredScript == 'lib/managers/group_ai_states/groupaistatebase' then
 	local id = Global.game_settings.level_id
 	function GroupAIStateBase:set_reason_called(called_reason)
 		self._called_reason = self._called_reason or called_reason
-		if not managers.job:is_level_ghostable_required(managers.job:current_level_id()) and managers.job:is_level_ghostable(managers.job:current_level_id()) and not managers.groupai:state():whisper_mode() and not managers.job:is_current_job_professional() and Global.game_settings.job_plan == 2 then
+		if managers.job:is_level_ghostable(managers.job:current_level_id()) and not managers.groupai:state():whisper_mode() and not managers.job:is_current_job_professional() and Global.game_settings.job_plan == 2 then
 			managers.chat:feed_system_message(ChatManager.GAME, managers.localization:text("ingame_restart_available") or "Offline")
 		end
 	end

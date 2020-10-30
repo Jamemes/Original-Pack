@@ -22,6 +22,31 @@ if RequiredScript == 'lib/tweak_data/customsafehousetweakdata' then
 		}
 	end
 elseif RequiredScript == 'lib/managers/customsafehousemanager' then
+	function CustomSafehouseManager:can_progress_trophies(id)
+		if not self:unlocked() then
+			return false
+		end
+		if Global.game_settings.one_down then
+			return false
+		end
+		if managers.mutators:are_trophies_disabled() then
+			for i, achivement_category in ipairs(self._mutator_achievement_categories) do
+				local achievements = tweak_data.achievement[achivement_category]
+
+				if achievements then
+					for _, achievement_data in pairs(achievements) do
+						if achievement_data.trophy_stat == id then
+							return achievement_data.mutators
+						end
+					end
+				end
+			end
+
+			return false
+		end
+
+		return true
+	end
 	function CustomSafehouseManager:set_coins(value)
 		self._global.total = Application:digest_value(value, true)
 	end

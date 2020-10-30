@@ -1,3 +1,4 @@
+local easy_mode = Global.game_settings and Global.game_settings.one_down
 if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 	local data = SkillTreeTweakData.init
 	function SkillTreeTweakData:init(tweak_data)
@@ -2731,11 +2732,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 
 	end
 end
-if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
+if not easy_mode and string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 	local data = PlayerTweakData.init
 	function PlayerTweakData:init(tweak_data)
 		data(self, tweak_data)
-		self.damage.MIN_DAMAGE_INTERVAL = 0.35
 		self.alarm_pager = {
 			first_call_delay = {2, 4},
 			call_duration = {
@@ -2779,6 +2779,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 			{6, 6}
 		}
 		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
+	end
+end
+if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
+	local data = PlayerTweakData.init
+	function PlayerTweakData:init(tweak_data)
+		data(self, tweak_data)
+		self.damage.MIN_DAMAGE_INTERVAL = 0.35
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
@@ -2983,6 +2990,27 @@ if string.lower(RequiredScript) == "lib/tweak_data/equipmentstweakdata" then
 	end
 end
 if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
+
+	function PlayerDamage:replenish()
+		if (Application:editor() or managers.platform:presence() == "Playing") and (self:arrested() or self:need_revive()) then
+			self:revive(true)
+		end
+
+		if Global.game_settings.one_down then
+			self._lives_init = tweak_data.player.damage.LIVES_INIT
+		end
+		
+		self:_regenerated()
+		self:_regenerate_armor()
+		managers.hud:set_player_health({
+			current = self:get_real_health(),
+			total = self:_max_health(),
+			revives = Application:digest_value(self._revives, false)
+		})
+		SoundDevice:set_rtpc("shield_status", 100)
+		SoundDevice:set_rtpc("downed_state_progression", 0)
+	end
+
 	function PlayerDamage:damage_bullet(attack_data)
 		self:_chk_can_take_dmg()
 

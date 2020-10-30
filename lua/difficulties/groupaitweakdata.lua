@@ -2,6 +2,7 @@ old_init = GroupAITweakData.init
 function GroupAITweakData:init(tweak_data)
     old_init(self, tweak_data)
 	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+	local easy_mode = Global.game_settings and Global.game_settings.one_down
 	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 	local access_type_walk_only = {walk = true}
 	local access_type_all = {acrobatic = true, walk = true}
@@ -2060,12 +2061,20 @@ function GroupAITweakData:init(tweak_data)
 		self.smoke_and_flash_grenade_timeout = {4, 6}
 	end
 	
-	if difficulty_index == 8 then
-		self.flash_grenade.timer = 0.5
-	elseif difficulty_index >= 5 then
-		self.flash_grenade.timer = 1
+	if easy_mode then
+		if difficulty_index >= 5 then
+			self.flash_grenade.timer = 2
+		else
+			self.flash_grenade.timer = 3
+		end
 	else
-		self.flash_grenade.timer = 2
+		if difficulty_index == 8 then
+			self.flash_grenade.timer = 0.5
+		elseif difficulty_index >= 5 then
+			self.flash_grenade.timer = 1
+		else
+			self.flash_grenade.timer = 2
+		end
 	end
 	if difficulty_index <= 2 then
 		self.besiege.recurring_group_SO = {
@@ -2174,139 +2183,76 @@ function GroupAITweakData:init(tweak_data)
 			50
 		}
 	end
-	if is_console then
-		if difficulty_index <= 1 then
-			self.besiege.assault.force_balance_mul = {
-				1,
-				1.1,
-				1.2,
-				1.3
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				1,
-				1.1,
-				1.2,
-				1.3
-			}
-		elseif difficulty_index == 2 then
-			self.besiege.assault.force_balance_mul = {
-				1.2,
-				1.4,
-				1.6,
-				1.8
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				1.2,
-				1.4,
-				1.6,
-				1.8
-			}
+	if easy_mode then
+		if is_console then
+			if difficulty_index <= 2 then
+				self.besiege.assault.force_balance_mul = 		{1, 	1.1, 	1.2, 	1.3}
+				self.besiege.assault.force_pool_balance_mul = 	{1, 	1.1, 	1.2, 	1.3}
+			elseif difficulty_index == 3 then
+				self.besiege.assault.force_balance_mul = 		{1.2, 	1.4, 	1.6, 	1.8}
+				self.besiege.assault.force_pool_balance_mul = 	{1.2, 	1.4, 	1.6, 	1.8}
+			elseif difficulty_index == 4 then
+				self.besiege.assault.force_balance_mul = 		{1.6, 	1.8, 	2, 		2.2}
+				self.besiege.assault.force_pool_balance_mul = 	{1.7, 	2, 		2.2, 	2.4}
+			elseif difficulty_index == 5 then
+				self.besiege.assault.force_balance_mul = 		{1.8, 	2.1, 	2.4, 	2.8}
+				self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	2.8}
+			else
+				self.besiege.assault.force_balance_mul = 		{1.8, 	2.1, 	2.4, 	2.8}
+				self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	2.8}
+			end
+		elseif difficulty_index <= 2 then
+			self.besiege.assault.force_balance_mul = 		{0.9, 	1.5, 	2, 		2.25}
+			self.besiege.assault.force_pool_balance_mul = 	{1, 	1.5, 	2, 		3}
 		elseif difficulty_index == 3 then
-			self.besiege.assault.force_balance_mul = {
-				1.6,
-				1.8,
-				2,
-				2.2
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				1.7,
-				2,
-				2.2,
-				2.4
-			}
+			self.besiege.assault.force_balance_mul = 		{1, 	1.4, 	1.6, 	1.9}
+			self.besiege.assault.force_pool_balance_mul = 	{1.2, 	1.4, 	1.6, 	1.9}
 		elseif difficulty_index == 4 then
-			self.besiege.assault.force_balance_mul = {
-				1.8,
-				2.1,
-				2.4,
-				2.8
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				2.2,
-				2.4,
-				2.6,
-				2.8
-			}
+			self.besiege.assault.force_balance_mul = 		{1.4, 	1.8, 	2, 		2.4}
+			self.besiege.assault.force_pool_balance_mul = 	{1.7, 	2, 		2.2, 	2.5}
+		elseif difficulty_index == 5 then
+			self.besiege.assault.force_balance_mul = 		{2, 	2.5, 	2.9, 	3.2}
+			self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	3}
 		else
-			self.besiege.assault.force_balance_mul = {
-				1.8,
-				2.1,
-				2.4,
-				2.8
-			}
-			self.besiege.assault.force_pool_balance_mul = {
-				2.2,
-				2.4,
-				2.6,
-				2.8
-			}
+			self.besiege.assault.force_balance_mul = 		{4, 	4.2, 	4.5, 	4.9}
+			self.besiege.assault.force_pool_balance_mul = 	{3, 	5, 		7, 		9}
 		end
-	elseif difficulty_index <= 1 then
-		self.besiege.assault.force_balance_mul = {
-			0.9,
-			1.5,
-			2,
-			2.25
-		}
-		self.besiege.assault.force_pool_balance_mul = {
-			1,
-			1.5,
-			2,
-			3
-		}
-	elseif difficulty_index == 2 then
-		self.besiege.assault.force_balance_mul = {
-			1,
-			1.4,
-			1.6,
-			1.9
-		}
-		self.besiege.assault.force_pool_balance_mul = {
-			1.2,
-			1.4,
-			1.6,
-			1.9
-		}
-	elseif difficulty_index == 3 then
-		self.besiege.assault.force_balance_mul = {
-			1.4,
-			1.8,
-			2,
-			2.4
-		}
-		self.besiege.assault.force_pool_balance_mul = {
-			1.7,
-			2,
-			2.2,
-			2.5
-		}
-	elseif difficulty_index == 4 then
-		self.besiege.assault.force_balance_mul = {
-			2,
-			2.5,
-			2.9,
-			3.2
-		}
-		self.besiege.assault.force_pool_balance_mul = {
-			2.2,
-			2.4,
-			2.6,
-			3
-		}
 	else
-		self.besiege.assault.force_balance_mul = {
-			4,
-			4.2,
-			4.5,
-			4.9
-		}
-		self.besiege.assault.force_pool_balance_mul = {
-			3,
-			5,
-			7,
-			9
-		}
+		if is_console then
+			if difficulty_index <= 1 then
+				self.besiege.assault.force_balance_mul = 		{1, 	1.1, 	1.2, 	1.3}
+				self.besiege.assault.force_pool_balance_mul = 	{1, 	1.1, 	1.2, 	1.3}
+			elseif difficulty_index == 2 then
+				self.besiege.assault.force_balance_mul = 		{1.2, 	1.4, 	1.6, 	1.8}
+				self.besiege.assault.force_pool_balance_mul = 	{1.2, 	1.4, 	1.6, 	1.8}
+			elseif difficulty_index == 3 then
+				self.besiege.assault.force_balance_mul = 		{1.6, 	1.8, 	2, 		2.2}
+				self.besiege.assault.force_pool_balance_mul = 	{1.7, 	2, 		2.2, 	2.4}
+			elseif difficulty_index == 4 then
+				self.besiege.assault.force_balance_mul = 		{1.8, 	2.1, 	2.4, 	2.8}
+				self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	2.8}
+			else
+				self.besiege.assault.force_balance_mul = 		{1.8, 	2.1, 	2.4, 	2.8}
+				self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	2.8}
+			end
+		elseif difficulty_index <= 1 then
+			self.besiege.assault.force_balance_mul = 		{0.9, 	1.5, 	2, 		2.25}
+			self.besiege.assault.force_pool_balance_mul = 	{1, 	1.5, 	2, 		3}
+		elseif difficulty_index == 2 then
+			self.besiege.assault.force_balance_mul = 		{1, 	1.4, 	1.6, 	1.9}
+			self.besiege.assault.force_pool_balance_mul = 	{1.2, 	1.4, 	1.6, 	1.9}
+		elseif difficulty_index == 3 then
+			self.besiege.assault.force_balance_mul = 		{1.4, 	1.8, 	2, 		2.4}
+			self.besiege.assault.force_pool_balance_mul = 	{1.7, 	2, 		2.2, 	2.5}
+		elseif difficulty_index == 4 then
+			self.besiege.assault.force_balance_mul = 		{2, 	2.5, 	2.9, 	3.2}
+			self.besiege.assault.force_pool_balance_mul = 	{2.2, 	2.4, 	2.6, 	3}
+		else
+			self.besiege.assault.force_balance_mul = 		{4, 	4.2, 	4.5, 	4.9}
+			self.besiege.assault.force_pool_balance_mul = 	{3, 	5, 		7, 		9}
+		end
 	end
+	
 	if difficulty_index <= 2 then
 		self.besiege.assault.groups = {
 			CS_swats = {

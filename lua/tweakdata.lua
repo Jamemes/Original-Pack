@@ -1,6 +1,6 @@
 local self = tweak_data
 
-self.version = "1.3.3.3"
+self.version = "1.3.4"
 self.testing_text = ''
 
 self.hate_multipler = 1.5
@@ -20,17 +20,20 @@ self.max_offshore = 1000000000
 self.max_spending_cash = 150000000
 self.max_coins = 250000
 
-tweak_data.killed_civs_penalty = {1, 2, 3}
-
-tweak_data.max_loose_money_boost = 30
-tweak_data.loose_money_exp_convertation_amount = 30000
+self.killed_civs_penalty = {1, 2, 3}
+self.easy_mode_exp_penalty = 50 --%
+self.max_loose_money_boost = 30 --%
+self.loose_money_exp_convertation_amount = 30000
 
 self.quickplay.default_level_diff = {0, 100}
 self.quickplay.max_level_diff = {100, 100}
 
 self.difficulty_level_locks = 					{0, 0, 0, 0, 0, 80, 1337, 1337}
 self.difficulty_level_locks_infamy = 			{0, 0, 0, 0, 0, 0, 1337, 1337}
-	
+
+self.screen_colors.max_money = Color(255, 121, 227, 177) / 255
+self.screen_colors.one_down = Color(255, 176, 230, 239) / 255
+
 self.difficulties = {
 	"easy",
 	"normal",

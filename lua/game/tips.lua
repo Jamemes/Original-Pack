@@ -32,7 +32,9 @@ function TipsTweakData:init()
 		{cat_index = 30,	image = "general_escapes",			consoles = true, category = "op_gameplay"},
 		{cat_index = 31,	image = "general_hostages",			consoles = true, category = "op_gameplay"},
 		{cat_index = 32,	image = "general_cleanercosts",		consoles = true, category = "op_gameplay"},
-		{cat_index = 33,	image = "weapon_gadgets",			consoles = true, category = "op_gameplay"}
+		{cat_index = 33,	image = "weapon_gadgets",			consoles = true, category = "op_gameplay"},
+		{cat_index = 34,	image = "general_difficulty",		consoles = true, category = "op_gameplay"},
+		{cat_index = 35,	image = "crimenet_fbifiles",		consoles = true, category = "op_gameplay"}
 	}
 	self.category_totals = {}
 

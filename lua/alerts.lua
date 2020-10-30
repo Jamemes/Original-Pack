@@ -1,6 +1,10 @@
+if Global.game_settings.one_down then
+	return
+end
+
 local hate = Global.game_settings and Global.game_settings.difficulty == "sm_wish" and tweak_data.hate_multipler or 1
 if string.lower(RequiredScript) == "lib/units/beings/player/states/playerstandard" then
-	--==Соседи будут звонить в полицию через некоторое время, после того был издан шум определенного радиуса. (Радиус по умолчанию - 2450)==--
+	--==Бег в определенном радиусе будет тревожить гражданских/охранников, но не камеры.==--
 	Hooks:PreHook(PlayerStandard, "_update_movement", "PlayerStandard_update_movement", function(self, t)
 		local cur_pos = pos_new or self._pos
 		local move_dis = mvector3.distance_sq(cur_pos, self._last_sent_pos)

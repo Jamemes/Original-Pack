@@ -8,6 +8,7 @@ OriginalPackOptions.settings = OriginalPackOptions.settings or {}
 
 function OriginalPackOptions:Reset()
 	self.settings = {
+		Spooky = false,
 		Enable_Max_Progress = false,
 		Enable_Test = false,
 		Anlways_Show_Body_Bags = false,
@@ -86,6 +87,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 		tweak_data.narrative.jobs.branchbank_cash.contact = "bain"
 		tweak_data.narrative.jobs.branchbank_gold_prof.contact = "bain"
 		tweak_data.narrative.jobs.branchbank_prof.contact = "bain"
+		tweak_data.narrative.jobs.kosugi_pro.contact = "bain"
 	end
 	
 	MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Body_Bags_callback = function(self, item)

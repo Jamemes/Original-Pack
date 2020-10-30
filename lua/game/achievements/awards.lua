@@ -1377,6 +1377,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 				job = "kosugi",
 				difficulty = deathwish
 			},
+			death_kosugi_pro = {
+				award = "ggez_65",
+				job = "kosugi_pro",
+				difficulty = deathwish
+			},
 			death_bigbank = {
 				award = "bigbank_9",
 				job = "big",
@@ -1683,7 +1688,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			modern_ninja = {
 				stealth = true,
 				award = "ovk_2",
-				job = "kosugi",
+				jobs = {"kosugi", "kosugi_pro"},
 				equipped = {primaries = {weapon_id = "m134"}}
 			},
 			newbee = {
@@ -2049,7 +2054,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			},
 			cac_5 = {
 				award = "cac_5",
-				job = "kosugi",
+				jobs = {"kosugi", "kosugi_pro"},
 				no_preplan = true,
 				difficulty = overkill_or_above
 			},
@@ -2239,7 +2244,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			},
 			monthly_shadowraid = {
 				challenge_award = "monthly_shadowraid",
-				job = "kosugi",
+				jobs = {"kosugi", "kosugi_pro"},
 				need_full_job = true,
 				difficulty = overkill_or_above,
 				equipped_team = {
@@ -2750,7 +2755,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 				}
 			},
 			daily_whats_stealth = {
-				job = "kosugi",
+				jobs = {"kosugi", "kosugi_pro"},
 				need_full_job = true,
 				trophy_stat = "daily_whats_stealth",
 				difficulty = deathwish,
@@ -3273,9 +3278,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			daily_heirloom = {
 				trophy_stat = "daily_heirloom",
 				is_dropin = false,
-				jobs = {
-					"kosugi"
-				},
+				jobs = {"kosugi", "kosugi_pro"},
 				secured = {
 					carry_id = "samurai_suit",
 					total_amount = 4
@@ -3324,9 +3327,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			story_shadow_raid_bags = {
 				amount = 1,
 				story = "story_shadow_raid_bags",
-				jobs = {
-					"kosugi"
-				}
+				jobs = {"kosugi", "kosugi_pro"},
 			}
 		}
 		self.job_list = {
@@ -3376,6 +3377,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 				"arm_und",
 				"arm_for",
 				"kosugi",
+				"kosugi_pro",
 				"gallery",
 				"rat",
 				"cage",

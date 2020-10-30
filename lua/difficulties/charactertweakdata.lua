@@ -2,6 +2,7 @@ local data = CharacterTweakData.init
 function CharacterTweakData:init(tweak_data)
     data(self, tweak_data)
 	local presets = self:_presets(tweak_data)
+	local easy_mode = Global.game_settings and Global.game_settings.one_down
 	
 	self.presets.weapon.gang_member.is_pistol.aim_delay = {0, 1}
 	self.presets.weapon.gang_member.is_pistol.focus_dis = 2000
@@ -100,63 +101,162 @@ function CharacterTweakData:init(tweak_data)
 		}
 	}
 
-	self.russian.move_speed 	= 		self.presets.move_speed.fast
-	self.german.move_speed 		= 		self.presets.move_speed.fast
-	self.spanish.move_speed 	= 		self.presets.move_speed.fast
-	self.american.move_speed 	= 		self.presets.move_speed.fast
-	self.jowi.move_speed 		= 		self.presets.move_speed.fast
-	self.old_hoxton.move_speed 	=  		self.presets.move_speed.fast
-	self.female_1.move_speed 	=  		self.presets.move_speed.fast
-	self.dragan.move_speed 		=  		self.presets.move_speed.fast
-	self.jacket.move_speed 		=  		self.presets.move_speed.fast
-	self.bonnie.move_speed 		=  		self.presets.move_speed.fast
-	self.sokol.move_speed 		=  		self.presets.move_speed.fast
-	self.dragon.move_speed 		=  		self.presets.move_speed.fast
-	self.bodhi.move_speed 		=  		self.presets.move_speed.fast
-	self.jimmy.move_speed 		=  		self.presets.move_speed.fast
-	self.sydney.move_speed 		= 		self.presets.move_speed.fast
-	self.wild.move_speed 		= 		self.presets.move_speed.fast
-	self.chico.move_speed 		=		self.presets.move_speed.fast
-	self.max.move_speed 		= 		self.presets.move_speed.fast
-	self.joy.move_speed 		= 		self.presets.move_speed.fast
-	self.myh.move_speed 		= 		self.presets.move_speed.fast
-	self.ecp_female.move_speed 	= 		self.presets.move_speed.fast
-	self.ecp_male.move_speed 	= 		self.presets.move_speed.fast
-
-	self.presets.gang_member_damage.hurt_severity.bullet = {
-		health_reference = "current",
-		zones = {
-			{
-				health_limit = 0.4,
-				none = 0.3,
-				light = 0.6,
-				moderate = 0.1
+	local movement_speed = easy_mode and self.presets.move_speed.lightning or self.presets.move_speed.fast
+	self.russian.move_speed 	= 		movement_speed
+	self.german.move_speed 		= 		movement_speed
+	self.spanish.move_speed 	= 		movement_speed
+	self.american.move_speed 	= 		movement_speed
+	self.jowi.move_speed 		= 		movement_speed
+	self.old_hoxton.move_speed 	=  		movement_speed
+	self.female_1.move_speed 	=  		movement_speed
+	self.dragan.move_speed 		=  		movement_speed
+	self.jacket.move_speed 		=  		movement_speed
+	self.bonnie.move_speed 		=  		movement_speed
+	self.sokol.move_speed 		=  		movement_speed
+	self.dragon.move_speed 		=  		movement_speed
+	self.bodhi.move_speed 		=  		movement_speed
+	self.jimmy.move_speed 		=  		movement_speed
+	self.sydney.move_speed 		= 		movement_speed
+	self.wild.move_speed 		= 		movement_speed
+	self.chico.move_speed 		=		movement_speed
+	self.max.move_speed 		= 		movement_speed
+	self.joy.move_speed 		= 		movement_speed
+	self.myh.move_speed 		= 		movement_speed
+	self.ecp_female.move_speed 	= 		movement_speed
+	self.ecp_male.move_speed 	= 		movement_speed
+	
+	if not easy_mode then
+		self.presets.surrender = {
+			always = {
+				base_chance = 1
 			},
-			{
-				health_limit = 0.7,
-				none = 0.1,
-				light = 0.7,
-				moderate = 0.2
+			never = {
+				base_chance = 0
 			},
-			{
-				none = 0.1,
-				light = 0.5,
-				moderate = 0.3,
-				heavy = 0.1
+			easy = {
+				base_chance = 0.75,
+				significant_chance = 0.1,
+				violence_timeout = 2,
+				reasons = {
+					pants_down = 1,
+					isolated = 0.1,
+					weapon_down = 0.8,
+					health = {
+						[1] = 0.2,
+						[0.3] = 1
+					}
+				},
+				factors = {
+					unaware_of_aggressor = 0.08,
+					enemy_weap_cold = 0.15,
+					flanked = 0.07,
+					aggressor_dis = {
+						[300.0] = 0.15,
+						[1000.0] = 0.02
+					}
+				}
+			},
+			normal = {
+				base_chance = 0.5,
+				significant_chance = 0.2,
+				violence_timeout = 2,
+				reasons = {
+					health = {
+						[1] = 0,
+						[0.5] = 0.5
+					}
+				},
+				factors = {
+					unaware_of_aggressor = 0.1,
+					enemy_weap_cold = 0.11,
+					flanked = 0.05,
+					aggressor_dis = {
+						[300.0] = 0.1,
+						[1000.0] = 0
+					}
+				}
+			},
+			hard = {
+				base_chance = 0.35,
+				significant_chance = 0.25,
+				violence_timeout = 2,
+				reasons = {
+					pants_down = 0.8,
+					weapon_down = 0.2,
+					health = {
+						[1] = 0,
+						[0.35] = 0.5
+					}
+				},
+				factors = {
+					enemy_weap_cold = 0.05,
+					unaware_of_aggressor = 0.1,
+					flanked = 0.04,
+					isolated = 0.1,
+					aggressor_dis = {
+						[300.0] = 0.1,
+						[1000.0] = 0
+					}
+				}
+			},
+			special = {
+				base_chance = 0.25,
+				significant_chance = 0.25,
+				violence_timeout = 2,
+				reasons = {
+					pants_down = 0.6,
+					weapon_down = 0.02,
+					health = {
+						[0.5] = 0,
+						[0.2] = 0.25
+					}
+				},
+				factors = {
+					enemy_weap_cold = 0.05,
+					unaware_of_aggressor = 0.02,
+					isolated = 0.05,
+					flanked = 0.015
+				}
+			}
+		}	
+		self.presets.gang_member_damage.hurt_severity.bullet = {
+			health_reference = "current",
+			zones = {
+				{
+					health_limit = 0.4,
+					none = 0.3,
+					light = 0.6,
+					moderate = 0.1
+				},
+				{
+					health_limit = 0.7,
+					none = 0.1,
+					light = 0.7,
+					moderate = 0.2
+				},
+				{
+					none = 0.1,
+					light = 0.5,
+					moderate = 0.3,
+					heavy = 0.1
+				}
 			}
 		}
-	}
-	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0
-	self.presets.weapon.normal.is_pistol.melee_dmg = 8
-	self.presets.weapon.normal.akimbo_pistol.melee_dmg = 8
-	self.presets.weapon.normal.is_rifle.melee_dmg = 8
-	self.presets.weapon.normal.is_bullpup.melee_dmg = 8
-	self.presets.weapon.normal.is_shotgun_pump.melee_dmg = 8
-	self.presets.weapon.normal.is_shotgun_mag.melee_dmg = 8
-	self.presets.weapon.normal.is_smg.melee_dmg = 8
-	self.presets.weapon.normal.is_revolver.melee_dmg = 8
-	self.presets.weapon.normal.mini.melee_dmg = 8
-	self.presets.weapon.normal.is_lmg.melee_dmg = 8
+		
+		self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0
+		
+		self.presets.weapon.normal.is_pistol.melee_dmg = 8
+		self.presets.weapon.normal.akimbo_pistol.melee_dmg = 8
+		self.presets.weapon.normal.is_rifle.melee_dmg = 8
+		self.presets.weapon.normal.is_bullpup.melee_dmg = 8
+		self.presets.weapon.normal.is_shotgun_pump.melee_dmg = 8
+		self.presets.weapon.normal.is_shotgun_mag.melee_dmg = 8
+		self.presets.weapon.normal.is_smg.melee_dmg = 8
+		self.presets.weapon.normal.is_revolver.melee_dmg = 8
+		self.presets.weapon.normal.mini.melee_dmg = 8
+		self.presets.weapon.normal.is_lmg.melee_dmg = 8
+	end
+	
 	
 	self.presets.weapon.expert.is_rifle.focus_delay = 2
 	self.presets.weapon.expert.is_rifle.focus_dis = 300
@@ -188,99 +288,6 @@ function CharacterTweakData:init(tweak_data)
 		{r = 3000,	acc = {0.2, 0.35},	dmg_mul = 2.5,	recoil = {0.65, 1.2},	mode = {4, 1, 0, 0}}
 	}
 	
-	self.presets.surrender = {
-		always = {
-			base_chance = 1
-		},
-		never = {
-			base_chance = 0
-		},
-		easy = {
-			base_chance = 0.75,
-			significant_chance = 0.1,
-			violence_timeout = 2,
-			reasons = {
-				pants_down = 1,
-				isolated = 0.1,
-				weapon_down = 0.8,
-				health = {
-					[1] = 0.2,
-					[0.3] = 1
-				}
-			},
-			factors = {
-				unaware_of_aggressor = 0.08,
-				enemy_weap_cold = 0.15,
-				flanked = 0.07,
-				aggressor_dis = {
-					[300.0] = 0.15,
-					[1000.0] = 0.02
-				}
-			}
-		},
-		normal = {
-			base_chance = 0.5,
-			significant_chance = 0.2,
-			violence_timeout = 2,
-			reasons = {
-				health = {
-					[1] = 0,
-					[0.5] = 0.5
-				}
-			},
-			factors = {
-				unaware_of_aggressor = 0.1,
-				enemy_weap_cold = 0.11,
-				flanked = 0.05,
-				aggressor_dis = {
-					[300.0] = 0.1,
-					[1000.0] = 0
-				}
-			}
-		},
-		hard = {
-			base_chance = 0.35,
-			significant_chance = 0.25,
-			violence_timeout = 2,
-			reasons = {
-				pants_down = 0.8,
-				weapon_down = 0.2,
-				health = {
-					[1] = 0,
-					[0.35] = 0.5
-				}
-			},
-			factors = {
-				enemy_weap_cold = 0.05,
-				unaware_of_aggressor = 0.1,
-				flanked = 0.04,
-				isolated = 0.1,
-				aggressor_dis = {
-					[300.0] = 0.1,
-					[1000.0] = 0
-				}
-			}
-		},
-		special = {
-			base_chance = 0.25,
-			significant_chance = 0.25,
-			violence_timeout = 2,
-			reasons = {
-				pants_down = 0.6,
-				weapon_down = 0.02,
-				health = {
-					[0.5] = 0,
-					[0.2] = 0.25
-				}
-			},
-			factors = {
-				enemy_weap_cold = 0.05,
-				unaware_of_aggressor = 0.02,
-				isolated = 0.05,
-				flanked = 0.015
-			}
-		}
-	}	
 	self.security.chatter = {
 		aggressive = true,
 		contact = true,
@@ -609,6 +616,20 @@ function CharacterTweakData:init(tweak_data)
 	self.tank.surrender = nil
 	self.tank_mini.surrender = nil
 	
+	if easy_mode then
+		self.security.HEALTH_INIT = 3
+		self.security_mex.HEALTH_INIT = 3
+		self.cop.HEALTH_INIT = 3
+		self.gangster.HEALTH_INIT = 4
+		self.fbi.HEALTH_INIT = 5
+		self.gensec.HEALTH_INIT = 6
+		self.swat.HEALTH_INIT = 8
+		self.heavy_swat.HEALTH_INIT = 10
+		self.fbi_swat.HEALTH_INIT = 13
+		self.fbi_heavy_swat.HEALTH_INIT = 20
+		self.shield.HEALTH_INIT = 10
+	end
+	
 end
 
 function CharacterTweakData:_multiply_all_hp(hp_mul, hs_mul)
@@ -770,7 +791,12 @@ function CharacterTweakData:_set_normal()
 	self.shield.HEALTH_INIT = 10
 	self.presets.gang_member_damage.REGENERATE_TIME = 1.5
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.2
-	self.presets.gang_member_damage.HEALTH_INIT = 60
+	
+	if Global.game_settings and Global.game_settings.one_down then
+		self.presets.gang_member_damage.HEALTH_INIT = 125
+	else
+		self.presets.gang_member_damage.HEALTH_INIT = 60
+	end
 	
 	self:_set_characters_weapon_preset("normal")
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
@@ -805,7 +831,11 @@ function CharacterTweakData:_set_hard()
 
 	self:_set_characters_weapon_preset("normal")
 
-	self.presets.gang_member_damage.HEALTH_INIT = 80
+	if Global.game_settings and Global.game_settings.one_down then
+		self.presets.gang_member_damage.HEALTH_INIT = 160
+	else
+		self.presets.gang_member_damage.HEALTH_INIT = 80
+	end
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -847,7 +877,13 @@ function CharacterTweakData:_set_overkill()
 	self.phalanx_vip.DAMAGE_CLAMP_EXPLOSION = self.phalanx_vip.DAMAGE_CLAMP_BULLET
 	self.presets.gang_member_damage.REGENERATE_TIME = 2
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 100
+	
+	if Global.game_settings and Global.game_settings.one_down then
+		self.presets.gang_member_damage.HEALTH_INIT = 200
+	else
+		self.presets.gang_member_damage.HEALTH_INIT = 100
+	end
+	
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -875,6 +911,7 @@ end
 function CharacterTweakData:_set_overkill_145()
 	self:_multiply_all_hp(1, 1)
 	self:_multiply_all_speeds(1.05, 1.05)
+	local easy_mode = Global.game_settings and Global.game_settings.one_down
 
 	self.hector_boss.HEALTH_INIT = 600
 	self.mobster_boss.HEALTH_INIT = 600
@@ -895,8 +932,12 @@ function CharacterTweakData:_set_overkill_145()
 
 	self.presets.gang_member_damage.REGENERATE_TIME = 2
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 125
-
+	if Global.game_settings and Global.game_settings.one_down then
+		self.presets.gang_member_damage.HEALTH_INIT = 250
+	else
+		self.presets.gang_member_damage.HEALTH_INIT = 125
+	end
+	
 	self:_set_characters_weapon_preset("expert")
 
 	self.shadow_spooc.shadow_spooc_attack_timeout = {3.5, 5}
@@ -909,33 +950,34 @@ function CharacterTweakData:_set_overkill_145()
 	self.flashbang_multiplier = 1.75
 	self.concussion_multiplier = 1
 	
-	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
-	self.german.move_speed 		= 		self.presets.move_speed.very_fast
-	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
-	self.american.move_speed 	= 		self.presets.move_speed.very_fast
-	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
-	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
-	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
-	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
-	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
-	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
-	self.chico.move_speed 		=		self.presets.move_speed.very_fast
-	self.max.move_speed 		= 		self.presets.move_speed.very_fast
-	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
-	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
-	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
-	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
-	
+	local movement_speed = easy_mode and self.presets.move_speed.lightning or self.presets.move_speed.very_fast
+	self.russian.move_speed 	= 		movement_speed
+	self.german.move_speed 		= 		movement_speed
+	self.spanish.move_speed 	= 		movement_speed
+	self.american.move_speed 	= 		movement_speed
+	self.jowi.move_speed 		= 		movement_speed
+	self.old_hoxton.move_speed 	=  		movement_speed
+	self.female_1.move_speed 	=  		movement_speed
+	self.dragan.move_speed 		=  		movement_speed
+	self.jacket.move_speed 		=  		movement_speed
+	self.bonnie.move_speed 		=  		movement_speed
+	self.sokol.move_speed 		=  		movement_speed
+	self.dragon.move_speed 		=  		movement_speed
+	self.bodhi.move_speed 		=  		movement_speed
+	self.jimmy.move_speed 		=  		movement_speed
+	self.sydney.move_speed 		= 		movement_speed
+	self.wild.move_speed 		= 		movement_speed
+	self.chico.move_speed 		=		movement_speed
+	self.max.move_speed 		= 		movement_speed
+	self.joy.move_speed 		= 		movement_speed
+	self.myh.move_speed 		= 		movement_speed
+	self.ecp_female.move_speed 	= 		movement_speed
+	self.ecp_male.move_speed 	= 		movement_speed
 end
 
 function CharacterTweakData:_set_overkill_290()
 	self:_multiply_all_hp(1, 1)
+	local easy_mode = Global.game_settings and Global.game_settings.one_down
 
 	self.hector_boss.HEALTH_INIT = 900
 	self.mobster_boss.HEALTH_INIT = 900
@@ -951,7 +993,11 @@ function CharacterTweakData:_set_overkill_290()
 
 	self.presets.gang_member_damage.REGENERATE_TIME = 1.8
 	self.presets.gang_member_damage.REGENERATE_TIME_AWAY = 0.6
-	self.presets.gang_member_damage.HEALTH_INIT = 150
+	if Global.game_settings and Global.game_settings.one_down then
+		self.presets.gang_member_damage.HEALTH_INIT = 300
+	else
+		self.presets.gang_member_damage.HEALTH_INIT = 150
+	end
 	self.presets.weapon.gang_member.is_smg = self.presets.weapon.gang_member.is_rifle
 	self.presets.weapon.gang_member.is_pistol = self.presets.weapon.gang_member.is_pistol
 	self.presets.weapon.gang_member.is_revolver = self.presets.weapon.gang_member.is_pistol
@@ -964,7 +1010,6 @@ function CharacterTweakData:_set_overkill_290()
 	self.presets.weapon.gang_member.is_shotgun_mag = deep_clone(self.presets.weapon.gang_member.is_shotgun_pump)
 
 	self:_set_characters_weapon_preset("deathwish")
-
 	self.shadow_spooc.shadow_spooc_attack_timeout = {3, 4}
 	self.spooc.spooc_attack_timeout = {3, 4}
 	self.sniper.weapon.is_rifle.FALLOFF = {
@@ -1059,28 +1104,29 @@ function CharacterTweakData:_set_overkill_290()
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 
-	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
-	self.german.move_speed 		= 		self.presets.move_speed.very_fast
-	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
-	self.american.move_speed 	= 		self.presets.move_speed.very_fast
-	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
-	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
-	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
-	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
-	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
-	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
-	self.chico.move_speed 		=		self.presets.move_speed.very_fast
-	self.max.move_speed 		= 		self.presets.move_speed.very_fast
-	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
-	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
-	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
-	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
+	local movement_speed = easy_mode and self.presets.move_speed.lightning or self.presets.move_speed.very_fast
+	self.russian.move_speed 	= 		movement_speed
+	self.german.move_speed 		= 		movement_speed
+	self.spanish.move_speed 	= 		movement_speed
+	self.american.move_speed 	= 		movement_speed
+	self.jowi.move_speed 		= 		movement_speed
+	self.old_hoxton.move_speed 	=  		movement_speed
+	self.female_1.move_speed 	=  		movement_speed
+	self.dragan.move_speed 		=  		movement_speed
+	self.jacket.move_speed 		=  		movement_speed
+	self.bonnie.move_speed 		=  		movement_speed
+	self.sokol.move_speed 		=  		movement_speed
+	self.dragon.move_speed 		=  		movement_speed
+	self.bodhi.move_speed 		=  		movement_speed
+	self.jimmy.move_speed 		=  		movement_speed
+	self.sydney.move_speed 		= 		movement_speed
+	self.wild.move_speed 		= 		movement_speed
+	self.chico.move_speed 		=		movement_speed
+	self.max.move_speed 		= 		movement_speed
+	self.joy.move_speed 		= 		movement_speed
+	self.myh.move_speed 		= 		movement_speed
+	self.ecp_female.move_speed 	= 		movement_speed
+	self.ecp_male.move_speed 	= 		movement_speed
 end
 
 function CharacterTweakData:_set_sm_wish()

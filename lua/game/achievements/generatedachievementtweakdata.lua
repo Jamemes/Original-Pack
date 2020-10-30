@@ -7650,6 +7650,18 @@ function init_auto_generated_achievement_data(tags)
 				tags.tactics.stealth,
 				tags.contracts.locke
 			}
+		},
+		ggez_65 = {
+			icon_id = "C_Bain_H_ShadowRaid_AllDiffs_D5",
+			ladder = "H_ShadowRaid",
+			sort_name = "C_Bain_H_ShadowRaid_AllDiffs_D5",
+			additional_id = true,
+			tags = {
+				tags.progress.completion,
+				tags.difficulty.death_wish,
+				tags.tactics.stealth,
+				tags.contracts.bain
+			}
 		}
 	}
 end

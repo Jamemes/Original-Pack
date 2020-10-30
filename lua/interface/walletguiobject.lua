@@ -127,7 +127,7 @@ function WalletGuiObject.refresh()
 
 		if unlocked then
 			coins_text:set_text(managers.custom_safehouse:coins() >= tweak_data.max_coins and managers.experience:cash_string(math.floor(tweak_data.max_coins), "") or managers.experience:cash_string(math.floor(coins), ""))
-			coins_text:set_color(managers.custom_safehouse:coins() >= tweak_data.max_coins and tweak_data.screen_colors.friend_color or tweak_data.screen_colors.text)
+			coins_text:set_color(managers.custom_safehouse:coins() >= tweak_data.max_coins and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text)
 			WalletGuiObject.make_fine_text(coins_text)
 			coins_icon:set_leftbottom(money_text:right() + 20, Global.wallet_panel:h() - 2)
 			coins_text:set_left(coins_icon:right() + 2)
@@ -162,7 +162,7 @@ function WalletGuiObject.refresh()
 		level_text:set_visible(true)
 		skillpoint_text:set_visible(managers.skilltree:points() > 0)
 		money_text:set_text(managers.money:total() >= tweak_data.max_spending_cash and managers.experience:cash_string(math.floor(tweak_data.max_spending_cash), "") or managers.money:total_string_no_currency())
-		money_text:set_color(managers.money:total() >= tweak_data.max_spending_cash and tweak_data.screen_colors.friend_color or tweak_data.screen_colors.text)
+		money_text:set_color(managers.money:total() >= tweak_data.max_spending_cash and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text)
 		WalletGuiObject.refresh_blur()
 	end
 end

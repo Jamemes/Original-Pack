@@ -103,17 +103,17 @@ function PlayerProfileGuiObject:init(ws)
 	
 	managers.menu:color_range(
 		money_text,
-		managers.money:total() >= tweak_data.max_spending_cash and tweak_data.screen_colors.friend_color or tweak_data.screen_colors.text,
+		managers.money:total() >= tweak_data.max_spending_cash and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text,
 		money_text_string
 	)
 	managers.menu:color_range(
 		total_money_text,
-		managers.money:offshore() >= tweak_data.max_offshore and tweak_data.screen_colors.friend_color or tweak_data.screen_colors.text,
+		managers.money:offshore() >= tweak_data.max_offshore and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text,
 		total_money_text_string
 	)
 	managers.menu:color_range(
 		coin_text,
-		managers.custom_safehouse:coins() >= tweak_data.max_coins and tweak_data.screen_colors.friend_color or tweak_data.screen_colors.text,
+		managers.custom_safehouse:coins() >= tweak_data.max_coins and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text,
 		coin_string_text
 	)
 				

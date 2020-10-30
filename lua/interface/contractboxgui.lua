@@ -196,13 +196,6 @@ function ContractBoxGui:create_contract_box()
 			color = tweak_data.screen_colors.text
 		})
 
-		if Global.game_settings.one_down then
-			local one_down_string = managers.localization:to_upper_text("menu_one_down")
-			local text_string = difficulty_string .. " " .. one_down_string
-
-			difficulty_text:set_text(text_string)
-			difficulty_text:set_range_color(utf8.len(difficulty_string) + 1, utf8.len(text_string), tweak_data.screen_colors.one_down)
-		end
 
 		local _, _, tw, th = difficulty_text:text_rect()
 
@@ -211,6 +204,20 @@ function ContractBoxGui:create_contract_box()
 		difficulty_text:set_center_y(cy)
 		difficulty_text:set_y(math.round(difficulty_text:y()))
 
+		if Global.game_settings.one_down then
+			local one_down_text = self._contract_panel:text({
+				name = "one_down_text",
+				font = font,
+				font_size = font_size,
+				text = managers.localization:to_upper_text("menu_one_down"),
+				rotation = 360,
+				h = 20,
+				w = 100,
+				color = tweak_data.screen_colors.one_down
+			})
+			one_down_text:set_lefttop(difficulty_text:right() + 8, difficulty_text:top())
+		end
+		
 		if difficulty_stars > 0 then
 			difficulty_text:set_color(risk_color)
 		end
@@ -222,21 +229,18 @@ function ContractBoxGui:create_contract_box()
 			mission_xp = xp_min
 		})
 		local xp_text_min = managers.money:add_decimal_marks_to_string(tostring(math.round(total_xp_min)))
-		local lvl = Global.game_settings.level_id
-		local halloween = lvl == "nail" or lvl == "help" or lvl == "haunted" or lvl == "hvh"
-		local job_xp_text = halloween and (#xp_text_min == 1 and "?" or #xp_text_min == 2 and "??" or #xp_text_min == 3 and "???" or #xp_text_min == 5 and (difficulty_stars > 2 and "109 x 24 = ?,???" or "?,???") or #xp_text_min == 6 and "??,???" or #xp_text_min == 7 and "???,???") or xp_text_min
 		local job_xp = self._contract_panel:text({
 			name = "job_xp",
 			font = font,
 			font_size = font_size,
-			text = job_xp_text,
+			text = xp_text_min,
 			color = tweak_data.screen_colors.text
 		})
 		local _, _, tw, th = job_xp:text_rect()
 
 		job_xp:set_size(tw, th)
 		job_xp:set_position(math.round(exp_text_header:right() + 5), math.round(exp_text_header:top()))
-
+		
 		local risk_xp = self._contract_panel:text({
 			font = font,
 			font_size = font_size,
@@ -248,7 +252,7 @@ function ContractBoxGui:create_contract_box()
 		risk_xp:set_size(tw, th)
 		risk_xp:set_position(math.round(job_xp:right()), job_xp:top())
 		risk_xp:hide()
-
+		
 		local job_ghost_mul = managers.job:get_ghost_bonus() or 0
 		local ghost_xp_text = nil
 
@@ -301,9 +305,24 @@ function ContractBoxGui:create_contract_box()
 			local _, _, tw, th = heat_xp_text:text_rect()
 
 			heat_xp_text:set_size(tw, th)
-			heat_xp_text:set_position(math.round(ghost_xp_text and ghost_xp_text:right() or risk_xp:visible() and risk_xp:right() or job_xp:right()), job_xp:top())
+			heat_xp_text:set_position(math.round(ghost_xp_text and ghost_xp_text:right() or job_xp:right()), job_xp:top())
 		end
 
+		if Global.game_settings.one_down then
+			local text_string = " (-" .. tweak_data.easy_mode_exp_penalty .. "%)"
+			easy_xp_text = self._contract_panel:text({
+				blend_mode = "add",
+				font = font,
+				font_size = font_size,
+				text = text_string,
+				color = tweak_data.screen_colors.one_down
+			})
+			local _, _, tw, th = easy_xp_text:text_rect()
+
+			easy_xp_text:set_size(tw, th)
+			easy_xp_text:set_position(math.round(alive(heat_xp_text) and heat_xp_text:right() or alive(ghost_xp_text) and ghost_xp_text:right() or job_xp:right()), job_xp:top())
+		end
+		
 		local total_payout_min, base_payout_min, risk_payout_min = managers.money:get_contract_money_by_stars(job_stars, difficulty_stars, #job_chain, managers.job:current_job_id(), managers.job:current_level_id())
 		local total_payout_max, base_payout_max, risk_payout_max = managers.money:get_contract_money_by_stars(job_stars, difficulty_stars, #job_chain, managers.job:current_job_id(), managers.job:current_level_id(), {
 			mandatory_bags_value = contract_visuals.mandatory_bags_value and contract_visuals.mandatory_bags_value[difficulty_stars + 1],
@@ -456,6 +475,7 @@ end
 Hooks:PreHook(ContractBoxGui, "update", "ContractBoxGui_update", function(self)
 	local job_xp = self._contract_panel:child("job_xp")
 	local contact_data = managers.job:current_contact_data()
+	local easy_mode = Global.game_settings and Global.game_settings.one_down
 	if contact_data and not managers.skirmish:is_skirmish() then
 		local job_chain = managers.job:current_job_chain_data()
 		local job_data = managers.job:current_job_data()
@@ -465,8 +485,22 @@ Hooks:PreHook(ContractBoxGui, "update", "ContractBoxGui_update", function(self)
 		local total_xp_min = managers.experience:get_contract_xp_by_stars(job_id, job_stars, difficulty_stars, job_data.professional, #job_chain, {
 			mission_xp = xp_min
 		})
-		local xp_text_min = managers.money:add_decimal_marks_to_string(tostring(math.round(total_xp_min)))
+		local easy_exp_string = easy_mode and total_xp_min * (tweak_data.easy_mode_exp_penalty >= 100 and 0 or 1 - (tweak_data.easy_mode_exp_penalty * 0.01)) or total_xp_min
+		local xp_text_min = managers.money:add_decimal_marks_to_string(tostring(math.round(easy_exp_string)))
 		job_xp:set_text(xp_text_min)
+	end
+	
+	
+	if self._easy_mode_tooltip then
+		local speed = 6
+		local x, y = managers.mouse_pointer:modified_mouse_pos()
+		local one_down_text = self._contract_panel:child("one_down_text")
+		
+		if one_down_text and one_down_text:inside(x, y) then
+			self._easy_mode_tooltip:set_alpha(math.clamp(self._easy_mode_tooltip:alpha() + speed * TimerManager:main():delta_time(), 0, 1))
+		else
+			self._easy_mode_tooltip:set_alpha(math.clamp(self._easy_mode_tooltip:alpha() - speed * TimerManager:main():delta_time(), 0, 1))
+		end
 	end
 	
 	if self._pro_tooltip then
@@ -498,7 +532,19 @@ function ContractBoxGui:mouse_moved(x, y)
 			end
 		end
 	end
-		
+
+	if self._easy_mode_tooltip then
+		local one_down_text = self._contract_panel:child("one_down_text")
+		local speed = 6
+
+		if one_down_text and one_down_text:inside(x, y) then
+			self._easy_mode_tooltip:set_world_right(x + 100)
+			self._easy_mode_tooltip:set_world_bottom(y)
+
+			return true, "link"
+		end
+	end
+	
 	if self._pro_tooltip then
 		local pro_text = self._panel:child("pro_text")
 		local speed = 6
@@ -539,6 +585,110 @@ function ContractBoxGui:create_mutators_tooltip()
 		return
 	end
 
+	self._easy_mode_tooltip = self._fullscreen_panel:panel({
+		name = "pro_tooltip",
+		h = 230,
+		layer = 10,
+		w = self._panel:w() * 0.25
+	})
+	self._easy_mode_tooltip:set_w(555)
+	
+	local easy_mode_title = self._easy_mode_tooltip:text({
+		y = 10,
+		name = "easy_mode_title",
+		x = 10,
+		font = tweak_data.menu.pd2_medium_font,
+		font_size = tweak_data.menu.pd2_medium_font_size,
+		text = managers.localization:to_upper_text("menu_one_down"),
+		color = tweak_data.screen_colors.one_down,
+		h = tweak_data.menu.pd2_medium_font_size
+	})
+
+	local string_h = 12
+	
+	local placer = UiPlacer:new(10, 38, 0, 8)
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "1) " .. managers.localization:text("menu_easy_restart"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "2) " .. managers.localization:text("menu_easy_spawns"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "3) " .. managers.localization:text("menu_easy_enemy"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "4) " .. managers.localization:text("menu_easy_flashbangs"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "5) " .. managers.localization:text("menu_easy_pagers"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "6) " .. managers.localization:text("menu_easy_cameras"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "7) " .. managers.localization:text("menu_easy_alerts"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "8) " .. managers.localization:text("menu_easy_bots"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._easy_mode_tooltip:text({
+		text = "9) " .. managers.localization:text("menu_easy_achievements"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	
 	self._pro_tooltip = self._fullscreen_panel:panel({
 		name = "pro_tooltip",
 		h = 110,
@@ -546,6 +696,7 @@ function ContractBoxGui:create_mutators_tooltip()
 		w = self._panel:w() * 0.25
 	})
 	self._pro_tooltip:set_w(525)
+	
 	local pro_title = self._pro_tooltip:text({
 		y = 10,
 		name = "pro_title",
@@ -556,18 +707,44 @@ function ContractBoxGui:create_mutators_tooltip()
 		color = tweak_data.screen_colors.pro_color,
 		h = tweak_data.menu.pd2_medium_font_size
 	})
-
-	local _y = pro_title:bottom() + 5
 	
-	local modifier_1 = self._pro_tooltip:text({text = "1) " .. managers.localization:text("menu_prof_mod_contract"), name = "modifier_1", x = 10, h = 100, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, y = _y, h = tweak_data.menu.pd2_small_font_size})
-	local modifier_2 = self._pro_tooltip:text({text = "2) " .. managers.localization:text("menu_prof_mod_hostage"), name = "modifier_2", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
-	local modifier_3 = self._pro_tooltip:text({text = "3) " .. managers.localization:text("menu_prof_mod_flash"), name = "modifier_3", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
-	-- local modifier_4 = self._pro_tooltip:text({text = "4) " .. managers.localization:text("menu_prof_mod_inventory"), name = "modifier_4", x = 10, layer = 1, font = tweak_data.menu.pd2_small_font, font_size = tweak_data.menu.pd2_small_font_size, h = tweak_data.menu.pd2_small_font_size})
-
-	_y = modifier_1:bottom() + 2
-	modifier_2:set_top(modifier_1:bottom())
-	modifier_3:set_top(modifier_2:bottom())
-	-- modifier_4:set_top(modifier_3:bottom())
+	local placer = UiPlacer:new(10, 38, 0, 8)
+	placer:add_bottom(self._pro_tooltip:text({
+		text = "1) " .. managers.localization:text("menu_prof_mod_contract"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._pro_tooltip:text({
+		text = "2) " .. managers.localization:text("menu_prof_mod_hostage"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	placer:add_bottom(self._pro_tooltip:text({
+		text = "3) " .. managers.localization:text("menu_prof_mod_flash"),
+		vertical = "top",
+		align = "left",
+		h = string_h,
+		rotation = 360,
+		font = tweak_data.menu.pd2_small_font,
+		font_size = tweak_data.menu.pd2_small_font_size
+	}))
+	-- placer:add_bottom(self._pro_tooltip:text({
+		-- text = "4) " .. managers.localization:text("menu_prof_mod_inventory"),
+		-- vertical = "top",
+		-- align = "left",
+		-- h = string_h,
+		-- rotation = 360,
+		-- font = tweak_data.menu.pd2_small_font,
+		-- font_size = tweak_data.menu.pd2_small_font_size
+	-- }))
 	
 	if managers.mutators:are_mutators_enabled() then
 		self._mutators_tooltip = self._fullscreen_panel:panel({
@@ -646,6 +823,21 @@ function ContractBoxGui:create_mutators_tooltip()
 		}
 	})
 	self._pro_tooltip:set_alpha(0)
+	
+	self._easy_mode_tooltip:rect({
+		alpha = 0.8,
+		layer = -1,
+		color = Color.black
+	})
+	BoxGuiObject:new(self._easy_mode_tooltip, {
+		sides = {
+			1,
+			1,
+			1,
+			1
+		}
+	})
+	self._easy_mode_tooltip:set_alpha(0)
 end
 
 function ContractBoxGui:check_update_mutators_tooltip()

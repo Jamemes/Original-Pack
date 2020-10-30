@@ -125,10 +125,10 @@ function IngameContractGui:init(ws, node)
 	if Global.game_settings.one_down then
 		one_down_warning_text = text_panel:text({
 			name = "one_down_warning_text",
-			text = managers.localization:to_upper_text("menu_one_down"),
+			text = managers.localization:to_upper_text("menu_easy_mode") .. tweak_data.easy_mode_exp_penalty .. "%",
 			font = tweak_data.menu.pd2_small_font,
 			font_size = tweak_data.menu.pd2_small_font_size,
-			color = tweak_data.screen_colors.one_down
+			color = tweak_data.screen_colors.pro_color
 		})
 
 		managers.hud:make_fine_text(one_down_warning_text)

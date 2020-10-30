@@ -637,5 +637,8 @@ function MenuCrimeNetContactChillInitiator:modify_node(original_node, data)
 	return node
 end
 
-function MenuCallbackHandler:restart_level_visible() end
-function MenuCallbackHandler:restart_vote_visible() end
+local easy_mode = Global.game_settings and Global.game_settings.one_down
+if not easy_mode then
+	function MenuCallbackHandler:restart_level_visible() end
+	function MenuCallbackHandler:restart_vote_visible() end
+end

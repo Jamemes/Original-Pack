@@ -1,3 +1,7 @@
+if Global.game_settings.one_down then
+	return
+end
+
 function QuickFlashGrenade:init(unit)
 	self._unit = unit
 	self._state = 0

@@ -277,10 +277,10 @@ function CrimeNetContractGui:init(ws, fullscreen_ws, node)
 	if one_down_active then
 		local one_down_warning_text = self._contract_panel:text({
 			name = "one_down_warning_text",
-			text = managers.localization:to_upper_text("menu_one_down"),
+			text = managers.localization:to_upper_text("menu_easy_mode") .. tweak_data.easy_mode_exp_penalty .. "%",
 			font = font,
 			font_size = font_size,
-			color = tweak_data.screen_colors.one_down
+			color = tweak_data.screen_colors.pro_color
 		})
 
 		self:make_fine_text(one_down_warning_text)

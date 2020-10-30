@@ -1,3 +1,7 @@
+if Global.game_settings.one_down then
+	return
+end
+
 local difficulty = Global.game_settings and Global.game_settings.difficulty
 local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 

@@ -71,7 +71,8 @@ if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebas
 		return nr_hostages_allowed > self._police_hostage_headcount + table.size(self._converted_police)
 	end
 end
-if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
+local easy_mode = Global.game_settings and Global.game_settings.one_down
+if not easy_mode and string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
 	function CopLogicIntimidated._start_action_hands_up(data)
 		local my_data = data.internal_data
 		local anim_name = "hands_up"
@@ -92,5 +93,7 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimid
 			CopLogicIntimidated._do_tied(data, my_data.aggressor_unit)
 		end
 	end
+end
+if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
 	function CopLogicIntimidated._chk_begin_alarm_pager(data) end
 end
