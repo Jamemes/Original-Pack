@@ -1,6 +1,6 @@
 local self = tweak_data
 
-self.version = "1.3.4"
+self.version = "1.3.5"
 self.testing_text = ''
 
 self.hate_multipler = 1.5
