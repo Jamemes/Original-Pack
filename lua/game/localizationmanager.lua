@@ -8,7 +8,7 @@ OriginalPackOptions.settings = OriginalPackOptions.settings or {}
 
 function OriginalPackOptions:Reset()
 	self.settings = {
-		Spooky = false,
+		Spooky = true,
 		Enable_Max_Progress = false,
 		Enable_Test = false,
 		Anlways_Show_Body_Bags = false,
@@ -129,8 +129,10 @@ end)
 
 
 Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
+	nodes[OriginalPackOptions.options_menu] = MenuHelper:BuildMenu(OriginalPackOptions.options_menu)
 	nodes[OriginalPackOptions.interface_menu] = MenuHelper:BuildMenu(OriginalPackOptions.interface_menu)
-	MenuHelper:AddMenuItem(nodes["user_interface_options"], OriginalPackOptions.interface_menu, "menu_OP_title", "", 11)
+	MenuHelper:AddMenuItem(nodes["main"], OriginalPackOptions.options_menu, "menu_OP_title", "", 17)
+	MenuHelper:AddMenuItem(nodes[OriginalPackOptions.options_menu], OriginalPackOptions.interface_menu, "menu_user_interface", "", 1)
 
 	local menu_item = nodes.main
 	local data = {type = "CoreMenuItem.Item"}
@@ -157,7 +159,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	MenuCallbackHandler.OP_changelog_callback = function(self, item)
 		Steam:overlay_activate("url", "https://steamcommunity.com/sharedfiles/filedetails/?id=2062176985")
 	end
-	local menu_item = nodes.main
+	local menu_item = nodes[OriginalPackOptions.options_menu]
 	local data = {type = "CoreMenuItem.Item"}
 	local params = {
 		name = "OP_changelog_btn",
@@ -286,7 +288,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 		local menu = QuickMenu:new( menu_title, menu_message, menu_options )
 		menu:Show()
 	end
-	local menu_item = nodes.main
+	local menu_item = nodes[OriginalPackOptions.options_menu]
 	local data = {type = "CoreMenuItem.Item"}
 	local params = {
 		name = "max_progress_btn",
@@ -299,7 +301,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	if menu_item.callback_handler then
 		new_item:set_callback_handler(menu_item.callback_handler)
 	end
-	local position = 1
+	local position = 3
 	for index, item in pairs(menu_item._items) do
 		if item:name() == "options" then
 			position = index

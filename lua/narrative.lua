@@ -187,16 +187,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		
 		
 		self.jobs.cage.jc = 50
-		self.jobs.arena.jc = 30
+		self.jobs.arena.jc = 40
 		self.jobs.roberts.jc = 50
 		self.jobs.rvd.jc = 40
 		self.jobs.rvd_pro.jc = 50
 		self.jobs.rat.jc = 50
 		self.jobs.family.jc = 20
-		self.jobs.branchbank_prof.jc = 20
-		self.jobs.branchbank_gold_prof.jc = 20
-		self.jobs.branchbank_cash.jc = 10
-		self.jobs.branchbank_deposit.jc = 10
+		self.jobs.branchbank_prof.jc = 50
+		self.jobs.branchbank_gold_prof.jc = 30
+		self.jobs.branchbank_cash.jc = 20
+		self.jobs.branchbank_deposit.jc = 20
 		self.jobs.branchbank_pro.jc = 10
 		self.jobs.kosugi.jc = 10
 		self.jobs.kosugi_pro.jc = 50
@@ -230,11 +230,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.firestarter_pro.jc = 50
 		
 		self.jobs.big.jc = 50
-		self.jobs.mia.jc = 30
-		self.jobs.mia_pro.jc = 40
+		self.jobs.mia.jc = 40
+		self.jobs.mia_pro.jc = 50
 		self.jobs.kenaz.jc = 60
 		self.jobs.kenaz_pro.jc = 70
-		self.jobs.hox_3.jc = 20
+		self.jobs.hox_3.jc = 30
 		self.jobs.hox.jc = 50
 		self.jobs.hox_pro.jc = 60
 		
@@ -251,31 +251,34 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.dinner.jc = 50
 		
 		self.jobs.spa.jc = 40
-		self.jobs.fish.jc = 40
+		self.jobs.fish.jc = 50
+		
 		self.jobs.vit.jc = 90
 		self.jobs.brb.jc = 30
+		self.jobs.brb.jc = 60
 		self.jobs.wwh.jc = 40
 		self.jobs.tag.jc = 40
-		self.jobs.pbr2.jc = 40
-		self.jobs.pbr.jc = 50
+		self.jobs.pbr2.jc = 50
+		self.jobs.pbr.jc = 60
 		self.jobs.des.jc = 60
 		self.jobs.sah.jc = 20
 
 		self.jobs.crojob1.jc = 40
 		self.jobs.crojob_wrapper.jc = 70
+		self.jobs.friend.jc = 60
 		
-		self.jobs.election_day.jc = 20
-		self.jobs.election_day_pro.jc = 30
+		self.jobs.election_day.jc = 30
+		self.jobs.election_day_pro.jc = 40
 		self.jobs.framing_frame_pro.jc = 60
 		self.jobs.born_pro.jc = 40
 		
 		local rarity = {
-			7, 7, 7, 7, 7, 7, 7, 7, 7,
-			7, 7, 7, 7, 7, 7, 7, 7,
-			7, 7, 7, 7, 7, 7, 7,
-			7, 7, 7, 7, 7, 7,
-			7, 7, 7, 7, 7,
-			7, 7, 7, 7,
+			1, 1, 1, 1, 1, 1, 1, 1, 1,
+			2, 2, 2, 2, 2, 2, 2, 2,
+			3, 3, 3, 3, 3, 3, 3,
+			4, 4, 4, 4, 4, 4,
+			5, 5, 5, 5, 5,
+			6, 6, 6, 6,
 			7, 7, 7,
 			8, 8,
 			9
@@ -307,7 +310,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.arm_wrapper.contact = "bain"
 		
 		self.jobs.bex.jc = 40
-		
 		
 		self._jobs_index = {
 			"jewelry_store",
@@ -501,7 +503,7 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "jewelry_store"						then mission_xp_dissect = 1500	 or self:mission_xp() elseif
 			job_id == "four_stores"							then mission_xp_dissect = 1500	 or self:mission_xp() elseif
 			job_id == "mallcrasher"							then mission_xp_dissect = 1929	 or self:mission_xp() elseif
-			job_id == "roberts"								then mission_xp_dissect = 9286	 or self:mission_xp() elseif
+			job_id == "roberts"								then mission_xp_dissect = 18572	 or self:mission_xp() elseif
 			job_id == "nightclub"							then mission_xp_dissect = 2857	 or self:mission_xp() elseif
 			job_id == "ukrainian_job_prof"					then mission_xp_dissect = 2786	 or self:mission_xp() elseif
 			job_id == "branchbank_deposit"					then mission_xp_dissect = 4571	 or self:mission_xp() elseif
@@ -538,58 +540,58 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "arm_hcm"								then mission_xp_dissect = 15000	 or self:mission_xp() elseif
 			job_id == "arm_und"								then mission_xp_dissect = 7857	 or self:mission_xp() elseif
 			job_id == "arm_cro"								then mission_xp_dissect = 15714	 or self:mission_xp() elseif
-			job_id == "arm_for"								then mission_xp_dissect = 16429	 or self:mission_xp() elseif
-			job_id == "big"									then mission_xp_dissect = 24286	 or self:mission_xp() elseif
+			job_id == "arm_for"								then mission_xp_dissect = 32858	 or self:mission_xp() elseif
+			job_id == "big"									then mission_xp_dissect = 29143	 or self:mission_xp() elseif
 			job_id == "mia"									then mission_xp_dissect = 8214	 or self:mission_xp() elseif
 			job_id == "mia_pro"								then mission_xp_dissect = 10000	 or self:mission_xp() elseif
 			job_id == "gallery"								then mission_xp_dissect = 4143	 or self:mission_xp() elseif
 			job_id == "hox"									then mission_xp_dissect = 9286	 or self:mission_xp() elseif
 			job_id == "hox_pro"								then mission_xp_dissect = 10357	 or self:mission_xp() elseif
-			job_id == "hox_3"								then mission_xp_dissect = 5643	 or self:mission_xp() elseif
-			job_id == "pines"								then mission_xp_dissect = 6357	 or self:mission_xp() elseif
+			job_id == "hox_3"								then mission_xp_dissect = 8464	 or self:mission_xp() elseif
+			job_id == "pines"								then mission_xp_dissect = 12714	 or self:mission_xp() elseif
 			job_id == "cage"								then mission_xp_dissect = 3714	 or self:mission_xp() elseif
-			job_id == "mus"									then mission_xp_dissect = 6214	 or self:mission_xp() elseif
-			job_id == "crojob1"								then mission_xp_dissect = 7000	 or self:mission_xp() elseif
-			job_id == "crojob_wrapper"						then mission_xp_dissect = 11429	 or self:mission_xp() elseif
-			job_id == "crojob2"								then mission_xp_dissect = 11429	 or self:mission_xp() elseif
-			job_id == "crojob2_night"						then mission_xp_dissect = 11429	 or self:mission_xp() elseif
+			job_id == "mus"									then mission_xp_dissect = 12428	 or self:mission_xp() elseif
+			job_id == "crojob1"								then mission_xp_dissect = 14000	 or self:mission_xp() elseif
+			job_id == "crojob_wrapper"						then mission_xp_dissect = 28572	 or self:mission_xp() elseif
+			job_id == "crojob2"								then mission_xp_dissect = 28572	 or self:mission_xp() elseif
+			job_id == "crojob2_night"						then mission_xp_dissect = 28572	 or self:mission_xp() elseif
 			job_id == "rat"									then mission_xp_dissect = 5643	 or self:mission_xp() elseif
-			job_id == "shoutout_raid"						then mission_xp_dissect = 10000	 or self:mission_xp() elseif
-			job_id == "arena"								then mission_xp_dissect = 5786	 or self:mission_xp() elseif
+			job_id == "shoutout_raid"						then mission_xp_dissect = 20000	 or self:mission_xp() elseif
+			job_id == "arena"								then mission_xp_dissect = 11572	 or self:mission_xp() elseif
 			job_id == "kenaz"								then mission_xp_dissect = 24286	 or self:mission_xp() elseif
 			job_id == "kenaz_pro"							then mission_xp_dissect = 26286	 or self:mission_xp() elseif
-			job_id == "jolly"								then mission_xp_dissect = 8571	 or self:mission_xp() elseif
-			job_id == "red2"								then mission_xp_dissect = 12858	 or self:mission_xp() elseif
-			job_id == "dinner"								then mission_xp_dissect = 15720	 or self:mission_xp() elseif
-			job_id == "man"									then mission_xp_dissect = 9858	 or self:mission_xp() elseif
-			job_id == "pal"									then mission_xp_dissect = 9572	 or self:mission_xp() elseif
+			job_id == "jolly"								then mission_xp_dissect = 17142	 or self:mission_xp() elseif
+			job_id == "red2"								then mission_xp_dissect = 25716	 or self:mission_xp() elseif
+			job_id == "dinner"								then mission_xp_dissect = 23580	 or self:mission_xp() elseif
+			job_id == "man"									then mission_xp_dissect = 19716	 or self:mission_xp() elseif
+			job_id == "pal"									then mission_xp_dissect = 19144	 or self:mission_xp() elseif
 			job_id == "run"									then mission_xp_dissect = 32858	 or self:mission_xp() elseif
-			job_id == "nmh"									then mission_xp_dissect = 17142	 or self:mission_xp() elseif
+			job_id == "nmh"									then mission_xp_dissect = 34284	 or self:mission_xp() elseif
 			job_id == "flat"								then mission_xp_dissect = 18572	 or self:mission_xp() elseif
 			job_id == "glace"								then mission_xp_dissect = 30000	 or self:mission_xp() elseif
-			job_id == "cane"								then mission_xp_dissect = 6500	 or self:mission_xp() elseif
-			job_id == "pbr"									then mission_xp_dissect = 15714	 or self:mission_xp() elseif
-			job_id == "pbr2"								then mission_xp_dissect = 8571	 or self:mission_xp() elseif
+			job_id == "cane"								then mission_xp_dissect = 13000	 or self:mission_xp() elseif
+			job_id == "pbr"									then mission_xp_dissect = 23571	 or self:mission_xp() elseif
+			job_id == "pbr2"								then mission_xp_dissect = 12856	 or self:mission_xp() elseif
 			job_id == "peta"								then mission_xp_dissect = 8571	 or self:mission_xp() elseif
 			job_id == "peta_pro"							then mission_xp_dissect = 12500	 or self:mission_xp() elseif
-			job_id == "mad"									then mission_xp_dissect = 9286	 or self:mission_xp() elseif
+			job_id == "mad"									then mission_xp_dissect = 13929	 or self:mission_xp() elseif
 			job_id == "dark"								then mission_xp_dissect = 4143	 or self:mission_xp() elseif
-			job_id == "born"								then mission_xp_dissect = 5000	 or self:mission_xp() elseif
-			job_id == "born_pro"							then mission_xp_dissect = 7857	 or self:mission_xp() elseif
+			job_id == "born"								then mission_xp_dissect = 10000	 or self:mission_xp() elseif
+			job_id == "born_pro"							then mission_xp_dissect = 15714	 or self:mission_xp() elseif
 			job_id == "chill_combat"						then mission_xp_dissect = 6643	 or self:mission_xp() elseif
-			job_id == "friend"								then mission_xp_dissect = 6929	 or self:mission_xp() elseif
+			job_id == "friend"								then mission_xp_dissect = 20787	 or self:mission_xp() elseif
 			job_id == "spa"									then mission_xp_dissect = 12857	 or self:mission_xp() elseif
-			job_id == "fish"								then mission_xp_dissect = 6357	 or self:mission_xp() elseif
-			job_id == "moon"								then mission_xp_dissect = 7000	 or self:mission_xp() elseif
+			job_id == "fish"								then mission_xp_dissect = 9535	 or self:mission_xp() elseif
+			job_id == "moon"								then mission_xp_dissect = 14000	 or self:mission_xp() elseif
 			job_id == "dah"									then mission_xp_dissect = 30000	 or self:mission_xp() elseif
 			job_id == "rvd"									then mission_xp_dissect = 8571	 or self:mission_xp() elseif
 			job_id == "rvd_pro"								then mission_xp_dissect = 11071	 or self:mission_xp() elseif
-			job_id == "wwh"									then mission_xp_dissect = 6714	 or self:mission_xp() elseif
-			job_id == "brb"									then mission_xp_dissect = 6214	 or self:mission_xp() elseif
-			job_id == "tag"									then mission_xp_dissect = 4357	 or self:mission_xp() elseif
-			job_id == "des"									then mission_xp_dissect = 22857	 or self:mission_xp() elseif
-			job_id == "sah"									then mission_xp_dissect = 5929	 or self:mission_xp() elseif
-			job_id == "bph"									then mission_xp_dissect = 10000	 or self:mission_xp() elseif
+			job_id == "wwh"									then mission_xp_dissect = 13428	 or self:mission_xp() elseif
+			job_id == "brb"									then mission_xp_dissect = 12428	 or self:mission_xp() elseif
+			job_id == "tag"									then mission_xp_dissect = 8714	 or self:mission_xp() elseif
+			job_id == "des"									then mission_xp_dissect = 34285	 or self:mission_xp() elseif
+			job_id == "sah"									then mission_xp_dissect = 8893	 or self:mission_xp() elseif
+			job_id == "bph"									then mission_xp_dissect = 30000	 or self:mission_xp() elseif
 			job_id == "mex"									then mission_xp_dissect = 9286	 or self:mission_xp() elseif
 			job_id == "mex_cooking"							then mission_xp_dissect = 4643	 or self:mission_xp() elseif
 			job_id == "bex"									then mission_xp_dissect = 9286	 or self:mission_xp() elseif

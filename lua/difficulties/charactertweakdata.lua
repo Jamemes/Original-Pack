@@ -1104,29 +1104,52 @@ function CharacterTweakData:_set_overkill_290()
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 
-	local movement_speed = easy_mode and self.presets.move_speed.lightning or self.presets.move_speed.very_fast
-	self.russian.move_speed 	= 		movement_speed
-	self.german.move_speed 		= 		movement_speed
-	self.spanish.move_speed 	= 		movement_speed
-	self.american.move_speed 	= 		movement_speed
-	self.jowi.move_speed 		= 		movement_speed
-	self.old_hoxton.move_speed 	=  		movement_speed
-	self.female_1.move_speed 	=  		movement_speed
-	self.dragan.move_speed 		=  		movement_speed
-	self.jacket.move_speed 		=  		movement_speed
-	self.bonnie.move_speed 		=  		movement_speed
-	self.sokol.move_speed 		=  		movement_speed
-	self.dragon.move_speed 		=  		movement_speed
-	self.bodhi.move_speed 		=  		movement_speed
-	self.jimmy.move_speed 		=  		movement_speed
-	self.sydney.move_speed 		= 		movement_speed
-	self.wild.move_speed 		= 		movement_speed
-	self.chico.move_speed 		=		movement_speed
-	self.max.move_speed 		= 		movement_speed
-	self.joy.move_speed 		= 		movement_speed
-	self.myh.move_speed 		= 		movement_speed
-	self.ecp_female.move_speed 	= 		movement_speed
-	self.ecp_male.move_speed 	= 		movement_speed
+	self.russian.move_speed 	= 		self.presets.move_speed.lightning
+	self.german.move_speed 		= 		self.presets.move_speed.lightning
+	self.spanish.move_speed 	= 		self.presets.move_speed.lightning
+	self.american.move_speed 	= 		self.presets.move_speed.lightning
+	self.jowi.move_speed 		= 		self.presets.move_speed.lightning
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.lightning
+	self.female_1.move_speed 	=  		self.presets.move_speed.lightning
+	self.dragan.move_speed 		=  		self.presets.move_speed.lightning
+	self.jacket.move_speed 		=  		self.presets.move_speed.lightning
+	self.bonnie.move_speed 		=  		self.presets.move_speed.lightning
+	self.sokol.move_speed 		=  		self.presets.move_speed.lightning
+	self.dragon.move_speed 		=  		self.presets.move_speed.lightning
+	self.bodhi.move_speed 		=  		self.presets.move_speed.lightning
+	self.jimmy.move_speed 		=  		self.presets.move_speed.lightning
+	self.sydney.move_speed 		= 		self.presets.move_speed.lightning
+	self.wild.move_speed 		= 		self.presets.move_speed.lightning
+	self.chico.move_speed 		=		self.presets.move_speed.lightning
+	self.max.move_speed 		= 		self.presets.move_speed.lightning
+	self.joy.move_speed 		= 		self.presets.move_speed.lightning
+	self.myh.move_speed 		= 		self.presets.move_speed.lightning
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.lightning
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.lightning
+	
+	self.presets.gang_member_damage.hurt_severity.bullet = {
+		health_reference = "current",
+		zones = {
+			{
+				none = 1,
+				light = 0,
+				moderate = 0,
+				health_limit = 0.4
+			},
+			{
+				none = 1,
+				light = 0,
+				moderate = 0,
+				health_limit = 0.7
+			},
+			{
+				heavy = 0,
+				light = 0,
+				moderate = 0,
+				none = 1
+			}
+		}
+	}
 end
 
 function CharacterTweakData:_set_sm_wish()
@@ -1293,28 +1316,52 @@ function CharacterTweakData:_set_sm_wish()
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 	
-	self.russian.move_speed 	= 		self.presets.move_speed.very_fast
-	self.german.move_speed 		= 		self.presets.move_speed.very_fast
-	self.spanish.move_speed 	= 		self.presets.move_speed.very_fast
-	self.american.move_speed 	= 		self.presets.move_speed.very_fast
-	self.jowi.move_speed 		= 		self.presets.move_speed.very_fast
-	self.old_hoxton.move_speed 	=  		self.presets.move_speed.very_fast
-	self.female_1.move_speed 	=  		self.presets.move_speed.very_fast
-	self.dragan.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jacket.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bonnie.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sokol.move_speed 		=  		self.presets.move_speed.very_fast
-	self.dragon.move_speed 		=  		self.presets.move_speed.very_fast
-	self.bodhi.move_speed 		=  		self.presets.move_speed.very_fast
-	self.jimmy.move_speed 		=  		self.presets.move_speed.very_fast
-	self.sydney.move_speed 		= 		self.presets.move_speed.very_fast
-	self.wild.move_speed 		= 		self.presets.move_speed.very_fast
-	self.chico.move_speed 		=		self.presets.move_speed.very_fast
-	self.max.move_speed 		= 		self.presets.move_speed.very_fast
-	self.joy.move_speed 		= 		self.presets.move_speed.very_fast
-	self.myh.move_speed 		= 		self.presets.move_speed.very_fast
-	self.ecp_female.move_speed 	= 		self.presets.move_speed.very_fast
-	self.ecp_male.move_speed 	= 		self.presets.move_speed.very_fast
+	self.russian.move_speed 	= 		self.presets.move_speed.lightning
+	self.german.move_speed 		= 		self.presets.move_speed.lightning
+	self.spanish.move_speed 	= 		self.presets.move_speed.lightning
+	self.american.move_speed 	= 		self.presets.move_speed.lightning
+	self.jowi.move_speed 		= 		self.presets.move_speed.lightning
+	self.old_hoxton.move_speed 	=  		self.presets.move_speed.lightning
+	self.female_1.move_speed 	=  		self.presets.move_speed.lightning
+	self.dragan.move_speed 		=  		self.presets.move_speed.lightning
+	self.jacket.move_speed 		=  		self.presets.move_speed.lightning
+	self.bonnie.move_speed 		=  		self.presets.move_speed.lightning
+	self.sokol.move_speed 		=  		self.presets.move_speed.lightning
+	self.dragon.move_speed 		=  		self.presets.move_speed.lightning
+	self.bodhi.move_speed 		=  		self.presets.move_speed.lightning
+	self.jimmy.move_speed 		=  		self.presets.move_speed.lightning
+	self.sydney.move_speed 		= 		self.presets.move_speed.lightning
+	self.wild.move_speed 		= 		self.presets.move_speed.lightning
+	self.chico.move_speed 		=		self.presets.move_speed.lightning
+	self.max.move_speed 		= 		self.presets.move_speed.lightning
+	self.joy.move_speed 		= 		self.presets.move_speed.lightning
+	self.myh.move_speed 		= 		self.presets.move_speed.lightning
+	self.ecp_female.move_speed 	= 		self.presets.move_speed.lightning
+	self.ecp_male.move_speed 	= 		self.presets.move_speed.lightning
+	
+	self.presets.gang_member_damage.hurt_severity.bullet = {
+		health_reference = "current",
+		zones = {
+			{
+				none = 1,
+				light = 0,
+				moderate = 0,
+				health_limit = 0.4
+			},
+			{
+				none = 1,
+				light = 0,
+				moderate = 0,
+				health_limit = 0.7
+			},
+			{
+				heavy = 0,
+				light = 0,
+				moderate = 0,
+				none = 1
+			}
+		}
+	}
 end
 
 local origin_charmap = CharacterTweakData.character_map

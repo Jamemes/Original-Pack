@@ -2833,6 +2833,14 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_pickup"
 		}
+		self.cas_take_usb_key.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pickup"
+		}
+		self.cas_take_usb_key_data.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pickup"
+		}
 		
 		self.key.requires_mask_off_upgrade = {
 			category = "player",
@@ -2863,6 +2871,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_keycard_insert"
 		}
 		self.use_hotel_room_key_no_access.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_copy_usb.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
 		}
