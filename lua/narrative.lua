@@ -604,6 +604,7 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 			job_id == "short1"								then mission_xp_dissect = 1000	 or self:mission_xp() elseif
 			job_id == "short2"								then mission_xp_dissect = 2000	 or self:mission_xp() elseif
 			job_id == "vit"									then mission_xp_dissect = 50000	 or self:mission_xp() elseif
+			job_id == "fex"									then mission_xp_dissect = 13571	 or self:mission_xp() elseif
 			job_id == "nail"								then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600)	 or self:mission_xp() elseif
 			job_id == "help"								then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600)	 or self:mission_xp() elseif
 			job_id == "haunted"								then mission_xp_dissect = tweak_data.narrative:job_data(job_id).jc * math.random(600)	 or self:mission_xp() elseif
