@@ -129,6 +129,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.rvd_pro.professional = true
 		self.jobs.arm_for.professional = true
 		self.jobs.kosugi_pro.professional = true
+		self.jobs.fex.professional = true
 		
 		
 		self.jobs.ukrainian_job_prof.region = "professional"
@@ -148,6 +149,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.kenaz_pro.region = "professional"
 		self.jobs.rvd_pro.region = "professional"
 		self.jobs.kosugi_pro.region = "professional"
+		self.jobs.fex.region = "professional"
 
 		self.jobs.arena.payout = {12800}
 		self.jobs.rvd.payout = {19000}
@@ -223,7 +225,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.ukrainian_job_prof.jc = 20
 		self.jobs.four_stores.jc = 10
 		self.jobs.shoutout_raid.jc = 50
-
+		self.jobs.fex.jc = 50
+		
 		self.jobs.alex.jc = 50
 		self.jobs.alex_pro.jc = 60
 		self.jobs.firestarter.jc = 40
@@ -415,6 +418,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 			"mex_cooking",
 			"bex",
 			"pex",
+			"fex",
 			"skm_watchdogs_stage2",
 			"skm_cas",
 			"skm_big2",

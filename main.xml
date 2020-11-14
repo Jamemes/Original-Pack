@@ -74,14 +74,6 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/cop/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/cop/coplogictravel.lua"/>
 		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/cop/copmovement.lua"/>
-		<hook source_file="lib/tweak_data/infamytweakdata"							file="infamy.lua"/>
-		<hook source_file="lib/managers/infamymanager"								file="infamy.lua"/>
-		<hook source_file="lib/managers/menu/infamytreegui"							file="infamy.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="infamy.lua"/>
-		<hook source_file="lib/managers/menu/menuscenegui"							file="infamy.lua"/>
-		<hook source_file="lib/managers/experiencemanager"							file="infamy.lua"/>
-		<hook source_file="lib/network/base/session_states/hoststateingame"			file="infamy.lua"/>
-		<hook source_file="lib/network/base/session_states/hoststateinlobby"		file="infamy.lua"/>
 		<hook source_file="lib/managers/menu/playerprofileguiobject"				file="interface/playerprofileguiobject.lua"/>
 		<hook source_file="lib/managers/chatmanager"								file="interface/chatmanager.lua"/>
 		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface/chatmanager.lua"/>

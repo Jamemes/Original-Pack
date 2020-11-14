@@ -164,5 +164,8 @@ function HudIconsTweakData:init(tweak_data)
 	self.C_Classics_H_GreenBridge_AllDiffs_D0 = { 				texture_rect = {435, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
 	self.C_Locke_H_BreakfastInTijuana_AllDiffs_D5 = { 			texture_rect = {522, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
 	self.Other_H_Any_OhThatsHow = { 							texture_rect = {609, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
+	self.C_Vlad_H_BulocsMansion_AllDiffs_D0 = { 				texture_rect = {696, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
+	self.C_Vlad_H_BulocsMansion_AllDiffs_D3 = { 				texture_rect = {783, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
+	self.C_Vlad_H_BulocsMansion_AllDiffs_D5 = { 				texture_rect = {870, 957, 85, 85},		texture = "guis/textures/pd2/achievements/achievements"}
 
 end

@@ -13,16 +13,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 		}
 		self.base_difficulty = "sm_wish"
 		self.base_difficulty_index = 7
-		self.initial_cost = 12
+		self.initial_cost = 1
 		self.continue_cost = {
-			12,
+			1,
 			0
 		}
 		self.catchup_bonus = 0
 		self.winning_streak = 0
-		self.starting_levels = {0}
+		self.starting_levels = {}
+		self.cost_per_level = 0
 		self.crash_causes_loss = false
-		self.allow_highscore_continue = false
 		self.modifiers = {
 			forced = {
 				{

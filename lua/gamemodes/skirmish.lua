@@ -19,7 +19,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/skirmishtweakdata" then
 			"ami_03",
 			"ami_04",
 			"ami_05",
-			"ami_06"
+			"ami_06",
+			"tam"
 		}
 		self.ransom_amounts = {
 			1000000,

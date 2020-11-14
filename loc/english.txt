@@ -370,6 +370,7 @@
 	"achievement_deer_5_desc":					"Complete the White Xmas job on the Death Wish difficulty.",
 	"achievement_deer_6_desc":					"Complete the White Xmas job, complete the heist on the Death Wish difficulty while each crew member wears a different ''2014 Xmax'' mask each.",
 	"achievement_pex_6_desc":					"Complete the Breakfast in Tijuana on the Death Wish difficulty.",
+	"achievement_fex_6_desc":					"Complete the Buluc's Mansion PRO JOB on the Death Wish difficulty.",
 	"achievement_death_16_additional":					"This contract is only found in Crime.net pop-ups, it cannot be purchased in contract broker.",
 	"achievement_death_17_additional":					"This contract is only found in Crime.net pop-ups, it cannot be purchased in contract broker.",
 	"achievement_death_18_additional":					"This contract is only found in Crime.net pop-ups, it cannot be purchased in contract broker.",
@@ -405,7 +406,7 @@
 	"achievement_death_28_desc":					"Complete all contracts on the Very Hard difficulty.",
 	"achievement_death_29_desc":					"Complete all contracts on the OVERKILL difficulty.",
 	"achievement_death_30_desc":					"Complete all contracts on the Death Wish difficulty.",
-	"achievement_dah_1_desc":					"Complete the Diamond Heist on any difficulty.",
+	"achievement_dah_1_desc":					"Complete the Diamond Heist PRO JOB on any difficulty.",
 	"achievement_glace_1_desc":					"Complete the Green Bridge job on any difficulty.",
 	"achievement_nmh_1_desc":					"Complete the No Mercy job on any difficulty.",
 	"achievement_trk_sh_0_desc":				"Complete the Slaughterhouse job on any difficulty.",
@@ -414,6 +415,8 @@
 	"achievement_melt_2_desc":					"Complete the Meltdown job on any difficulty.",
 	"achievement_cow_6_desc":					"Complete The Bomb: Dockyard job on any difficulty.",
 	"achievement_cow_1_desc":					"Complete The Bomb: Forest job on any difficulty.",
+	"achievement_fex_1_desc":					"Complete the Buluc's Mansion PRO JOB on any difficulty.",
+	"achievement_fex_4_desc":					"Complete the Buluc's Mansion PRO JOB on the OVERKILL difficulty or above.",
 
 	"achievement_jerry_5_desc":					"Complete the Birth of Sky job, have the entire crew use only pistols and Two Piece Suits on the Hard difficulty or above.",	
 	"achievement_flake_1_desc":					"Complete the Framing Frame job on the Hard difficulty or above with each crew member using no skills, wearing suits, wielding Platypus 70 sniper rifles and Judge shotguns..",
@@ -536,11 +539,6 @@
 	"neigbours_alert_text":				"Neighbours",
 	"footstep_alert_text":				"Sprint noise",
 	"bullet_alert_text":				"Hit noise",
-	
-	"menu_infamy_name_immortal":			"Immortal",
-	"menu_infamy_desc_immortal":			"The power of such a being cannot be described in words or symbols.$NL;$NL;BONUSES:$NL;Experience gained is increased by ##$xpboost%##.$NL;$NL;ITEMS:$NL;$NL;",
-	"bm_askn_tam_unlock":					"Cannot be traded or sold.",
-	"bm_wskn_tam_locked":					"This weapon skin is an Infamy Reward, it cannot be traded or sold."
 
 	"menu_OP_changelog":					"Original Pack Changelog",
 	"menu_OP_changelog_desc":				"Changelog and update history.",

@@ -7662,6 +7662,84 @@ function init_auto_generated_achievement_data(tags)
 				tags.tactics.stealth,
 				tags.contracts.bain
 			}
+		},
+		fex_1 = {
+			icon_id = "C_Vlad_H_BulocsMansion_AllDiffs_D0",
+			ladder = "H_BulocsMansion",
+			sort_name = "C_Vlad_H_BulocsMansion_AllDiffs_D0",
+			additional_id = true,
+			tags = {
+				tags.progress.completion,
+				tags.difficulty.normal,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
+		},
+		fex_10 = {
+			sort_name = "C_Vlad_H_BulocsMansion_Everything",
+			icon_id = "C_Vlad_H_BulocsMansion_Everything",
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
+		},
+		fex_11 = {
+			need_unlock_icons = true,
+			icon_id = "C_Vlad_H_BulocsMansion_Sugar",
+			sort_name = "C_Vlad_H_BulocsMansion_Sugar",
+			additional_id = true,
+			unlock_id = true,
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.unlock.mask,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
+		},
+		fex_4 = {
+			need_unlock_icons = true,
+			icon_id = "C_Vlad_H_BulocsMansion_AllDiffs_D3",
+			ladder = "H_BulocsMansion",
+			sort_name = "C_Vlad_H_BulocsMansion_AllDiffs_D3",
+			additional_id = true,
+			unlock_id = true,
+			tags = {
+				tags.progress.completion,
+				tags.difficulty.overkill,
+				tags.unlock.outfit,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
+		},
+		fex_6 = {
+			icon_id = "C_Vlad_H_BulocsMansion_AllDiffs_D5",
+			ladder = "H_BulocsMansion",
+			sort_name = "C_Vlad_H_BulocsMansion_AllDiffs_D5",
+			additional_id = true,
+			tags = {
+				tags.progress.completion,
+				tags.difficulty.death_wish,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
+		},
+		fex_9 = {
+			sort_name = "C_Vlad_H_BulocsMansion_WeExpect",
+			icon_id = "C_Vlad_H_BulocsMansion_WeExpect",
+			tags = {
+				tags.progress.heisting,
+				tags.difficulty.normal,
+				tags.tactics.loud,
+				tags.tactics.stealth,
+				tags.contracts.vlad
+			}
 		}
 	}
 end
