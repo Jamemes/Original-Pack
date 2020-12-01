@@ -177,18 +177,8 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	end
 	table.insert(menu_item._items, position, new_item)
 	
-	if OriginalPackOptions.settings.Enable_Test or OriginalPackOptions.settings.Dev then
-		MenuCallbackHandler.test_mode_enable_callback = function(self, item)
-			if OriginalPackOptions.settings.Enable_Test then
-				OriginalPackOptions.settings.Enable_Test = false
-				OriginalPackOptions:Save()
-			elseif not OriginalPackOptions.settings.Enable_Test then
-				OriginalPackOptions.settings.Enable_Test = true
-				OriginalPackOptions:Save()
-			end
-			os.execute("start steam://rungameid/218620")
-			os.exit()
-		end
+	if OriginalPackOptions.settings.Dev then
+		MenuCallbackHandler.test_mode_enable_callback = function(self, item) end
 		MenuCallbackHandler.test_mode_callback = function(self, item)
 			local blank = ""
 			local menu_options = {

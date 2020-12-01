@@ -50,7 +50,18 @@
         <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills.lua"/>
         <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills.lua"/>
         <hook source_file="lib/units/beings/player/states/playertased" 				file="skills.lua"/>
+<<<<<<< Updated upstream
 		<hook source_file="lib/managers/multiprofilemanager"						file="skills/multiprofilemanager.lua"/>
+=======
+		<hook source_file="lib/managers/menumanagerdialogs"							file="skills.lua"/>
+		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="skills.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="skills.lua"/>
+		<hook source_file="lib/units/weapons/sentrygunweapon"						file="skills.lua"/>
+		<hook source_file="lib/managers/localizationmanager"						file="skills.lua"/>
+		<hook source_file="lib/managers/experiencemanager"							file="infamy.lua"/>
+		<hook source_file="lib/units/props/infamycardgui"							file="infamy.lua"/>
+		<hook source_file="lib/tweak_data/infamynewtweakdata"						file="infamy.lua"/>
+>>>>>>> Stashed changes
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties/intimidate_enemies.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="difficulties/intimidate_enemies.lua"/>
@@ -145,20 +156,15 @@
     </Sounds>
 
     <AddFiles directory="assets">
-
-		<texture path="guis/dlcs/infamous/textures/pd2/infamous_tree/infamous_tree_atlas" force="true"/>
+	
+		<texture path="guis/textures/pd2/cards" force="true"/>
+		<texture path="guis/textures/pd2/infamous_symbol_hq" force="true"/>
 		<texture path="guis/textures/pd2/achievements/achievements" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
 		
 						<!-- Logo -->
 		<texture path="guis/textures/menu_original_pack_logo" force="true"/>
 		<texture path="guis/textures/menu_original_pack_version" force="true"/>
-		
-						<!-- Infamy card sounds -->
-		<stream path="soundbanks/streamed/menu/257708109" force="true"/>
-		<stream path="soundbanks/streamed/menu/529509978" force="true"/>
-		<stream path="soundbanks/streamed/menu/794130307" force="true"/>
-		<stream path="soundbanks/streamed/menu/914273783" force="true"/>
 		
 						<!-- Old textures -->
 		<texture path="units/payday2/props/gen_prop_door_metal/gen_prop_door_metal_df" force="true"/>

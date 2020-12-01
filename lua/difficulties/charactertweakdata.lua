@@ -145,6 +145,7 @@ function CharacterTweakData:init(tweak_data)
 				heavy = 0.1
 			}
 		}
+<<<<<<< Updated upstream
 	}
 	self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0
 	self.presets.weapon.normal.is_pistol.melee_dmg = 8
@@ -157,6 +158,32 @@ function CharacterTweakData:init(tweak_data)
 	self.presets.weapon.normal.is_revolver.melee_dmg = 8
 	self.presets.weapon.normal.mini.melee_dmg = 8
 	self.presets.weapon.normal.is_lmg.melee_dmg = 8
+=======
+		
+		self.presets.gang_member_damage.MIN_DAMAGE_INTERVAL = 0
+		
+		self.presets.weapon.normal.is_pistol.melee_dmg = 8
+		self.presets.weapon.normal.akimbo_pistol.melee_dmg = 8
+		self.presets.weapon.normal.is_rifle.melee_dmg = 8
+		self.presets.weapon.normal.is_bullpup.melee_dmg = 8
+		self.presets.weapon.normal.is_shotgun_pump.melee_dmg = 8
+		self.presets.weapon.normal.is_shotgun_mag.melee_dmg = 8
+		self.presets.weapon.normal.is_smg.melee_dmg = 8
+		self.presets.weapon.normal.is_revolver.melee_dmg = 8
+		self.presets.weapon.normal.mini.melee_dmg = 8
+		self.presets.weapon.normal.is_lmg.melee_dmg = 8
+		
+		self.gensec.surrender = self.presets.surrender.hard
+		self.cop.surrender = self.presets.surrender.normal
+		self.fbi.surrender = self.presets.surrender.normal
+		self.swat.surrender = self.presets.surrender.hard
+		self.heavy_swat.surrender = self.presets.surrender.hard
+		self.fbi_swat.surrender = self.presets.surrender.hard
+		self.fbi_heavy_swat.surrender = self.presets.surrender.hard
+		self.city_swat.surrender = self.presets.surrender.hard
+	end
+	
+>>>>>>> Stashed changes
 	
 	self.presets.weapon.expert.is_rifle.focus_delay = 2
 	self.presets.weapon.expert.is_rifle.focus_dis = 300
@@ -313,7 +340,6 @@ function CharacterTweakData:init(tweak_data)
 		sentry = true,
 		suppress = true
 	}
-	self.gensec.surrender = self.presets.surrender.hard
 	self.gensec.HEALTH_INIT = 10
 	self.gensec.headshot_dmg_mul = self.gensec.HEALTH_INIT / 1
 	
@@ -348,7 +374,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.cop.HEALTH_INIT = 5
 	self.cop.headshot_dmg_mul = self.cop.HEALTH_INIT / 1
-	self.cop.surrender = self.presets.surrender.normal
 	
 	self.fbi.chatter = {
 	    incomming_captain = true,
@@ -381,7 +406,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.fbi.HEALTH_INIT = 8
 	self.fbi.headshot_dmg_mul = self.fbi.HEALTH_INIT / 1
-	self.fbi.surrender = self.presets.surrender.normal
 	
 	self.swat.chatter = {
 	    incomming_captain = true,
@@ -414,7 +438,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.swat.HEALTH_INIT = 13
 	self.swat.headshot_dmg_mul = self.swat.HEALTH_INIT / 2
-	self.swat.surrender = self.presets.surrender.hard
 	
 	self.heavy_swat.chatter = {
 	    incomming_captain = true,
@@ -447,7 +470,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.heavy_swat.HEALTH_INIT = 20
 	self.heavy_swat.headshot_dmg_mul = self.heavy_swat.HEALTH_INIT / 6
-	self.heavy_swat.surrender = self.presets.surrender.hard
 	
 	self.fbi_swat.chatter = {
 	    incomming_captain = true,
@@ -480,7 +502,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.fbi_swat.HEALTH_INIT = 17
 	self.fbi_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 5
-	self.fbi_swat.surrender = self.presets.surrender.hard
 	
 	self.fbi_heavy_swat.chatter = {
 	    incomming_captain = true,
@@ -513,7 +534,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.fbi_heavy_swat.HEALTH_INIT = 28
 	self.fbi_heavy_swat.headshot_dmg_mul = self.fbi_heavy_swat.HEALTH_INIT / 14
-	self.fbi_heavy_swat.surrender = self.presets.surrender.hard
 	
 	self.city_swat.chatter = {
 	    incomming_captain = true,
@@ -546,7 +566,6 @@ function CharacterTweakData:init(tweak_data)
 	}
 	self.city_swat.HEALTH_INIT = 24
 	self.city_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 8
-	self.city_swat.surrender = self.presets.surrender.hard
 	self.city_swat.damage.explosion_damage_mul = 1
 	self.city_swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
 	

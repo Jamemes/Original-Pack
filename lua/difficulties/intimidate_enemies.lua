@@ -61,10 +61,18 @@ if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebas
 		for u_key, u_data in pairs(self._player_criminals) do
 			if u_data.unit:base().is_local_player then
 				if not managers.groupai:state():whisper_mode() and not managers.groupai:state():get_assault_mode() or managers.player:has_category_upgrade("player", "intimidate_enemies") then
-					nr_hostages_allowed = nr_hostages_allowed + 1
+					if managers.player:has_category_upgrade("player", "intimidate_aura") then
+						nr_hostages_allowed = nr_hostages_allowed + 2
+					else
+						nr_hostages_allowed = nr_hostages_allowed + 1
+					end
 				end
 			elseif not managers.groupai:state():whisper_mode() and not managers.groupai:state():get_assault_mode() or u_data.unit:base():upgrade_value("player", "intimidate_enemies") then
-				nr_hostages_allowed = nr_hostages_allowed + 1
+				if u_data.unit:base():upgrade_value("player", "intimidate_aura") then
+					nr_hostages_allowed = nr_hostages_allowed + 2
+				else
+					nr_hostages_allowed = nr_hostages_allowed + 1
+				end
 			end
 		end
 
@@ -73,8 +81,12 @@ if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebas
 end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
 	function CopLogicIntimidated._start_action_hands_up(data)
+		data.rand_value = math.random()
+		data.good_chance = 0.5
+		local easy_mode = Global.game_settings and Global.game_settings.one_down
 		local my_data = data.internal_data
-		local anim_name = "hands_up"
+		local spooked = easy_mode or data.rand_value <= data.good_chance
+		local anim_name = spooked and managers.groupai:state():whisper_mode() and "tied_all_in_one" or "hands_up"
 		local action_data = {
 			type = "act",
 			body_part = 1,
@@ -92,5 +104,15 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimid
 			CopLogicIntimidated._do_tied(data, my_data.aggressor_unit)
 		end
 	end
+<<<<<<< Updated upstream
 	function CopLogicIntimidated._chk_begin_alarm_pager(data) end
+=======
+	function CopLogicIntimidated._chk_begin_alarm_pager(data)
+		if managers.groupai:state():whisper_mode() and data.unit:unit_data().has_alarm_pager then
+			if data.rand_value >= data.good_chance then
+				data.brain:begin_alarm_pager()
+			end
+		end
+	end
+>>>>>>> Stashed changes
 end

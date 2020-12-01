@@ -9,6 +9,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		else
 			self.killing_civilian_deduction = self._create_value_table(2000, 50000, 10, true, 2)
 		end
+		
+		local smallest_cashout = (self.stage_completion[1] + self.job_completion[1]) * self.offshore_rate
+		local biggest_weapon_mod_cost = math.round(self.biggest_cashout * 0.5)
+		local smallest_weapon_mod_cost = math.round(smallest_cashout * 3)
+		self.modify_weapon_cost = self._create_value_table(smallest_weapon_mod_cost, biggest_weapon_mod_cost, 10, true, 1.2)
+
 		self.bag_values.meth = 3250
 		self.bag_values.gold = 2200
 		self.bag_values.warhead = 2300

@@ -223,11 +223,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			award = "bulldog_4",
 			melee_type = "toothbrush"
 		}
-		self.double_trouble = {
-			award = "ovk_9",
-			converted_cops = 4,
-			difficulty = overkill_or_above
-		}
 		self.never_let_you_go = {
 			weapon_id = "m134",
 			timer = 15,
@@ -276,6 +271,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			carry_id = "goat",
 			award = "peta_4",
 			count = 1
+		}
+		self.convert_enemies = {
+			double_trouble = {
+				award = "ovk_9",
+				count = 4,
+				difficulty = overkill_or_above
+			}
 		}
 		self.weapons_owned = {
 			gage4_2 = {
@@ -1200,9 +1202,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			},
 			bph_9 = {
 				melee_id = "toothbrush",
+				job = "bph",
 				result = "death",
 				stat = "bph_9_stat",
-				is_dropin = false,
 				difficulty = overkill_or_above
 			},
 			bex_9 = {
@@ -1213,6 +1215,21 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 			}
 		}
 		self.complete_heist_achievements = {
+			fex_1 = {
+				award = "fex_1",
+				job = "fex",
+				difficulty = any
+			},
+			fex_4 = {
+				award = "fex_4",
+				job = "fex",
+				difficulty = overkill_or_above
+			},
+			fex_6 = {
+				award = "fex_6",
+				job = "fex",
+				difficulty = deathwish
+			},
 			in_soviet_russia = {
 				contract = "vlad",
 				stat = "halloween_10_stats",
@@ -3340,7 +3357,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/achievementstweakdata" then
 				"jolly",
 				"cane",
 				"peta",
-				"moon"
+				"moon",
+				"fex"
 			},
 			hector = {
 				"watchdogs_wrapper",

@@ -734,7 +734,7 @@ function HUDStatsScreen:_update_stats_screen_loot(loot_wrapper_panel)
 
 	bonus_bags_payout:set_visible(bonus_vis)
 	bonus_bags_payout:set_text(utf8.to_upper(managers.localization:text("hud_bonus_bags_payout", {
-		MONEY = managers.experience:cash_string(bonus_cash)
+		MONEY = managers.experience:cash_string(bonus_cash or 0)
 	})))
 
 	local instant_cash = managers.loot:get_real_total_small_loot_value()

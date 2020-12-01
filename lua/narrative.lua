@@ -155,7 +155,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.peta_pro.payout = {152000}
 		self.jobs.moon.payout = {36000}
 		self.jobs.alex_pro.payout = {20000}
-		self.jobs.firestarter_pro.payout = {34000}
+		self.jobs.firestarter.payout = {34000}
 		self.jobs.watchdogs.payout = {10000}
 		self.jobs.watchdogs_night.payout = {10000}
 		self.jobs.watchdogs_wrapper.payout = {10000}
@@ -179,7 +179,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/narrativetweakdata" then
 		self.jobs.red2.payout = {13000}
 		self.jobs.fish.payout = {17000}
 		self.jobs.dah.payout = {5000}
-		
 		
 		self.jobs.cage.jc = 50
 		self.jobs.arena.jc = 30

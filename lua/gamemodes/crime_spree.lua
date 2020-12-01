@@ -20,7 +20,14 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 		}
 		self.catchup_bonus = 0
 		self.winning_streak = 0
+<<<<<<< Updated upstream
 		self.starting_levels = {0}
+=======
+		self.randomization_cost = 3
+		self.randomization_multiplier = 1
+		self.starting_levels = {}
+		self.cost_per_level = 0
+>>>>>>> Stashed changes
 		self.crash_causes_loss = false
 		self.allow_highscore_continue = false
 		self.modifiers = {
@@ -270,71 +277,74 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			}
 		}
 
-		local normal = 1
-		local hard = 2
-		local very_hard = 3
-		local OVERKILL = 4
+		local stealth_easy = 1
+		local stealth_hard = 2
+		--local stealth_extreme = 3
+		--local stealth_impossible = 4
+		local any_easy = 4
+		local any_hard = 6
+		--local any_extreme = 20 --could be used on green bridge etc, where the heist is basically impossible
 		self.missions = {
 			{
 				{
 					stage_id = "branchbank_cash",
 					id = "bb_cash",
 					icon = "csm_branchbank",
-					add = normal,
+					add = any_easy,
 					level = tweak_data.narrative.stages.branchbank_cash
 				},
 				{
 					stage_id = "cage",
 					id = "cage",
 					icon = "csm_carshop",
-					add = normal,
+					add = stealth_easy,
 					level = tweak_data.narrative.stages.cage
 				},
 				{
 					stage_id = "kosugi",
 					id = "kosugi",
 					icon = "csm_shadow_raid",
-					add = normal,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.kosugi
 				},
 				{
 					stage_id = "dark",
 					id = "dark",
 					icon = "csm_murky",
-					add = normal,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.dark
 				},
 				{
 					stage_id = "firestarter_2",
-					add = normal,
+					add = stealth_hard,
 					id = "fs_2",
 					icon = "csm_fs_2",
 					level = tweak_data.narrative.stages.firestarter_2
 				},
 				{
 					stage_id = "hox_3",
-					add = normal,
+					add = stealth_hard,
 					id = "hox_3",
 					icon = "csm_hoxvenge",
 					level = tweak_data.narrative.stages.hox_3
 				},
 				{
 					stage_id = "fish",
-					add = hard,
+					add = stealth_hard,
 					id = "fish",
 					icon = "csm_yacht",
 					level = tweak_data.narrative.stages.fish
 				},
 				{
 					stage_id = "election_day_2",
-					add = hard,
+					add = stealth_hard,
 					id = "ed_2",
 					icon = "csm_election_2",
 					level = tweak_data.narrative.stages.election_day_2
 				},
 				{
 					stage_id = "crojob1",
-					add = hard,
+					add = any_hard,
 					id = "crojob1",
 					icon = "csm_docks",
 					level = tweak_data.narrative.stages.crojob1
@@ -343,26 +353,26 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "framing_frame_3",
 					id = "framing_frame_3",
 					icon = "csm_framing_3",
-					add = hard,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.framing_frame_3
 				},
 				{
 					stage_id = "arm_for",
 					id = "arm_for",
 					icon = "csm_train_forest",
-					add = very_hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.arm_for
 				},
 				{
 					stage_id = "friend",
-					add = hard,
+					add = any_easy,
 					id = "friend",
 					icon = "csm_friend",
 					level = tweak_data.narrative.stages.friend
 				},
 				{
 					stage_id = "big",
-					add = OVERKILL,
+					add = stealth_hard,
 					id = "big",
 					icon = "csm_big",
 					level = tweak_data.narrative.stages.big
@@ -371,49 +381,49 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "mus",
 					id = "mus",
 					icon = "csm_diamond",
-					add = hard,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.mus
 				},
 				{
 					stage_id = "roberts",
 					id = "roberts",
 					icon = "csm_go",
-					add = OVERKILL,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.roberts
 				},
 				{
 					stage_id = "red2",
 					id = "red2",
 					icon = "csm_fwb",
-					add = normal,
+					add = stealth_hard,
 					level = tweak_data.narrative.stages.red2
 				}
 			},
 			{
 				{
-					stage_id = "wwh",
-					add = very_hard,
+					stage_id = "wwh", --alaskan deal
+					add = any_hard,
 					id = "wwh",
 					icon = "csm_wwh",
 					level = tweak_data.narrative.stages.wwh
 				},
 				{
-					stage_id = "rvd1",
-					add = very_hard,
+					stage_id = "rvd1", --warehouse day
+					add = any_hard,
 					id = "rvd1",
 					icon = "csm_rvd_1",
 					level = tweak_data.narrative.stages.rvd_1
 				},
 				{
 					stage_id = "rvd2",
-					add = very_hard,
+					add = any_hard,
 					id = "rvd2",
 					icon = "csm_rvd_2",
 					level = tweak_data.narrative.stages.rvd_2
 				},
 				{
-					stage_id = "brb",
-					add = hard,
+					stage_id = "brb", --brooklyn bank
+					add = any_hard,
 					id = "brb",
 					icon = "csm_brb",
 					level = tweak_data.narrative.stages.brb
@@ -422,54 +432,54 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "arm_cro",
 					id = "arm_cro",
 					icon = "csm_crossroads",
-					add = OVERKILL,
+					add = any_hard,
 					level = tweak_data.narrative.stages.arm_cro
 				},
 				{
 					stage_id = "cage",
 					id = "arm_und",
 					icon = "csm_overpass",
-					add = very_hard,
+					add = any_hard,
 					level = tweak_data.narrative.stages.arm_und
 				},
 				{
 					stage_id = "arm_hcm",
 					id = "arm_hcm",
 					icon = "csm_downtown",
-					add = OVERKILL,
+					add = any_easy,
 					level = tweak_data.narrative.stages.arm_hcm
 				},
 				{
 					stage_id = "arm_par",
 					id = "arm_par",
 					icon = "csm_park",
-					add = hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.arm_par
 				},
 				{
 					stage_id = "arm_fac",
 					id = "arm_fac",
 					icon = "csm_harbor",
-					add = hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.arm_fac
 				},
 				{
 					stage_id = "chew",
-					add = very_hard,
+					add = any_hard,
 					id = "biker_2",
 					icon = "csm_biker_2",
 					level = tweak_data.narrative.stages.chew
 				},
 				{
 					stage_id = "firestarter_1",
-					add = normal,
+					add = any_easy,
 					id = "fs_1",
 					icon = "csm_fs_1",
 					level = tweak_data.narrative.stages.firestarter_1
 				},
 				{
 					stage_id = "watchdogs_1_d",
-					add = very_hard,
+					add = any_easy,
 					id = "watchdogs_1_d",
 					icon = "csm_watchdogs_1",
 					level = tweak_data.narrative.stages.watchdogs_1_d
@@ -478,33 +488,33 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "pines",
 					id = "pines",
 					icon = "csm_white_xmas",
-					add = hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.pines
 				},
 				{
 					stage_id = "moon",
 					id = "moon",
 					icon = "csm_stealing_xmas",
-					add = hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.moon
 				},
 				{
 					stage_id = "spa",
-					add = very_hard,
+					add = any_hard,
 					id = "spa",
 					icon = "csm_brooklyn",
 					level = tweak_data.narrative.stages.spa
 				},
 				{
 					stage_id = "cane",
-					add = normal,
+					add = any_hard,
 					id = "cane",
 					icon = "csm_santas_workshop",
 					level = tweak_data.narrative.stages.cane
 				},
 				{
 					stage_id = "mia_2",
-					add = OVERKILL,
+					add = any_hard,
 					id = "mia_2",
 					icon = "csm_miami_2",
 					level = tweak_data.narrative.stages.mia_2
@@ -513,21 +523,21 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			{
 				{
 					stage_id = "pbr2",
-					add = very_hard,
+					add = any_hard,
 					id = "pbr2",
 					icon = "csm_sky",
 					level = tweak_data.narrative.stages.pbr2
 				},
 				{
 					stage_id = "pal",
-					add = normal,
+					add = any_easy,
 					id = "pal",
 					icon = "csm_counterfeit",
 					level = tweak_data.narrative.stages.pal
 				},
 				{
 					stage_id = "flat",
-					add = hard,
+					add = any_hard,
 					id = "flat",
 					icon = "csm_panic_room",
 					level = tweak_data.narrative.stages.flat
@@ -536,40 +546,40 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "born",
 					id = "born",
 					icon = "csm_biker_1",
-					add = hard,
+					add = any_hard,
 					level = tweak_data.narrative.stages.born
 				},
 				{
 					stage_id = "hox_2",
-					add = very_hard,
+					add = any_hard,
 					id = "hoxton_2",
 					icon = "csm_hoxout_2",
 					level = tweak_data.narrative.stages.hox_2
 				},
 				{
 					stage_id = "hox_1",
-					add = very_hard,
+					add = any_hard,
 					id = "hoxton_1",
 					icon = "csm_hoxout_1",
 					level = tweak_data.narrative.stages.hox_1
 				},
 				{
 					stage_id = "welcome_to_the_jungle_2",
-					add = OVERKILL,
+					add = any_easy,
 					id = "bo_2",
 					icon = "csm_bigoil_2",
 					level = tweak_data.narrative.stages.welcome_to_the_jungle_2
 				},
 				{
 					stage_id = "mia_1",
-					add = normal,
+					add = any_hard,
 					id = "mia_1",
 					icon = "csm_miami_1",
 					level = tweak_data.narrative.stages.mia_1
 				},
 				{
 					stage_id = "rat",
-					add = hard,
+					add = stealth_hard,
 					id = "cook_off",
 					icon = "csm_rats_1",
 					level = tweak_data.narrative.stages.rat
@@ -578,19 +588,19 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "pbr",
 					id = "pbr",
 					icon = "csm_mountain",
-					add = OVERKILL,
+					add = any_hard,
 					level = tweak_data.narrative.stages.pbr
 				},
 				{
 					stage_id = "glace",
-					add = very_hard,
+					add = any_hard,
 					id = "glace",
 					icon = "csm_glace",
 					level = tweak_data.narrative.stages.glace
 				},
 				{
 					stage_id = "run",
-					add = OVERKILL,
+					add = any_hard,
 					id = "run",
 					icon = "csm_run",
 					level = tweak_data.narrative.stages.run
@@ -599,19 +609,19 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 					stage_id = "man",
 					id = "man",
 					icon = "csm_undercover",
-					add = hard,
+					add = any_easy,
 					level = tweak_data.narrative.stages.man
 				},
 				{
 					stage_id = "dinner",
-					add = hard,
+					add = any_hard,
 					id = "dinner",
 					icon = "csm_slaughterhouse",
 					level = tweak_data.narrative.stages.dinner
 				},
 				{
 					stage_id = "jolly",
-					add = very_hard,
+					add = any_hard,
 					id = "jolly",
 					icon = "csm_aftershock",
 					level = tweak_data.narrative.stages.jolly
@@ -664,24 +674,24 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			}
 		}
 		
-		local low = 6
-		local medium = 9
-		local high = 12
-		local must_have = 18
+		local low = 1
+		local medium = 2
+		local high = 3
+		local must_have = 5
 		
-		self.assets.increased_throwables.cost = medium
+		self.max_assets_unlocked = 5
+		self.assets.increased_throwables.cost = low
 		self.assets.increased_deployables.cost = must_have
-		self.assets.increased_health.cost = low
-		self.assets.quick_reload.cost = medium
-		self.assets.quick_switch.cost = medium
-		self.assets.increased_lives.cost = must_have
+		self.assets.quick_reload.cost = low
+		self.assets.quick_switch.cost = low
+		self.assets.increased_lives.cost = high
 		self.assets.increased_stamina.cost = low
 		self.assets.increased_ammo.cost = low
-		
-		self.assets.explosion_immunity = nil
-		self.assets.increased_absorption = nil
-		self.assets.melee_invulnerability = nil
-		self.assets.life_steal = nil
+		self.assets.increased_health.cost = medium
+		self.assets.explosion_immunity.cost = low
+		self.assets.increased_absorption.cost = must_have
+		self.assets.melee_invulnerability.cost = medium
+		self.assets.life_steal.cost = must_have
 		
 		self.assets.increased_health.data = {
 			health = 25
@@ -690,7 +700,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			name_id = "menu_cs_ga_increased_armor",
 			unlock_desc_id = "menu_cs_ga_increased_armor_desc",
 			icon = "csb_armor",
-			cost = low,
+			cost = medium,
 			data = {
 				armor = 20
 			},
@@ -700,7 +710,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			name_id = "menu_cs_ga_quick_pagers",
 			unlock_desc_id = "menu_cs_ga_quick_pagers_desc",
 			icon = "csb_pagers",
-			cost = high,
+			cost = medium,
 			data = {
 				speed = 15
 			},
@@ -722,7 +732,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/crimespreetweakdata" then
 			name_id = "menu_cs_ga_quick_locks",
 			unlock_desc_id = "menu_cs_ga_quick_locks_desc",
 			icon = "csb_locks",
-			cost = medium,
+			cost = low,
 			data = {
 				speed = 15
 			},
