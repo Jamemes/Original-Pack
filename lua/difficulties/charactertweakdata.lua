@@ -4,46 +4,456 @@ function CharacterTweakData:init(tweak_data)
 	local presets = self:_presets(tweak_data)
 	local easy_mode = Global.game_settings and Global.game_settings.one_down
 	
-	self.presets.weapon.gang_member.is_pistol.aim_delay = {0, 1}
-	self.presets.weapon.gang_member.is_pistol.focus_dis = 2000
-	self.presets.weapon.gang_member.is_pistol.miss_dis = 20
-	self.presets.weapon.gang_member.is_pistol.RELOAD_SPEED = 1.5
+	self.presets.gang_member_damage.hurt_severity.bullet = {
+		health_reference = "current",
+		zones = {
+			{
+				health_limit = 0.4,
+				none = 0.3,
+				light = 0.6,
+				moderate = 0.1
+			},
+			{
+				health_limit = 0.7,
+				none = 0.1,
+				light = 0.7,
+				moderate = 0.2
+			},
+			{
+				none = 0.1,
+				light = 0.5,
+				moderate = 0.3,
+				heavy = 0.1
+			}
+		}
+	}
 	self.presets.weapon.gang_member.is_pistol.FALLOFF = {
-		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {0.25, 0.45}, 	mode = {1, 0, 0, 0}},
-		{r = 2000, 	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {0.25, 2}, 	mode = {1, 0, 0, 0}},
-		{r = 10000, acc = {0, 0.15}, 	dmg_mul = 1, 	recoil = {2, 3}, 		mode = {1, 0, 0, 0}}
+		{
+			dmg_mul = 2,
+			r = 300,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.25,
+				0.45
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 10000,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				2,
+				3
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		}
 	}
-	self.presets.weapon.gang_member.is_rifle.aim_delay = {0, 1}
 	self.presets.weapon.gang_member.is_rifle.FALLOFF = {
-		{r = 300,	acc = {0.7, 1},		dmg_mul = 3.5,	recoil = {0.25, 0.45},	mode = {0.1, 0.3, 4, 7}},
-		{r = 2000,	acc = {0.1, 0.6},	dmg_mul = 0.5,	recoil = {0.25, 2},		mode = {2, 2, 5, 8}},
-		{r = 10000,	acc = {0, 0.15},	dmg_mul = 0.5,	recoil = {2, 3},		mode = {2, 1, 1, 0.01}}
+		{
+			dmg_mul = 1,
+			r = 300,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.25,
+				0.45
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 10000,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				2,
+				3
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		}
 	}
-	self.presets.weapon.gang_member.is_sniper.aim_delay = {0.5, 2}
-	self.presets.weapon.gang_member.is_sniper.FALLOFF[1].dmg_mul = 5
-	self.presets.weapon.gang_member.is_sniper.FALLOFF[2].dmg_mul = 5
-	self.presets.weapon.gang_member.is_sniper.FALLOFF[3].dmg_mul = 5
-	self.presets.weapon.gang_member.is_sniper.FALLOFF[4].dmg_mul = 2.5
-	self.presets.weapon.gang_member.is_sniper.FALLOFF[5].dmg_mul = 2.5
-	self.presets.weapon.gang_member.is_lmg.aim_delay = {0, 1}
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[1].dmg_mul = 2
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[2].dmg_mul = 1.5
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[3].dmg_mul = 1
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[4].dmg_mul = 0.5
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[5].dmg_mul = 0.2
-	self.presets.weapon.gang_member.is_lmg.FALLOFF[6].dmg_mul = 0.1
-	self.presets.weapon.gang_member.is_shotgun_pump.aim_delay = {0, 0.02}
+	self.presets.weapon.gang_member.is_sniper.FALLOFF = {
+		{
+			dmg_mul = 4,
+			r = 500,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				1,
+				1
+			},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			dmg_mul = 4,
+			r = 1000,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				1,
+				1
+			},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			dmg_mul = 4,
+			r = 2500,
+			acc = {
+				0.95,
+				1
+			},
+			recoil = {
+				1,
+				1
+			},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			dmg_mul = 2,
+			r = 4000,
+			acc = {
+				0.9,
+				0.95
+			},
+			recoil = {
+				1,
+				1
+			},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		},
+		{
+			dmg_mul = 2,
+			r = 10000,
+			acc = {
+				0.85,
+				0.9
+			},
+			recoil = {
+				1,
+				1
+			},
+			mode = {
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	}
+	self.presets.weapon.gang_member.is_lmg.FALLOFF = {
+		{
+			dmg_mul = 1,
+			r = 100,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.25,
+				0.45
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 1000,
+			acc = {
+				0.85,
+				0.9
+			},
+			recoil = {
+				0.4,
+				0.65
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 2000,
+			acc = {
+				0.6,
+				0.8
+			},
+			recoil = {
+				0.8,
+				1.25
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		},
+		{
+			dmg_mul = 0.5,
+			r = 3000,
+			acc = {
+				0.5,
+				0.7
+			},
+			recoil = {
+				0.8,
+				1.25
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		},
+		{
+			dmg_mul = 0.3,
+			r = 4000,
+			acc = {
+				0.02,
+				0.25
+			},
+			recoil = {
+				1,
+				2
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		},
+		{
+			dmg_mul = 0.1,
+			r = 10000,
+			acc = {
+				0.01,
+				0.1
+			},
+			recoil = {
+				2,
+				3
+			},
+			mode = {
+				0,
+				0,
+				0,
+				1
+			}
+		}
+	}
 	self.presets.weapon.gang_member.is_shotgun_pump.FALLOFF = {
-		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {2, 2},	mode = {1, 0, 0, 0}},
-		{r = 1000,	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {2, 2},	mode = {1, 0, 0, 0}},
-		{r = 4000,	acc = {0, 0.15}, 	dmg_mul = 0.1, 	recoil = {2, 4},	mode = {1, 0, 0, 0}}
+		{
+			dmg_mul = 2,
+			r = 300,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.25,
+				0.45
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 10000,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				2,
+				3
+			},
+			mode = {
+				0.1,
+				0.3,
+				4,
+				7
+			}
+		}
 	}
-	self.presets.weapon.gang_member.is_shotgun_mag.aim_delay = {0, 0.02}
 	self.presets.weapon.gang_member.is_shotgun_mag.FALLOFF = {
-		{r = 300, 	acc = {0.7, 1}, 	dmg_mul = 3.5, 	recoil = {2, 2},	mode = {1, 1, 4, 6}},
-		{r = 1000, 	acc = {0.1, 0.6}, 	dmg_mul = 1, 	recoil = {2, 2},	mode = {1, 1, 4, 6}},
-		{r = 4000, 	acc = {0, 0.15}, 	dmg_mul = 0.1, 	recoil = {2, 4},	mode = {2, 1, 0, 0}}
+		{
+			dmg_mul = 2,
+			r = 100,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.1,
+				0.1
+			},
+			mode = {
+				1,
+				1,
+				4,
+				6
+			}
+		},
+		{
+			dmg_mul = 2,
+			r = 500,
+			acc = {
+				1,
+				1
+			},
+			recoil = {
+				0.1,
+				0.1
+			},
+			mode = {
+				1,
+				1,
+				4,
+				5
+			}
+		},
+		{
+			dmg_mul = 1,
+			r = 1000,
+			acc = {
+				0.85,
+				0.95
+			},
+			recoil = {
+				0.1,
+				0.15
+			},
+			mode = {
+				1,
+				2,
+				4,
+				4
+			}
+		},
+		{
+			dmg_mul = 0.75,
+			r = 2000,
+			acc = {
+				0.75,
+				0.9
+			},
+			recoil = {
+				0.25,
+				0.45
+			},
+			mode = {
+				1,
+				4,
+				4,
+				1
+			}
+		},
+		{
+			dmg_mul = 0.25,
+			r = 3000,
+			acc = {
+				0.4,
+				0.7
+			},
+			recoil = {
+				0.4,
+				0.5
+			},
+			mode = {
+				4,
+				2,
+				1,
+				0
+			}
+		},
+		{
+			dmg_mul = 0.1,
+			r = 10000,
+			acc = {
+				0.05,
+				0.2
+			},
+			recoil = {
+				0.5,
+				1
+			},
+			mode = {
+				2,
+				1,
+				0,
+				0
+			}
+		}
 	}
+
 	self.presets.move_speed.very_slow_but_faster = {
 		stand = {
 			walk = 	{ntl = {fwd = 220, strafe = 170, bwd = 144},		hos = {fwd = 220, strafe = 170, bwd = 144},	cbt = {fwd = 220, strafe = 170, bwd = 144}},

@@ -112,16 +112,10 @@
 		<hook source_file="lib/managers/menu/menunodegui"							file="game/version.lua"/>
 		<hook source_file="lib/managers/localizationmanager"						file="game/localizationmanager.lua"/>
 		<hook source_file="lib/states/menumainstate"								file="game/menumainstate.lua"/>
-		<hook source_file="lib/managers/menu/blackmarketgui"						file="game/achievements/blackmarketgui.lua"/>
 		<hook source_file="lib/managers/achievmentmanager"							file="game/achievements/achievmentmanager.lua"/>
 		<hook source_file="lib/managers/menu/achievementlistgui"					file="game/achievements/achievementlistgui.lua"/>
 		<hook source_file="lib/network/matchmaking/networkaccountsteam"				file="game/achievements/networkaccountsteam.lua"/>
 		<hook source_file="lib/managers/statisticsmanager"							file="game/achievements/statisticsmanager.lua"/>
-		<hook source_file="lib/tweak_data/hudiconstweakdata"						file="game/achievements/hudiconstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/generatedachievementtweakdata"			file="game/achievements/generatedachievementtweakdata.lua"/>
-		<hook source_file="lib/tweak_data/achievementstweakdata"					file="game/achievements/awards.lua"/>
-		<hook source_file="lib/managers/achievement/cac_customachievements"			file="game/achievements/awards.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="game/achievements/awards.lua"/>
 		<hook source_file="lib/managers/blackmarketmanager"							file="game/test.lua"/>
 		<hook source_file="lib/managers/dlcmanager"									file="game/test.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="game/test.lua"/>
@@ -130,12 +124,6 @@
 	<Localization directory="loc" default="english.txt">
         <localization language="russian" file="russian.txt"/>
     </Localization>
-    <Sounds directory="assets/sounds">
-        <sound id="infamous_ace_join_stinger" path="384683668.ogg"/>
-        <sound id="infamous_elite_join_stinger" path="384683667.ogg"/>
-        <sound id="refund" path="104037448.ogg"/>
-        <sound id="goat" path="280573680.ogg"/>
-    </Sounds>
 
     <AddFiles directory="assets">
 

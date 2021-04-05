@@ -1,14 +1,4 @@
 if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
-	local PICKUP = {
-		SNIPER_HIGH_DAMAGE = 6,
-		SHOTGUN_HIGH_CAPACITY = 4,
-		AR_HIGH_CAPACITY = 2,
-		OTHER = 1,
-		SNIPER_LOW_DAMAGE = 5,
-		AR_MED_CAPACITY = 3,
-		LMG_HIGH_CAPACITY = 7,
-		LMG_MED_CAPACITY = 8
-	}
 	local SELECTION = {
 		SECONDARY = 1, 
 		PRIMARY = 2, 
@@ -17,9 +7,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 	local data = WeaponTweakData.init
 	function WeaponTweakData:init(tweak_data)
 		data(self, tweak_data)
+		
 		local total_damage_primary = 300
 		local total_damage_secondary = 150
-
 		self.alert_size = {
 			30000, 
 			20000, 
@@ -2713,18 +2703,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.x_rota.damage_far = 1800
 		self.coach.damage_near = 1000
 		self.coach.damage_far = 2000
-		
-		self.g36.AMMO_PICKUP = self:_pickup_chance(self.m16.AMMO_MAX, PICKUP.OTHER)
-		self.lemming.AMMO_PICKUP = self:_pickup_chance(self.lemming.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.asval.AMMO_PICKUP = self:_pickup_chance(self.asval.AMMO_MAX, PICKUP.OTHER)
-		self.contraband.AMMO_PICKUP = self:_pickup_chance(self.akm.AMMO_MAX, PICKUP.OTHER)
-		self.rpk.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.hk21.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.famas.AMMO_PICKUP = self:_pickup_chance(self.aug.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.m249.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.par.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.mg42.AMMO_PICKUP = self:_pickup_chance(self.contraband.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
-		self.judge.AMMO_PICKUP = self:_pickup_chance(self.judge.AMMO_MAX, PICKUP.AR_HIGH_CAPACITY)
+
 		self.scorpion.AMMO_PICKUP = self:_pickup_chance(180, 1)
 		self.tec9.AMMO_PICKUP = self:_pickup_chance(160, 1)
 		self.uzi.AMMO_PICKUP = self:_pickup_chance(100, 1)
@@ -2750,41 +2729,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		self.model70.AMMO_PICKUP = {0.7, 1}
 		self.winchester1874.AMMO_PICKUP = {0.7, 1}
 		
-	end
-
-	function WeaponTweakData:_pickup_chance(max_ammo, selection_index)
-		local low, high = nil
-
-		if selection_index == PICKUP.AR_HIGH_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.AR_MED_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SHOTGUN_HIGH_CAPACITY then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SNIPER_LOW_DAMAGE then
-			low = 0.02
-			high = 0.05
-		elseif selection_index == PICKUP.SNIPER_HIGH_DAMAGE then
-			low = 0.005
-			high = 0.015
-		elseif selection_index == PICKUP.LMG_HIGH_CAPACITY then
-			low = 10.005
-			high = 10.015
-		elseif selection_index == PICKUP.LMG_MED_CAPACITY then
-			low = 10.005
-			high = 10.015
-		else
-			low = 0.01
-			high = 0.035
-		end
-
-		return {
-			max_ammo * low,
-			max_ammo * high
-		}
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
