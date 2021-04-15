@@ -101,6 +101,7 @@
 		<hook source_file="lib/managers/menu/crewmanagementgui"						file="interface.lua"/>
 		<hook source_file="lib/managers/blackmarketmanager"							file="interface.lua"/>
 		<hook source_file="lib/states/bootupstate" 									file="interface.lua"/>
+        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="interface.lua"/>
 		
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties.lua"/>
 		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties.lua"/>

@@ -37,6 +37,11 @@ if string.lower(RequiredScript) == "lib/states/menumainstate" then
 		data(self, old_state)
 	end
 end
+if string.lower(RequiredScript) == "lib/managers/menu/menucomponentmanager" then
+	function MenuComponentManager:create_new_heists_gui(node)
+		return
+	end
+end
 if string.lower(RequiredScript) == "lib/managers/menu/playerprofileguiobject" then
 	function PlayerProfileGuiObject:init(ws)
 		local panel = ws:panel():panel()
@@ -412,6 +417,13 @@ if string.lower(RequiredScript) == "lib/managers/menu/menuscenemanager" then
 	function MenuSceneManager:_select_henchmen_pose(unit, weapon_id, index)
 		data(self, unit, weapon_id, index)
 		self:_delete_character_weapon(unit, "all")
+	end
+	
+	local data = MenuSceneManager._setup_bg
+	function MenuSceneManager:_setup_bg()
+		data(self)
+		self._menu_logo:set_visible(false)
+		self._menu_logo = World:spawn_unit(Idstring("units/menu/menu_scene/menu_logo"), Vector3(200, 0, -200), Rotation(180, 0, 0))
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/chatmanager" then

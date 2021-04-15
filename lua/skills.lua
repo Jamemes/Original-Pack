@@ -995,8 +995,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.alpha_dog[2].upgrades = {"player_crouch_dodge_chance_2"}
 		self.skills.alpha_dog.name_id = "menu_alpha_dog"
 		self.skills.alpha_dog.desc_id = "menu_alpha_dog_desc"
-		self.skills.up_you_go[1].cost = self.costs.default
-		self.skills.up_you_go[2].cost = self.costs.pro
+		self.skills.up_you_go[1].cost = self.costs.hightier
+		self.skills.up_you_go[2].cost = self.costs.hightierpro
 		self.skills.up_you_go[1].upgrades = {"player_revived_health_regain_solid_amount_1", "player_revived_health_regain_solid_wolverine"}
 		self.skills.up_you_go[2].upgrades = {"player_revived_health_regain_solid_amount_2", "player_revived_damage_resist_1"}
 		self.skills.up_you_go.icon_xy = {4, 13}
@@ -1032,18 +1032,18 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.thick_skin = {
 			{
 				upgrades = {"player_tier_armor_multiplier_1"},
-				cost = self.costs.hightier
+				cost = self.costs.default
 			},
 			{
 				upgrades = {"player_level_2_armor_addend", "player_level_3_armor_addend", "player_level_4_armor_addend"},
-				cost = self.costs.hightierpro
+				cost = self.costs.pro
 			},
 			name_id = "menu_thick_skin",
 			desc_id = "menu_thick_skin_desc",
 			icon_xy = {2, 12}
 		}
-		self.skills.tea_time[1].cost = self.costs.hightier
-		self.skills.tea_time[2].cost = self.costs.hightierpro
+		self.skills.tea_time[1].cost = self.costs.default
+		self.skills.tea_time[2].cost = self.costs.pro
 		self.skills.second_wind = {
 			{
 				upgrades = {"temporary_damage_speed_multiplier"},

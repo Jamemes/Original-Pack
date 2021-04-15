@@ -179,7 +179,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 	Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
 		nodes[OriginalPackOptions.options_menu] = MenuHelper:BuildMenu(OriginalPackOptions.options_menu)
 		nodes[OriginalPackOptions.interface_menu] = MenuHelper:BuildMenu(OriginalPackOptions.interface_menu)
-		MenuHelper:AddMenuItem(nodes["main"], OriginalPackOptions.options_menu, "menu_OP_title", "", 22)
+		MenuHelper:AddMenuItem(nodes["main"], OriginalPackOptions.options_menu, "menu_OP_title", "", 21)
 		MenuHelper:AddMenuItem(nodes[OriginalPackOptions.options_menu], OriginalPackOptions.interface_menu, "menu_user_interface", "", 1)
 
 		local function menu_node(menu_item, name, clbk, pos, item_name)
@@ -297,7 +297,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			Steam:overlay_activate("url", "https://discord.com/invite/F9SBFWh")
 		end
 		
-		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 24, "")
+		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 22, "")
 	end)
 end
 if string.lower(RequiredScript) == "lib/network/matchmaking/networkmatchmakingsteam" then
