@@ -35,11 +35,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 					"team_passive_stamina_multiplier_1"
 				},
 				cost = self.costs.unlock_tree,
-				desc_id = "menu_mastermind_tier_1"
+				desc_id = "menu_mastermind_tier_2"
 			},
 			{
 				upgrades = {"passive_doctor_bag_interaction_speed_multiplier"},
-				desc_id = "menu_mastermind_tier_2"
+				desc_id = "menu_mastermind_tier_1"
 			},
 			{
 				upgrades = {"player_passive_intimidate_range_mul"},
@@ -195,17 +195,17 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			{
 				upgrades = {
 					"first_aid_kit",
-					"player_stand_still_crouch_camouflage_bonus_2"
+					"player_gangster_damage_dampener_1"
 				},
 				cost = self.costs.unlock_tree,
 				desc_id = "menu_hoxton_tier_1"
 			},
 			{
-				upgrades = {"player_tier_armor_multiplier_1"},
+				upgrades = {"player_damage_shake_addend"},
 				desc_id = "menu_hoxton_tier_2"
 			},
 			{
-				upgrades = {"player_damage_dampener_outnumbered_strong"},
+				upgrades = {"player_gangster_damage_dampener_2"},
 				desc_id = "menu_hoxton_tier_3"
 			},
 			{
@@ -213,15 +213,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_hoxton_tier_4"
 			},
 			{
-				upgrades = {"player_corpse_dispose_speed_multiplier"},
+				upgrades = {"player_fugitive_tier_health_multiplier"},
 				desc_id = "menu_hoxton_tier_5"
 			},
 			{
-				upgrades = {"player_armor_regen_timer_stand_still_multiplier"},
+				upgrades = {"player_camouflage_bonus_1"},
 				desc_id = "menu_hoxton_tier_6"
 			}
 		}
-			
+				
 		self.default_upgrades = {
 			"player_extra_corpse_dispose_amount",
 			"armor_kit",
@@ -254,12 +254,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 					{
 						"hostage_taker",
 						"painkillers",
-						"equilibrium"
+						"black_marketeer"
 					},
 					{
 						"smooth_talker",
-						"inside_man",
-						"black_marketeer"
+						"equilibrium",
+						"inside_man"
 					},
 					{
 						"control_freak",
@@ -375,17 +375,17 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 					{
 						"magic_touch",
 						"ecm_2x",
-						"nine_lives"
-					},
-					{
-						"good_luck_charm",
-						"ecm_booster",
 						"silence_expert"
 					},
 					{
-						"low_blow",
-						"ecm_feedback",
+						"nine_lives",
+						"ecm_booster",
 						"hitman"
+					},
+					{
+						"second_chances",
+						"ecm_feedback",
+						"low_blow"
 					}
 				}
 			},
@@ -395,39 +395,40 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				background_texture = "guis/textures/pd2/skilltree/bg_fugitive",
 				tiers = {
 					{
-						"cell_mates",
+						"freedom_call",
 						"master_craftsman",
-						"freedom_call"
-					},
-					{
-						"awareness",
-						"alpha_dog",
-						"up_you_go"
+						"awareness"
 					},
 					{
 						"hidden_blade",
-						"jail_workout",
+						"alpha_dog",
 						"running_from_death"
 					},
 					{
 						"thick_skin",
 						"tea_time",
-						"second_wind"
+						"jail_workout"
 					},
 					{
-						"second_chances",
+						"second_wind",
 						"tea_cookies",
+						"drop_soap"
+					},
+					{
+						"up_you_go",
+						"walking_bleedout",
 						"akimbo"
 					},
 					{
-						"bloodthirst",
-						"backstab",
+						"time_heals",
+						"more_blood_to_bleed",
 						"gunzerker"
 					}
 				}
 			}
 		}
 
+			
 		self.skills.cable_guy[1].upgrades = {"cable_tie_interact_speed_multiplier"}
 		self.skills.cable_guy[2].upgrades = {"cable_tie_quantity"}
 		self.skills.cable_guy.icon_xy = {4, 7}
@@ -737,7 +738,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				cost = self.costs.default
 			},
 			{
-				upgrades = {"trip_mine_marked_enemy_extra_damage"},
+				upgrades = {
+					"trip_mine_explosion_size_multiplier_2",
+					"trip_mine_marked_enemy_extra_damage"
+				},
 				cost = self.costs.pro
 			},
 			name_id = "menu_master_craftsman",
@@ -790,9 +794,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				upgrades = {
 					"weapon_single_not_moving_head_shot_add",
 					"weapon_single_steelsight_head_shot_add",
-					"assault_rifle_single_head_shot_add",
-					"smg_single_head_shot_add",
-					"snp_single_head_shot_add"
+					"weapon_assault_rifle_single_head_shot_add",
+					"weapon_smg_single_head_shot_add",
+					"weapon_snp_single_head_shot_add"
 				},
 				cost = self.costs.hightierpro
 			},
@@ -853,7 +857,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				cost = self.costs.default
 			},
 			{
-				upgrades = {"player_camouflage_bonus_2"},
+				upgrades = {"player_guards_cant_spot_you_in_casing"},
 				cost = self.costs.pro
 			},
 			name_id = "menu_chameleon",
@@ -878,7 +882,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.assassin.desc_id = "menu_assassin_desc"
 		self.skills.spotter = {
 			{
-				upgrades = {"player_marked_enemy_extra_damage"},
+				upgrades = {"player_mark_enemy_time_multiplier"},
 				cost = self.costs.default
 			},
 			{
@@ -892,23 +896,43 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.smg_master.name_id = "menu_smg_master"
 		self.skills.smg_master.desc_id = "menu_smg_master_desc"
 		self.skills.magic_touch[1].upgrades = {"player_pick_lock_easy", "player_pick_lock_easy_speed_multiplier_1"}
-		self.skills.magic_touch[2].upgrades = {"player_pick_lock_easy", "player_pick_lock_easy_speed_multiplier_1"}
+		self.skills.magic_touch[2].upgrades = {"player_pick_lock_hard", "player_pick_lock_easy_speed_multiplier_2"}
 		self.skills.magic_touch.name_id = "menu_magic_touch"
 		self.skills.magic_touch.desc_id = "menu_magic_touch_desc"
 		self.skills.nine_lives[1].upgrades = {"player_additional_lives_1"}
 		self.skills.nine_lives[2].upgrades = {"player_cheat_death_chance_1"}
 		self.skills.nine_lives.name_id = "menu_nine_lives"
 		self.skills.nine_lives.desc_id = "menu_nine_lives_desc"
-		self.skills.good_luck_charm[2].upgrades = {"player_tape_loop_duration_2"}
-		self.skills.good_luck_charm.name_id = "menu_good_luck_charm"
-		self.skills.good_luck_charm.desc_id = "menu_good_luck_charm_desc"
+		self.skills.second_chances = {
+			{
+				upgrades = {"bodybags_bag", "player_corpse_dispose_speed_multiplier"},
+				cost = self.costs.hightier
+			},
+			{
+				upgrades = {"bodybags_bag_quantity"},
+				cost = self.costs.hightierpro
+			},
+			name_id = "menu_second_chances",
+			desc_id = "menu_second_chances_desc",
+			icon_xy = {5, 11}
+		}
 		self.skills.ecm_booster[1].upgrades = {"ecm_jammer_duration_multiplier"}
 		self.skills.ecm_booster.name_id = "menu_ecm_booster"
 		self.skills.ecm_booster.desc_id = "menu_ecm_booster_desc"
-		self.skills.silence_expert[1].upgrades = {"weapon_silencer_recoil_multiplier", "weapon_silencer_enter_steelsight_speed_multiplier"}
-		self.skills.silence_expert[2].upgrades = {"weapon_silencer_spread_multiplier", "weapon_silencer_armor_piercing_chance_2"}
-		self.skills.silence_expert.name_id = "menu_silence_expert"
-		self.skills.silence_expert.desc_id = "menu_silence_expert_desc"
+		self.skills.hitman = {
+			{
+				upgrades = {"weapon_silencer_damage_multiplier_1", "weapon_silencer_armor_piercing_chance_1"},
+				cost = self.costs.hightier
+			},
+			{
+				upgrades = {"weapon_silencer_damage_multiplier_2", "weapon_silencer_armor_piercing_chance_2"},
+				cost = self.costs.hightierpro
+			},
+			prerequisites = {"silence_expert"},
+			name_id = "menu_hitman",
+			desc_id = "menu_hitman_desc",
+			icon_xy = {5, 9}
+		}
 		self.skills.low_blow = {
 			{
 				upgrades = {"player_detection_risk_add_crit_chance_1"},
@@ -918,39 +942,34 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				upgrades = {"player_detection_risk_add_crit_chance_2"},
 				cost = self.costs.hightierpro
 			},
+			prerequisites = {"hitman"},
 			name_id = "menu_backstab_beta",
 			desc_id = "menu_backstab_beta_desc",
 			icon_xy = {0, 12}
 		}
-		self.skills.ecm_feedback[1].upgrades = {"ecm_jammer_can_activate_feedback"}
+		self.skills.ecm_feedback[1].upgrades = {"ecm_jammer_can_activate_feedback", "pocket_ecm_jammer", "player_pocket_ecm_jammer_base"}
 		self.skills.ecm_feedback[2].upgrades = {"ecm_jammer_feedback_duration_boost", "ecm_jammer_interaction_speed_multiplier", "ecm_jammer_can_retrigger"}
 		self.skills.ecm_feedback.name_id = "menu_ecm_feedback"
 		self.skills.ecm_feedback.desc_id = "menu_ecm_feedback_desc"
-		self.skills.hitman = {
-			{
-				upgrades = {"weapon_silencer_damage_multiplier_1"},
-				cost = self.costs.hightier
-			},
-			{
-				upgrades = {"weapon_silencer_damage_multiplier_2", "weapon_silencer_armor_piercing_chance_1"},
-				cost = self.costs.hightierpro
-			},
-			name_id = "menu_hitman",
-			desc_id = "menu_hitman_desc",
-			icon_xy = {5, 9}
+		self.skills.silence_expert[1].upgrades = {
+			"weapon_silencer_enter_steelsight_speed_multiplier",
+			"weapon_silencer_recoil_multiplier",
+			"weapon_silencer_spread_multiplier"
 		}
+		self.skills.silence_expert[2].upgrades = {
+			"player_secondary_silencer_damage_addend",
+			"player_reduce_silencer_alert_size"
+		}
+		self.skills.silence_expert.name_id = "menu_silence_expert"
+		self.skills.silence_expert.desc_id = "menu_silence_expert_desc"
 
-		self.skills.cell_mates[1].upgrades = {"player_gangster_damage_dampener_1"}
-		self.skills.cell_mates[2].upgrades = {"player_gangster_damage_dampener_2"}
-		self.skills.cell_mates.name_id = "menu_cell_mates"
-		self.skills.cell_mates.desc_id = "menu_cell_mates_desc"
 		self.skills.master_craftsman = {
 			{
-				upgrades = {"player_crafting_weapon_multiplier"},
+				upgrades = {"player_crafting_weapon_multiplier", "player_crafting_mask_multiplier"},
 				cost = self.costs.default
 			},
 			{
-				upgrades = {"player_crafting_mask_multiplier"},
+				upgrades = {"passive_player_xp_multiplier"},
 				cost = self.costs.pro
 			},
 			name_id = "menu_mastercraftsman",
@@ -962,11 +981,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.freedom_call.desc_id = "menu_freedom_call_desc"
 		self.skills.awareness = {
 			{
-				upgrades = {"player_movement_speed_multiplier"},
+				upgrades = {"player_steelsight_normal_movement_speed"},
 				cost = self.costs.default
 			},
 			{
-				upgrades = {"player_steelsight_normal_movement_speed"},
+				upgrades = {"player_damage_dampener_outnumbered_strong"},
 				cost = self.costs.pro
 			},
 			name_id = "menu_awareness",
@@ -978,7 +997,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.alpha_dog.desc_id = "menu_alpha_dog_desc"
 		self.skills.up_you_go[1].cost = self.costs.default
 		self.skills.up_you_go[2].cost = self.costs.pro
-		self.skills.up_you_go.icon_xy = {3, 13}
+		self.skills.up_you_go[1].upgrades = {"player_revived_health_regain_solid_amount_1", "player_revived_health_regain_solid_wolverine"}
+		self.skills.up_you_go[2].upgrades = {"player_revived_health_regain_solid_amount_2", "player_revived_damage_resist_1"}
+		self.skills.up_you_go.icon_xy = {4, 13}
 		self.skills.hidden_blade = {
 			{
 				upgrades = {"player_melee_concealment_modifier"},
@@ -994,7 +1015,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		}
 		self.skills.jail_workout = {
 			{
-				upgrades = {"player_mark_enemy_time_multiplier"},
+				upgrades = {"player_marked_enemy_extra_damage"},
 				cost = self.costs.default
 			},
 			{
@@ -1010,7 +1031,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.running_from_death.icon_xy = {2, 13}
 		self.skills.thick_skin = {
 			{
-				upgrades = {"player_damage_shake_addend"},
+				upgrades = {"player_tier_armor_multiplier_1"},
 				cost = self.costs.hightier
 			},
 			{
@@ -1036,22 +1057,68 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			desc_id = "menu_second_wind_desc",
 			icon_xy = {7, 12}
 		}
-		self.skills.second_chances = {
+		self.skills.tea_cookies[2].upgrades = {"chico_injector", "temporary_chico_injector_1", "first_aid_kit_quantity_increase_2"}
+		self.skills.tea_cookies.name_id = "menu_tea_cookies"
+		self.skills.tea_cookies.desc_id = "menu_tea_cookies_desc"
+		self.skills.walking_bleedout = {
 			{
-				upgrades = {"bodybags_bag"},
+				upgrades = {
+					"player_walking_bleedout_chance_1",
+					"player_walking_bleedout_temporary_health_mul_1",
+					"player_walking_bleedout_time_to_bleed_1"
+				},
 				cost = self.costs.hightier
 			},
 			{
-				upgrades = {"bodybags_bag_quantity"},
+				upgrades = {
+					"player_walking_bleedout_chance_2",
+					"player_walking_bleedout_doctor_bag_self_revive"
+				},
 				cost = self.costs.hightierpro
 			},
-			name_id = "menu_second_chances",
-			desc_id = "menu_second_chances_desc",
-			icon_xy = {5, 11}
+			name_id = "menu_perseverance",
+			desc_id = "menu_walking_bleedout_desc",
+			icon_xy = {5, 13}
 		}
-		self.skills.tea_cookies[2].upgrades = {"first_aid_kit_quantity_increase_2"}
-		self.skills.tea_cookies.name_id = "menu_tea_cookies"
-		self.skills.tea_cookies.desc_id = "menu_tea_cookies_desc"
+		self.skills.more_blood_to_bleed = {
+			{
+				upgrades = {
+					"player_walking_bleedout_temporary_health_mul_2"
+				},
+				cost = self.costs.hightier
+			},
+			{
+				upgrades = {
+					"player_walking_bleedout_temporary_health_mul_3",
+					"player_walking_bleedout_time_to_bleed_2"
+				},
+				cost = self.costs.hightierpro
+			},
+			prerequisites = {"walking_bleedout"},
+			name_id = "menu_more_blood_to_bleed",
+			desc_id = "menu_more_blood_to_bleed_desc",
+			icon_xy = {7, 13}
+		}
+		self.skills.time_heals = {
+			{
+				upgrades = {
+					"player_walking_bleedout_ticks_to_ressurection_1"
+				},
+				cost = self.costs.hightier
+			},
+			{
+				upgrades = {
+					"player_walking_bleedout_ticks_to_ressurection_2",
+					"player_walking_bleedout_fak_self_revive"
+				},
+				cost = self.costs.hightierpro
+			},
+			prerequisites = {"walking_bleedout"},
+			name_id = "menu_time_heals",
+			desc_id = "menu_time_heals_desc",
+			icon_xy = {6, 13}
+		}
+		
 		self.skills.akimbo[1].upgrades = {
 			"jowi",
 			"x_packrat",
@@ -1061,7 +1128,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			"x_g22c",
 			"x_g17",
 			"x_usp",
-			"x_packrat",
 			"x_p226",
 			"x_ppk",
 			"x_rage",
@@ -1165,10 +1231,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_bonus_exp_desc",
 				{
 					upgrades = {
-						"passive_player_xp_multiplier"
-					},
+							"team_xp_multiplier",
+							"player_loot_drop_multiplier_2"
+						},
 					cost = very_low,
-					icon_xy = {0, 0},
+					icon_xy = {0, 14},
 					name_id = "menu_bonus_exp",
 					desc_id = "menu_bonus_exp_detailed_desc"
 				}
@@ -1178,25 +1245,24 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_bonus_small_money_desc",
 				{
 					upgrades = {
-						"player_small_loot_multiplier_1"
+						"player_small_loot_multiplier_1",
+						"player_reduce_loose_money_exp_convertation_amount_mul"
 					},
 					cost = very_low,
-					icon_xy = {1, 0},
+					icon_xy = {1, 14},
 					name_id = "menu_bonus_small_money",
 					desc_id = "menu_bonus_small_money_detailed_desc"
 				}
 			},
 			{
-				name_id = "menu_bonus_loot",
-				desc_id = "menu_bonus_loot_desc",
+				name_id = "menu_good_luck_charm",
+				desc_id = "menu_good_luck_charm_desc",
 				{
-					upgrades = {
-						"player_loot_drop_multiplier_2"
-					},
-					cost = very_low,
-					icon_xy = {2, 0},
-					name_id = "menu_bonus_loot",
-					desc_id = "menu_bonus_loot_detailed_desc"
+					upgrades = {"player_tape_loop_duration_2"},
+					cost = medium,
+					icon_xy = {4, 2},
+					name_id = "menu_good_luck_charm",
+					desc_id = "menu_good_luck_charm_detailed_desc"
 				}
 			},
 			{
@@ -1204,10 +1270,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_triathlete_desc",
 				{
 					upgrades = {
-						"team_stamina_multiplier"
+						"team_stamina_multiplier",
+						"player_movement_speed_multiplier",
+						"player_can_free_run"
 					},
 					cost = low,
-					icon_xy = {3, 0},
+					icon_xy = {2, 14},
 					name_id = "menu_triathlete",
 					desc_id = "menu_triathlete_detailed_desc"
 				}
@@ -1223,35 +1291,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"player_convert_enemies_damage_multiplier"
 					},
 					cost = high,
-					icon_xy = {4, 0},
+					icon_xy = {3, 14},
 					name_id = "menu_joker",
 					desc_id = "menu_joker_detailed_desc"
-				}
-			},
-			{
-				name_id = "menu_mag_plus",
-				desc_id = "menu_mag_plus_desc",
-				{
-					upgrades = {
-						"weapon_clip_ammo_increase_1"
-					},
-					cost = medium,
-					icon_xy = {2, 1},
-					name_id = "menu_mag_plus",
-					desc_id = "menu_mag_plus_detailed_desc"
-				}
-			},
-			{
-				name_id = "menu_blast_radius",
-				desc_id = "menu_blast_radius_desc",
-				{
-					upgrades = {
-						"trip_mine_explosion_size_multiplier_2"
-					},
-					cost = low,
-					icon_xy = {9, 0},
-					name_id = "menu_blast_radius",
-					desc_id = "menu_blast_radius_detailed_desc"
 				}
 			},
 			{
@@ -1259,12 +1301,27 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				desc_id = "menu_ammo_reservoir_desc",
 				{
 					upgrades = {
-						"temporary_no_ammo_cost_1"
+						"temporary_no_ammo_cost_1",
+						"weapon_clip_ammo_increase_1"
 					},
 					cost = medium,
-					icon_xy = {4, 1},
+					icon_xy = {4, 14},
 					name_id = "menu_ammo_reservoir",
 					desc_id = "menu_ammo_reservoir_detailed_desc"
+				}
+			},
+			{
+				name_id = "menu_fire_trap_beta",
+				desc_id = "menu_fire_trap_desc",
+				{
+					upgrades = {
+						"trip_mine_fire_trap_1",
+						"trip_mine_fire_trap_2"
+					},
+					cost = medium,
+					icon_xy = {5, 14},
+					name_id = "menu_fire_trap_beta",
+					desc_id = "menu_fire_trap_detailed_desc"
 				}
 			},
 			{
@@ -1276,7 +1333,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"player_mask_off_pick_lock"
 					},
 					cost = medium,
-					icon_xy = {5, 0},
+					icon_xy = {6, 14},
 					name_id = "menu_keys_under_the_carpet",
 					desc_id = "menu_keys_under_the_carpet_detailed_desc"
 				}
@@ -1291,25 +1348,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"player_mask_off_keycard_insert"
 					},
 					cost = very_high,
-					icon_xy = {6, 0},
+					icon_xy = {7, 14},
 					name_id = "menu_infiltrator",
 					desc_id = "menu_infiltrator_detailed_desc"
 				}
-			},		
-			{
-				name_id = "menu_fire_trap_beta",
-				desc_id = "menu_fire_trap_desc",
-				{
-					upgrades = {
-						"trip_mine_fire_trap_1",
-						"trip_mine_fire_trap_2"
-					},
-					cost = medium,
-					icon_xy = {0, 1},
-					name_id = "menu_fire_trap_beta",
-					desc_id = "menu_fire_trap_detailed_desc"
-				}
-			},
+			},			
 			{
 				name_id = "menu_kick_starter_beta",
 				desc_id = "menu_kick_starter_desc",
@@ -1318,7 +1361,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"player_drill_melee_hit_restart_chance_1"
 					},
 					cost = high,
-					icon_xy = {8, 0},
+					icon_xy = {0, 15},
 					name_id = "menu_kick_starter_beta",
 					desc_id = "menu_kick_starter_detailed_desc"
 				}
@@ -1331,226 +1374,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 						"team_damage_hostage_absorption"
 					},
 					cost = low,
-					icon_xy = {1, 1},
+					icon_xy = {1, 15},
 					name_id = "menu_hostage_situation",
 					desc_id = "menu_hostage_situation_detailed_desc"
-				}
-			},
-			
-			-- Tools
-
-			{
-				name_id = "bm_ability_chico_injector",
-				desc_id = "menu_unlock_tool_desc",
-				dlc = "chico",
-				{
-					upgrades = {"chico_injector", "temporary_chico_injector_1"},
-					cost = high,
-					icon_xy = {6, 1},
-					name_id = "bm_ability_chico_injector",
-					desc_id = "bm_ability_chico_injector_desc"
-				}
-			},	
-			
-			--Weapons
-
-			{
-				name_id = "bm_concussion",
-				desc_id = "menu_unlock_tool_desc",
-				{
-					upgrades = {"concussion"},
-					cost = very_high,
-					icon_xy = {7, 1},
-					name_id = "bm_concussion",
-					desc_id = "bm_concussion_desc"
-				}
-			},
-			{
-				name_id = "bm_grenade_smoke_screen_grenade",
-				desc_id = "menu_unlock_tool_desc",
-				{
-					upgrades = {"smoke_screen_grenade"},
-					cost = very_high,
-					icon_xy = {8, 1},
-					name_id = "bm_grenade_smoke_screen_grenade",
-					desc_id = "bm_grenade_smoke_screen_grenade_desc"
-				}
-			},
-			{
-				name_id = "bm_grenade_pocket_ecm_jammer",
-				desc_id = "menu_unlock_weapon_desc",
-				{
-					upgrades = {"pocket_ecm_jammer", "player_pocket_ecm_jammer_base"},
-					cost = very_high,
-					icon_xy = {9, 1},
-					name_id = "bm_grenade_pocket_ecm_jammer",
-					desc_id = "bm_grenade_pocket_ecm_jammer_desc"
-				}
-			},
-			{
-				name_id = "bm_w_hunter",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "turtles",
-				{
-					upgrades = {"hunter"},
-					cost = low,
-					icon_xy = {9, 2},
-					name_id = "bm_w_hunter",
-					desc_id = "menu_hunter_desc"
-				}
-			},
-			
-			{
-				name_id = "bm_w_elastic",
-				desc_id = "menu_unlock_weapon_desc",
-				{
-					upgrades = {"elastic"},
-					cost = medium,
-					icon_xy = {8, 2},
-					name_id = "bm_w_elastic",
-					desc_id = "menu_elastic_desc"
-				}
-			},
-			{
-				name_id = "bm_w_plainsrider",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "west",
-				{
-					upgrades = {"plainsrider"},
-					cost = medium,
-					icon_xy = {0, 3},
-					name_id = "bm_w_plainsrider",
-					desc_id = "menu_plainsrider_desc"
-				}
-			},
-			{
-				name_id = "bm_w_long",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "steel",
-				{
-					upgrades = {"long"},
-					cost = medium,
-					icon_xy = {1, 3},
-					name_id = "bm_w_long",
-					desc_id = "menu_long_desc"
-				}
-			},
-			{
-				name_id = "bm_w_frankish",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "steel",
-				{
-					upgrades = {"frankish"},
-					cost = medium,
-					icon_xy = {2, 3},
-					name_id = "bm_w_frankish",
-					desc_id = "menu_frankish_desc"
-				}
-			},
-			{
-				name_id = "bm_w_arblast",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "steel",
-				{
-					upgrades = {"arblast"},
-					cost = medium,
-					icon_xy = {3, 3},
-					name_id = "bm_w_arblast",
-					desc_id = "menu_arblast_desc"
-				}
-			},
-			{
-				name_id = "bm_w_ecp",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "ecp",
-				{
-					upgrades = {"ecp"},
-					cost = medium,
-					icon_xy = {7, 2},
-					name_id = "bm_w_ecp",
-					desc_id = "menu_ecp_desc"
-				}
-			},
-			{
-				name_id = "bm_w_m95",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "gage_pack_snp",
-				{
-					upgrades = {"m95"},
-					cost = top,
-					icon_xy = {0, 2},
-					name_id = "bm_w_m95",
-					desc_id = "menu_m95_desc"
-				}
-			},
-			{
-				name_id = "bm_w_m134",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "overkill_pack",
-				{
-					upgrades = {"m134"},
-					cost = top,
-					icon_xy = {1, 2},
-					name_id = "bm_w_m134",
-					desc_id = "menu_m134_desc"
-				}
-			},
-			{
-				name_id = "bm_w_shuno",
-				desc_id = "menu_unlock_weapon_desc",
-				{
-					upgrades = {"shuno"},
-					cost = top,
-					icon_xy = {2, 2},
-					name_id = "bm_w_shuno",
-					desc_id = "menu_shuno_desc"
-				}
-			},
-			{
-				name_id = "bm_w_rpg7",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "overkill_pack",
-				{
-					upgrades = {"rpg7"},
-					cost = top,
-					icon_xy = {3, 2},
-					name_id = "bm_w_rpg7",
-					desc_id = "menu_rpg7_desc"
-				}
-			},
-			{
-				name_id = "bm_w_ray",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "friend",
-				{
-					upgrades = {"ray"},
-					cost = top,
-					icon_xy = {4, 2},
-					name_id = "bm_w_ray",
-					desc_id = "menu_ray_desc"
-				}
-			},
-			{
-				name_id = "bm_w_flamethrower_mk2",
-				desc_id = "menu_unlock_weapon_desc",
-				dlc = "bbq",
-				{
-					upgrades = {"flamethrower_mk2"},
-					cost = top,
-					icon_xy = {5, 2},
-					name_id = "bm_w_flamethrower_mk2",
-					desc_id = "menu_flamethrower_mk2_desc"
-				}
-			},
-			{
-				name_id = "bm_w_system",
-				desc_id = "menu_unlock_weapon_desc",
-				{
-					upgrades = {"system"},
-					cost = top,
-					icon_xy = {6, 2},
-					name_id = "bm_w_system",
-					desc_id = "menu_system_desc"
 				}
 			}
 		}
@@ -1558,88 +1384,355 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 end
 if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 	Hooks:AddHook("LocalizationManagerPostInit", "OPSkillDesc", function()
-		local hostage_taker_1_basic = (tweak_data.upgrades.values.player.civ_intimidation_mul[1] - 1) * 100
-		local hostage_taker_1_ace = (1 - tweak_data.upgrades.values.player.hostage_interaction_speed_multiplier[1]) * 100
-		local smooth_talker_1_ace = (1 - tweak_data.upgrades.values.player.alarm_pager_speed_multiplier[1]) * 100
-		local inside_man_1_basic = (1 - tweak_data.upgrades.values.player.assets_cost_multiplier[1]) * 100
-		local black_marketeer_1_basic = (1 - tweak_data.upgrades.values.player.buy_cost_multiplier[1]) * 100
-		local black_marketeer_1_ace = ((1 - tweak_data.upgrades.values.player.buy_cost_multiplier[2]) - (1 - tweak_data.upgrades.values.player.buy_cost_multiplier[1])) * 100
-		local black_marketeer_2_ace = (tweak_data.upgrades.values.player.sell_cost_multiplier[1] - 1) * 100
-		local dominator_1_ace = tweak_data.upgrades.values.player.intimidate_aura[1] / 20
-		local kilmer_1_basic = (tweak_data.upgrades.values.assault_rifle.reload_speed_multiplier[1] - 1) * 100
-		local kilmer_1_ace = tweak_data.upgrades.values.assault_rifle.move_spread_multiplier[1] * 100
-		local stockholm_syndrome_1_ace = tweak_data.upgrades.values.player.super_syndrome[1]
-		local messiah_1_basic = tweak_data.upgrades.values.player.messiah_revive_from_bleed_out[1]
-		local messiah_1_ace = tweak_data.upgrades.values.player.messiah_revive_from_bleed_out[2] - tweak_data.upgrades.values.player.messiah_revive_from_bleed_out[1]
+		local self = tweak_data.upgrades
+		
+		local function form(var, value, mul)
+			mul = mul or 100
+			if var == "a" then
+				return (value[1] - 1) * mul
+			elseif var == "a2" then
+				return ((value[2] - 1) - (value[1] - 1)) * mul
+			elseif var == "b" then
+				return (1 - value[1]) * mul
+			elseif var == "b2" then
+				return ((1 - value[2]) - (1 - value[1])) * mul
+			elseif var == "c" then
+				return value[1] * mul
+			elseif var == "c2" then
+				return (value[2] - value[1]) * mul
+			elseif var == "c3" then
+				return (value[3] - value[2]) * mul
+			elseif var == "d" then
+				return math.floor(100 - (100 / mul * value[1]))
+			elseif var == "e" then
+				return 100 / 8 * value[1]
+			elseif var == "f" then
+				return value * mul
+			elseif var == "g" then
+				return (1 - value) * mul
+			else
+				return 0
+			end
+		end
  
-		local pack_mule_1_basic = (tweak_data.upgrades.values.carry.throw_distance_multiplier[1] - 1) * 100
-		local pack_mule_1_ace = (tweak_data.upgrades.values.carry.movement_speed_multiplier[1] - 1) * 100
-		local scavenger_1_basic = (tweak_data.upgrades.values.player.increased_pickup_area[1] - 1) * 100
-		local scavenger_1_ace = tweak_data.upgrades.loose_ammo_give_team_ratio * 100
-		local scavenger_2_ace = tweak_data.upgrades.values.temporary.loose_ammo_give_team[1][2]
-		local shotgun_cqb_1_basic = (tweak_data.upgrades.values.shotgun.reload_speed_multiplier[1] - 1) * 100
-		local shotgun_cqb_1_ace = (1 - tweak_data.upgrades.values.shotgun.hip_fire_spread_index_addend[1]) * 100
-		local shotgun_cqb_2_ace = (tweak_data.upgrades.values.shotgun.hip_rate_of_fire[1] - 1) * 100
-		local from_the_hip_1_basic = (tweak_data.upgrades.values.shotgun.enter_steelsight_speed_multiplier[1] - 1) * 100
-		local from_the_hip_1_ace = tweak_data.upgrades.values.player.shotgun_shield_knock[1] * 100
-		local from_the_hip_2_ace = tweak_data.upgrades.values.player.shotgun_steelsight_shield_knock[1] * 100
-		local overkill_1_basic = (tweak_data.upgrades.values.temporary.overkill_damage_multiplier[1][1] - 1) * 100
-		local overkill_2_basic = tweak_data.upgrades.values.temporary.overkill_damage_multiplier[1][2]
-		local overkill_1_ace = tweak_data.upgrades.values.temporary.overkill_damage_multiplier[2][2] - tweak_data.upgrades.values.temporary.overkill_damage_multiplier[1][2]
-		local overkill_2_ace = math.floor(100 - (100 / 14 * tweak_data.upgrades.values.saw.enemy_slicer[1]))
-		local carbon_blade_1_basic = (tweak_data.upgrades.values.saw.lock_damage_multiplier[1] - 1) * 100
-		local carbon_blade_1_ace = tweak_data.upgrades.values.saw.consume_no_ammo_chance[1] * 100
-		local carbon_blade_2_ace = ((tweak_data.upgrades.values.saw.lock_damage_multiplier[2] - 1) - (tweak_data.upgrades.values.saw.lock_damage_multiplier[1] - 1)) * 100
-		local carbon_blade_3_ace = (tweak_data.upgrades.values.saw.reload_speed_multiplier[1] - 1) * 100
+ 		local mastermind_tier5_1 = form("b2", self.values.doctor_bag.interaction_speed_multiplier)
+		local mastermind_tier5_2 = form("b", self.values.doctor_bag.deploy_time_multiplier)
+		local mastermind_tier6_1 = form("a", self.values.player.empowered_intimidation_mul)
+		local mastermind_tier6_2 = form("c", self.values.player.passive_assets_cost_multiplier)
+		local enforcer_tier3_1 = form("a2", self.values.player.passive_suppression_multiplier)
+		local enforcer_tier3_2 = form("b", self.values.ammo_bag.interaction_speed_multiplier)
+		local enforcer_tier5_1 = form("a", self.values.weapon.passive_damage_multiplier)
+		local enforcer_tier5_2 = form("b2", self.values.ammo_bag.interaction_speed_multiplier)
+		local technician_tier4_1 = form("a", self.values.weapon.passive_headshot_damage_multiplier)
+		local hoxton_tier1_1 = form("b", self.values.player.gangster_damage_dampener)
+		local hoxton_tier2_1 = form("c", self.values.player.damage_shake_addend, 10)
+		local hoxton_tier3_1 = form("b2", self.values.player.gangster_damage_dampener)
+		local hoxton_tier4_1 = form("a", self.values.weapon.special_damage_taken_multiplier)
+		local hoxton_tier5_1 = form("a", self.values.player.fugitive_tier_health_multiplier)
+		local hoxton_tier6_1 = form("b", self.values.player.camouflage_bonus)
 		
-		local discipline_1_ace = tweak_data.upgrades.values.player.interacting_damage_multiplier[1] * 100
-		local marksman_1_basic = 100 / 8 * tweak_data.upgrades.values.weapon.single_spread_index_addend[1]
-		local marksman_2_basic = (1 - tweak_data.upgrades.values.player.recoil_not_moving_mul[1]) * 100
-		local marksman_3_basic = (1 - tweak_data.upgrades.values.player.recoil_not_moving_aim_mul[1]) * 100
-		local marksman_1_ace = tweak_data.upgrades.values.player.single_shot_fire_rate_mul[1] * 100
-		local marksman_2_ace = (1 - tweak_data.upgrades.values.player.single_shot_accuracy_inc[1]) * 100	
-		local sentry_gun_1_ace = (tweak_data.upgrades.values.sentry_gun.armor_multiplier[1] - 1) * 100
-		local sentry_gun_2x_1_basic = tweak_data.upgrades.values.sentry_gun.quantity[1] + 1
-		local sentry_gun_2x_1_ace = (tweak_data.upgrades.values.sentry_gun.damage_multiplier[1] - 1) * 100
-		local body_expertise_1_basic = (tweak_data.upgrades.values.snp.reload_speed_multiplier[1] - 1) * 100
-		local body_expertise_2_basic = (tweak_data.upgrades.values.temporary.single_shot_fast_reload[1][1] - 1) * 100
-		local body_expertise_3_basic = tweak_data.upgrades.values.temporary.single_shot_fast_reload[1][2]
-		local body_expertise_1_ace = tweak_data.upgrades.values.smg.single_head_shot_add[1] * 100
-		local body_expertise_2_ace = tweak_data.upgrades.values.assault_rifle.single_head_shot_add[1] * 100
-		local body_expertise_3_ace = tweak_data.upgrades.values.snp.single_head_shot_add[1] * 100
-		local body_expertise_4_ace = tweak_data.upgrades.values.weapon.single_steelsight_head_shot_add[1] * 100
-		local body_expertise_5_ace = tweak_data.upgrades.values.weapon.single_not_moving_head_shot_add[1] * 100
-		local iron_man_1_basic = (tweak_data.upgrades.values.player.armor_multiplier[1] - 1) * 100
-		local iron_man_1_ace = (1 - tweak_data.upgrades.values.team.armor.regen_time_multiplier[1]) * 100
-		local iron_man_2_ace = tweak_data.upgrades.values.player.passive_always_regen_armor[1]
+		local hostage_taker_1_a = form("a", self.values.player.civ_intimidation_mul)
+		local hostage_taker_1_b = form("b", self.values.player.hostage_interaction_speed_multiplier)
+		local smooth_talker_1_b = form("b", self.values.player.alarm_pager_speed_multiplier)
+		local inside_man_1_a = form("b", self.values.player.assets_cost_multiplier)
+		local black_marketeer_1_a = form("b", self.values.player.buy_cost_multiplier)
+		local black_marketeer_1_b = form("b2", self.values.player.buy_cost_multiplier)
+		local black_marketeer_2_b = form("a", self.values.player.sell_cost_multiplier)
+		local dominator_1_b = form("c", self.values.player.intimidate_aura, 0.05)
+		local kilmer_1_a = form("a", self.values.assault_rifle.reload_speed_multiplier)
+		local kilmer_1_b = form("c", self.values.assault_rifle.move_spread_multiplier)
+		local stockholm_syndrome_1_b = form("c", self.values.player.super_syndrome, 1)
+		local messiah_1_a = form("c", self.values.player.messiah_revive_from_bleed_out, 1)
+		local messiah_1_b = form("c", self.values.player.messiah_revive_from_bleed_out, 1)
+ 
+		local pack_mule_1_a = form("a", self.values.carry.throw_distance_multiplier)
+		local pack_mule_1_b = form("a", self.values.carry.movement_speed_multiplier)
+		local scavenger_1_a = form("a", self.values.player.increased_pickup_area)
+		local scavenger_1_b = self.loose_ammo_give_team_ratio * 100
+		local scavenger_2_b = self.values.temporary.loose_ammo_give_team[1][2]
+		local shades_1_a = form("b", self.values.player.flashbang_multiplier)
+		local shades_1_b = 3
+		local shades_2_b = form("b2", self.values.player.flashbang_multiplier)
+		local shotgun_cqb_1_a = form("a", self.values.shotgun.reload_speed_multiplier)
+		local shotgun_cqb_1_b = form("b", self.values.shotgun.hip_fire_spread_index_addend)
+		local shotgun_cqb_2_b = form("a", self.values.shotgun.hip_rate_of_fire)
+		local from_the_hip_1_a = form("a", self.values.shotgun.enter_steelsight_speed_multiplier)
+		local from_the_hip_1_b = form("c", self.values.player.shotgun_shield_knock)
+		local from_the_hip_2_b = form("c", self.values.player.shotgun_steelsight_shield_knock)
+		local overkill_1_a = form("a", self.values.temporary.overkill_damage_multiplier[1])
+		local overkill_2_a = self.values.temporary.overkill_damage_multiplier[1][2]
+		local overkill_1_b = self.values.temporary.overkill_damage_multiplier[2][2] - self.values.temporary.overkill_damage_multiplier[1][2]
+		local overkill_2_b = form("d", self.values.saw.enemy_slicer, 14)
+		local carbon_blade_1_a = form("a", self.values.saw.lock_damage_multiplier)
+		local carbon_blade_1_b = form("c", self.values.saw.consume_no_ammo_chance)
+		local carbon_blade_2_b = form("a2", self.values.saw.lock_damage_multiplier)
+		local carbon_blade_3_b = form("a", self.values.saw.reload_speed_multiplier)
 		
+		local discipline_1_b = form("c", self.values.player.interacting_damage_multiplier)
+		local master_craftsman_1_a = form("a", self.values.trip_mine.explosion_size_multiplier_1)
+		local master_craftsman_1_b = form("a", self.values.trip_mine.explosion_size_multiplier_2)
+		local master_craftsman_2_b = form("f", self.values.player.marked_enemy_damage_mul - 1)
+		local marksman_1_a = form("e", self.values.weapon.single_spread_index_addend)
+		local marksman_2_a = form("b", self.values.player.recoil_not_moving_mul)
+		local marksman_3_a = form("b", self.values.player.recoil_not_moving_aim_mul)
+		local marksman_1_b = form("c",  self.values.player.single_shot_fire_rate_mul)
+		local marksman_2_b = form("b", self.values.player.single_shot_accuracy_inc)
+		local sentry_gun_1_b = form("a", self.values.sentry_gun.armor_multiplier)
+		local sentry_gun_2x_1_a = form("c", self.values.sentry_gun.quantity, 2)
+		local sentry_gun_2x_1_b = form("a", self.values.sentry_gun.damage_multiplier)
+		local body_expertise_1_a = form("a", self.values.snp.reload_speed_multiplier)
+		local body_expertise_2_a = form("a", self.values.temporary.single_shot_fast_reload[1])
+		local body_expertise_3_a = self.values.temporary.single_shot_fast_reload[1][2]
+		local body_expertise_1_b = form("c", self.values.weapon.smg_single_head_shot_add)
+		local body_expertise_2_b = form("c", self.values.weapon.assault_rifle_single_head_shot_add)
+		local body_expertise_3_b = form("c", self.values.weapon.snp_single_head_shot_add)
+		local iron_man_1_a = form("a", self.values.player.armor_multiplier)
+		local iron_man_1_b = form("b", self.values.team.armor.regen_time_multiplier)
+		local iron_man_2_b = form("c", self.values.player.passive_always_regen_armor, 1)
+		
+		local cat_burglar_1_a = form("b", self.values.player.fall_damage_multiplier)
+		local chameleon_1_a = form("b", self.values.player.suspicion_multiplier)
+		local chameleon_1_b = form("c", self.values.player.guards_cant_spot_you_in_casing, 1)
+		local cleaner_1_a = form("c", self.values.player.corpse_dispose_amount, 1)
+		local cleaner_2_a = self.bodybag_crate_base
+		local cleaner_1_b = form("c2", self.values.player.corpse_dispose_amount, 1)
+		local cleaner_2_b = form("b", self.values.player.corpse_dispose_speed_multiplier)
+		local spotter_1_a = form("a", self.values.player.mark_enemy_time_multiplier)
+		local silence_expert_1_a = form("b", self.values.weapon.silencer_recoil_multiplier)
+		local silence_expert_2_a = form("a", self.values.weapon.silencer_enter_steelsight_speed_multiplier)
+		local silence_expert_1_b = form("c", self.values.player.secondary_silencer_damage_addend, 10)
+		local silence_expert_2_b = form("b", self.values.player.reduce_silencer_alert_size)
+		local ecm_feedback_1_a = "50%-100%"
+		local ecm_feedback_2_a = 25
+		local ecm_feedback_3_a = 1.5
+		local ecm_feedback_4_a = "15-20"
+		local ecm_feedback_1_b = 3
+		local ecm_feedback_2_b = 8
+		local ecm_feedback_3_b = 25
+		local ecm_feedback_4_b = 100
+		local ecm_feedback_5_b = 4
+		local hitman_1_a = form("a", self.values.weapon.silencer_damage_multiplier)
+		local hitman_2_a = form("c", self.values.weapon.armor_piercing_chance_silencer)
+		local hitman_1_b = form("a2", self.values.weapon.silencer_damage_multiplier)
+		local hitman_2_b = form("c2", self.values.weapon.armor_piercing_chance_silencer)
+
+		local mastercraftsman_1_a = form("b", self.values.player.crafting_weapon_multiplier)
+		local mastercraftsman_1_b = form("a", self.values.player.passive_xp_multiplier)
+		local awareness_1_b = form("b", self.values.temporary.dmg_dampener_outnumbered_strong[1])
+		local thick_skin_1_a = form("a", self.values.player.tier_armor_multiplier)
+		local thick_skin_1_b = form("c", self.values.player.level_2_armor_addend, 10)
+		local jail_workout_1_a = (self.values.player.marked_enemy_damage_mul - 1) * 100
+		local up_you_go_1_a = form("c", self.values.player.revived_health_regain_solid_amount)
+		local up_you_go_2_a = form("c", self.values.player.revived_health_regain_solid_wolverine)
+		local up_you_go_1_b = form("c2", self.values.player.revived_health_regain_solid_amount)
+		local up_you_go_2_b = form("b", self.values.temporary.revived_damage_resist[1])
+		local up_you_go_3_b = self.values.temporary.revived_damage_resist[1][2]
+		local second_wind_1_a = form("a", self.values.temporary.damage_speed_multiplier[1])
+		local second_wind_2_a = self.values.temporary.damage_speed_multiplier[1][2]
+		local second_wind_1_b = form("c", self.values.player.level_2_dodge_addend)
+		local tea_cookies_1_a = form("c", self.values.first_aid_kit.quantity, 1)
+		local tea_cookies_1_b = 3
+		local tea_cookies_2_b = form("c", self.values.temporary.chico_injector[1])
+		local tea_cookies_3_b = self.values.temporary.chico_injector[1][2]
+		local tea_cookies_4_b = form("c2", self.values.first_aid_kit.quantity, 1)
+		local walking_bleedout_1_a = form("c", self.values.player.walking_bleedout_chance)
+		local walking_bleedout_2_a = form("c", self.values.player.walking_bleedout_temporary_health_mul)
+		local walking_bleedout_3_a = form("g", self.walking_bleedout_walk_speed_penalty)
+		local walking_bleedout_4_a = form("f", self.walking_bleedout_reload_speed_penalty - 1)
+		local walking_bleedout_5_a = tweak_data.player.damage.DOWNED_TIME - self.values.player.walking_bleedout_time_to_bleed[1]
+		local walking_bleedout_6_a = self.walking_bleedout_time_to_fatal_state
+		local walking_bleedout_1_b = form("c2", self.values.player.walking_bleedout_chance)
+		local more_blood_to_bleed_1_a = form("c2", self.values.player.walking_bleedout_temporary_health_mul)
+		local more_blood_to_bleed_1_b = form("c3", self.values.player.walking_bleedout_temporary_health_mul)
+		local more_blood_to_bleed_2_b = tweak_data.player.damage.DOWNED_TIME - self.values.player.walking_bleedout_time_to_bleed[2]
+		local time_heals_1_a = self.values.player.walking_bleedout_ticks_to_ressurection[1]
+		local time_heals_1_b = self.values.player.walking_bleedout_ticks_to_ressurection[2]
+		local time_heals_2_b = form("c", self.values.player.walking_bleedout_fak_self_revive)
+		local akimbo_1_a = 50
+		local akimbo_1_b = 25
+		local akimbo_2_b = 50
+		
+		local mr_wise_guy_1 = form("a", self.values.team.xp.multiplier)
+		local mr_wise_guy_2 = form("f", self.values.player.loot_drop_multiplier[2] - 1)
+		local dead_presidents_1 = form("a", self.values.player.small_loot_multiplier)
+		local dead_presidents_2 = form("b", self.values.player.reduce_loose_money_exp_convertation_amount_mul)
+		local good_luck_charm_1 = form("f", self.values.player.tape_loop_duration[2], 1)
+		local triathlete_1 = form("a", self.values.team.stamina.multiplier)
+		local triathlete_2 = form("a", self.values.player.movement_speed_multiplier)
+		local joker_1 = form("a", self.values.player.convert_enemies_damage_multiplier)
+		local joker_2 = 70 .."-".. 95
+		local ammo_reservoir_1 = self.values.weapon.clip_ammo_increase[1]
+		local ammo_reservoir_2 = 10
+		local keys_under_the_carpet_1 = form("b", self.values.player.pick_lock_speed_multiplier)
+		local kick_starter_1 = 50
+		local fire_trap_1 = 20
+		local fire_trap_2 = 6
+		local hostage_situation_1 = 0.5 .."-".. 2
+		local hostage_situation_2 = 8
+
+		LocalizationManager:add_localized_strings({
+			menu_tea_cookies_desc =			"BASIC: ##$basic##\nAdds ##"..tea_cookies_1_a.."## more first aid kits to your inventory.\n\nACE: ##$pro##\nUnlocks ##"..tea_cookies_1_b.."## Injectors. Activating the Injector will heal you with ##"..tea_cookies_2_b.."%## of all damage taken for ##"..tea_cookies_3_b.."## seconds.\n\nAdds ##"..tea_cookies_4_b.."## more first aid kits to your inventory.",
+			menu_gunzerker_desc =			"BASIC: ##$basic##\nYou can dual wield two shotguns.\n\nACE: ##$pro##\nYou can dual wield two SMG.",
+			menu_time_heals_desc =			"BASIC: ##$basic##\nIf you keep yourself alive within ##"..time_heals_1_a.."## seconds, you can revive yourself.\n\nYour movement, interaction, reload speed and bleed-out time will be gradually recovered.\n\nACE: ##$pro##\nTime to keep yourself alive is reduced to ##"..time_heals_1_b.."## seconds.\nYou can revive yourself by using First Aid Kit with ##"..time_heals_2_b.."%## chance.",		
+			menu_more_blood_to_bleed_desc =	"BASIC: ##$basic##\nYou recieve ##"..more_blood_to_bleed_1_a.."%## more temporary health.\n\nACE: ##$pro##\nYou recieve ##"..more_blood_to_bleed_1_b.."%## even more temporary health. Maximum bleed-out time penalty is now ##"..more_blood_to_bleed_2_b.."## seconds.",		
+			menu_walking_bleedout_desc =	"BASIC: ##$basic##\nWhen you lose all your health instead of being downed you have a ##"..walking_bleedout_1_a.."%## chance to survive and gain ##"..walking_bleedout_2_a.."%## temporary health, but your movement and interaction speed will be reduced by ##"..walking_bleedout_3_a.."%##, and reload speed will be reduced by ##"..walking_bleedout_4_a.."%##.\n\nYour bleed-out time will be reduced every second down to ##"..walking_bleedout_5_a.."## seconds as long as you staying alive in that state.\n\nIf you going down after ##"..walking_bleedout_6_a.."## seconds, you fall immidiatly into the fatal state without a chance to fight back while laying down.\n\nACE: ##$pro##\nYou have additional ##"..walking_bleedout_1_b.."%## chance to survive. You can revive yourself before getting down by using a medic bag.",
+			menu_up_you_go_beta_desc =		"BASIC: ##$basic##\nYou always receive ##"..up_you_go_1_a.."%## health of your total amount when you get revived.\n\nSynergy: If you have ##Berserker## skill owned, you will receive ##"..up_you_go_2_a.."%## health when you get revived.\n\nACE: ##$pro##\nYou receive ##"..up_you_go_1_b.."%## additional health when you get revived.\nYou take ##"..up_you_go_2_b.."%## less damage for ##"..up_you_go_3_b.."## seconds after being revived.",
+			menu_akimbo_skill_desc =		"BASIC: ##$basic##\nYou can dual wield two pistols.\n\nDual wielded weapons have ##"..akimbo_1_a.."%## stability penalty.\n\nACE: ##$pro##\nYour stability penalty with Akimbo weapons is set to ##"..akimbo_1_b.."%## and increases the ammo capacity of your Akimbo weapons to ##"..akimbo_2_b.."%##.",
+			menu_second_wind_desc =			"BASIC: ##$basic##\nWhen your armor breaks your movement speed is increased by ##"..second_wind_1_a.."%## for ##"..second_wind_2_a.."## seconds.\n\nACE: ##$pro##\nYour chance to dodge is increased by ##"..second_wind_1_b.."%## for ballistic vests.",
+			menu_jail_workout_desc =		"BASIC: ##$basic##\nSpecial enemies marked by you take ##"..jail_workout_1_a.."%## additional damage.\n\nACE: ##$pro##\nWhen you stand still for ##3.5## seconds in stealth, you start highlighting people around you within a ##10## meter radius.",
+			menu_thick_skin_desc =			"BASIC: ##$basic##\nYou gain an additional ##"..thick_skin_1_a.."%## more armor.\n\nACE: ##$pro##\nIncreases the armor of all ballistic vests by ##"..thick_skin_1_b.."##.",
+			menu_awareness_desc =			"BASIC: ##$basic##\nYour movement speed is unhindered while using steel sight.\n\nACE: ##$pro##\nWhen you are surrounded by three enemies or more, you receive ##"..awareness_1_b.."%## less damage from enemies.",		
+			menu_mastercraftsman_desc =		"BASIC: ##$basic##\nYour cost of weapon and mask crafting is reduced by ##"..mastercraftsman_1_a.."%##.\n\nACE: ##$pro##\nYou gain ##"..mastercraftsman_1_b.."%## more experience for completing days and jobs.",
+
+			menu_ecm_feedback_desc =		"BASIC: ##$basic##\nYou can interact with ECM jammers to cause a feedback loop. When interacted, the ECM jammer has a ##"..ecm_feedback_1_a.."## chance to incapacitate enemies within ##"..ecm_feedback_2_a.."## meters radius every ##"..ecm_feedback_3_a.."## seconds.\n\nECM feedback lasts ##"..ecm_feedback_4_a.."## seconds.\n\nACE: ##$pro##\nUnlocks ##"..ecm_feedback_1_b.."## Pocket ECM Device with ##"..ecm_feedback_2_b.."## second duration each.\n\nYou will instantly interact with a ECM jammer and the ECM feedback duration is increased by ##"..ecm_feedback_3_b.."%##.\n\nYour ECM jammer has a ##"..ecm_feedback_4_b.."%## chance every ##"..ecm_feedback_5_b.."## minutes to recharge its feedback ability.",
+			menu_hitman_desc =				"BASIC: ##$basic##\nYou deal ##"..hitman_1_a.."%## more damage and have a ##"..hitman_2_a.."%## chance to pierce enemy armor with silenced weapons.\n\nACE: ##$pro##\nYou deal ##"..hitman_1_b.."%## more damage and have an additional ##"..hitman_2_b.."%## chance to pierce enemy armor with silenced weapons.",
+			menu_silence_expert_desc =		"BASIC: ##$basic##\nYour weapon accuracy and stability with silenced weapons is increased by ##"..silence_expert_1_a.."%##. Your snap to zoom is ##"..silence_expert_2_a.."%## faster with silenced weapons.\n\nACE: ##$pro##\nAll silenced secondary weapon gain an additional ##"..silence_expert_1_b.."## damage.\nYour weapon silencers has been improved and now make to ##"..silence_expert_2_b.."%## less noise.",
+			menu_spotter_desc =				"BASIC: ##$basic##\nIncreases the duration of marked enemies by ##"..spotter_1_a.."%##.\n\nACE: ##$pro##\nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
+			menu_cleaner_desc =				"BASIC: ##$basic##\n##"..cleaner_1_a.."## body bag is added to your inventory.\n\nYou can now buy a body bag asset which contains ##"..cleaner_2_a.."## body bags that can be shared with your crew.\n\nACE: ##$pro##\n##"..cleaner_1_b.."## additional body bag is added to your inventory.\n\nYou bag corpses ##"..cleaner_2_b.."%## faster.",
+			menu_chameleon_desc =			"BASIC: ##$basic##\nIn casing mode, you can mark guards, cameras and your concealment is increased by ##"..chameleon_1_a.."%##.\n\nACE: ##$pro##\nIf your detection risk is ##"..chameleon_1_b.."## or below, you cannot be spotted by guards in casing mode.",
+			menu_cat_burglar_desc =			"BASIC: ##$basic##\nYou take ##"..cat_burglar_1_a.."%## less damage from falling from non-lethal heights.\n\nACE: ##$pro##\nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
+	
+			menu_iron_man_desc =			"BASIC: ##$basic##\nYour armor is increased by ##"..iron_man_1_a.."%##.\n\nACE: ##$pro##\nThe armor recovery rate of you and your crew is increased by ##"..iron_man_1_b.."%##.\n\nYour armor will recover ##"..iron_man_2_b.."## seconds after being broken no matter what the situation.",
+			menu_aggressive_shots_desc =	"BASIC: ##$basic##\nIncreases your reload speed with sniper rifles by ##"..body_expertise_1_a.."%##.\nAny killing headshot will increase your reload speed by additional ##"..body_expertise_2_a.."%## for ##"..body_expertise_3_a.."## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nACE: ##$pro##\nBonus headshot damage is permanently applied to hitting enemies on the body in steelsight with single fire mode, ##"..body_expertise_1_b.."%## for SMGs, ##"..body_expertise_2_b.."%## for Assault Rifles and ##"..body_expertise_3_b.."%## for Sniper Rifles.",
+			menu_sentry_gun_2x_desc =		"BASIC: ##$basic##\nYou can place ##"..sentry_gun_2x_1_a.."## sentry guns instead of just one.\n\nACE: ##$pro##\nYour sentry gun damage is increased by ##"..sentry_gun_2x_1_b.."%##.\n\nUnlocks a special modified less noticeable turret with armor-piercing rounds, reduced rate of fire, and significantly increased damage.",
+			menu_sentry_gun_desc =			"BASIC: ##$basic##\nUnlocks the sentry gun for you to use.\n\nACE: ##$pro##\nYour sentry gun gains ##"..sentry_gun_1_b.."%## more health and rotational speed.",
+			menu_master_craftsman_desc =	"BASIC: ##$basic##\nThe radius of trip mine explosions are increased by ##"..master_craftsman_1_a.."%##.\n\nACE: ##$pro##\nThe radius of trip mine explosions are increased by additional ##"..master_craftsman_1_b.."%##.\n\nSpecial enemies marked by your trip mines take ##"..master_craftsman_2_b.."%## more damage.",
+			menu_sharpshooter_beta_desc =	"BASIC: ##$basic##\nYou gain ##"..marksman_1_a.."%## weapon accuracy with all SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nYou gain ##"..marksman_2_a.."%## stability boost when not moving and ##"..marksman_3_a.."%## when aiming for all weapons with single shot fire.\n\nACE: ##$pro##\nIncreased fire rate up to ##"..marksman_1_b.."%## and you gain a ##"..marksman_2_b.."%## accuracy bonus while aiming down sights with all SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.",
+			menu_discipline_desc =			"BASIC: ##$basic##\nYou can use steel sight while in bleedout.\n\nACE: ##$pro##\nYou take ##"..discipline_1_b.."%## less damage while interacting with things.",
+	
+			menu_carbon_blade_desc =		"BASIC: ##$basic##\nYou replace your saw blades with carbon blades, increasing your saw efficiency by ##"..carbon_blade_1_a.."%##.\n\nACE: ##$pro##\nChance to avoid wearing down the saw's blade while using it is now ##"..carbon_blade_1_b.."%##. Saws are ##"..carbon_blade_2_b.."%## more effective.\n\nReload speed of OVE9000 poratable saw increased by ##"..carbon_blade_3_b.."%##.",
+			menu_overkill_desc =			"BASIC: ##$basic##\nWhenever you kill an enemy using a shotgun or the OVE9000 portable saw, you receive a ##"..overkill_1_a.."%## damage bonus that lasts ##"..overkill_2_a.."## seconds.\n\nACE: ##$pro##\nDamage boost duration is increased by additional ##"..overkill_1_b.."## seconds.\nThe damage boost now applies to all weapons. Skill must still be activated using a shotgun or the OVE9000 portable saw.\n\nYou can now saw through shields, also attacking enemies with the OVE9000 portable saw wears down the blades ##"..overkill_2_b.."%## less than before.\n\nNote: Does not apply to melee damage, throwables, grenade launchers, bows, crossbows or rocket launchers.",
+			menu_from_the_hip_desc =		"BASIC: ##$basic##\nIncreases your shotgun steel sight speed by ##"..from_the_hip_1_a.."%##.\n\nACE: ##$pro##\nGives your shotgun shots a ##"..from_the_hip_1_b.."%## chance to knock down Shields when shooting them from the hip, and ##"..from_the_hip_2_b.."%## while aiming.",
+			menu_shotgun_cqb_desc =			"BASIC: ##$basic##\nIncreases your shotgun reload speed by ##"..shotgun_cqb_1_a.."%##.\n\nACE: ##$pro##\nIncreases your shotgun weapon accuracy by ##"..shotgun_cqb_1_b.."%## when firing from the hip.\n\nYour rate of fire is increased by ##"..shotgun_cqb_2_b.."%## while firing from the hip with single shot Shotguns.",
+			menu_scavenger_desc =			"BASIC: ##$basic##\nYour ammo box pick up range is increased by ##"..scavenger_1_a.."%##.\n\nACE: ##$pro##\nWhen you pick up ammo, you trigger an ammo pickup for ##"..scavenger_1_b.."%## of normal pickup to other players in your team. Cannot occur more than once every ##"..scavenger_2_b.."## seconds.",
+			menu_pack_mule_desc =			"BASIC: ##$basic##\nYou can throw bags ##"..pack_mule_1_a.."%## further.\n\nACE: ##$pro##\nYou move ##"..pack_mule_1_b.."%## faster when carrying bags.",
+
+			menu_pistol_beta_messiah_desc =	"BASIC: ##$basic##\nWhile in bleedout, you can revive yourself by killing an enemy. You only have ##"..messiah_1_a.."## charge.\n\nACE: ##$pro##\nYour Messiah charges are replenished whenever you use a doctor bag, one for each medic bag use.\n\nYou now have ##"..messiah_1_b.."## additional charges.",
+			menu_stockholm_syndrome_desc =	"BASIC: ##$basic##\nNearby civilians have a chance of reviving you if you interact with them. Civilians reviving you have a chance of giving you ammo.\n\nACE: ##$pro##\nYour hostages will not flee when they have been rescued by law enforcers. Whenever you get into custody, your hostages will trade themselves for your safe return. This effect can occur during assaults, but only ##"..stockholm_syndrome_1_b.."## time during a heist.",
+			menu_kilmer_desc =				"BASIC: ##$basic##\nIncreases your reload speed with assault rifles by ##"..kilmer_1_a.."%##.\n\nACE: ##$pro##\nYour weapon accuracy while moving with assault rifles is increased by ##"..kilmer_1_b.."%##.\n\nRun and reload - you can now reload your weapons while sprinting.",
+			menu_dominator_desc =			"BASIC: ##$basic##\nNow you can intimidate an enemy during the stealth and assault. Doing so won't require you to answer their pager.\n\nACE: ##$pro##\nYou can now intimidate ##2## enemies.\n\nThe power and range of your intimidation is increased by ##"..dominator_1_b.."%##.",
+			menu_control_freak_desc =		"BASIC: ##$basic##\nDistressed civilians who trying to escape or call the police are marked by a blue question mark. It gives you more time to intimidate them.\n\nACE: ##$pro##\nNoise created by you intimidates civilians.",
+			menu_black_marketeer_desc =		"BASIC: ##$basic##\nReduces the cost of all your purchases by ##"..black_marketeer_1_a.."%##.\n\nACE: ##$pro##\nFurther reduces the cost of all your purchases by ##"..black_marketeer_1_b.."%## and selling items is now ##"..black_marketeer_2_b.."%## more lucrative.",
+			menu_inside_man_desc =			"BASIC: ##$basic##\nReduces the asset costs in the Job Overview menu by ##"..inside_man_1_a.."%##.\n\nACE: ##$pro##\nUnlocks special Inside Man assets in the Job Overview menu.",
+			menu_smooth_talker_desc =		"BASIC: ##$basic##\nYou can successfully answer ##2## additional pagers.\n\nACE: ##$pro##\nYou answer pagers ##"..smooth_talker_1_b.."%## faster.",
+			menu_hostage_taker_desc =		"BASIC: ##$basic##\nCivilians remain intimidated ##"..hostage_taker_1_a.."%## longer.\n\nACE: ##$pro##\nInteraction with hostages to move them is reduced by ##"..hostage_taker_1_b.."%##.",
+
+			menu_gunzerker =				"Gunzerker",
+			menu_time_heals =				"Rehab",
+			menu_more_blood_to_bleed =		"More Blood to Bleed",
+			menu_walking_bleedout =			"Fatal Injury",
+			menu_second_wind =				"Second Wind",
+			menu_up_you_go_beta =			"Strong Stitches",
+			menu_mastercraftsman =			"Fast Learner",
+			menu_spotter =					"Spotter",
+			menu_aggressive_shots =			"Body Expertise",
+			menu_sentry_gun =				"Sentry Gun",
+			menu_scavenger =				"Scavenger",
+			menu_control_freak =			"Control Freak",
+			menu_black_marketeer =			"Black Marketeer",
+			menu_inside_man =				"Inside Man",
+			menu_smooth_talker =			"Smooth Talker",
+			menu_hostage_taker =			"Hostage Taker",
+			menu_awareness =				"Shoot 'n Scoot",
+			
+			menu_mastermind_tier_5 =		"Increases your doctor bag interaction speed by additional ##"..mastermind_tier5_1.."%##.\nDecreases your doctor bag deploy time by ##"..mastermind_tier5_2.."%##.",
+			menu_mastermind_tier_6 =		"The power of your intimidation is increased by ##"..mastermind_tier6_1.."%##. Reduces the asset costs in the Job Overview by ##"..mastermind_tier6_2.."%##.\n\nYou now a chance of finding cable ties in ammo boxes, ##20%## in loud and a guaranteed pickup during stealth.",
+			menu_menu_enforcer_tier_3 =		"Enemies are ##"..enforcer_tier3_1.."%## more easily threatened by you.\nIncreases your ammo bag interaction speed by ##"..enforcer_tier3_2.."%##.",
+			menu_menu_enforcer_tier_5 =		"You do ##"..enforcer_tier5_1.."%## more damage.\nIncreases your ammo bag interaction speed by ##"..enforcer_tier5_2.."%##.",
+			menu_technician_tier_4 =		"Increases your headshot damage by ##"..technician_tier4_1.."%##.",
+			menu_hoxton_tier_1 =			"The damage thugs deal to you is reduced by ##"..hoxton_tier1_1.."%##",
+			menu_hoxton_tier_2 =			"Your steadiness is increased by ##"..hoxton_tier2_1.."##.",
+			menu_hoxton_tier_3 =			"The damage thugs deal to you is reduced by ##"..hoxton_tier3_1.."%##",
+			menu_hoxton_tier_4 =			"You deal ##"..hoxton_tier4_1.."%## more damage against special enemies.",
+			menu_hoxton_tier_5 =			"You gain ##"..hoxton_tier5_1.."%## more health.",
+			menu_hoxton_tier_6 =			"You are ##"..hoxton_tier6_1.."%## less likely to be targeted by enemies.",
+
+			menu_bonus_exp =		 					"Mr. Wise Guy",
+			menu_bonus_exp_desc =		 				"Increasing experience to you and your crew.",
+			menu_bonus_exp_detailed_desc =				"You gain ##"..mr_wise_guy_1.."%## more experience to you and your crew for completing days and job.\n\nYour chance of getting a higher quality item during a PAYDAY is increased by ##"..mr_wise_guy_2.."%##.",
+			menu_bonus_small_money =	 				"Dead Presidents",
+			menu_bonus_small_money_desc =				"Increasing value of loose items that you grab.",
+			menu_bonus_small_money_detailed_desc =		"Adds ##"..dead_presidents_1.."%## more value to loose items that you pick up.\n\nReduced money needed to convert into an experience bonus by ##"..dead_presidents_2.."%## when you found a loose cash.",
+			menu_good_luck_charm_desc =					"Interacting with a camera will cause the camera to temporarily see a pre-recording.",
+			menu_good_luck_charm_detailed_desc =		"Interacting with a camera at close range will cause the camera to temporarily see a pre-recording for the next ##"..good_luck_charm_1.."## seconds so you can sneak past it.",
+			menu_triathlete_desc =		 				"Increases stamina for you and your crew.",
+			menu_triathlete_detailed_desc =		 		"Increases stamina for you and your crew by ##"..triathlete_1.."%##.\n\nYou gain ##"..triathlete_2.."%## additional movement speed.\n\nYou gain the ability to sprint in any direction.",
+			menu_joker_desc =		 					"You can convert a non-special enemy to fight on your side.",
+			menu_joker_detailed_desc =					"You can convert a non-special enemy to fight on your side. The converted enemy deals ##"..joker_1.."%## more damage and takes ##"..joker_2.."%## less damage depends of difficulty.",
+			menu_ammo_reservoir_desc =		 			"Ammo bags placed by you grant the ability to shoot without depleting ammunition.",
+			menu_ammo_reservoir_detailed_desc =			"Your weapon magazine capacity is increased by ##"..ammo_reservoir_1.."## rounds.\n\nAmmo bags placed by you grant players the ability to shoot without depleting their ammunition for up to ##"..ammo_reservoir_1.."## seconds after interacting with it. The more ammo players replenish, the longer duration of the effect.",
+			menu_keys_under_the_carpet =				"Keys under the Carpet",
+			menu_keys_under_the_carpet_desc =			"Improves lockpicking.",
+			menu_keys_under_the_carpet_detailed_desc =	"You pick locks ##"..keys_under_the_carpet_1.."%## faster.\n\nYou can pick locks while in casing mode.",
+			menu_infiltrator =							"Infiltrator",
+			menu_infiltrator_desc =						"Improves casing mode",
+			menu_infiltrator_detailed_desc =			"You can pick up items, use desktop, keycards to doors and timelocks, also answer the phone while in casing mode.",
+			menu_kick_starter_desc =					"Fix a broken drill with melee hit.",
+			menu_kick_starter_detailed_desc =			"Gives you the ability to fixing a broken drill or saw with a melee attack. The odd for a success is ##"..kick_starter_1.."%##. The ability can only be used once per jam.",
+			menu_fire_trap_desc =						"Modifies your trip mines into incendiary.",
+			menu_fire_trap_detailed_desc =				"Your trip mines now spread fire around the area of detonation for ##"..fire_trap_1.."## seconds in a ##"..fire_trap_2.."## meter diameter.",
+			menu_hostage_situation =					"Hostage Situation",
+			menu_hostage_situation_desc =				"Cover-up by hostages.",
+			menu_hostage_situation_detailed_desc =		"You and your crew gain ##"..hostage_situation_1.."## depends on difficulty damage absorption for each hostage you have. This effect stacks with up to a maximum of ##"..hostage_situation_2.."##.\n\nNote: This skill does not stack if multiple players equip it.",
+
+		})
+
 		if Idstring("russian"):key() == SystemInfo:language():key() then
 			LocalizationManager:add_localized_strings({
-			
-				menu_iron_man_desc =			"БАЗОВЫЙ: ##$basic##\nПоказатель брони увеличен на ##"..iron_man_1_basic.."%## .\n\nПРО: ##$pro##\nУвеличивает скорость восстановления брони у вас и у напарников на ##"..iron_man_1_ace.."%##.\n\nКогда вы лишитесь брони, то она восстановится через ##"..iron_man_2_ace.."## секунд даже будучи под обстрелом.",
-				menu_aggressive_shots_desc =	"БАЗОВЫЙ: ##$basic##\nУвеличивает скорость перезарядки снайперских винтовок на ##"..body_expertise_1_basic.."%##. Убийство в голову увеличивает вашу скорость перезарядки на дополнительные ##"..body_expertise_2_basic.."%## в течение ##"..body_expertise_3_basic.."## секунд.\n\nПРО: ##$pro##\nМножитель попадания в голову применяется к телу противника с эффективностью в ##"..body_expertise_1_ace.."%## с пистолетами-пулемётами, ##"..body_expertise_2_ace.."%## с штурмовыми винтовками и ##"..body_expertise_3_ace.."%## со снайперскими винтовками в режиме одиночной стрельбы. Вы получаете дополнительные ##"..body_expertise_4_ace.."%## при прицеливании и ##"..body_expertise_5_ace.."%## не двигаясь.",
-				menu_sentry_gun_2x_desc =		"БАЗОВЫЙ: ##$basic##\nПозволяет устанавливать ##"..sentry_gun_2x_1_basic.."## турели вместо одной.\n\nПРО: ##$pro##\nУвеличивает урон, наносимый вашими турелями на ##"..sentry_gun_2x_1_ace.."%##.\n\nОткрывает менее заметную, приглушённую бронебойную турель с уменьшенной скорострельностью, но значительно увеличенным уроном.",
-				menu_sentry_gun_desc =			"БАЗОВЫЙ: ##$basic##\nОткрывает турель.\n\nПРО: ##$pro##\nЗдоровье и скорость вращения ваших турелей увеличено на ##"..sentry_gun_1_ace.."%##.\n\nОткрывает особую модифицированную менее заметную турель с приглушённым стволом, бронебойными патронами, уменьшенной скорострельность для экономии патронов и увеличенным количеством урона.",
-				menu_sharpshooter_beta_desc =	"БАЗОВЫЙ: ##$basic##\nВы получаете ##"..marksman_1_basic.."%## точности для всех пистолетов-пулеметов, штурмовых и снайперских винтовок в режиме одиночной стрельбы.\n\nТакже вы получаете прибавку к стабильности на ##"..marksman_2_basic.."%## не двигаясь и ##"..marksman_3_basic.."%## при прицеливании из оружия с одиночным режимом стрельбы.\n\nПРО: ##$pro##\nУвеличена скорострельность на ##"..marksman_1_ace.."%## и увеличена точность, при прицельной стрельбе на ##"..marksman_2_ace.."%## из пистолетов-пулеметов, штурмовых и снайперских винтовок в режиме одиночной стрельбы.",
-				menu_discipline_desc = 			"БАЗОВЫЙ: ##$basic##\nВы можете прицеливаться, когда упали.\n\nПРО: ##$pro##\nПолучаемый урон снижен на ##"..discipline_1_ace.."%##, если вы взаимодействуете с каким-либо предметом.",
+				menu_tea_cookies_desc =			"БАЗОВЫЙ: ##$basic##\nДобавляет ##"..tea_cookies_1_a.."## аптечки первой помощи в инвентарь.\n\nПРО: ##$pro##\nОткрывает ##"..tea_cookies_1_b.."## инъектора. Активируя инъектор, вы будете исцеляться на ##"..tea_cookies_2_b.."%## от всего получаемого урона в течение ##"..tea_cookies_3_b.."## секунд.\n\nДобавляет ещё ##"..tea_cookies_4_b.."## аптечек первой помощи в инвентарь.",
+				menu_gunzerker_desc =			"БАЗОВЫЙ: ##$basic##\nОткрывает парные дробовики.\n\nПРО: ##$pro##\nОткрывает парные пистолеты-пулеметы.",
+				menu_time_heals_desc =			"БАЗОВЫЙ: ##$basic##\nЕсли вы будете поддерживать себя живим на протяжении ##"..time_heals_1_a.."## секунд, то вы можете пережить падение.\n\nВаша скорость ходьбы, взаимодействия, перезарядки и время блидаута будет постепенно восстанавливатся.\n\nПРО: ##$pro##\nВремя поддерживания себя живым снижено до ##"..time_heals_1_b.."## секунд.\nАптечки первой помощи могут полностью вас вылечить с шансом ##"..time_heals_2_b.."%##.",
+				menu_more_blood_to_bleed_desc =	"БАЗОВЫЙ: ##$basic##\nВы получаете на ##"..more_blood_to_bleed_1_a.."%## больше временного здоровья.\n\nПРО: ##$pro##\nВы получаете ещё на ##"..more_blood_to_bleed_1_b.."%## больше временного здоровья.\n\nМаксимальный штраф времени в блидауте теперь ##"..more_blood_to_bleed_2_b.."## секунд.",
+				menu_walking_bleedout_desc =	"БАЗОВЫЙ: ##$basic##\nС шансом ##"..walking_bleedout_1_a.."%## вы можете пережить смертельное попадание и получить ##"..walking_bleedout_2_a.."%## временного здоровья, но ваша скорость взаимодействия и передвижения снижается на ##"..walking_bleedout_3_a.."%##, а скорость перезарядки снижается на ##"..walking_bleedout_4_a.."%##.\n\nВремя блидаута снижается с каждой секундой максимум до ##"..walking_bleedout_5_a.."## секунд находясь в этом состоянии.\n\nНаходясь в этом состоянии ##"..walking_bleedout_6_a.."## секунд и более, если вас добили враги, то ваше падение становится фатальным, без возможности отстреливатся во время блидаута.\n\nПРО: ##$pro##\nВы получаете дополнительные ##"..walking_bleedout_1_b.."%## шанса чтобы пережить сметельное ранение. Использование медицинской сумки полностью вылечивает вас от смертельного состояния.",
+				menu_up_you_go_beta_desc =		"БАЗОВЫЙ: ##$basic##\nВы всегда получаете ##"..up_you_go_1_a.."%## здоровья от вашего общего количества после того, как вас подняли.\n\nСинергия: если у вас открыт навык ##Берсеркер##, тогда ваше количество здоровья будет ##"..up_you_go_2_a.."%## после того, как вас подняли.\n\nПРО: ##$pro##\nВы получаете дополнительно ##"..up_you_go_1_b.."%## здоровья после того, как вас подняли.\nВы получаете на ##"..up_you_go_2_b.."%## меньше урона в течение ##"..up_you_go_3_b.."## секунд после того, как вас подняли.",
+				menu_akimbo_skill_desc =		"БАЗОВЫЙ: ##$basic##\nТеперь вы можете использовать парные пистолеты. У всего парного оружия стабильность снижена на ##"..akimbo_1_a.."%##.\n\nПРО: ##$pro##\nУ всего парного оружия стабильность снижена на ##"..akimbo_1_b.."%##, а количество их боеприпасов повышается на ##"..akimbo_2_b.."%##.",
+				menu_second_wind_desc =			"БАЗОВЫЙ: ##$basic##\nКогда вы лишаетесь брони во время боя, скорость вашего передвижения увеличивается на ##"..second_wind_1_a.."%## в течение ##"..second_wind_2_a.."## секунд.\n\nПРО: ##$pro##\nПри ношении баллистических бронежилетов, шанс увернуться от вражеского огня увеличен на ##"..second_wind_1_b.."%##.",
+				menu_jail_workout_desc =		"БАЗОВЫЙ: ##$basic##\nСпециальные юниты отмеченные вами получают на ##"..jail_workout_1_a.."%## больше урона.\n\nПРО: ##$pro##\nЕсли вы до поднятия тревоги стоите на месте ##3.5## секунды, не совершая никаких действий, то начнёте автоматически помечать всех людей на расстоянии в ##10## метров.",				
+				menu_thick_skin_desc =			"БАЗОВЫЙ: ##$basic##\nПрочность брони увеличена ещё на ##"..thick_skin_1_a.."%##.\n\nПРО: ##$pro##\nПрочность всех баллистических бронежилетов увеличена на ##"..thick_skin_1_b.."##.",
+				menu_awareness_desc =			"БАЗОВЫЙ: ##$basic##\nСкорость передвижения не изменяется, когда вы прицеливаетесь.\n\nПРО: ##$pro##\nКогда вы находитесь на средней дистанции к врагу, вы будете получать на ##"..awareness_1_b.."%## меньше урона.",
+				menu_mastercraftsman_desc =		"БАЗОВЫЙ: ##$basic##\nУменьшает цену улучшения оружия и покраски масок на ##"..mastercraftsman_1_a.."%##.\n\nПРО: ##$pro##\nВы получаете ##"..mastercraftsman_1_b.."%## больше опыта при завершении дней и контрактов.",
 
-				menu_carbon_blade_desc =		"БАЗОВЫЙ: ##$basic##\nВы заменяете лезвия вашей пилы на углеродные, повышая тем самым её эффективность на ##"..carbon_blade_1_basic.."%##.\n\nПРО: ##$pro##\nЛезвия пилы при использовании не изнашиваются с шансом ##"..carbon_blade_1_ace.."%##. Лезвия становятся на ##"..carbon_blade_2_ace.."%## эффективнее.\n\nСкорость смены лезвий портативной пилы OVE9000 увеличивается на ##"..carbon_blade_3_ace.."%##.",
-				menu_overkill_desc =			"БАЗОВЫЙ: ##$basic##\nПосле убийства врага с помощью дробовика или пилы OVE9000, вы будете наносить на ##"..overkill_1_basic.."%## больше урона в течение ##"..overkill_2_basic.."## секунд.\n\nПРО: ##$pro##\nУвеличено время действия навыка на дополнительные ##"..overkill_1_ace.."## секунд. Бонус к урону теперь применяется ко всему оружию. Навык должен быть активирован использованием дробовика или пилы OVE9000.\n\nТеперь вы можете прорезать щитовиков своей пилой OVE9000, а также атака врагов портативной пилой изнашивает лезвия на ##"..overkill_2_ace.."%## меньше.\n\nВнимание: действие навыка не распространяется на гранатомёты, метательное, луки и арбалеты.",
-				menu_from_the_hip_desc =		"БАЗОВЫЙ: ##$basic##\nПовышает скорость прицеливания из дробовиков на ##"..from_the_hip_1_basic.."%##.\n\nПРО: ##$pro##\nПри стрельбе по щитовику из дробовика от бедра, у вас есть шанс отбросить его назад с шансом ##"..from_the_hip_1_ace.."%## и ##"..from_the_hip_2_ace.."%## при прицеливании.",
-				menu_shotgun_cqb_desc =			"БАЗОВЫЙ: ##$basic##\nПовышает скорость перезарядки дробовиков на ##"..shotgun_cqb_1_basic.."%##.\n\nПРО: ##$pro##\nПовышает точность вашего дробовика при стрельбе от бедра на ##"..shotgun_cqb_1_ace.."%##.\n\nВаша скорострельность будет увеличена на ##"..shotgun_cqb_2_ace.."%## при стрельбе от бедра из дробовиков с одиночным режимом стрельбы.",
-				menu_scavenger_desc =			"БАЗОВЫЙ: ##$basic##\nРадиус, с которого вы можете поднимать патроны увеличен на ##"..scavenger_1_basic.."%##.\n\nПРО: ##$pro## \nКогда вы собираете боеприпасы, оставленные врагами, ваши напарники будут получать ##"..scavenger_1_ace.."%## от собранного вами количества. \n\nНавык срабатывает только один раз за ##"..scavenger_2_ace.."## секунд.",
-				menu_pack_mule_desc =			"БАЗОВЫЙ: ##$basic##\nПозволяет кидать сумки на ##"..pack_mule_1_basic.."%## дальше.\n\nПРО: ##$pro##\nПозволяет передвигаться с сумкой быстрее на ##"..pack_mule_1_ace.."%##.",
+				menu_ecm_feedback_desc =		"БАЗОВЫЙ: ##$basic##\nПозволяет взаимодействовать с генераторами помех, чтобы создать акустическую петлю. После взаимодействия, генератор может с вероятностью ##"..ecm_feedback_1_a.."## оглушать врагов в радиусе ##"..ecm_feedback_2_a.."## метров каждые ##"..ecm_feedback_3_a.."## секунды.\n\nПетля длится ##"..ecm_feedback_4_a.."## секунд.\n\nПРО: ##$pro##\nОткрывает ##"..ecm_feedback_1_b.."## Карманных генератора помех, который работает ##"..ecm_feedback_2_b.."## секунд каждый.\n\nВы моментально взаимодействуете с генератором помех. Время действия петли увеличено на ##"..ecm_feedback_3_b.."%##.\n\nГенератор помех перезаряжается с вероятностью ##"..ecm_feedback_4_b.."%## каждые ##"..ecm_feedback_5_b.."## минуты, позволяя снова включить петлю.",
+				menu_hitman_desc =				"БАЗОВЫЙ: ##$basic##\nУрон любого оружия с глушителем и шанс пробить вражескую броню увеличены на ##"..hitman_1_a.."%## и ##"..hitman_2_a.."%## соответственно.\n\nПРО: ##$pro##\nУрон любого оружия с глушителем и шанс пробить вражескую броню увеличены на дополнительные ##"..hitman_1_b.."%## и ##"..hitman_2_b.."%## соответственно.",
+				menu_silence_expert_desc =		"БАЗОВЫЙ: ##$basic##\nПовышает точность и стабильность оружия с установленным глушителем на ##"..silence_expert_1_a.."%##. Вы прицеливаетесь на ##"..silence_expert_2_a.."%## быстрее со всем оружием, на котором установлен глушитель.\n\nПРО: ##$pro##\nВаше вторичное оружие с установленным глушителем наносит дополнительные ##"..silence_expert_1_b.."## урона.\nВаши глушители улучшены на шумоподавление и теперь издают на ##"..silence_expert_2_b.."%## меньше шума при стрельбе.",
+				menu_spotter_desc =				"БАЗОВЫЙ: ##$basic##\nУвеличивает продолжительность пометки врагов на ##"..spotter_1_a.."%##.\n\nПРО: ##$pro##\nОткрывает активы Наблюдателя в меню задания.\n\nВо время стелса, наблюдатель будет подсвечивать охрану для вас и вашей команды. После поднятия тревоги наблюдатель будет подсвечивать специальных юнитов.",
+				menu_cleaner_desc =				"БАЗОВЫЙ: ##$basic##\nВ инвентаре будет ##"..cleaner_1_a.."## мешкок с самого начала.\n\nВы можете купить мешки для трупов в меню активов для себя и команды. Актив содержит ##"..cleaner_2_a.."## мешка.\n\nПРО: ##$pro##\nВ инвентаре будет ##"..cleaner_1_b.."## дополнительный мешкок с самого начала.\n\nСкорость упаковки трупов увеличена на ##"..cleaner_2_b.."%##.",
+				menu_chameleon_desc =			"БАЗОВЫЙ: ##$basic##\nВы можете подсвечивать охрану и камеры в режиме исследования. Вы на ##"..chameleon_1_a.."%## скрытнее для гражданских и врагов до тех пор, пока не наденете маску.\n\nПРО: ##$pro##\nЕсли ваша скрытность ##"..chameleon_1_b.."## или ниже, охранники не не смогут вас заподозрить в режиме исследования.",
+				menu_cat_burglar_desc =			"БАЗОВЫЙ: ##$basic##\nУрон от падения с несмертельной высоты снижен на ##"..cat_burglar_1_a.."%##.\n\nПРО: ##$pro##\nПадая с несмертельной высоты вы приземляетесь бесшумно, а так же при падении вы не теряете здоровье.",
+
+				menu_iron_man_desc =			"БАЗОВЫЙ: ##$basic##\nПоказатель брони увеличен на ##"..iron_man_1_a.."%## .\n\nПРО: ##$pro##\nУвеличивает скорость восстановления брони у вас и у напарников на ##"..iron_man_1_b.."%##.\n\nКогда вы лишитесь брони, то она восстановится через ##"..iron_man_2_b.."## секунд даже будучи под обстрелом.",
+				menu_aggressive_shots_desc =	"БАЗОВЫЙ: ##$basic##\nУвеличивает скорость перезарядки снайперских винтовок на ##"..body_expertise_1_a.."%##. Убийство в голову увеличивает вашу скорость перезарядки на дополнительные ##"..body_expertise_2_a.."%## в течение ##"..body_expertise_3_a.."## секунд.\n\nПРО: ##$pro##\nМножитель попадания в голову применяется к телу противника с эффективностью в ##"..body_expertise_1_b.."%## с пистолетами-пулемётами, ##"..body_expertise_2_b.."%## с штурмовыми винтовками и ##"..body_expertise_3_b.."%## со снайперскими винтовками при прицеливании в режиме одиночной стрельбы.",
+				menu_sentry_gun_2x_desc =		"БАЗОВЫЙ: ##$basic##\nПозволяет устанавливать ##"..sentry_gun_2x_1_a.."## турели вместо одной.\n\nПРО: ##$pro##\nУвеличивает урон, наносимый вашими турелями на ##"..sentry_gun_2x_1_b.."%##.\n\nОткрывает менее заметную, приглушённую бронебойную турель с уменьшенной скорострельностью, но значительно увеличенным уроном.",
+				menu_sentry_gun_desc =			"БАЗОВЫЙ: ##$basic##\nОткрывает турель.\n\nПРО: ##$pro##\nЗдоровье и скорость вращения ваших турелей увеличено на ##"..sentry_gun_1_b.."%##.\n\nОткрывает особую модифицированную менее заметную турель с приглушённым стволом, бронебойными патронами, уменьшенной скорострельность для экономии патронов и увеличенным количеством урона.",
+				menu_master_craftsman_desc =	"БАЗОВЫЙ: ##$basic##\nУвеличивает радиус поражения мин на ##"..master_craftsman_1_a.."%##.\n\nПРО: ##$pro##\nУвеличивает радиус поражения мин еще на ##"..master_craftsman_1_b.."%##.\n\nСпециальные юниты, отмеченные вашими минами, получают на ##"..master_craftsman_2_b.."%## больше урона.",
+				menu_sharpshooter_beta_desc =	"БАЗОВЫЙ: ##$basic##\nВы получаете ##"..marksman_1_a.."%## точности для всех пистолетов-пулеметов, штурмовых и снайперских винтовок в режиме одиночной стрельбы.\n\nТакже вы получаете прибавку к стабильности на ##"..marksman_2_a.."%## не двигаясь и ##"..marksman_3_a.."%## при прицеливании из оружия с одиночным режимом стрельбы.\n\nПРО: ##$pro##\nУвеличена скорострельность на ##"..marksman_1_b.."%## и увеличена точность, при прицельной стрельбе на ##"..marksman_2_b.."%## из пистолетов-пулеметов, штурмовых и снайперских винтовок в режиме одиночной стрельбы.",
+				menu_discipline_desc = 			"БАЗОВЫЙ: ##$basic##\nВы можете прицеливаться, когда упали.\n\nПРО: ##$pro##\nПолучаемый урон снижен на ##"..discipline_1_b.."%##, если вы взаимодействуете с каким-либо предметом.",
+
+				menu_carbon_blade_desc =		"БАЗОВЫЙ: ##$basic##\nВы заменяете лезвия вашей пилы на углеродные, повышая тем самым её эффективность на ##"..carbon_blade_1_a.."%##.\n\nПРО: ##$pro##\nЛезвия пилы при использовании не изнашиваются с шансом ##"..carbon_blade_1_b.."%##. Лезвия становятся на ##"..carbon_blade_2_b.."%## эффективнее.\n\nСкорость смены лезвий портативной пилы OVE9000 увеличивается на ##"..carbon_blade_3_b.."%##.",
+				menu_overkill_desc =			"БАЗОВЫЙ: ##$basic##\nПосле убийства врага с помощью дробовика или пилы OVE9000, вы будете наносить на ##"..overkill_1_a.."%## больше урона в течение ##"..overkill_2_a.."## секунд.\n\nПРО: ##$pro##\nУвеличено время действия навыка на дополнительные ##"..overkill_1_b.."## секунд. Бонус к урону теперь применяется ко всему оружию. Навык должен быть активирован использованием дробовика или пилы OVE9000.\n\nТеперь вы можете прорезать щитовиков своей пилой OVE9000, а также атака врагов портативной пилой изнашивает лезвия на ##"..overkill_2_b.."%## меньше.\n\nВнимание: действие навыка не распространяется на гранатомёты, метательное, луки и арбалеты.",
+				menu_from_the_hip_desc =		"БАЗОВЫЙ: ##$basic##\nПовышает скорость прицеливания из дробовиков на ##"..from_the_hip_1_a.."%##.\n\nПРО: ##$pro##\nПри стрельбе по щитовику из дробовика от бедра, у вас есть шанс отбросить его назад с шансом ##"..from_the_hip_1_b.."%## и ##"..from_the_hip_2_b.."%## при прицеливании.",
+				menu_shotgun_cqb_desc =			"БАЗОВЫЙ: ##$basic##\nПовышает скорость перезарядки дробовиков на ##"..shotgun_cqb_1_a.."%##.\n\nПРО: ##$pro##\nПовышает точность вашего дробовика при стрельбе от бедра на ##"..shotgun_cqb_1_b.."%##.\n\nВаша скорострельность будет увеличена на ##"..shotgun_cqb_2_b.."%## при стрельбе от бедра из дробовиков с одиночным режимом стрельбы.",
+				menu_scavenger_desc =			"БАЗОВЫЙ: ##$basic##\nРадиус, с которого вы можете поднимать патроны увеличен на ##"..scavenger_1_a.."%##.\n\nПРО: ##$pro##\nКогда вы собираете боеприпасы, оставленные врагами, ваши напарники будут получать ##"..scavenger_1_b.."%## от собранного вами количества.\n\nНавык срабатывает только один раз за ##"..scavenger_2_b.."## секунд.",
+				menu_pack_mule_desc =			"БАЗОВЫЙ: ##$basic##\nПозволяет кидать сумки на ##"..pack_mule_1_a.."%## дальше.\n\nПРО: ##$pro##\nПозволяет передвигаться с сумкой быстрее на ##"..pack_mule_1_b.."%##.",
 	
-				menu_pistol_beta_messiah_desc =	"БАЗОВЫЙ: ##$basic##\nВы самостоятельно поднимаетесь на ноги, если убьёте врага. Навык срабатывает только ##"..messiah_1_basic.."## раз.\n\nПРО: ##$pro##\nВы сможете снова использовать навык, если воспользуетесь медицинской сумкой, но только один заряд за каждое использование медицинской сумки.\n\nНавык срабатывает еще ##"..messiah_1_ace.."## раза.",
-				menu_stockholm_syndrome_desc =	"БАЗОВЫЙ: ##$basic##\nПри взаимодействии с гражданскими есть вероятность того, что он согласится вас поднять. Гражданские, поднявшие вас, могут дать вам патроны.\n\nПРО: ##$pro## \nВаши заложники не станут убегать с места, если были освобождены полицией. Как только вы попадёте в тюрьму, они попытаются обменять себя на вас. Этот эффект может сработать даже во время полицейского штурма, но только ##"..stockholm_syndrome_1_ace.."## раз.",
-				menu_kilmer_desc =				"БАЗОВЫЙ: ##$basic##\nУвеличивает скорость перезарядки штурмовых винтовок на ##"..kilmer_1_basic.."%##.\n\nПРО: ##$pro##\nПонижает множитель разброса штурмовых во время движения на ##"..kilmer_1_ace.."%##.\n\nВы можете перезаряжать оружие во время спринта.",
-				menu_dominator_desc =			"БАЗОВЫЙ: ##$basic##\nВы можете брать врагов в заложники во время скрытного прохождения и во время штурма. \n\nПРО: ##$pro## \nВы можете брать ##2## врагов в заложники.\n\nДистанция, с которой вы можете брать заложников увеличена на ##"..dominator_1_ace.."%##, как и сила вашего убеждения.",
-				menu_control_freak_desc =		"БАЗОВЫЙ: ##$basic##\nИспуганые гражданские которые пытаются сбежать или позвонить в полицию отмечаются восклицательным знаком. Это дает больше времени чтобы запугать их.\n\nПРО: ##$pro## \nШум, издаваемый вами, устрашает гражданских.",
-				menu_black_marketeer_desc =		"БАЗОВЫЙ: ##$basic##\nУменьшает цены на все ваши покупки на ##"..black_marketeer_1_basic.."%##. \n\nПРО: ##$pro## \nУменьшает цены на все ваши покупки еще на ##"..black_marketeer_1_ace.."%## и продажа предметов на ##"..black_marketeer_2_ace.."%## выгоднее.",
-				menu_inside_man_desc =			"БАЗОВЫЙ: ##$basic##\nУменьшает цены в меню активов на ##"..inside_man_1_basic.."%##. \n\nПРО: ##$pro## \nОткрывает особые активы Своего человека.",
-				menu_smooth_talker_desc =		"БАЗОВЫЙ: ##$basic##\nВы можете ответить на ##2## дополнительных пейджера. \n\nПРО: ##$pro## \nВы отвечаете на пейджер ##"..smooth_talker_1_ace.."%## быстрее.",
-				menu_hostage_taker_desc =		"БАЗОВЫЙ: ##$basic##\nГражданские остаются запуганными на ##"..hostage_taker_1_basic.."%## дольше.\n\nПРО: ##$pro## \nВзаимодейстие с заложниками для их перемещения снижено на ##"..hostage_taker_1_ace.."%##.",
+				menu_pistol_beta_messiah_desc =	"БАЗОВЫЙ: ##$basic##\nВы самостоятельно поднимаетесь на ноги, если убьёте врага. Навык срабатывает только ##"..messiah_1_a.."## раз.\n\nПРО: ##$pro##\nВы сможете снова использовать навык, если воспользуетесь медицинской сумкой, но только один заряд за каждое использование медицинской сумки.\n\nНавык срабатывает еще ##"..messiah_1_b.."## раза.",
+				menu_stockholm_syndrome_desc =	"БАЗОВЫЙ: ##$basic##\nПри взаимодействии с гражданскими есть вероятность того, что он согласится вас поднять. Гражданские, поднявшие вас, могут дать вам патроны.\n\nПРО: ##$pro##\nВаши заложники не станут убегать с места, если были освобождены полицией. Как только вы попадёте в тюрьму, они попытаются обменять себя на вас. Этот эффект может сработать даже во время полицейского штурма, но только ##"..stockholm_syndrome_1_b.."## раз.",
+				menu_kilmer_desc =				"БАЗОВЫЙ: ##$basic##\nУвеличивает скорость перезарядки штурмовых винтовок на ##"..kilmer_1_a.."%##.\n\nПРО: ##$pro##\nПонижает множитель разброса штурмовых во время движения на ##"..kilmer_1_b.."%##.\n\nВы можете перезаряжать оружие во время спринта.",
+				menu_dominator_desc =			"БАЗОВЫЙ: ##$basic##\nВы можете брать врагов в заложники во время скрытного прохождения и во время штурма.\n\nПРО: ##$pro##\nВы можете брать ##2## врагов в заложники.\n\nДистанция, с которой вы можете брать заложников увеличена на ##"..dominator_1_b.."%##, как и сила вашего убеждения.",
+				menu_control_freak_desc =		"БАЗОВЫЙ: ##$basic##\nИспуганые гражданские которые пытаются сбежать или позвонить в полицию отмечаются синим вопросительным знаком. Это дает больше времени чтобы запугать их.\n\nПРО: ##$pro##\nШум, издаваемый вами, устрашает гражданских.",
+				menu_black_marketeer_desc =		"БАЗОВЫЙ: ##$basic##\nУменьшает цены на все ваши покупки на ##"..black_marketeer_1_a.."%##.\n\nПРО: ##$pro##\nУменьшает цены на все ваши покупки еще на ##"..black_marketeer_1_b.."%## и продажа предметов на ##"..black_marketeer_2_b.."%## выгоднее.",
+				menu_inside_man_desc =			"БАЗОВЫЙ: ##$basic##\nУменьшает цены в меню активов на ##"..inside_man_1_a.."%##.\n\nПРО: ##$pro##\nОткрывает особые активы Своего человека.",
+				menu_smooth_talker_desc =		"БАЗОВЫЙ: ##$basic##\nВы можете ответить на ##2## дополнительных пейджера.\n\nПРО: ##$pro##\nВы отвечаете на пейджер ##"..smooth_talker_1_b.."%## быстрее.",
+				menu_hostage_taker_desc =		"БАЗОВЫЙ: ##$basic##\nГражданские остаются запуганными на ##"..hostage_taker_1_a.."%## дольше.\n\nПРО: ##$pro##\nВзаимодейстие с заложниками для их перемещения снижено на ##"..hostage_taker_1_b.."%##.",
 
+				menu_gunzerker =				"Шизострел",
+				menu_time_heals =				"Реабилитация",
+				menu_more_blood_to_bleed =		"Больше крови для истекания",
+				menu_walking_bleedout =			"Смертельная травма",
+				menu_second_wind =				"Второй шанс",
+				menu_up_you_go_beta =			"Прочные швы",
+				menu_mastercraftsman =			"Прилежный ученик",
+				menu_spotter =					"Наблюдатель",
 				menu_aggressive_shots =			"Хирургическая точность",
 				menu_sentry_gun =				"Турель",
 				menu_scavenger =				"Мародер",
@@ -1648,80 +1741,51 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 				menu_inside_man =				"Свой Человек",
 				menu_smooth_talker =			"Пустозвон",
 				menu_hostage_taker =			"Захват заложников",
+				menu_awareness =				"Стрельба с перебежками",
 
-			
-				-- menu_cat_burglar_desc =			"БАЗОВЫЙ: ##$basic## \nУрон от падения с несмертельной высоты снижен на ##75%##. \n\nПРО: ##$pro## \nПадая с несмертельной высоты вы приземляетесь бесшумно, а так же при падении вы не теряете здоровье.",
-				-- menu_cleaner_desc =				"БАЗОВЫЙ: ##$basic## \nВ инвентаре будет ##1## мешкок с самого начала.\n\nВы можете купить мешки для трупов в меню активов для себя и команды. Актив содержит ##3## мешка. \n\nПРО: ##$pro## \nВ инвентаре будет ##1## дополнительный мешкок с самого начала.",
-				-- menu_spotter =					"Наблюдатель",
-				-- menu_spotter_desc =				"БАЗОВЫЙ: ##$basic## \nСпециальные юниты отмеченные вами получают на ##15%## больше урона. \n\nПРО: ##$pro## \nОткрывает активы Наблюдателя в меню задания. \n\nВо время стелса, наблюдатель будет подсвечивать охрану для вас и вашей команды. После поднятия тревоги наблюдатель будет подсвечивать специальных юнитов.",
-				-- menu_mastercraftsman =			"Улучшенный крафтинг",
-				-- menu_mastercraftsman_desc =		"БАЗОВЫЙ: ##$basic## \nУменьшает цену улучшения оружия на ##10%##. \n\nПРО: ##$pro## \nУменьшает цену покраски масок на ##10%##.",
-				-- menu_jail_workout_desc =		"БАЗОВЫЙ: ##$basic## \nУвеличивает продолжительность пометки врагов на ##100%##. \n\nПРО: ##$pro## \nЕсли вы до поднятия тревоги стоите на месте ##3.5## секунды, не совершая никаких действий, то начнёте автоматически помечать всех людей на расстоянии в ##10## метров.",
-				-- menu_second_wind =				"Второй шанс",
-				-- menu_second_wind_desc =			"БАЗОВЫЙ: ##$basic## \nКогда вы лишаетесь брони во время боя, скорость вашего передвижения увеличивается на ##10%## в течение ##5## секунд. \n\nПРО: ##$pro## \nПри ношении баллистических бронежилетов, шанс увернуться от вражеского огня увеличен на ##5%##.",
-				-- menu_akimbo_skill =				"Акимбо",
-				-- menu_akimbo_skill_desc =		"БАЗОВЫЙ: ##$basic## \nТеперь вы можете использовать парные пистолеты. У всего парного оружия стабильность снижена на ##50%##. \n\nПРО: ##$pro## \nУ всего парного оружия стабильность снижена на ##25%##, а количество их боеприпасов повышается на ##50%##.",
-				-- menu_backstab =					"Удар в спину",
-				-- menu_backstab_desc =			"БАЗОВЫЙ: ##$basic## \nКогда вы замахиваетесь своим оружием ближнего боя, то вы автоматически произведёте контрактаку, которая бросит противника на землю. контрактака не наносит урона. \n\nПРО: ##$pro## \nУбив охранника с помощью оружия ближнего боя есть ##7%## шанс что вам не придется отвечать на его пейджер.\n\nВнимание: Навык не срабатывает если смерть произошла от отравления.",
-				-- menu_gunzerker =				"Шизострел",
-				-- menu_gunzerker_desc =			"БАЗОВЫЙ: ##$basic## \nОткрывает парные дробовики. \n\nПРО: ##$pro## \nОткрывает парные пистолеты-пулеметы.",
+				menu_mastermind_tier_5 =		"Увеличивает скорость взаимодействия с медицинскими сумками на ##"..mastermind_tier5_1.."%##.\nУвеличивает скорость для установки медицинских сумок на ##"..mastermind_tier5_2.."%##.",
+				menu_mastermind_tier_6 =		"Увеличивает силу запугивания на ##"..mastermind_tier6_1.."%##. Снижает стоимость поддержки в меню подготовки на ##"..mastermind_tier6_2.."%##.\n\nВы можете подбирать кабельные стяжки за каждую подобраную коробку с патронами с шансом ##20%##, а во время скрытного прохождения получаете гарантировано одну.",
+				menu_menu_enforcer_tier_3 =		"Вы на ##"..enforcer_tier3_1.."%## легче подавляете врагов.\nУскоряет взаимодействие с сумкой патронов на ##"..enforcer_tier3_2.."%##.",
+				menu_menu_enforcer_tier_5 =		"Вы наносите на ##"..enforcer_tier5_1.."%## больше урона.\nУскоряет взаимодействие с сумкой патронов на ##"..enforcer_tier5_2.."%##.",
+				menu_technician_tier_4 =		"Урон от попадания в голову увеличен на ##"..technician_tier4_1.."%##.",
+				menu_hoxton_tier_1 =			"Урон от бандитов снижен на ##"..hoxton_tier1_1.."%##",
+				menu_hoxton_tier_2 =			"Стойкость увеличена на ##"..hoxton_tier2_1.."## пунктов.",
+				menu_hoxton_tier_3 =			"Урон от бандитов снижен на ##"..hoxton_tier3_1.."%##",
+				menu_hoxton_tier_4 =			"Вы наносите на ##"..hoxton_tier4_1.."%## больше урона специальным юнитам.",
+				menu_hoxton_tier_5 =			"Здоровье увеличено на ##"..hoxton_tier5_1.."%##.",
+				menu_hoxton_tier_6 =			"Вы на ##"..hoxton_tier6_1.."%## менее приоритетная цель для врагов.",
+				
+				menu_bonus_exp =			 				"Мистер Умник",
+				menu_bonus_exp_desc =		 				"Увеличивает количество опыта вам и вашей команде.",
+				menu_bonus_exp_detailed_desc =				"Вы получаете ##"..mr_wise_guy_1.."%## больше опыта вам и вашей команде при завершении дней и контрактов.\n\nШанс получить предмет высокого качества при завершении контракта увеличивается на ##"..mr_wise_guy_2.."%##.",
+				menu_bonus_small_money =		 			"Мертвые президенты",
+				menu_bonus_small_money_desc =				"Увеличивает ценность мелкой добычи которую вы забрали.",
+				menu_bonus_small_money_detailed_desc =		"Ценность мелкой добычи увеличивается на ##"..dead_presidents_1.."%##.\n\nСнижено количество денег требуемых для перечисления в бонусный опыт ##"..dead_presidents_2.."%## когда вы нашли мелкую добычу.",
+				menu_good_luck_charm_desc =					"Вы можете зациклить изображение камеры тем самым отключить её.",
+				menu_good_luck_charm_detailed_desc =		"Вы можете зациклить изображение камеры на ##"..good_luck_charm_1.."## секунд и тем самым отключить её.",
+				menu_triathlete_desc =		 				"Увеличивает выносливость вам и вашей команде.",
+				menu_triathlete_detailed_desc =		 		"Увеличивает выносливость вам и вашей команде на ##"..triathlete_1.."%##.\n\nСкорость передвижения увеличена на ##"..triathlete_2.."%##.\n\nПозволяет бегать в любом направлении.",
+				menu_joker_desc =		 					"Взятый в заложники враг может сражаться на вашей стороне.",
+				menu_joker_detailed_desc =					"Вы можете перевести одного врага на свою сторону. Навык работает только после поднятия тревоги.\n\nПерешедшие противники наносят на ##"..joker_1.."%## больше урона и будет получать на ##"..joker_2.."%## меньше урона в зависимости от сложности.",
+				menu_ammo_reservoir_desc =		 			"Вы и ваша команда можете стрелять не расходуя боеприпасы используя ваши патроны.",
+				menu_ammo_reservoir_detailed_desc =			"Увеличивает вместительность магазинов вашего оружия ещё на ##"..ammo_reservoir_1.."## патронов.\n\nСразу после установки и использования сумки с патронами, вы и ваша команда можете стрелять не расходуя боеприпасы в течение ##"..ammo_reservoir_2.."## секунд. Чем больше амуниции вы восстановите из сумки, тем дольше будет эффект непрерывной стрельбы.",
+				menu_keys_under_the_carpet =				"Ключи под ковриком",
+				menu_keys_under_the_carpet_desc =			"Улучшает взлом замков.",
+				menu_keys_under_the_carpet_detailed_desc =	"Вы взламываете замки на ##"..keys_under_the_carpet_1.."%## быстрее.\n\nВы можете взламывать замки в режиме исследования.",
+				menu_infiltrator =							"Инфильтратор",
+				menu_infiltrator_desc =						"Улучшает режим исследования.",
+				menu_infiltrator_detailed_desc =			"Вы можете подбирать предметы, использовать ключ-карты к дверям и временным замкам и взаимодействовать с компьютерами в режиме исследования.",
+				menu_kick_starter_desc =					"Починка дрели ударом по ней.",
+				menu_kick_starter_detailed_desc =			"Теперь вы можете починить дрель или пилу, ударив по ним оружием ближнего боя. У вас есть ##"..kick_starter_1.."%## шанс, если та сломается. Данный навык срабатывает только один раз за поломку дрели или пилы.",
+				menu_fire_trap_desc =						"Модифицирует ваши мины в зажигательные.",
+				menu_fire_trap_detailed_desc =				"Ваши мины оставляют на месте огненную ловушку в течение ##"..fire_trap_1.."## секунд в ##"..fire_trap_2.."## метровом радиусе.",
+				menu_hostage_situation =					"Ситуация с заложниками",
+				menu_hostage_situation_desc =				"Прикрытие с помощью заложников.",
+				menu_hostage_situation_detailed_desc =		"Вы и ваши напарники будете получать в зависимости от сложности на ##"..hostage_situation_1.."## меньше урона за каждого связанного заложника. Данный эффект складывается до максимума в ##"..hostage_situation_2.."## заложников.",
 
-			})
-		else
-			LocalizationManager:add_localized_strings({
-		
-				menu_iron_man_desc =			"BASIC: ##$basic##\nYour armor is increased by ##"..iron_man_1_basic.."%##.\n\nACE: ##$pro##\nThe armor recovery rate of you and your crew is increased by ##"..iron_man_1_ace.."%##.\n\nYour armor will recover ##"..iron_man_2_ace.."## seconds after being broken no matter what the situation.",
-				menu_aggressive_shots_desc =	"BASIC: ##$basic##\nIncreases your reload speed with sniper rifles by ##"..body_expertise_1_basic.."%##.\nAny killing headshot will increase your reload speed by additional ##"..body_expertise_2_basic.."%## for ##"..body_expertise_3_basic.."## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nACE: ##$pro##\nBonus headshot damage is permanently applied to hitting enemies on the body in single fire mode, ##"..body_expertise_1_ace.."%## with SMGs, ##"..body_expertise_2_ace.."%## with Assault Rifles and ##"..body_expertise_3_ace.."%## with Sniper Rifles. You will gain additional ##"..body_expertise_4_ace.."%## in steelsight and ##"..body_expertise_5_ace.."%## while not moving.",
-				menu_sentry_gun_2x_desc =		"BASIC: ##$basic##\nYou can place ##"..sentry_gun_2x_1_basic.."## sentry guns instead of just one.\n\nACE: ##$pro##\nYour sentry gun damage is increased by ##"..sentry_gun_2x_1_ace.."%##.\n\nUnlocks a special modified less noticeable turret with armor-piercing rounds, reduced rate of fire, and significantly increased damage.",
-				menu_sentry_gun_desc =			"BASIC: ##$basic##\nUnlocks the sentry gun for you to use. \n\nACE: ##$pro## \nYour sentry gun gains ##"..sentry_gun_1_ace.."%## more health and rotational speed.",
-				menu_sharpshooter_beta_desc =	"BASIC: ##$basic##\nYou gain ##"..marksman_1_basic.."%## weapon accuracy with all SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nYou gain ##"..marksman_2_basic.."%## stability boost when not moving and ##"..marksman_3_basic.."%## when aiming for all weapons with single shot fire.\n\nACE: ##$pro##\nIncreased fire rate up to ##"..marksman_1_ace.."%## and you gain a ##"..marksman_2_ace.."%## accuracy bonus while aiming down sights with all SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.",
-				menu_discipline_desc =			"BASIC: ##$basic##\nYou can use steel sight while in bleedout.\n\nACE: ##$pro##\nYou take ##"..discipline_1_ace.."%## less damage while interacting with things.",
-		
-				menu_carbon_blade_desc =		"BASIC: ##$basic##\nYou replace your saw blades with carbon blades, increasing your saw efficiency by ##"..carbon_blade_1_basic.."%##. \n\nACE: ##$pro## \nChance to avoid wearing down the saw's blade while using it is now ##"..carbon_blade_1_ace.."%##. Saws are ##"..carbon_blade_2_ace.."%## more effective.\n\nReload speed of OVE9000 poratable saw increased by ##"..carbon_blade_3_ace.."%##.",
-				menu_overkill_desc =			"BASIC: ##$basic##\nWhenever you kill an enemy using a shotgun or the OVE9000 portable saw, you receive a ##"..overkill_1_basic.."%## damage bonus that lasts ##"..overkill_2_basic.."## seconds.\n\nACE: ##$pro##\nDamage boost duration is increased by additional ##"..overkill_1_ace.."## seconds.\nThe damage boost now applies to all weapons. Skill must still be activated using a shotgun or the OVE9000 portable saw.\n\nYou can now saw through shields, also attacking enemies with the OVE9000 portable saw wears down the blades ##"..overkill_2_ace.."%## less than before.\n\nNote: Does not apply to melee damage, throwables, grenade launchers, bows, crossbows or rocket launchers.",
-				menu_from_the_hip_desc =		"BASIC: ##$basic##\nIncreases your shotgun steel sight speed by ##"..from_the_hip_1_basic.."%##.\n\nACE: ##$pro##\nGives your shotgun shots a ##"..from_the_hip_1_ace.."%## chance to knock down Shields when shooting them from the hip, and ##"..from_the_hip_2_ace.."%## while aiming.",
-				menu_shotgun_cqb_desc =			"BASIC: ##$basic##\nIncreases your shotgun reload speed by ##"..shotgun_cqb_1_basic.."%##.\n\nACE: ##$pro##\nIncreases your shotgun weapon accuracy by ##"..shotgun_cqb_1_ace.."%## when firing from the hip.\n\nYour rate of fire is increased by ##"..shotgun_cqb_2_ace.."%## while firing from the hip with single shot Shotguns.",
-				menu_scavenger_desc =			"BASIC: ##$basic##\nYour ammo box pick up range is increased by ##"..scavenger_1_basic.."%##.\n\nACE: ##$pro## \nWhen you pick up ammo, you trigger an ammo pickup for ##"..scavenger_1_ace.."%## of normal pickup to other players in your team. Cannot occur more than once every ##"..scavenger_2_ace.."## seconds.",
-				menu_pack_mule_desc =			"BASIC: ##$basic##\nYou can throw bags ##"..pack_mule_1_basic.."%## further.\n\nACE: ##$pro##\nYou move ##"..pack_mule_1_ace.."%## faster when carrying bags.",
-		
-				menu_pistol_beta_messiah_desc =	"BASIC: ##$basic##\nWhile in bleedout, you can revive yourself by killing an enemy. You only have ##"..messiah_1_basic.."## charge.\n\nACE: ##$pro##\nYour Messiah charges are replenished whenever you use a doctor bag, one for each medic bag use.\n\nYou now have ##"..messiah_1_ace.."## additional charges.",
-				menu_stockholm_syndrome_desc =	"BASIC: ##$basic##\nNearby civilians have a chance of reviving you if you interact with them. Civilians reviving you have a chance of giving you ammo.\n\nACE: ##$pro## \nYour hostages will not flee when they have been rescued by law enforcers. Whenever you get into custody, your hostages will trade themselves for your safe return. This effect can occur during assaults, but only ##"..stockholm_syndrome_1_ace.."## time during a heist.",
-				menu_kilmer_desc =				"BASIC: ##$basic##\nIncreases your reload speed with assault rifles by ##"..kilmer_1_basic.."%##.\n\nACE: ##$pro##\nYour weapon accuracy while moving with assault rifles is increased by ##"..kilmer_1_ace.."%##.\n\nRun and reload - you can now reload your weapons while sprinting.",
-				menu_dominator_desc =			"BASIC: ##$basic##\nNow you can intimidate an enemy during the stealth and assault. Doing so won't require you to answer their pager.\n\nACE: ##$pro## \nYou can now intimidate ##2## enemies.\n\nThe power and range of your intimidation is increased by ##"..dominator_1_ace.."%##.",
-				menu_control_freak_desc =		"BASIC: ##$basic##\nDistressed civilians who trying to escape or call the police are marked with an exclamation mark. It gives you more time to intimidate them.\n\nACE: ##$pro## \nNoise created by you intimidates civilians.",
-				menu_black_marketeer_desc =		"BASIC: ##$basic##\nReduces the cost of all your purchases by ##"..black_marketeer_1_basic.."%##. \n\nACE: ##$pro## \nFurther reduces the cost of all your purchases by ##"..black_marketeer_1_ace.."%## and selling items is now ##"..black_marketeer_2_ace.."%## more lucrative.",
-				menu_inside_man_desc =			"BASIC: ##$basic##\nReduces the asset costs in the Job Overview menu by ##"..inside_man_1_basic.."%##. \n\nACE: ##$pro## \nUnlocks special Inside Man assets in the Job Overview menu.",
-				menu_smooth_talker_desc =		"BASIC: ##$basic##\nYou can successfully answer ##2## additional pagers. \n\nACE: ##$pro## \nYou answer pagers ##"..smooth_talker_1_ace.."%## faster.",
-				menu_hostage_taker_desc =		"BASIC: ##$basic##\nCivilians remain intimidated ##"..hostage_taker_1_basic.."%## longer.\n\nACE: ##$pro## \nInteraction with hostages to move them is reduced by ##"..hostage_taker_1_ace.."%##.",
-
-				menu_aggressive_shots =			"Body Expertise",
-				menu_sentry_gun =				"Sentry Gun",
-				menu_scavenger =				"Scavenger",
-				menu_control_freak =			"Control Freak",
-				menu_black_marketeer =			"Black Marketeer",
-				menu_inside_man =				"Inside Man",
-				menu_smooth_talker =			"Smooth Talker",
-				menu_hostage_taker =			"Hostage Taker",	
-
-
-				-- menu_cat_burglar_desc =				"BASIC: ##$basic## \nYou take ##75%## less damage from falling from non-lethal heights. \n\nACE: ##$pro## \nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
-				-- menu_cleaner_desc =					"BASIC: ##$basic## \n##1## body bag is added to your inventory.\n\nYou can now buy a body bag asset which contains ##3## body bags that can be shared with your crew. \n\nACE: ##$pro## \n##1## additional body bag is added to your inventory.",
-				-- menu_spotter =						"Spotter",
-				-- menu_spotter_desc =					"BASIC: ##$basic## \nSpecial enemies marked by you take ##15%## additional damage. \n\nACE: ##$pro## \nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
-				-- menu_mastercraftsman =				"Improved Crafting",
-				-- menu_mastercraftsman_desc =			"BASIC: ##$basic## \nYour cost of weapon crafting is reduced by ##10%##. \n\nACE: ##$pro## \nYour cost of mask crafting is reduced by ##10%##.",
-				-- menu_jail_workout_desc =			"BASIC: ##$basic## \nIncreases the duration of marked enemies by ##100%##. \n\nACE: ##$pro## \nWhen you stand still for ##3.5## seconds in stealth, you start highlighting people around you within a ##10## meter radius.",
-				-- menu_second_wind =					"Second Wind",
-				-- menu_second_wind_desc =				"BASIC: ##$basic## \nWhen your armor breaks your movement speed is increased by ##10%## for ##5## seconds. \n\nACE: ##$pro## \nYour chance to dodge is increased by ##5%## for ballistic vests.",
-				-- menu_akimbo_skill =					"Akimbo",
-				-- menu_akimbo_skill_desc =			"BASIC: ##$basic## \nYou can dual wield two pistols.\n\nDual wielded weapons have ##50%## stability penalty. \n\nACE: ##$pro## \nYour stability penalty with Akimbo weapons is set to ##25%## and increases the ammo capacity of your Akimbo weapons to ##50%##.",
-				-- menu_backstab =						"Backstab",
-				-- menu_backstab_desc =				"BASIC: ##$basic## \nWhen charging your melee weapon you will counterattack enemies that try to strike you, knocking them down. The knockdown does not deal any damage. \n\nACE: ##$pro## \nKilling a guard with a melee weapon you have a ##7%## chance that you won't have to answer his pager.\n\nNote: Skill doesn't work if the death was caused by poisoning.",
-				-- menu_gunzerker =					"Gunzerker",
-				-- menu_gunzerker_desc =				"BASIC: ##$basic## \nYou can dual wield two shotguns.\n\nACE: ##$pro## \nYou can dual wield two SMG.",
-	
 			})
 		end
+		
 	end)
 end
 if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
@@ -1730,7 +1794,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		data(self, tweak_data)
 		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
-		
+
 		self.level_tree = {
 			[0] = {
 				upgrades = {
@@ -1947,7 +2011,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 					"push",
 					"breech",
 					"ching",
-					"erma",
 					"sap"
 				}
 			},
@@ -2003,7 +2066,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				upgrades = {
 					"body_armor5",
 					"chef",
-					"peacemaker",
 					"wpn_prj_ace"
 				}
 			},
@@ -2021,7 +2083,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				upgrades = {
 					"ak5",
 					"striker",
-					"wa2000",
 					"beardy",
 					"catch"
 				}
@@ -2031,7 +2092,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				upgrades = {
 					"galil",
 					"cleaver",
-					"mateba",
 					"desertfox",
 					"wpn_prj_target",
 					"tti"
@@ -2050,8 +2110,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				name_id = "weapons",
 				upgrades = {
 					"p90",
-					"deagle",
-					"winchester1874"
+					"deagle"
 				}
 			},
 			[37] = {
@@ -2109,7 +2168,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 					"b682",
 					"m32",
 					"morning",
-					"coach"
+					"coach",
+					"hunter"
 				}
 			},
 			[44] = {
@@ -2122,7 +2182,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				name_id = "weapons",
 				upgrades = {
 					"m249",
-					"barbedwire"
+					"barbedwire",
+					"smoke_screen_grenade"
 				}
 			},
 			[46] = {
@@ -2144,7 +2205,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				name_id = "weapons",
 				upgrades = {
 					"dingdong",
-					"tenderizer"
+					"tenderizer",
+					"plainsrider"
 				}
 			},
 			[50] = {
@@ -2181,6 +2243,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 					"uzi"
 				}
 			},
+			[57] = {
+				name_id = "weapons",
+				upgrades = {
+					"elastic",
+					"long",
+					"frankish",
+					"ecp"
+				}
+			},		
 			[60] = {
 				name_id = "lvl_60",
 				upgrades = {
@@ -2193,8 +2264,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 					"rambo"
 				}
 			},
-			[65] = {
-				upgrades = {}
+			[68] = {
+				name_id = "weapons",
+				upgrades = {
+					"arblast"
+				}
 			},
 			[70] = {
 				name_id = "lvl_70",
@@ -2206,7 +2280,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				name_id = "weapons",
 				upgrades = {
 					"fireaxe",
-					"mg42"
+					"mg42",
+					"flamethrower_mk2",
+					"system"
 				}
 			},
 			[72] = {
@@ -2214,6 +2290,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				upgrades = {
 					"taser",
 					"zeus"
+				}
+			},
+			[74] = {
+				name_id = "weapons",
+				upgrades = {
+					"m134",
+					"shuno"
 				}
 			},
 			[75] = {
@@ -2226,10 +2309,35 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 					"nin"
 				}
 			},
+			[77] = {
+				name_id = "weapons",
+				upgrades = {
+					"erma"
+				}
+			},
 			[80] = {
 				name_id = "lvl_80",
 				upgrades = {
 					"rep_upgrade8"
+				}
+			},
+			[84] = {
+				name_id = "weapons",
+				upgrades = {
+					"mateba",
+					"wa2000",
+					"winchester1874",
+					"ray"
+				}
+			},
+			[87] = {
+				name_id = "weapons",
+				upgrades = {
+					"concussion",
+					"peacemaker",
+					"m95",
+					"rpg7",
+					"ray"
 				}
 			},
 			[90] = {
@@ -2245,13 +2353,35 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				}
 			}
 		}
-
+		
+		self.values.player.reduce_loose_money_exp_convertation_amount_mul = {0.35}
+		self.values.team.xp.multiplier = {1.4}
+		self.values.player.walking_bleedout_doctor_bag_self_revive = {true}
+		self.values.player.walking_bleedout_ticks_to_ressurection = {120, 90}
+		self.walking_bleedout_time_to_fatal_state = 5
+		self.walking_bleedout_interaction_time_penalty = 0.4
+		self.walking_bleedout_walk_speed_penalty = 0.4
+		self.walking_bleedout_reload_speed_penalty = 1.45
+		self.walking_bleedout_post_reload_speed_penalty = 0.25
+		self.values.player.walking_bleedout_time_to_bleed = {20, 15}
+		self.values.player.walking_bleedout_chance = {0.45, 0.75}
+		self.values.player.walking_bleedout_temporary_health_mul = {0.4, 0.6, 0.8}
+		self.values.player.walking_bleedout_fak_self_revive = {0.15}
+	
+		self.values.temporary.dmg_dampener_outnumbered_strong = {{0.85, 7}}
+		self.values.player.revived_health_regain_solid_amount = {0.4, 0.7}
+		self.values.player.revived_health_regain_solid_wolverine = {0.15}
+		self.values.player.damage_shake_addend = {1.5}
+		self.values.player.camouflage_bonus = {0.65}
+		self.values.player.fugitive_tier_health_multiplier = {1.2}
+		self.values.player.guards_cant_spot_you_in_casing = {10}
+		self.values.player.reduce_silencer_alert_size = {0.05}
+		self.values.player.secondary_silencer_damage_addend = {0.5}
+		
 		self.values.player.passive_always_regen_armor = {2.25}
-		self.values.weapon.single_not_moving_head_shot_add = {0.10}
-		self.values.weapon.single_steelsight_head_shot_add = {0.05}
-		self.values.assault_rifle.single_head_shot_add = {0.1}
-		self.values.smg.single_head_shot_add = {0.2}
-		self.values.snp.single_head_shot_add = {0.05}
+		self.values.weapon.assault_rifle_single_head_shot_add = {0.25}
+		self.values.weapon.smg_single_head_shot_add = {0.35}
+		self.values.weapon.snp_single_head_shot_add = {0.15}
 		
 		self.values.player.single_shot_fire_rate_mul = {0.25}
 		self.values.player.recoil_not_moving_mul = {0.8}
@@ -2270,18 +2400,25 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.doctor_bag.interaction_speed_multiplier = {0.8, 0.7}
 		self.values.doctor_bag.deploy_time_multiplier = {0.65}
 		self.values.player.cable_tie_pickup = {true}
-
-		self.values.team.damage = {
-			hostage_absorption = {0.1},
-			hostage_absorption_limit = 12
-		}
 		
 		if difficulty_index <= 3 then
 			self.values.player.convert_enemies_health_multiplier = {0.3}
+			self.values.team.damage = {
+				hostage_absorption = {0.05},
+				hostage_absorption_limit = 8
+			}
 		elseif difficulty_index <= 5 then
 			self.values.player.convert_enemies_health_multiplier = {0.2}
+			self.values.team.damage = {
+				hostage_absorption = {0.1},
+				hostage_absorption_limit = 8
+			}
 		else
 			self.values.player.convert_enemies_health_multiplier = {0.05}
+			self.values.team.damage = {
+				hostage_absorption = {0.2},
+				hostage_absorption_limit = 8
+			}
 		end
 		
 		self.values.player.convert_enemies_damage_multiplier = {1.45}
@@ -2290,12 +2427,12 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.temporary.chico_injector = {{0.8, 8}}
 
 		self.values.team.health.passive_multiplier = {1.15}
-		self.values.player.passive_xp_multiplier = {1.40}	
+		self.values.player.passive_xp_multiplier = {1.10}	
 		self.values.team.stamina.multiplier = {2.5}
 		self.values.player.uncover_multiplier = {1.35}
 		self.values.weapon.clip_ammo_increase = {10}
 		
-		self.values.weapon.silencer_damage_multiplier = {1.15, 1.4}
+		self.values.weapon.silencer_damage_multiplier = {1.15, 1.35}
 		self.values.player.melee_kill_snatch_pager_chance = {0.07}
 		self.values.player.armor_regen_timer_stand_still_multiplier = {0.85}
 		self.values.saw.reload_speed_multiplier = {1.15}
@@ -2383,15 +2520,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.player.run_dodge_chance = {0.25}
 		self.values.player.walk_speed_multiplier = {1.1}
 		self.values.smg.reload_speed_multiplier = {1.35}
-		self.values.player.cheat_death_chance = {0.35}
+		self.values.player.cheat_death_chance = {0.45}
 		self.values.weapon.silencer_damage_multiplier = {1.15, 1.35}
 
 		self.values.temporary.first_aid_damage_reduction = {{0.8, 10}}
 		self.values.temporary.swap_weapon_faster = {{1.2, 5}}
 		self.values.temporary.reload_weapon_faster = {{1.2, 5}}
-		self.values.temporary.increased_movement_speed = {{1.05, 5}}
+		self.values.temporary.increased_movement_speed = {{1.1, 5}}
 		self.values.temporary.damage_speed_multiplier = {{1.1, 5}}
-		self.values.first_aid_kit.quantity = {2, 4}
+		self.values.first_aid_kit.quantity = {4, 8}
 		self.values.pistol.stacking_hit_expire_t = {2, 8}
 		self.values.pistol.stacking_hit_damage_multiplier = {
 			{
@@ -2406,51 +2543,204 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.player.melee_kill_increase_reload_speed = {{1.15, 10}}
 		self.values.player.pick_lock_easy_speed_multiplier = {0.75, 0.5}
 		self.values.player.gangster_damage_dampener = {0.9, 0.65}
-		
-		
-		self.definitions.weapon_single_not_moving_head_shot_add = {
-			name_id = "menu_weapon_single_not_moving_head_shot_add",
+
+		self.definitions.player_reduce_loose_money_exp_convertation_amount_mul = {
+			name_id = "menu_player_reduce_loose_money_exp_convertation_amount_mul",
 			category = "feature",
 			upgrade = {
 				value = 1,
-				upgrade = "single_not_moving_head_shot_add",
-				category = "weapon"
+				upgrade = "reduce_loose_money_exp_convertation_amount_mul",
+				category = "player"
 			}
 		}
-		self.definitions.weapon_single_steelsight_head_shot_add = {
-			name_id = "menu_weapon_single_steelsight_head_shot_add",
+		self.definitions.player_walking_bleedout_doctor_bag_self_revive = {
+			name_id = "menu_player_walking_bleedout_doctor_bag_self_revive",
 			category = "feature",
 			upgrade = {
 				value = 1,
-				upgrade = "single_steelsight_head_shot_add",
-				category = "weapon"
+				upgrade = "walking_bleedout_doctor_bag_self_revive",
+				category = "player"
 			}
 		}
-		self.definitions.assault_rifle_single_head_shot_add = {
+		self.definitions.player_walking_bleedout_ticks_to_ressurection_1 = {
+			name_id = "menu_player_walking_bleedout_ticks_to_ressurection",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_ticks_to_ressurection",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_ticks_to_ressurection_2 = {
+			name_id = "menu_player_walking_bleedout_ticks_to_ressurection",
+			category = "feature",
+			upgrade = {
+				value = 2,
+				upgrade = "walking_bleedout_ticks_to_ressurection",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_fak_self_revive = {
+			name_id = "menu_player_walking_bleedout_fak_self_revive",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_fak_self_revive",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_temporary_health_mul_1 = {
+			name_id = "menu_player_walking_bleedout_temporary_health_mul",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_temporary_health_mul",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_temporary_health_mul_2 = {
+			name_id = "menu_player_walking_bleedout_temporary_health_mul",
+			category = "feature",
+			upgrade = {
+				value = 2,
+				upgrade = "walking_bleedout_temporary_health_mul",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_temporary_health_mul_3 = {
+			name_id = "menu_player_walking_bleedout_temporary_health_mul",
+			category = "feature",
+			upgrade = {
+				value = 3,
+				upgrade = "walking_bleedout_temporary_health_mul",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_time_to_bleed_1 = {
+			name_id = "menu_player_walking_bleedout_time_to_bleed",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_time_to_bleed",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_time_to_bleed_2 = {
+			name_id = "menu_player_walking_bleedout_time_to_bleed",
+			category = "feature",
+			upgrade = {
+				value = 2,
+				upgrade = "walking_bleedout_time_to_bleed",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_chance_1 = {
+			name_id = "menu_player_walking_bleedout_chance",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_chance",
+				category = "player"
+			}
+		}
+		self.definitions.player_walking_bleedout_chance_2 = {
+			name_id = "menu_player_walking_bleedout_chance",
+			category = "feature",
+			upgrade = {
+				value = 2,
+				upgrade = "walking_bleedout_chance",
+				category = "player"
+			}
+		}
+		
+		self.definitions.player_revived_health_regain_solid_wolverine = {
+			name_id = "menu_player_revived_health_regain_solid_wolverine",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "revived_health_regain_solid_wolverine",
+				category = "player"
+			}
+		}
+		self.definitions.player_revived_health_regain_solid_amount_1 = {
+			name_id = "menu_player_revived_health_regain_solid_amount",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "revived_health_regain_solid_amount",
+				category = "player"
+			}
+		}
+		self.definitions.player_revived_health_regain_solid_amount_2 = {
+			name_id = "menu_player_revived_health_regain_solid_amount",
+			category = "feature",
+			upgrade = {
+				value = 2,
+				upgrade = "revived_health_regain_solid_amount",
+				category = "player"
+			}
+		}
+		self.definitions.player_fugitive_tier_health_multiplier = {
+			name_id = "menu_player_fugitive_tier_health_multiplier",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "fugitive_tier_health_multiplier",
+				category = "player"
+			}
+		}
+		self.definitions.player_guards_cant_spot_you_in_casing = {
+			category = "feature",
+			name_id = "menu_player_guards_cant_spot_you_in_casing",
+			upgrade = {
+				category = "player",
+				upgrade = "guards_cant_spot_you_in_casing",
+				value = 1
+			}
+		}
+		self.definitions.player_reduce_silencer_alert_size = {
+			category = "feature",
+			name_id = "menu_player_reduce_silencer_alert_size",
+			upgrade = {
+				category = "player",
+				upgrade = "reduce_silencer_alert_size",
+				value = 1
+			}
+		}
+		self.definitions.player_secondary_silencer_damage_addend = {
+			category = "feature",
+			name_id = "menu_player_secondary_silencer_damage_addend",
+			upgrade = {
+				category = "player",
+				upgrade = "secondary_silencer_damage_addend",
+				value = 1
+			}
+		}
+		self.definitions.weapon_assault_rifle_single_head_shot_add = {
 			name_id = "menu_assault_rifle_single_head_shot_add",
 			category = "feature",
 			upgrade = {
 				value = 1,
-				upgrade = "single_head_shot_add",
-				category = "assault_rifle"
+				upgrade = "assault_rifle_single_head_shot_add",
+				category = "weapon"
 			}
 		}
-		self.definitions.smg_single_head_shot_add = {
+		self.definitions.weapon_smg_single_head_shot_add = {
 			name_id = "menu_smg_single_head_shot_add",
 			category = "feature",
 			upgrade = {
 				value = 1,
-				upgrade = "single_head_shot_add",
-				category = "smg"
+				upgrade = "smg_single_head_shot_add",
+				category = "weapon"
 			}
 		}
-		self.definitions.snp_single_head_shot_add = {
+		self.definitions.weapon_snp_single_head_shot_add = {
 			name_id = "menu_snp_single_head_shot_add",
 			category = "feature",
 			upgrade = {
 				value = 1,
-				upgrade = "single_head_shot_add",
-				category = "snp"
+				upgrade = "snp_single_head_shot_add",
+				category = "weapon"
 			}
 		}
 		self.definitions.player_single_shot_fire_rate_mul = {
@@ -2706,8 +2996,99 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				value = 2
 			}
 		}
-		
-		local editable_skill_descs = {
+	
+		local function form(var, value, mul)
+			mul = mul or 100
+			if var == "a" then
+				return (value[1] - 1) * mul
+			elseif var == "a2" then
+				return ((value[2] - 1) - (value[1] - 1)) * mul
+			elseif var == "b" then
+				return (1 - value[1]) * mul
+			elseif var == "b2" then
+				return ((1 - value[2]) - (1 - value[1])) * mul
+			elseif var == "c" then
+				return value[1] * mul
+			elseif var == "c2" then
+				return (value[2] - value[1]) * mul
+			elseif var == "d" then
+				return math.floor(100 - (100 / mul * value[1]))
+			elseif var == "e" then
+				return 100 / 8 * value[1]
+			else
+				return 0
+			end
+		end
+	
+		self.editable_skill_descs = {
+			mastermind_tier1 = {
+				{self.values.team.stamina.passive_multiplier[1] * 10 .. "%"}
+			},
+			mastermind_tier2 = {
+				{(1 - self.values.doctor_bag.interaction_speed_multiplier[1]) * 100 .. "%"}
+			},
+			mastermind_tier3 = {
+				{(self.values.player.passive_intimidate_range_mul[1] - 1) * 100 .. "%"}
+			},
+			mastermind_tier4 = {
+				{(self.values.team.health.passive_multiplier[1] - 1) * 100 .. "%"}
+			},		
+			enforcer_tier1 = {
+				{(self.values.player.passive_suppression_multiplier[1] - 1) * 100 .. "%"}
+			},
+			enforcer_tier2 = {
+				{(self.values.player.passive_health_multiplier[1] - 1) * 100 .. "%"}
+			},
+			enforcer_tier4 = {
+				{((self.values.player.passive_health_multiplier[2] - 1) - (self.values.player.passive_health_multiplier[1] - 1)) * 100 .. "%"}
+			},
+			enforcer_tier6 = {
+				{((self.values.player.passive_health_multiplier[3] - 1) - (self.values.player.passive_health_multiplier[2] - 1)) * 100 .. "%"}
+			},
+			technician_tier1 = {
+				{(1 - self.values.player.passive_crafting_weapon_multiplier[1]) * 100 .. "%"}
+			},
+			technician_tier2 = {
+				{(1 - self.values.weapon.passive_recoil_multiplier[1]) * 100 .. "%"}
+			},
+			technician_tier3 = {
+				{((1 - self.values.player.passive_crafting_weapon_multiplier[2]) - (1 - self.values.player.passive_crafting_weapon_multiplier[1])) * 100 .. "%"}
+			},
+			technician_tier5 = {
+				{((1 - self.values.player.passive_crafting_weapon_multiplier[3]) - ((1 - self.values.player.passive_crafting_weapon_multiplier[2]) - (1 - self.values.player.passive_crafting_weapon_multiplier[1])) - (1 - self.values.player.passive_crafting_weapon_multiplier[1])) * 100 .. "%"}
+			},
+			technician_tier6 = {
+				{
+					((1 - self.values.weapon.passive_recoil_multiplier[2]) - (1 - self.values.weapon.passive_recoil_multiplier[1])) * 100 .. "%", 		
+					(self.values.player.passive_armor_multiplier[1] - 1) * 100 .. "%", 
+					(1 - self.values.team.armor.passive_regen_time_multiplier[1]) * 100 .. "%" 
+				}
+			},
+			ghost_tier1 = {
+				{self.values.player.passive_dodge_chance[1] * 100 .. "%"}
+			},
+			ghost_tier2 = {
+				{(self.values.weapon.passive_swap_speed_multiplier[1] - 1) * 100 .. "%"}
+			},
+			ghost_tier3 = {
+				{(self.values.player.passive_dodge_chance[2] - self.values.player.passive_dodge_chance[1]) * 100 .. "%"}
+			},
+			ghost_tier4 = {
+				{
+					"+" .. self.values.player.passive_concealment_modifier[1],
+					(1 - self.values.player.passive_armor_movement_penalty_multiplier[1]) * 100 .. "%"
+				}
+			},
+			ghost_tier5 = {
+				{((self.values.weapon.passive_swap_speed_multiplier[2] - 1) - (self.values.weapon.passive_swap_speed_multiplier[1] - 1)) * 100 .. "%"}
+			},
+			ghost_tier6 = {
+				{
+					(self.values.player.passive_loot_drop_multiplier[1] - 1) * 100 .. "%",
+					self.values.weapon.armor_piercing_chance[1] * 100 .. "%"
+				}
+			},	
+			
 			mastermind = {
 				{"2"}
 			},		
@@ -2728,7 +3109,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"20%"}
 			},
 			equilibrium = {
-				{"4", "50%"},
+				{"10%", "50%"},
 				{"100%"}
 			},
 			medic_2x = {
@@ -2822,7 +3203,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 			overkill = {
 				{"75", "5"}
 			},
-
 
 			technician = {
 				{"2"}
@@ -2920,8 +3300,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"25%", "25%"}
 			},
 			nine_lives = {
-				{"1"},
-				{"35%"}
+				{self.values.player.additional_lives[1]},
+				{self.values.player.cheat_death_chance[1] * 100 .. "%"}
 			},
 			good_luck_charm = {
 				{"10", "1"},
@@ -2987,16 +3367,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				{"20", "4"}
 			},
 			running_from_death = {
-				{"20%", "5"},
-				{"5%", "5"}
+				{form("a", self.values.temporary.swap_weapon_faster[1]).."%", self.values.temporary.swap_weapon_faster[1][2]},
+				{form("a", self.values.temporary.increased_movement_speed[1]).."%", self.values.temporary.increased_movement_speed[1][2]}
 			},
 			second_chances = {
 				{},
 				{"2"}
 			},
 			tea_cookies = {
-				{"2"},
-				{"2"}
+				{self.values.first_aid_kit.quantity[1]},
+				{self.values.first_aid_kit.quantity[2] - self.values.first_aid_kit.quantity[1]}
 			},
 			bloodthirst = {
 				{"100%", "400%"},
@@ -3004,7 +3384,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 			}
 		}
 		self.skill_descs = {}
-		for skill_id, skill_desc in pairs(editable_skill_descs) do
+		for skill_id, skill_desc in pairs(self.editable_skill_descs) do
 			self.skill_descs[skill_id] = {}
 			for index, skill_version in ipairs(skill_desc) do
 				local version = index == 1 and "multibasic" or "multipro"
@@ -3015,36 +3395,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				end
 			end
 		end
-
-		
-		local editable_specialization_descs = {
-			{{"40"}},
-			{{"30"}},
-			{{"200"}},
-			{{"150"}},
-			{},
-			{{"10"}},
-			{{"70"}},
-			{{"15"}},
-			{{"5"}},
-			{{"20"}},
-			{},
-			{{"20"}},
-			{{"50"}},
-			{},
-			{}
-		}
-		
-		for tree, data in pairs(editable_specialization_descs) do
-			self.specialization_descs[tree] = {}
-			for tier, tier_data in ipairs(data) do
-				self.specialization_descs[tree][tier] = {}
-				for i, desc in ipairs(tier_data) do
-					self.specialization_descs[tree][tier]["multiperk" .. (i == 1 and "" or tostring(i))] = desc
-				end
-			end
-		end
-
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
@@ -3052,49 +3402,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 	function PlayerTweakData:init(tweak_data)
 		data(self, tweak_data)
 		self.damage.MIN_DAMAGE_INTERVAL = 0.35
-		self.alarm_pager = {
-			first_call_delay = {2, 4},
-			call_duration = {
-				{3, 6},
-				{3, 6}
-			},
-			nr_of_calls = {2, 2},
-			bluff_success_chance = {
-				1,
-				1,
-				0
-			},
-			bluff_success_chance_w_skill = {
-				1,
-				1,
-				1,
-				1,
-				0
-			}
-		}
-		self.fall_damage_alert_size = 1000
-	end
-
-
-	function PlayerTweakData:_set_normal()
-		self.damage.automatic_respawn_time = 120
-		self.alarm_pager.call_duration = {
-			{6, 6},
-			{6, 6}
-		}
-		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
-	end
-
-	function PlayerTweakData:_set_hard()
-		self.damage.automatic_respawn_time = 220
-		self.damage.DOWNED_TIME_DEC = 7
-		self.damage.DOWNED_TIME_MIN = 5
-		self.damage.automatic_respawn_time = 120
-		self.alarm_pager.call_duration = {
-			{6, 6},
-			{6, 6}
-		}
-		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
@@ -3153,6 +3460,14 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			category = "player",
 			upgrade = "mask_off_pickup"
 		}
+		self.cas_take_usb_key.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pickup"
+		}
+		self.cas_take_usb_key_data.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_pickup"
+		}
 		
 		self.key.requires_mask_off_upgrade = {
 			category = "player",
@@ -3183,6 +3498,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_keycard_insert"
 		}
 		self.use_hotel_room_key_no_access.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_keycard_insert"
+		}
+		self.cas_copy_usb.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_keycard_insert"
 		}
@@ -3240,6 +3559,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/interactiontweakdata" then
 			upgrade = "mask_off_desktop_interaction"
 		}
 		self.hold_open_the_safe.requires_mask_off_upgrade = {
+			category = "player",
+			upgrade = "mask_off_desktop_interaction"
+		}
+		self.security_station_keyboard.requires_mask_off_upgrade = {
 			category = "player",
 			upgrade = "mask_off_desktop_interaction"
 		}
@@ -3313,9 +3636,34 @@ if string.lower(RequiredScript) == "lib/tweak_data/equipmentstweakdata" then
 		}
 	end
 end
+if string.lower(RequiredScript) == "lib/units/beings/player/playermovement" then
+	function PlayerMovement:is_SPOOC_attack_allowed()
+		if self._unit:character_damage():get_mission_blocker("invulnerable") or self._unit:character_damage().swansong then
+			return false
+		end
+		if self._current_state_name == "driving" then
+			return false
+		end
+		if PlayerManager.walking_bleedout > 0 then
+			return false
+		end
+		return true
+	end
+	function PlayerMovement:is_taser_attack_allowed()
+		if self._unit:character_damage():get_mission_blocker("invulnerable") or self._current_state_name == "driving" or self._unit:base().parachuting then
+			return false
+		end
+		if PlayerManager.walking_bleedout > 0 then
+			return false
+		end
+		return true
+	end
+end
 if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 	function PlayerDamage:damage_bullet(attack_data)
-		self:_chk_can_take_dmg()
+		if not self:_chk_can_take_dmg() then
+			return
+		end
 
 		local damage_info = {
 			result = {
@@ -3324,8 +3672,12 @@ if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 			},
 			attacker_unit = attack_data.attacker_unit
 		}
+
 		local pm = managers.player
 		local dmg_mul = pm:damage_reduction_skill_multiplier("bullet")
+		if CopDamage.is_gangster(attack_data.attacker_unit:base()._tweak_table) then
+			dmg_mul = dmg_mul * managers.player:upgrade_value("player", "gangster_damage_dampener", 1)
+		end
 		attack_data.damage = attack_data.damage * dmg_mul
 		attack_data.damage = managers.mutators:modify_value("PlayerDamage:TakeDamageBullet", attack_data.damage)
 		attack_data.damage = managers.modifiers:modify_value("PlayerDamage:TakeDamageBullet", attack_data.damage)
@@ -3345,7 +3697,7 @@ if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 		if damage_absorption > 0 then
 			attack_data.damage = math.max(0, attack_data.damage - damage_absorption)
 		end
-			local dodge_roll = math.random()
+		local dodge_roll = math.random()
 		local dodge_value = tweak_data.player.damage.DODGE_INIT or 0
 		local armor_dodge_chance = pm:body_armor_value("dodge")
 		local skill_dodge_chance = pm:skill_dodge_chance(self._unit:movement():running(), self._unit:movement():crouching(), self._unit:movement():zipline_unit())
@@ -3570,46 +3922,158 @@ if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 			attack_data.attacker_unit:sound():say("i03")
 		end
 	end	
-end
-if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebase" then
-	local _upd_criminal_suspicion_progress_original = GroupAIStateBase._upd_criminal_suspicion_progress
-	function GroupAIStateBase:_upd_criminal_suspicion_progress(...)
-		if self._ai_enabled and managers.groupai:state():whisper_mode() then
-			for obs_key, obs_susp_data in pairs(self._suspicion_hud_data or {}) do
-				local unit = obs_susp_data.u_observer
-				
-				if managers.enemy:is_civilian(unit) then
-					local waypoint = managers.hud._hud.waypoints["susp1" .. tostring(obs_key)]
-					
-					if waypoint then
-						if unit:anim_data().drop then
-							if not obs_susp_data._subdued_civ then
-								obs_susp_data._alerted_civ = nil
-								obs_susp_data._subdued_civ = true
-								if managers.player:has_category_upgrade("player", "civs_show_markers") then
-									waypoint.bitmap:set_color(Color())
-									waypoint.arrow:set_color(Color())
-								else
-									obs_susp_data.expire_t = self._t + 8
-									waypoint.arrow:set_color(Color(0, 0.3, 0.5))
-									waypoint.bitmap:set_image("guis/textures/pd2/hud_stealth_eye")
-								end
-							end
-						elseif obs_susp_data.alerted then
-							if not obs_susp_data._alerted_civ then
-								obs_susp_data._subdued_civ = nil
-								obs_susp_data._alerted_civ = true
-								waypoint.bitmap:set_color(Color.white)
-								waypoint.arrow:set_color(tweak_data.hud.detected_color:with_alpha(0.75))
-							end
-						end
-					end
-				end
+	
+	local data = PlayerDamage.revive
+	function PlayerDamage:revive(silent)
+		data(self, silent)
+		local arrested = self:arrested()
+		if managers.player:has_category_upgrade("player", "revived_health_regain_solid_amount") then
+			if not arrested then
+				local amount = managers.player:has_category_upgrade("player", "melee_damage_health_ratio_multiplier") and managers.player:upgrade_value("player", "revived_health_regain_solid_wolverine") or managers.player:upgrade_value("player", "revived_health_regain_solid_amount")
+				self:set_health(self:_max_health() * amount)
 			end
 		end
-		
-		return _upd_criminal_suspicion_progress_original(self, ...)
 	end
+	
+	local data = PlayerDamage.on_downed
+	function PlayerDamage:on_downed()
+		data(self)
+		if PlayerManager.walking_bleedout > tweak_data.upgrades.walking_bleedout_time_to_fatal_state then
+			managers.player:set_player_state("fatal")
+		end
+		if PlayerManager.walking_bleedout > 0 then
+			PlayerManager.walking_bleedout = 0
+		end
+	end
+
+	local data = PlayerDamage.update
+	function PlayerDamage:update(unit, t, dt)
+		data(self, unit, t, dt)
+		if PlayerManager.walking_bleedout > 0 then
+			local ticks = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) - (self:remaining_delayed_damage() * 2)
+			PlayerManager.walking_bleedout = 1 + ticks
+		end
+		if self:dead() then
+			PlayerManager.walking_bleedout = 0
+		end
+		if PlayerManager.walking_bleedout > managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) then
+			PlayerManager.walking_bleedout = 0
+		end
+		local ticks_to_ressurection = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+		local bleeder = PlayerManager.walking_bleedout
+		local time_to_bleed = managers.player:upgrade_value("player", "walking_bleedout_time_to_bleed", 0)
+		local reability = ticks_to_ressurection - time_to_bleed
+		local total_bleed_penalty = bleeder > reability and self:remaining_delayed_damage() * 2 or bleeder > time_to_bleed and time_to_bleed or bleeder
+		self._down_time = tweak_data.player.damage.DOWNED_TIME - math.floor(total_bleed_penalty)
+
+	end
+		
+	local data = PlayerDamage._chk_cheat_death
+	function PlayerDamage:_chk_cheat_death()
+		data(self)
+		if math.rand(1) < managers.player:upgrade_value("player", "walking_bleedout_chance", 0) then
+			if PlayerManager.walking_bleedout == 0 then
+				self:set_health(self:_max_health() * managers.player:upgrade_value("player", "walking_bleedout_temporary_health_mul", 0))
+				self:delay_damage(managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) * 0.5, managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10))
+				PlayerManager.walking_bleedout = 1
+			end
+		end
+	end
+	local data = PlayerDamage.band_aid_health
+	function PlayerDamage:band_aid_health()
+		data(self)
+		if PlayerManager.walking_bleedout > 0 and math.rand(1) < managers.player:upgrade_value("player", "walking_bleedout_fak_self_revive", 0) then 
+			self:clear_delayed_damage()
+			PlayerManager.walking_bleedout = 0
+		end
+	end
+	local data = PlayerDamage.recover_health
+	function PlayerDamage:recover_health()
+		data(self)
+		if PlayerManager.walking_bleedout > 0 and managers.player:has_category_upgrade("player", "walking_bleedout_doctor_bag_self_revive") then
+			self:clear_delayed_damage()
+			PlayerManager.walking_bleedout = 0
+		end
+	end
+end
+if string.lower(RequiredScript) == "lib/units/beings/player/states/playerstandard" then
+	function PlayerStandard:_get_interaction_speed()
+		local dt = managers.player:player_timer():delta_time()
+		if PlayerManager.walking_bleedout > 0 then
+			local maxed = 1 - tweak_data.upgrades.walking_bleedout_interaction_time_penalty
+			local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+			local pm_wb =  (wb_ttr - PlayerManager.walking_bleedout)
+			local total = (maxed - (maxed / wb_ttr * pm_wb))
+			dt = dt * (tweak_data.upgrades.walking_bleedout_interaction_time_penalty + total)
+		end
+		return dt
+	end
+end
+if string.lower(RequiredScript) == "lib/managers/playermanager" then
+
+	local data = PlayerManager.total_body_bags
+	function PlayerManager:total_body_bags()
+		local addend = 0
+		if Global.game_settings.level_id == "short1_stage1" then
+			addend = addend + 1 
+		end
+		return data(self) + addend
+	end
+
+	PlayerManager.walking_bleedout = 0
+	function PlayerManager:health_skill_multiplier()
+		local multiplier = 1
+		multiplier = multiplier + self:upgrade_value("player", "fugitive_tier_health_multiplier", 1) - 1
+		multiplier = multiplier + self:upgrade_value("player", "health_multiplier", 1) - 1
+		multiplier = multiplier + self:upgrade_value("player", "passive_health_multiplier", 1) - 1
+		multiplier = multiplier + self:team_upgrade_value("health", "passive_multiplier", 1) - 1
+		multiplier = multiplier + self:get_hostage_bonus_multiplier("health") - 1
+		multiplier = multiplier - self:upgrade_value("player", "health_decrease", 0)
+		if self:num_local_minions() > 0 then
+			multiplier = multiplier + self:upgrade_value("player", "minion_master_health_multiplier", 1) - 1
+		end
+		return multiplier
+	end
+	function PlayerManager:movement_speed_multiplier(speed_state, bonus_multiplier, upgrade_level, health_ratio)
+		local multiplier = 1.00000001
+		if PlayerManager.walking_bleedout > 0 then
+			local maxed = 1 - tweak_data.upgrades.walking_bleedout_walk_speed_penalty
+			local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+			local pm_wb =  (wb_ttr - PlayerManager.walking_bleedout)
+			local total = (maxed - (maxed / wb_ttr * pm_wb))
+			multiplier = multiplier + (tweak_data.upgrades.walking_bleedout_walk_speed_penalty + total) - 1
+		end
+		local armor_penalty = self:mod_movement_penalty(self:body_armor_value("movement", upgrade_level, 1))
+		multiplier = multiplier + armor_penalty - 1
+		if bonus_multiplier then
+			multiplier = multiplier + bonus_multiplier - 1
+		end
+		if speed_state then
+			multiplier = multiplier + self:upgrade_value("player", speed_state .. "_speed_multiplier", 1) - 1
+		end
+		multiplier = multiplier + self:get_hostage_bonus_multiplier("speed") - 1
+		multiplier = multiplier + self:upgrade_value("player", "movement_speed_multiplier", 1) - 1
+		if self:num_local_minions() > 0 then
+			multiplier = multiplier + self:upgrade_value("player", "minion_master_speed_multiplier", 1) - 1
+		end
+		if self:has_category_upgrade("player", "secured_bags_speed_multiplier") then
+			local bags = 0
+			bags = bags + (managers.loot:get_secured_mandatory_bags_amount() or 0)
+			bags = bags + (managers.loot:get_secured_bonus_bags_amount() or 0)
+			multiplier = multiplier + bags * (self:upgrade_value("player", "secured_bags_speed_multiplier", 1) - 1)
+		end
+		if managers.player:has_activate_temporary_upgrade("temporary", "berserker_damage_multiplier") then
+			multiplier = multiplier * (tweak_data.upgrades.berserker_movement_speed_multiplier or 1)
+		end
+		if health_ratio then
+			local damage_health_ratio = self:get_damage_health_ratio(health_ratio, "movement_speed")
+			multiplier = multiplier * (1 + managers.player:upgrade_value("player", "movement_speed_damage_health_ratio_multiplier", 0) * damage_health_ratio)
+		end
+		local damage_speed_multiplier = managers.player:temporary_upgrade_value("temporary", "damage_speed_multiplier", managers.player:temporary_upgrade_value("temporary", "team_damage_speed_multiplier_received", 1))
+		multiplier = multiplier * damage_speed_multiplier
+		return multiplier
+	end
+	
 end
 if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 	--first piece of code was cowardly spied from andole's cable ties pick up changer
@@ -3632,27 +4096,24 @@ if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 		end
 	end
 end
-if string.lower(RequiredScript) == "lib/managers/playermanager" then
-	function PlayerManager:critical_hit_chance()
-		local multiplier = 0
-		local weapon_unit = self:equipped_weapon_unit()
-
-		if weapon_unit then
-			local weapon = weapon_unit:base()
-
-			if weapon and weapon:fire_mode() == "single" and weapon:is_category("smg", "assault_rifle", "snp") then
-				multiplier = multiplier + self:upgrade_value("player", "critical_hit_chance", 0)
-			end
+if string.lower(RequiredScript) == "lib/units/beings/player/states/playermaskoff" then
+	local data = PlayerMaskOff.init
+	function PlayerMaskOff:init(unit)
+		data(self, unit)
+		local detection_risk = managers.blackmarket:get_suspicion_offset_of_local(tweak_data.player.SUSPICION_OFFSET_LERP or 0.75)
+		detection_risk = math.round(detection_risk * 100)
+		if detection_risk <= managers.player:upgrade_value("player", "guards_cant_spot_you_in_casing", 0) then
+			self._mask_off_attention_settings = {}
 		end
-		multiplier = multiplier + self:upgrade_value("weapon", "critical_hit_chance", 0)
-		multiplier = multiplier + self:team_upgrade_value("critical_hit", "chance", 0)
-		multiplier = multiplier + self:get_hostage_bonus_multiplier("critical_hit") - 1
-		multiplier = multiplier + managers.player:temporary_upgrade_value("temporary", "unseen_strike", 1) - 1
-		multiplier = multiplier + self._crit_mul - 1
-		local detection_risk_add_crit_chance = managers.player:upgrade_value("player", "detection_risk_add_crit_chance")
-		multiplier = multiplier + self:get_value_from_risk_upgrade(detection_risk_add_crit_chance)
-
-		return multiplier
+	end
+end
+if string.lower(RequiredScript) == "lib/managers/menumanager" then
+	local data = MenuCallbackHandler._increase_infamous
+	function MenuCallbackHandler:_increase_infamous(yes_clbk)
+		data(self, yes_clbk)
+		managers.skilltree:reset_specializations()
+		managers.skilltree._global.specializations.total_points = Application:digest_value(0, true)
+		managers.skilltree._global.specializations.points = Application:digest_value(0, true)
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/menu/skilltreegui" then
@@ -4184,7 +4645,7 @@ if string.lower(RequiredScript) == "lib/managers/menu/skilltreegui" then
 			guis_catalog = guis_catalog .. "dlcs/" .. tostring(tier_data.texture_bundle_folder) .. "/"
 		end
 
-		local icon_atlas_texture = "guis/textures/pd2/specialization/icons_atlas"
+		local icon_atlas_texture = "guis/textures/pd2/skilltree/op_icons_atlas"
 		local tier_icon = tier_panel:bitmap({
 			layer = 1,
 			halign = "scale",
@@ -4562,6 +5023,7 @@ if string.lower(RequiredScript) == "lib/managers/menu/skilltreegui" then
 	
 end
 if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
+
 	SkillTreeManager.VERSION = 11
 	
 	function SkillTreeManager:_create_tree_data(tree_id)
@@ -4609,6 +5071,69 @@ if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 	
 	function SkillTreeManager:get_tree_progress_2(tree, switch_data)
 		return self:get_tree_progress_new(tree, switch_data)
+	end
+		
+	function SkillTreeManager:switch_skills(selected_skill_switch)
+		if selected_skill_switch == self._global.selected_skill_switch then
+			return
+		end
+		if not self._global.skill_switches[selected_skill_switch] then
+			return
+		end
+		if not self._global.skill_switches[selected_skill_switch].unlocked then
+			return
+		end
+		local function unaquire_skill(skill_id)
+			local progress_data = self._global.skills[skill_id]
+			local skill_data = tweak_data.skilltree.skills[skill_id]
+			for i = progress_data.unlocked, 1, -1 do
+				local step_data = skill_data[i]
+				local upgrades = step_data.upgrades
+				if upgrades then
+					for i = #upgrades, 1, -1 do
+						local upgrade = upgrades[i]
+						managers.upgrades:unaquire(upgrade, UpgradesManager.AQUIRE_STRINGS[2] .. "_" .. tostring(skill_id))
+					end
+				end
+			end
+		end
+
+		for tree, data in pairs(tweak_data.skilltree.trees) do
+			local tree_data = tweak_data.skilltree.trees[tree]
+			for i = #tree_data.tiers, 1, -1 do
+				local tier = tree_data.tiers[i]
+				for _, skill in ipairs(tier) do
+					unaquire_skill(skill)
+				end
+			end
+			unaquire_skill(tree_data.skill)
+		end
+		self._global.selected_skill_switch = selected_skill_switch
+		local data = self._global.skill_switches[self._global.selected_skill_switch]
+		self._global.points = data.points
+		self._global.trees = data.trees
+		self._global.skills = data.skills
+		for tree_id, tree_data in pairs(self._global.trees) do
+			if tree_data.unlocked and not tweak_data.skilltree.trees[tree_id].dlc then
+				local skill_id = tweak_data.skilltree.trees[tree_id].skill
+				local skill = tweak_data.skilltree.skills[skill_id]
+				local skill_data = self._global.skills[skill_id]
+				for i = 1, skill_data.unlocked do
+					self:_aquire_skill(skill[i], skill_id, true)
+				end
+				for tier, skills in pairs(tweak_data.skilltree.trees[tree_id].tiers) do
+					for _, skill_id in ipairs(skills) do
+						local skill = tweak_data.skilltree.skills[skill_id]
+						local skill_data = self._global.skills[skill_id]
+						for i = 1, skill_data.unlocked do
+							self:_aquire_skill(skill[i], skill_id, true)
+						end
+					end
+				end
+			end
+		end
+		self:set_current_specialization(self:digest_value(data.specialization, false), 1)
+		MenuCallbackHandler:_update_outfit_information()
 	end
 	
 	function SkillTreeManager:_setup_skill_switches()
@@ -4878,13 +5403,61 @@ if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/menu/playerinventorygui" then
+	Hooks:PreHook(PlayerInventoryGui, "_round_everything", "PlayerInventoryGui_update_legends", function(self)
+		self:_update_specialization_box()
+	end)
+	
+	function PlayerInventoryGui:_update_specialization_box()
+		local box = self._boxes_by_name.specialization
+
+		if box then
+			local current_specialization = managers.skilltree:get_specialization_value("current_specialization")
+			local specialization_data = tweak_data.skilltree.specializations[current_specialization]
+			local texture_rect_x = 0
+			local texture_rect_y = 0
+			local specialization_text = managers.localization:text(specialization_data.name_id) or " "
+			local guis_catalog = "guis/"
+
+			if specialization_data then
+				local current_tier = managers.skilltree:get_specialization_value(current_specialization, "tiers", "current_tier")
+				local max_tier = managers.skilltree:get_specialization_value(current_specialization, "tiers", "max_tier")
+				local tier_data = specialization_data[max_tier]
+
+				if tier_data then
+					texture_rect_x = tier_data.icon_xy and tier_data.icon_xy[1] or 0
+					texture_rect_y = tier_data.icon_xy and tier_data.icon_xy[2] or 0
+
+					if tier_data.texture_bundle_folder then
+						guis_catalog = guis_catalog .. "dlcs/" .. tostring(tier_data.texture_bundle_folder) .. "/"
+					end
+				end
+			end
+
+			local icon_atlas_texture = guis_catalog .. "textures/pd2/skilltree/op_icons_atlas"
+
+			self:update_box(box, {
+				text = specialization_text,
+				image = icon_atlas_texture,
+				image_rect = {
+					texture_rect_x * 64,
+					texture_rect_y * 64,
+					64,
+					64
+				}
+			}, true)
+		end
+	end
+	
 	function PlayerInventoryGui:set_skilltree_stats(panel, data) return end
 	PlayerInventoryGui._update_info_skilltree = function(self, name)
 		local text_string = ""
 		text_string = text_string .. managers.localization:text("menu_st_skill_switch_set", {skill_switch = managers.skilltree:get_skill_switch_name(managers.skilltree:get_selected_skill_switch(), true)}) .. "\n "
 		local tree_to_string_id = {mastermind = "st_menu_mastermind", enforcer = "st_menu_enforcer", technician = "st_menu_technician", ghost = "st_menu_ghost", hoxton = "st_menu_hoxton_pack"}
 		text_string = text_string .. "\n"
-		for i,tree in ipairs({"mastermind", "enforcer", "technician", "ghost", "hoxton"}) do
+		
+		local trees = {"mastermind", "enforcer", "technician", "ghost", "hoxton"}
+		
+		for i,tree in ipairs(trees) do
 			local points, progress, num_skills = managers.skilltree:get_tree_progress_new(tree)
 			points = string.format("%02d", points)
 			text_string = text_string .. managers.localization:to_upper_text("menu_profession_progress", {profession = managers.localization:to_upper_text(tree_to_string_id[tree]), progress = points, num_skills = num_skills}) .. "\n"
@@ -4893,9 +5466,21 @@ if string.lower(RequiredScript) == "lib/managers/menu/playerinventorygui" then
 	end
 end
 if string.lower(RequiredScript) == "lib/units/equipment/ammo_bag/ammobagbase" then
-	AmmoBagBase._BULLET_STORM = {5, 10}
+	AmmoBagBase._BULLET_STORM = {10}
 end
 if string.lower(RequiredScript) == "lib/managers/menu/menucomponentmanager" then
+	local data = SkillTreeGui._set_selected_skill_item
+	function SkillTreeGui:_set_selected_skill_item(item, no_sound)
+		data(self, item, no_sound)
+		local desc_text = self._skill_description_panel:child("text")
+		desc_text:set_font_size(tweak_data.menu.pd2_small_font_size)
+		local _, _, _, h = desc_text:text_rect()
+		while h > self._skill_description_panel:h() - desc_text:top() do
+			desc_text:set_font_size(desc_text:font_size() * 0.99)
+			_, _, _, h = desc_text:text_rect()
+		end
+	end
+	
 	function MenuComponentManager:create_skilltree_new_gui(node)
 		self:close_skilltree_new_gui()
 
@@ -4951,23 +5536,7 @@ if string.lower(RequiredScript) == "lib/units/beings/player/states/playertased" 
 		end
 	end
 end
-<<<<<<< Updated upstream
-=======
 if string.lower(RequiredScript) == "lib/managers/menumanagerdialogs" then
-	local data = MenuManager.show_question_new_safehouse
-	function MenuManager:show_question_new_safehouse(params)
-		if not _G.OriginalPackOptions.settings.Enable_Test then
-			data(self, params)
-		end
-	end
-	
-	local data = MenuManager.show_question_new_safehouse_new_player
-	function MenuManager:show_question_new_safehouse_new_player(params)
-		if not _G.OriginalPackOptions.settings.Enable_Test then
-			data(self, params)
-		end
-	end
-	
 	function MenuManager:show_confirm_respec_skilltree(params)
 		local tree_name = managers.localization:text(tweak_data.skilltree.trees[params.tree].name_id)
 		local dialog_data = {
@@ -4996,59 +5565,175 @@ if string.lower(RequiredScript) == "lib/managers/menumanagerdialogs" then
 	end
 end
 if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
+	function NewRaycastWeaponBase:reload_speed_multiplier()
+		if self._current_reload_speed_multiplier then
+			return self._current_reload_speed_multiplier
+		end
+
+		local multiplier = 1
+
+		for _, category in ipairs(self:weapon_tweak_data().categories) do
+			multiplier = multiplier + 1 - managers.player:upgrade_value(category, "reload_speed_multiplier", 1)
+		end
+
+		if PlayerManager.walking_bleedout > 0 then
+			local maxed = tweak_data.upgrades.walking_bleedout_post_reload_speed_penalty
+			local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+			local pm_wb =  (wb_ttr - PlayerManager.walking_bleedout)
+			local total = (maxed - (maxed / wb_ttr * pm_wb))
+			multiplier = multiplier * (tweak_data.upgrades.walking_bleedout_reload_speed_penalty - total)
+		end
+		
+		multiplier = multiplier + 1 - managers.player:upgrade_value("weapon", "passive_reload_speed_multiplier", 1)
+		multiplier = multiplier + 1 - managers.player:upgrade_value(self._name_id, "reload_speed_multiplier", 1)
+
+		if self._setup and alive(self._setup.user_unit) and self._setup.user_unit:movement() then
+			local morale_boost_bonus = self._setup.user_unit:movement():morale_boost()
+
+			if morale_boost_bonus then
+				multiplier = multiplier + 1 - morale_boost_bonus.reload_speed_bonus
+			end
+
+			if self._setup.user_unit:movement():next_reload_speed_multiplier() then
+				multiplier = multiplier + 1 - self._setup.user_unit:movement():next_reload_speed_multiplier()
+			end
+		end
+
+		if managers.player:has_activate_temporary_upgrade("temporary", "reload_weapon_faster") then
+			multiplier = multiplier + 1 - managers.player:temporary_upgrade_value("temporary", "reload_weapon_faster", 1)
+		end
+
+		if managers.player:has_activate_temporary_upgrade("temporary", "single_shot_fast_reload") then
+			multiplier = multiplier + 1 - managers.player:temporary_upgrade_value("temporary", "single_shot_fast_reload", 1)
+		end
+
+		multiplier = multiplier + 1 - managers.player:get_property("shock_and_awe_reload_multiplier", 1)
+		multiplier = multiplier + 1 - managers.player:get_temporary_property("bloodthirst_reload_speed", 1)
+		multiplier = multiplier + 1 - managers.player:upgrade_value("team", "crew_faster_reload", 1)
+		multiplier = self:_convert_add_to_mul(multiplier)
+		multiplier = multiplier * self:reload_speed_stat()
+		multiplier = managers.modifiers:modify_value("WeaponBase:GetReloadSpeedMultiplier", multiplier)
+
+		return multiplier
+	end
 	local data = NewRaycastWeaponBase._update_bullet_objects
 	function NewRaycastWeaponBase:_update_bullet_objects(ammo_func)
 		data(self, ammo_func)
 		local user_unit = self._setup and self._setup.user_unit
-		local current_state = alive(user_unit) and user_unit:movement() and user_unit:movement()._current_state:in_steelsight()
-		local chance_value = current_state and managers.player:upgrade_value("player", "shotgun_steelsight_shield_knock") or managers.player:upgrade_value("player", "shotgun_shield_knock") or 0
+		local current_state = alive(user_unit) and user_unit:movement() and user_unit:movement()._current_state
+		local chance_value = current_state and current_state:in_steelsight() and managers.player:upgrade_value("player", "shotgun_steelsight_shield_knock") or managers.player:upgrade_value("player", "shotgun_shield_knock") or 0
 		self._shield_knock = math.random() <= chance_value and self:is_category("shotgun")
 	end
 	function NewRaycastWeaponBase:get_add_head_shot_mul()
 		local user_unit = self._setup and self._setup.user_unit
 		local current_state = alive(user_unit) and user_unit:movement() and user_unit:movement()._current_state
-		local steelsight_bonus = current_state:in_steelsight() and managers.player:upgrade_value("weapon", "single_steelsight_head_shot_add", nil) or 0
-		local not_moving_bonus = not current_state._moving and managers.player:upgrade_value("weapon", "single_not_moving_head_shot_add", nil) or 0
-		if self:is_single_shot() and self:is_category("assault_rifle") then
-			return managers.player:upgrade_value("assault_rifle", "single_head_shot_add", nil) + steelsight_bonus + not_moving_bonus
-		end
-		if self:is_single_shot() and self:is_category("smg") then
-			return managers.player:upgrade_value("smg", "single_head_shot_add", nil) + steelsight_bonus + not_moving_bonus
-		end
-		if self:is_single_shot() and self:is_category("snp") then
-			return managers.player:upgrade_value("snp", "single_head_shot_add", nil) + steelsight_bonus + not_moving_bonus
+		if self:is_single_shot() and (current_state and current_state:in_steelsight()) then
+			local snp = self:is_category("snp") and managers.player:upgrade_value("weapon", "snp_single_head_shot_add", nil)
+			local assault_rifle = self:is_category("assault_rifle") and managers.player:upgrade_value("weapon", "assault_rifle_single_head_shot_add", nil)
+			local smg = self:is_category("smg") and managers.player:upgrade_value("weapon", "smg_single_head_shot_add", nil)
+			local bonus = snp or smg or assault_rifle
+			return bonus
 		end
 		return nil
-	end
-	
+	end	
 	function NewRaycastWeaponBase:fire_rate_multiplier()
 		local weapon_unit = managers.player:equipped_weapon_unit()
-		local mul = 1
+		local mul = self._fire_rate_multiplier
 		if weapon_unit and weapon_unit:base():fire_mode() == "single" and weapon_unit:base():is_category("smg", "assault_rifle", "snp") then
 			mul = mul + managers.player:upgrade_value("player", "single_shot_fire_rate_mul")
 		end
-		return self._fire_rate_multiplier and mul
+		return mul
+	end
+	local data = NewRaycastWeaponBase._update_stats_values
+	function NewRaycastWeaponBase:_update_stats_values(disallow_replenish)
+		data(self, disallow_replenish)
+		if self:got_silencer() then
+			self._alert_size = self._alert_size * managers.player:upgrade_value("player", "reduce_silencer_alert_size", 1)
+		end
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
-	local data = BlackMarketManager.recoil_multiplier
 	function BlackMarketManager:recoil_multiplier(name, categories, silencer, blueprint, is_moving)
 		local multiplier = 1
+
 		local weapon_unit = managers.player:equipped_weapon_unit()
-		if not is_moving and weapon_unit and weapon_unit:base():fire_mode() == "single" and weapon_unit:base():is_category("smg", "assault_rifle", "snp") then
-			local recoil_not_moving_mul = managers.player:upgrade_value("player", "recoil_not_moving_mul")
-			local recoil_not_moving_aim_mul = managers.player:player_unit():movement()._current_state:in_steelsight() and managers.player:upgrade_value("player", "recoil_not_moving_aim_mul") or 1
-			multiplier = multiplier + (1 - recoil_not_moving_mul) + (1 - recoil_not_moving_aim_mul)
+		if weapon_unit and weapon_unit:base():fire_mode() == "single" and weapon_unit:base():is_category("smg", "assault_rifle", "snp") then
+			if not is_moving then
+				multiplier = multiplier + 1 - managers.player:upgrade_value("player", "recoil_not_moving_mul", 1)
+			end
+			if managers.player:player_unit():movement()._current_state:in_steelsight() then
+				multiplier = multiplier + 1 - managers.player:upgrade_value("player", "recoil_not_moving_aim_mul", 1)
+			end
 		end
-		return data(self, name, categories, silencer, blueprint, is_moving) and self:_convert_add_to_mul(multiplier)
+
+		for _, category in ipairs(categories) do
+			multiplier = multiplier + 1 - managers.player:upgrade_value(category, "recoil_multiplier", 1)
+			multiplier = multiplier + 1 - managers.player:upgrade_value(category, "passive_recoil_multiplier", 1)
+		end
+		if managers.player:player_unit() and managers.player:player_unit():character_damage():is_suppressed() then
+			for _, category in ipairs(categories) do
+				if managers.player:has_team_category_upgrade(category, "suppression_recoil_multiplier") then
+					multiplier = multiplier + 1 - managers.player:team_upgrade_value(category, "suppression_recoil_multiplier", 1)
+				end
+			end
+
+			if managers.player:has_team_category_upgrade("weapon", "suppression_recoil_multiplier") then
+				multiplier = multiplier + 1 - managers.player:team_upgrade_value("weapon", "suppression_recoil_multiplier", 1)
+			end
+		else
+			for _, category in ipairs(categories) do
+				if managers.player:has_team_category_upgrade(category, "recoil_multiplier") then
+					multiplier = multiplier + 1 - managers.player:team_upgrade_value(category, "recoil_multiplier", 1)
+				end
+			end
+
+			if managers.player:has_team_category_upgrade("weapon", "recoil_multiplier") then
+				multiplier = multiplier + 1 - managers.player:team_upgrade_value("weapon", "recoil_multiplier", 1)
+			end
+		end
+
+		multiplier = multiplier + 1 - managers.player:upgrade_value(name, "recoil_multiplier", 1)
+		multiplier = multiplier + 1 - managers.player:upgrade_value("weapon", "passive_recoil_multiplier", 1)
+		multiplier = multiplier + 1 - managers.player:upgrade_value("player", "recoil_multiplier", 1)
+		if silencer then
+			multiplier = multiplier + 1 - managers.player:upgrade_value("weapon", "silencer_recoil_multiplier", 1)
+
+			for _, category in ipairs(categories) do
+				multiplier = multiplier + 1 - managers.player:upgrade_value(category, "silencer_recoil_multiplier", 1)
+			end
+		end
+		if blueprint and self:is_weapon_modified(managers.weapon_factory:get_factory_id_by_weapon_id(name), blueprint) then
+			multiplier = multiplier + 1 - managers.player:upgrade_value("weapon", "modded_recoil_multiplier", 1)
+		end
+		return self:_convert_add_to_mul(multiplier)
+	end
+	
+	function BlackMarketManager:damage_addend(name, categories, silencer, detection_risk, current_state, blueprint)
+		local value = 0
+
+		local category = tweak_data.weapon[name].use_data.selection_index
+		if silencer and category == 1 then
+			value = value + managers.player:upgrade_value("player", "secondary_silencer_damage_addend", 0)
+		end
+		
+		if tweak_data.weapon[name] and tweak_data.weapon[name].ignore_damage_upgrades then
+			return value
+		end
+		value = value + managers.player:upgrade_value("player", "damage_addend", 0)
+		value = value + managers.player:upgrade_value("weapon", "damage_addend", 0)
+		value = value + managers.player:upgrade_value(name, "damage_addend", 0)
+		for _, category in ipairs(categories) do
+			value = value + managers.player:upgrade_value(category, "damage_addend", 0)
+		end
+		return value
 	end
 end
 if string.lower(RequiredScript) == "lib/units/weapons/sentrygunweapon" then
 	local data = SentryGunWeapon.setup
 	function SentryGunWeapon:setup(setup_data)
 		data(self, setup_data)
-		local sentry_gun_silent = managers.player:selected_equipment().equipment == "sentry_gun_silent"
-		if self._unit and sentry_gun_silent then
+		local sentry_gun_silent = managers.player:selected_equipment_id() == "sentry_gun_silent"
+		if sentry_gun_silent then
 			self._use_armor_piercing = true
 			self._slow_fire_rate = true
 			self._current_damage_mul = 3
@@ -5057,4 +5742,250 @@ if string.lower(RequiredScript) == "lib/units/weapons/sentrygunweapon" then
 		end
 	end
 end
->>>>>>> Stashed changes
+if string.lower(RequiredScript) == "lib/units/equipment/ecm_jammer/ecmjammerbase" then
+	local tmp_vec1 = Vector3()
+	function ECMJammerBase._detect_and_give_dmg(hit_pos, device_unit, user_unit, range)
+		local mvec3_dis_sq = mvector3.distance_sq
+		local slotmask = managers.slot:get_mask("bullet_impact_targets")
+		local splinters = {
+			mvector3.copy(hit_pos)
+		}
+		local dirs = {
+			Vector3(range, 0, 0),
+			Vector3(-range, 0, 0),
+			Vector3(0, range, 0),
+			Vector3(0, -range, 0),
+			Vector3(0, 0, range),
+			Vector3(0, 0, -range)
+		}
+		local pos = tmp_vec1
+		for _, dir in ipairs(dirs) do
+			mvector3.set(pos, dir)
+			mvector3.add(pos, hit_pos)
+			local splinter_ray = World:raycast("ray", hit_pos, pos, "slot_mask", slotmask)
+			pos = (splinter_ray and splinter_ray.position or pos) - dir:normalized() * math.min(splinter_ray and splinter_ray.distance or 0, 10)
+			local near_splinter = false
+			for _, s_pos in ipairs(splinters) do
+				if mvector3.distance_sq(pos, s_pos) < 300 then
+					near_splinter = true
+
+					break
+				end
+			end
+			if not near_splinter then
+				table.insert(splinters, mvector3.copy(pos))
+			end
+		end
+		local range_sq = range * range
+		local half_range_sq = range * 0.5
+		half_range_sq = half_range_sq * half_range_sq
+		local function _chk_apply_dmg_to_char(u_data)
+			if not u_data.char_tweak.ecm_vulnerability then
+				return
+			end
+			if u_data.unit.brain and u_data.unit:brain().is_hostage and u_data.unit:brain():is_hostage() then
+				return
+			end
+			if u_data.unit:anim_data() and u_data.unit:anim_data().act then
+				return
+			end
+			if u_data.char_tweak.ecm_vulnerability <= math.random() then
+				return
+			end
+			local head_pos = u_data.unit:movement():m_head_pos()
+			local dis_sq = mvec3_dis_sq(head_pos, hit_pos)
+			if range_sq < dis_sq then
+				return
+			end
+			for i_splinter, s_pos in ipairs(splinters) do
+				if i_splinter == 1 or dis_sq < half_range_sq then
+					local attack_data = {
+						damage = 0,
+						variant = "stun",
+						attacker_unit = alive(user_unit) and user_unit or nil,
+						weapon_unit = device_unit,
+						col_ray = {
+							position = mvector3.copy(head_pos),
+							ray = (head_pos - s_pos):normalized()
+						}
+					}
+
+					u_data.unit:character_damage():damage_explosion(attack_data)
+					break
+				end
+			end
+		end
+		for u_key, u_data in pairs(managers.enemy:all_enemies()) do
+			_chk_apply_dmg_to_char(u_data)
+		end
+		for u_key, u_data in pairs(managers.enemy:all_civilians()) do
+			_chk_apply_dmg_to_char(u_data)
+		end
+	end
+end
+if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicidle" then
+	function CopLogicIdle.on_intimidated(data, amount, aggressor_unit)
+		local surrender = false
+		local my_data = data.internal_data
+		data.t = TimerManager:game():time()
+
+		if not aggressor_unit:movement():team().foes[data.unit:movement():team().id] then
+			return
+		end
+
+		if managers.groupai:state():has_room_for_police_hostage() then
+			local i_am_special = managers.groupai:state():is_enemy_special(data.unit)
+			local required_skill = i_am_special and "intimidate_specials" or "intimidate_enemies"
+			local aggressor_can_intimidate = nil
+			local aggressor_intimidation_mul = 1
+
+			if aggressor_unit:base().is_local_player then
+				aggressor_can_intimidate = managers.player:has_category_upgrade("player", required_skill)
+				aggressor_intimidation_mul = aggressor_intimidation_mul * managers.player:upgrade_value("player", "empowered_intimidation_mul", 1) * managers.player:upgrade_value("player", "intimidation_multiplier", 1)
+			else
+				aggressor_can_intimidate = aggressor_unit:base():upgrade_value("player", required_skill)
+				aggressor_intimidation_mul = aggressor_intimidation_mul * (aggressor_unit:base():upgrade_value("player", "empowered_intimidation_mul") or 1) * (aggressor_unit:base():upgrade_value("player", "intimidation_multiplier") or 1)
+			end
+
+			if not managers.groupai:state():whisper_mode() and not managers.groupai:state():get_assault_mode() or aggressor_can_intimidate then
+				local hold_chance = CopLogicBase._evaluate_reason_to_surrender(data, my_data, aggressor_unit)
+
+				if hold_chance then
+					hold_chance = hold_chance^aggressor_intimidation_mul
+
+					if hold_chance >= 1 then
+						-- Nothing
+					else
+						local rand_nr = math.random()
+
+						print("and the winner is: hold_chance", hold_chance, "rand_nr", rand_nr, "rand_nr > hold_chance", hold_chance < rand_nr)
+
+						if hold_chance < rand_nr then
+							surrender = true
+						end
+					end
+				end
+			end
+
+			if surrender then
+				CopLogicIdle._surrender(data, amount, aggressor_unit)
+			else
+				data.unit:brain():on_surrender_chance()
+			end
+		end
+
+		CopLogicBase.identify_attention_obj_instant(data, aggressor_unit:key())
+		managers.groupai:state():criminal_spotted(aggressor_unit)
+
+		return surrender
+	end
+end
+if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebase" then
+	function GroupAIStateBase:has_room_for_police_hostage()
+		local nr_hostages_allowed = 0
+		for u_key, u_data in pairs(self._player_criminals) do
+			if u_data.unit:base().is_local_player then
+				if not managers.groupai:state():whisper_mode() and not managers.groupai:state():get_assault_mode() or managers.player:has_category_upgrade("player", "intimidate_enemies") then
+					if managers.player:has_category_upgrade("player", "intimidate_aura") then
+						nr_hostages_allowed = nr_hostages_allowed + 2
+					else
+						nr_hostages_allowed = nr_hostages_allowed + 1
+					end
+				end
+			elseif not managers.groupai:state():whisper_mode() and not managers.groupai:state():get_assault_mode() or u_data.unit:base():upgrade_value("player", "intimidate_enemies") then
+				if u_data.unit:base():upgrade_value("player", "intimidate_aura") then
+					nr_hostages_allowed = nr_hostages_allowed + 2
+				else
+					nr_hostages_allowed = nr_hostages_allowed + 1
+				end
+			end
+		end
+
+		return nr_hostages_allowed > self._police_hostage_headcount + table.size(self._converted_police)
+	end
+	local _upd_criminal_suspicion_progress_original = GroupAIStateBase._upd_criminal_suspicion_progress
+	function GroupAIStateBase:_upd_criminal_suspicion_progress(...)
+		if self._ai_enabled and managers.groupai:state():whisper_mode() then
+			for obs_key, obs_susp_data in pairs(self._suspicion_hud_data or {}) do
+				local unit = obs_susp_data.u_observer
+				local function _sync_status(sync_status_code)
+					if Network:is_server() and managers.network:session() then
+						managers.network:session():send_to_peers_synched("suspicion_hud", unit, sync_status_code)
+					end
+				end
+				
+				if managers.enemy:is_civilian(unit) then
+					local waypoint = managers.hud._hud.waypoints["susp1" .. tostring(obs_key)]
+					
+					
+					if waypoint then
+						if unit:anim_data().drop then
+							if not obs_susp_data._subdued_civ then
+								obs_susp_data._alerted_civ = nil
+								obs_susp_data._subdued_civ = true
+									waypoint.arrow:set_color(Color(0, 0.3, 0.5))
+									waypoint.bitmap:set_image("guis/textures/pd2/hud_stealth_eye")
+									obs_susp_data.expire_time = self._t + 8
+								_sync_status(1)
+							end
+						elseif obs_susp_data.alerted then
+							if not obs_susp_data._alerted_civ then
+								obs_susp_data._subdued_civ = nil
+								obs_susp_data._alerted_civ = true
+								if managers.player:has_category_upgrade("player", "civs_show_markers") then
+									waypoint.arrow:set_alpha(1)
+									waypoint.bitmap:set_alpha(1)
+								end
+								_sync_status(2)
+							end
+						end
+						if obs_susp_data._subdued_civ then
+							if obs_susp_data.expire_time < self._t then
+								waypoint.arrow:set_alpha(0)
+								waypoint.bitmap:set_alpha(0)
+							end
+						elseif obs_susp_data.status == "calling" then
+							waypoint.arrow:set_alpha(1)
+							waypoint.bitmap:set_alpha(1)
+							_sync_status(3)
+						end
+					end
+				end
+			end
+		end
+		
+		return _upd_criminal_suspicion_progress_original(self, ...)
+	end
+end
+if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
+	function CopLogicIntimidated._start_action_hands_up(data)
+		data.rand_value = math.random()
+		data.good_chance = 0.5
+		local my_data = data.internal_data
+		local spooked = data.rand_value <= data.good_chance
+		local anim_name = spooked and managers.groupai:state():whisper_mode() and "tied_all_in_one" or "hands_up"
+		local action_data = {
+			type = "act",
+			body_part = 1,
+			variant = anim_name,
+			clamp_to_graph = true,
+			blocks = {
+				light_hurt = -1,
+				hurt = -1,
+				heavy_hurt = -1,
+				walk = -1
+			}
+		}
+		my_data.act_action = data.unit:brain():action_request(action_data)
+		if my_data.act_action and data.unit:anim_data().hands_tied then
+			CopLogicIntimidated._do_tied(data, my_data.aggressor_unit)
+		end
+	end
+	function CopLogicIntimidated._chk_begin_alarm_pager(data)
+		if managers.groupai:state():whisper_mode() and data.unit:unit_data().has_alarm_pager then
+			if data.rand_value >= data.good_chance then
+				data.brain:begin_alarm_pager()
+			end
+		end
+	end
+end

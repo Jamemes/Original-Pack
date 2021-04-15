@@ -1,0 +1,12 @@
+<table>
+    <menu search="menu;id='start_menu'">
+        <node search="node;name='main'">
+            <item index="after:item;name='options'" next_node="OP_credits" trial_buy="true" help_id="OP_credits_help" name="OP_credits" text_id="OP_credits"/>
+        </node>
+         <node align_line="0.5" credits_file="OP" gui_class="MenuNodeCreditsGui" menu_components="" name="OP_credits" stencil_align="right" stencil_image="bg_stats" topic_id="OP_credits" use_info_rect="false">
+			<legend name="menu_legend_back"/>
+			<default_item name="back"/>
+			<item back="true" name="back" previous_node="true" text_id="menu_back" visible_callback="is_pc_controller"/>
+		</node>
+    </menu>
+</table>
