@@ -297,7 +297,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			Steam:overlay_activate("url", "https://discord.com/invite/F9SBFWh")
 		end
 		
-		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 22, "")
+		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 20, "")
 	end)
 end
 if string.lower(RequiredScript) == "lib/network/matchmaking/networkmatchmakingsteam" then

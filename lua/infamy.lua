@@ -246,20 +246,27 @@ if string.lower(RequiredScript) == "lib/units/props/infamycardgui" then
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
-	function ExperienceManager:infamy_suit_color(rank)
-		return rank > 400 and Color.yellow or rank > 300 and Color.red or rank > 200 and Color.grey or rank > 100 and Color.red or Color.grey
-	end
 	function ExperienceManager:gui_string(level, rank, offset)
 		offset = offset or 0
-		local icon_color = ExperienceManager:infamy_suit_color(rank)
 		local rank_string = rank > 0 and self:rank_string(rank) .. "-" or ""
 		local gui_string = rank_string .. tostring(level)
 		local rank_color_range = {
-			start = utf8.len(rank_string) - utf8.len(rank_string) + offset,
-			stop = rank > 100 and utf8.len(rank_string) + offset - 1 or 0,
-			color = icon_color
+			start = offset,
+			stop = offset + #self:rank_string(rank),
+			color = tweak_data.screen_colors.infamy_color
 		}
-
+		local function change_color(start, stop, color)
+			if rank > start and rank <= stop then
+				rank_color_range.color = color
+			end
+		end
+		
+		change_color(0, 100, tweak_data.screen_colors.achievement_grey)
+		change_color(100, 200, tweak_data.screen_colors.pro_color)
+		change_color(200, 300, tweak_data.screen_colors.achievement_grey)
+		change_color(300, 400, tweak_data.screen_colors.pro_color)
+		change_color(400, 500, Color("BEAA00"))
+		
 		return gui_string, {
 			rank_color_range
 		}
