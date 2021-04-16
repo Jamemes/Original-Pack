@@ -12667,11 +12667,9 @@ if string.lower(RequiredScript) == "lib/managers/menumanager" then
 	function MenuManager:close_menu(menu_name)
 		self:post_event("menu_exit")
 
-		if managers.network:session() and managers.network:session():amount_of_players() == 1 then
-			Application:set_pause(false)
-			self:post_event("game_resume")
-			SoundDevice:set_rtpc("ingame_sound", 1)
-		end
+		Application:set_pause(false)
+		self:post_event("game_resume")
+		SoundDevice:set_rtpc("ingame_sound", 1)
 
 		MenuManager.super.close_menu(self, menu_name)
 	end
