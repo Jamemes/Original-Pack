@@ -400,10 +400,11 @@ if string.lower(RequiredScript) == "lib/managers/experiencemanager" then
 		
 		job_xp("arm_for", 2)
 		
-		-- if managers.skirmish:current_wave_number() < 1 then
-			-- local mul = Global.game_settings.one_down and tweak_data.easy_mode_exp_penalty * 0.01 or 1
-			-- params.mission_xp = params.mission_xp * mul
-		-- end
+		if managers.groupai and not managers.groupai:state():whisper_mode() then
+			local current_buff = diff > 5 and 0.1 or 0.05
+			local mul = Global.game_settings.one_down and 1 + managers.skirmish:current_wave_number() * 0.1 or 1
+			params.mission_xp = params.mission_xp * mul
+		end
 		
 		local loose_money = math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount) >= tweak_data.max_loose_money_boost and tweak_data.max_loose_money_boost or math.floor(managers.loot:get_real_total_small_loot_value() / tweak_data.loose_money_exp_convertation_amount)
 		local mul = 1 + (loose_money * 0.01)

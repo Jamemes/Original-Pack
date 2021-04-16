@@ -8428,11 +8428,18 @@ if string.lower(RequiredScript) == "lib/managers/menu/ingamecontractgui" then
 		local modifiers_amount = 0
 		local next_top = modifiers_text:bottom()
 		local one_down_warning_text = nil
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
+		local current_buff = difficulty_index > 5 and 10 or 5
 		
 		if Global.game_settings.one_down then
+			local additional_desc = ""
+			if managers.skirmish:current_wave_number() > 0 then
+				additional_desc = ". " .. managers.localization:to_upper_text("menu_one_down_additional") .. " " .. managers.skirmish:current_wave_number() .. ". " .. managers.localization:to_upper_text("menu_one_down_additional_2") .. " " .. managers.skirmish:current_wave_number() * current_buff .. "%"
+			end
 			one_down_warning_text = text_panel:text({
 				name = "one_down_warning_text",
-				text = managers.localization:to_upper_text("menu_one_down"),
+				text = managers.localization:to_upper_text("menu_one_down") .. additional_desc,
 				font = tweak_data.menu.pd2_small_font,
 				font_size = tweak_data.menu.pd2_small_font_size,
 				color = tweak_data.screen_colors.pro_color
@@ -8530,8 +8537,6 @@ if string.lower(RequiredScript) == "lib/managers/menu/ingamecontractgui" then
 			pro_warning_text:set_left(10)
 			modifiers_amount = modifiers_amount + 1
 		end
-		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
-		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 		local killed_civ_text = nil
 		
 		if managers.statistics:session_total_civilian_kills() > 0 then
@@ -12664,6 +12669,7 @@ if string.lower(RequiredScript) == "lib/managers/menumanager" then
 		if item:value() == 6 or item:value() == 8 then
 			return false
 		end
+		managers.menu:active_menu().logic:selected_node():item("toggle_ai"):set_visible(false)
 		return data(self, item)
 	end
 	
