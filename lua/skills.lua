@@ -4093,8 +4093,8 @@ if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 	local data = AmmoClip._pickup
 	function AmmoClip:_pickup(unit)
 		local cable_ties = managers.player:has_special_equipment('cable_tie')
-		local ammoclip = data(self, unit)
 		cable_ties = cable_ties and cable_ties.amount or nil
+		local ammoclip = data(self, unit)
 		local cable_ties_new = managers.player:has_special_equipment('cable_tie')
 		cable_ties_new = cable_ties_new and cable_ties_new.amount or nil
 		if ammoclip and self._picked_up and self._ammo_box then 
