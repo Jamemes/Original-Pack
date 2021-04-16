@@ -1065,14 +1065,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 				upgrades = {
 					"player_walking_bleedout_chance_1",
 					"player_walking_bleedout_temporary_health_mul_1",
-					"player_walking_bleedout_time_to_bleed_1"
+					"player_walking_bleedout_time_to_bleed_1",
+					"player_walking_bleedout_doctor_bag_self_revive"
 				},
 				cost = self.costs.hightier
 			},
 			{
 				upgrades = {
 					"player_walking_bleedout_chance_2",
-					"player_walking_bleedout_doctor_bag_self_revive"
+					"player_walking_bleedout_fak_self_revive"
 				},
 				cost = self.costs.hightierpro
 			},
@@ -1109,7 +1110,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			{
 				upgrades = {
 					"player_walking_bleedout_ticks_to_ressurection_2",
-					"player_walking_bleedout_fak_self_revive"
+					"player_walking_bleedout_fak_self_revive_additional"
 				},
 				cost = self.costs.hightierpro
 			},
@@ -1542,12 +1543,13 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		local walking_bleedout_5_a = tweak_data.player.damage.DOWNED_TIME - self.values.player.walking_bleedout_time_to_bleed[1]
 		local walking_bleedout_6_a = self.walking_bleedout_time_to_fatal_state
 		local walking_bleedout_1_b = form("c2", self.values.player.walking_bleedout_chance)
+		local walking_bleedout_2_b = form("c", self.values.player.walking_bleedout_fak_self_revive)
 		local more_blood_to_bleed_1_a = form("c2", self.values.player.walking_bleedout_temporary_health_mul)
 		local more_blood_to_bleed_1_b = form("c3", self.values.player.walking_bleedout_temporary_health_mul)
 		local more_blood_to_bleed_2_b = tweak_data.player.damage.DOWNED_TIME - self.values.player.walking_bleedout_time_to_bleed[2]
 		local time_heals_1_a = self.values.player.walking_bleedout_ticks_to_ressurection[1]
 		local time_heals_1_b = self.values.player.walking_bleedout_ticks_to_ressurection[2]
-		local time_heals_2_b = form("c", self.values.player.walking_bleedout_fak_self_revive)
+		local time_heals_2_b = form("c", self.values.player.walking_bleedout_fak_self_revive_additional)
 		local akimbo_1_a = 50
 		local akimbo_1_b = 25
 		local akimbo_2_b = 50
@@ -1573,9 +1575,9 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		LocalizationManager:add_localized_strings({
 			menu_tea_cookies_desc =			"BASIC: ##$basic##\nAdds ##"..tea_cookies_1_a.."## more first aid kits to your inventory.\n\nACE: ##$pro##\nUnlocks ##"..tea_cookies_1_b.."## Injectors. Activating the Injector will heal you with ##"..tea_cookies_2_b.."%## of all damage taken for ##"..tea_cookies_3_b.."## seconds.\n\nAdds ##"..tea_cookies_4_b.."## more first aid kits to your inventory.",
 			menu_gunzerker_desc =			"BASIC: ##$basic##\nYou can dual wield two shotguns.\n\nACE: ##$pro##\nYou can dual wield two SMG.",
-			menu_time_heals_desc =			"BASIC: ##$basic##\nIf you keep yourself alive within ##"..time_heals_1_a.."## seconds, you can revive yourself.\n\nYour movement, interaction, reload speed and bleed-out time will be gradually recovered.\n\nACE: ##$pro##\nTime to keep yourself alive is reduced to ##"..time_heals_1_b.."## seconds.\nYou can revive yourself by using First Aid Kit with ##"..time_heals_2_b.."%## chance.",		
+			menu_time_heals_desc =			"BASIC: ##$basic##\nIf you keep yourself alive within ##"..time_heals_1_a.."## seconds, you can revive yourself.\n\nYour movement, interaction, reload speed and bleed-out time will be gradually recovered.\n\nACE: ##$pro##\nTime to keep yourself alive is reduced to ##"..time_heals_1_b.."## seconds.\nYou can revive yourself by using First Aid Kit with additional ##"..time_heals_2_b.."%## chance.",		
 			menu_more_blood_to_bleed_desc =	"BASIC: ##$basic##\nYou recieve ##"..more_blood_to_bleed_1_a.."%## more temporary health.\n\nACE: ##$pro##\nYou recieve ##"..more_blood_to_bleed_1_b.."%## even more temporary health. Maximum bleed-out time penalty is now ##"..more_blood_to_bleed_2_b.."## seconds.",		
-			menu_walking_bleedout_desc =	"BASIC: ##$basic##\nWhen you lose all your health instead of being downed you have a ##"..walking_bleedout_1_a.."%## chance to survive and gain ##"..walking_bleedout_2_a.."%## temporary health, but your movement and interaction speed will be reduced by ##"..walking_bleedout_3_a.."%##, and reload speed will be reduced by ##"..walking_bleedout_4_a.."%##.\n\nYour bleed-out time will be reduced every second down to ##"..walking_bleedout_5_a.."## seconds as long as you staying alive in that state.\n\nIf you going down after ##"..walking_bleedout_6_a.."## seconds, you fall immidiatly into the fatal state without a chance to fight back while laying down.\n\nACE: ##$pro##\nYou have additional ##"..walking_bleedout_1_b.."%## chance to survive. You can revive yourself before getting down by using a medic bag.",
+			menu_walking_bleedout_desc =	"BASIC: ##$basic##\nWhen you lose all your health instead of being downed you have a ##"..walking_bleedout_1_a.."%## chance to survive and gain ##"..walking_bleedout_2_a.."%## temporary health, but your movement and interaction speed will be reduced by ##"..walking_bleedout_3_a.."%##, and reload speed will be reduced by ##"..walking_bleedout_4_a.."%##.\n\nYour bleed-out time will be reduced every second down to ##"..walking_bleedout_5_a.."## seconds as long as you staying alive in that state.\n\nIf you going down after ##"..walking_bleedout_6_a.."## seconds, you fall immidiatly into the fatal state without a chance to fight back while laying down.\n\nYou can revive yourself before getting down by using a medic bag.\n\nACE: ##$pro##\nYou have additional ##"..walking_bleedout_1_b.."%## chance to survive.\n\nYou can revive yourself by using First Aid Kit with ##"..walking_bleedout_2_b.."%## chance.",
 			menu_up_you_go_beta_desc =		"BASIC: ##$basic##\nYou always receive ##"..up_you_go_1_a.."%## health of your total amount when you get revived.\n\nSynergy: If you have ##Berserker## skill owned, you will receive ##"..up_you_go_2_a.."%## health when you get revived.\n\nACE: ##$pro##\nYou receive ##"..up_you_go_1_b.."%## additional health when you get revived.\nYou take ##"..up_you_go_2_b.."%## less damage for ##"..up_you_go_3_b.."## seconds after being revived.",
 			menu_akimbo_skill_desc =		"BASIC: ##$basic##\nYou can dual wield two pistols.\n\nDual wielded weapons have ##"..akimbo_1_a.."%## stability penalty.\n\nACE: ##$pro##\nYour stability penalty with Akimbo weapons is set to ##"..akimbo_1_b.."%## and increases the ammo capacity of your Akimbo weapons to ##"..akimbo_2_b.."%##.",
 			menu_second_wind_desc =			"BASIC: ##$basic##\nWhen your armor breaks your movement speed is increased by ##"..second_wind_1_a.."%## for ##"..second_wind_2_a.."## seconds.\n\nACE: ##$pro##\nYour chance to dodge is increased by ##"..second_wind_1_b.."%## for ballistic vests.",
@@ -1681,9 +1683,9 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			LocalizationManager:add_localized_strings({
 				menu_tea_cookies_desc =			"БАЗОВЫЙ: ##$basic##\nДобавляет ##"..tea_cookies_1_a.."## аптечки первой помощи в инвентарь.\n\nПРО: ##$pro##\nОткрывает ##"..tea_cookies_1_b.."## инъектора. Активируя инъектор, вы будете исцеляться на ##"..tea_cookies_2_b.."%## от всего получаемого урона в течение ##"..tea_cookies_3_b.."## секунд.\n\nДобавляет ещё ##"..tea_cookies_4_b.."## аптечек первой помощи в инвентарь.",
 				menu_gunzerker_desc =			"БАЗОВЫЙ: ##$basic##\nОткрывает парные дробовики.\n\nПРО: ##$pro##\nОткрывает парные пистолеты-пулеметы.",
-				menu_time_heals_desc =			"БАЗОВЫЙ: ##$basic##\nЕсли вы будете поддерживать себя живим на протяжении ##"..time_heals_1_a.."## секунд, то вы можете пережить падение.\n\nВаша скорость ходьбы, взаимодействия, перезарядки и время блидаута будет постепенно восстанавливатся.\n\nПРО: ##$pro##\nВремя поддерживания себя живым снижено до ##"..time_heals_1_b.."## секунд.\nАптечки первой помощи могут полностью вас вылечить с шансом ##"..time_heals_2_b.."%##.",
+				menu_time_heals_desc =			"БАЗОВЫЙ: ##$basic##\nЕсли вы будете поддерживать себя живим на протяжении ##"..time_heals_1_a.."## секунд, то вы можете пережить падение.\n\nВаша скорость ходьбы, взаимодействия, перезарядки и время блидаута будет постепенно восстанавливатся.\n\nПРО: ##$pro##\nВремя поддерживания себя живым снижено до ##"..time_heals_1_b.."## секунд.\nАптечки первой помощи могут полностью вас вылечить с дополнительным ##"..time_heals_2_b.."%## шансом.",
 				menu_more_blood_to_bleed_desc =	"БАЗОВЫЙ: ##$basic##\nВы получаете на ##"..more_blood_to_bleed_1_a.."%## больше временного здоровья.\n\nПРО: ##$pro##\nВы получаете ещё на ##"..more_blood_to_bleed_1_b.."%## больше временного здоровья.\n\nМаксимальный штраф времени в блидауте теперь ##"..more_blood_to_bleed_2_b.."## секунд.",
-				menu_walking_bleedout_desc =	"БАЗОВЫЙ: ##$basic##\nС шансом ##"..walking_bleedout_1_a.."%## вы можете пережить смертельное попадание и получить ##"..walking_bleedout_2_a.."%## временного здоровья, но ваша скорость взаимодействия и передвижения снижается на ##"..walking_bleedout_3_a.."%##, а скорость перезарядки снижается на ##"..walking_bleedout_4_a.."%##.\n\nВремя блидаута снижается с каждой секундой максимум до ##"..walking_bleedout_5_a.."## секунд находясь в этом состоянии.\n\nНаходясь в этом состоянии ##"..walking_bleedout_6_a.."## секунд и более, если вас добили враги, то ваше падение становится фатальным, без возможности отстреливатся во время блидаута.\n\nПРО: ##$pro##\nВы получаете дополнительные ##"..walking_bleedout_1_b.."%## шанса чтобы пережить сметельное ранение. Использование медицинской сумки полностью вылечивает вас от смертельного состояния.",
+				menu_walking_bleedout_desc =	"БАЗОВЫЙ: ##$basic##\nС шансом ##"..walking_bleedout_1_a.."%## вы можете пережить смертельное попадание и получить ##"..walking_bleedout_2_a.."%## временного здоровья, но ваша скорость взаимодействия и передвижения снижается на ##"..walking_bleedout_3_a.."%##, а скорость перезарядки снижается на ##"..walking_bleedout_4_a.."%##.\n\nВремя блидаута снижается с каждой секундой максимум до ##"..walking_bleedout_5_a.."## секунд находясь в этом состоянии.\n\nНаходясь в этом состоянии ##"..walking_bleedout_6_a.."## секунд и более, если вас добили враги, то ваше падение становится фатальным, без возможности отстреливатся во время блидаута.\n\nИспользование медицинской сумки полностью вылечивает вас от смертельного состояния.\n\nПРО: ##$pro##\nВы получаете дополнительные ##"..walking_bleedout_1_b.."%## шанса чтобы пережить сметельное ранение.\n\nАптечки первой помощи могут полностью вас вылечить с шансом ##"..walking_bleedout_2_b.."%##.",
 				menu_up_you_go_beta_desc =		"БАЗОВЫЙ: ##$basic##\nВы всегда получаете ##"..up_you_go_1_a.."%## здоровья от вашего общего количества после того, как вас подняли.\n\nСинергия: если у вас открыт навык ##Берсеркер##, тогда ваше количество здоровья будет ##"..up_you_go_2_a.."%## после того, как вас подняли.\n\nПРО: ##$pro##\nВы получаете дополнительно ##"..up_you_go_1_b.."%## здоровья после того, как вас подняли.\nВы получаете на ##"..up_you_go_2_b.."%## меньше урона в течение ##"..up_you_go_3_b.."## секунд после того, как вас подняли.",
 				menu_akimbo_skill_desc =		"БАЗОВЫЙ: ##$basic##\nТеперь вы можете использовать парные пистолеты. У всего парного оружия стабильность снижена на ##"..akimbo_1_a.."%##.\n\nПРО: ##$pro##\nУ всего парного оружия стабильность снижена на ##"..akimbo_1_b.."%##, а количество их боеприпасов повышается на ##"..akimbo_2_b.."%##.",
 				menu_second_wind_desc =			"БАЗОВЫЙ: ##$basic##\nКогда вы лишаетесь брони во время боя, скорость вашего передвижения увеличивается на ##"..second_wind_1_a.."%## в течение ##"..second_wind_2_a.."## секунд.\n\nПРО: ##$pro##\nПри ношении баллистических бронежилетов, шанс увернуться от вражеского огня увеличен на ##"..second_wind_1_b.."%##.",
@@ -2367,6 +2369,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.player.walking_bleedout_chance = {0.45, 0.75}
 		self.values.player.walking_bleedout_temporary_health_mul = {0.4, 0.6, 0.8}
 		self.values.player.walking_bleedout_fak_self_revive = {0.15}
+		self.values.player.walking_bleedout_fak_self_revive_additional = {0.15}
 	
 		self.values.temporary.dmg_dampener_outnumbered_strong = {{0.85, 7}}
 		self.values.player.revived_health_regain_solid_amount = {0.4, 0.7}
@@ -2589,6 +2592,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				category = "player"
 			}
 		}
+		self.definitions.player_walking_bleedout_fak_self_revive_additional = {
+			name_id = "menu_player_walking_bleedout_fak_self_revive_additional",
+			category = "feature",
+			upgrade = {
+				value = 1,
+				upgrade = "walking_bleedout_fak_self_revive_additional",
+				category = "player"
+			}
+		}
+		
 		self.definitions.player_walking_bleedout_temporary_health_mul_1 = {
 			name_id = "menu_player_walking_bleedout_temporary_health_mul",
 			category = "feature",
@@ -3982,7 +3995,7 @@ if string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 	local data = PlayerDamage.band_aid_health
 	function PlayerDamage:band_aid_health()
 		data(self)
-		if PlayerManager.walking_bleedout > 0 and math.rand(1) < managers.player:upgrade_value("player", "walking_bleedout_fak_self_revive", 0) then 
+		if PlayerManager.walking_bleedout > 0 and math.rand(1) < managers.player:upgrade_value("player", "walking_bleedout_fak_self_revive", 0) + managers.player:upgrade_value("player", "walking_bleedout_fak_self_revive_additional", 0) then 
 			self:clear_delayed_damage()
 			PlayerManager.walking_bleedout = 0
 		end
@@ -4080,11 +4093,11 @@ if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 	local data = AmmoClip._pickup
 	function AmmoClip:_pickup(unit)
 		local cable_ties = managers.player:has_special_equipment('cable_tie')
+		local ammoclip = data(self, unit)
 		cable_ties = cable_ties and cable_ties.amount or nil
-		data(self, unit)
 		local cable_ties_new = managers.player:has_special_equipment('cable_tie')
 		cable_ties_new = cable_ties_new and cable_ties_new.amount or nil
-		if self._picked_up and self._ammo_box then 
+		if ammoclip and self._picked_up and self._ammo_box then 
 			if managers.player:has_category_upgrade("player", "cable_tie_pickup") and managers.groupai:state():whisper_mode() then
 				managers.player:add_cable_ties(1)
 				if cable_ties_new ~= cable_ties then
@@ -4094,6 +4107,7 @@ if string.lower(RequiredScript) == "lib/units/pickups/ammoclip" then
 				managers.player:add_cable_ties(-1)
 			end
 		end
+		return ammoclip
 	end
 end
 if string.lower(RequiredScript) == "lib/units/beings/player/states/playermaskoff" then

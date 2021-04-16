@@ -457,6 +457,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 		ammo("galil", PICKUP.AR_MED_CAPACITY, 4)
 		ammo("l85a2", PICKUP.AR_MED_CAPACITY, 6)
 		ammo("g3", PICKUP.AR_LOW_CAPACITY, 4, 20)
+		ammo("asval", PICKUP.AR_HIGH_CAPACITY, 8, 20)
 		ammo("spas12", PICKUP.SHOTGUN_HIGH_CAPACITY, 6)
 		ammo("b682", PICKUP.OTHER, 13)
 		ammo("r870", PICKUP.OTHER, 8)
