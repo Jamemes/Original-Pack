@@ -787,17 +787,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		}
 		self.skills.aggressive_shots = {
 			{
-				upgrades = {"temporary_single_shot_fast_reload_1", "snp_reload_speed_multiplier"},
+				upgrades = {"temporary_single_shot_fast_reload_1", "weapon_automatic_head_shot_add_1"},
 				cost = self.costs.hightier
 			},
 			{
-				upgrades = {
-					"weapon_single_not_moving_head_shot_add",
-					"weapon_single_steelsight_head_shot_add",
-					"weapon_assault_rifle_single_head_shot_add",
-					"weapon_smg_single_head_shot_add",
-					"weapon_snp_single_head_shot_add"
-				},
+				upgrades = {"weapon_automatic_head_shot_add_2", "snp_reload_speed_multiplier"},
 				cost = self.costs.hightierpro
 			},
 			name_id = "menu_aggressive_shots",
@@ -957,8 +951,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			"weapon_silencer_spread_multiplier"
 		}
 		self.skills.silence_expert[2].upgrades = {
-			"player_secondary_silencer_damage_addend",
-			"player_reduce_silencer_alert_size"
+			"player_secondary_silencer_damage_addend"
 		}
 		self.skills.silence_expert.name_id = "menu_silence_expert"
 		self.skills.silence_expert.desc_id = "menu_silence_expert_desc"
@@ -1481,12 +1474,11 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		local sentry_gun_1_b = form("a", self.values.sentry_gun.armor_multiplier)
 		local sentry_gun_2x_1_a = form("c", self.values.sentry_gun.quantity, 2)
 		local sentry_gun_2x_1_b = form("a", self.values.sentry_gun.damage_multiplier)
-		local body_expertise_1_a = form("a", self.values.snp.reload_speed_multiplier)
+		local body_expertise_1_a = form("c2", self.values.weapon.automatic_head_shot_add)
 		local body_expertise_2_a = form("a", self.values.temporary.single_shot_fast_reload[1])
 		local body_expertise_3_a = self.values.temporary.single_shot_fast_reload[1][2]
-		local body_expertise_1_b = form("c", self.values.weapon.smg_single_head_shot_add)
-		local body_expertise_2_b = form("c", self.values.weapon.assault_rifle_single_head_shot_add)
-		local body_expertise_3_b = form("c", self.values.weapon.snp_single_head_shot_add)
+		local body_expertise_1_b = form("c2", self.values.weapon.automatic_head_shot_add)
+		local body_expertise_2_b = form("a", self.values.snp.reload_speed_multiplier)
 		local iron_man_1_a = form("a", self.values.player.armor_multiplier)
 		local iron_man_1_b = form("b", self.values.team.armor.regen_time_multiplier)
 		local iron_man_2_b = form("c", self.values.player.passive_always_regen_armor, 1)
@@ -1502,7 +1494,6 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		local silence_expert_1_a = form("b", self.values.weapon.silencer_recoil_multiplier)
 		local silence_expert_2_a = form("a", self.values.weapon.silencer_enter_steelsight_speed_multiplier)
 		local silence_expert_1_b = form("c", self.values.player.secondary_silencer_damage_addend, 10)
-		local silence_expert_2_b = form("b", self.values.player.reduce_silencer_alert_size)
 		local ecm_feedback_1_a = "50%-100%"
 		local ecm_feedback_2_a = 25
 		local ecm_feedback_3_a = 1.5
@@ -1588,14 +1579,14 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 
 			menu_ecm_feedback_desc =		"BASIC: ##$basic##\nYou can interact with ECM jammers to cause a feedback loop. When interacted, the ECM jammer has a ##"..ecm_feedback_1_a.."## chance to incapacitate enemies within ##"..ecm_feedback_2_a.."## meters radius every ##"..ecm_feedback_3_a.."## seconds.\n\nECM feedback lasts ##"..ecm_feedback_4_a.."## seconds.\n\nACE: ##$pro##\nUnlocks ##"..ecm_feedback_1_b.."## Pocket ECM Device with ##"..ecm_feedback_2_b.."## second duration each.\n\nYou will instantly interact with a ECM jammer and the ECM feedback duration is increased by ##"..ecm_feedback_3_b.."%##.\n\nYour ECM jammer has a ##"..ecm_feedback_4_b.."%## chance every ##"..ecm_feedback_5_b.."## minutes to recharge its feedback ability.",
 			menu_hitman_desc =				"BASIC: ##$basic##\nYou deal ##"..hitman_1_a.."%## more damage and have a ##"..hitman_2_a.."%## chance to pierce enemy armor with silenced weapons.\n\nACE: ##$pro##\nYou deal ##"..hitman_1_b.."%## more damage and have an additional ##"..hitman_2_b.."%## chance to pierce enemy armor with silenced weapons.",
-			menu_silence_expert_desc =		"BASIC: ##$basic##\nYour weapon accuracy and stability with silenced weapons is increased by ##"..silence_expert_1_a.."%##. Your snap to zoom is ##"..silence_expert_2_a.."%## faster with silenced weapons.\n\nACE: ##$pro##\nAll silenced secondary weapon gain an additional ##"..silence_expert_1_b.."## damage.\nYour weapon silencers has been improved and now make to ##"..silence_expert_2_b.."%## less noise.",
+			menu_silence_expert_desc =		"BASIC: ##$basic##\nYour weapon accuracy and stability with silenced weapons is increased by ##"..silence_expert_1_a.."%##. Your snap to zoom is ##"..silence_expert_2_a.."%## faster with silenced weapons.\n\nACE: ##$pro##\nAll silenced secondary weapon gain an additional ##"..silence_expert_1_b.."## damage.",
 			menu_spotter_desc =				"BASIC: ##$basic##\nIncreases the duration of marked enemies by ##"..spotter_1_a.."%##.\n\nACE: ##$pro##\nUnlocks the Spotter asset in the Job Overview menu.\n\nDuring stealth, the Spotter will highlight guards for you and your crew. If stealth is not an option, the Spotter will highlight special enemies for you and your crew.",
 			menu_cleaner_desc =				"BASIC: ##$basic##\n##"..cleaner_1_a.."## body bag is added to your inventory.\n\nYou can now buy a body bag asset which contains ##"..cleaner_2_a.."## body bags that can be shared with your crew.\n\nACE: ##$pro##\n##"..cleaner_1_b.."## additional body bag is added to your inventory.\n\nYou bag corpses ##"..cleaner_2_b.."%## faster.",
 			menu_chameleon_desc =			"BASIC: ##$basic##\nIn casing mode, you can mark guards, cameras and your concealment is increased by ##"..chameleon_1_a.."%##.\n\nACE: ##$pro##\nIf your detection risk is ##"..chameleon_1_b.."## or below, you cannot be spotted by guards in casing mode.",
 			menu_cat_burglar_desc =			"BASIC: ##$basic##\nYou take ##"..cat_burglar_1_a.."%## less damage from falling from non-lethal heights.\n\nACE: ##$pro##\nNow you can land silently when you fall from a non-lethal heights, and also you do not lose health.",
 	
 			menu_iron_man_desc =			"BASIC: ##$basic##\nYour armor is increased by ##"..iron_man_1_a.."%##.\n\nACE: ##$pro##\nThe armor recovery rate of you and your crew is increased by ##"..iron_man_1_b.."%##.\n\nYour armor will recover ##"..iron_man_2_b.."## seconds after being broken no matter what the situation.",
-			menu_aggressive_shots_desc =	"BASIC: ##$basic##\nIncreases your reload speed with sniper rifles by ##"..body_expertise_1_a.."%##.\nAny killing headshot will increase your reload speed by additional ##"..body_expertise_2_a.."%## for ##"..body_expertise_3_a.."## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nACE: ##$pro##\nBonus headshot damage is permanently applied to hitting enemies on the body in steelsight with single fire mode, ##"..body_expertise_1_b.."%## for SMGs, ##"..body_expertise_2_b.."%## for Assault Rifles and ##"..body_expertise_3_b.."%## for Sniper Rifles.",
+			menu_aggressive_shots_desc =	"BASIC: ##$basic##\nYour SMGs and Assault Rifles in single fire mode deal ##"..body_expertise_1_a.."%## headshot damage to the body.\n\nAny killing headshot will increase your reload speed by additional ##"..body_expertise_2_a.."%## for ##"..body_expertise_3_a.."## seconds. Can only be triggered by SMGs, Assault Rifles and Sniper Rifles fired in single shot fire mode.\n\nACE: ##$pro##\nYour SMGs and Assault Rifles in single fire mode deal additional ##"..body_expertise_1_b.."%## headshot damage to the body.\n\nIncreases your reload speed with sniper rifles by ##"..body_expertise_2_b.."%##.",
 			menu_sentry_gun_2x_desc =		"BASIC: ##$basic##\nYou can place ##"..sentry_gun_2x_1_a.."## sentry guns instead of just one.\n\nACE: ##$pro##\nYour sentry gun damage is increased by ##"..sentry_gun_2x_1_b.."%##.\n\nUnlocks a special modified less noticeable turret with armor-piercing rounds, reduced rate of fire, and significantly increased damage.",
 			menu_sentry_gun_desc =			"BASIC: ##$basic##\nUnlocks the sentry gun for you to use.\n\nACE: ##$pro##\nYour sentry gun gains ##"..sentry_gun_1_b.."%## more health and rotational speed.",
 			menu_master_craftsman_desc =	"BASIC: ##$basic##\nThe radius of trip mine explosions are increased by ##"..master_craftsman_1_a.."%##.\n\nACE: ##$pro##\nThe radius of trip mine explosions are increased by additional ##"..master_craftsman_1_b.."%##.\n\nSpecial enemies marked by your trip mines take ##"..master_craftsman_2_b.."%## more damage.",
@@ -1696,14 +1687,14 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 
 				menu_ecm_feedback_desc =		"БАЗОВЫЙ: ##$basic##\nПозволяет взаимодействовать с генераторами помех, чтобы создать акустическую петлю. После взаимодействия, генератор может с вероятностью ##"..ecm_feedback_1_a.."## оглушать врагов в радиусе ##"..ecm_feedback_2_a.."## метров каждые ##"..ecm_feedback_3_a.."## секунды.\n\nПетля длится ##"..ecm_feedback_4_a.."## секунд.\n\nПРО: ##$pro##\nОткрывает ##"..ecm_feedback_1_b.."## Карманных генератора помех, который работает ##"..ecm_feedback_2_b.."## секунд каждый.\n\nВы моментально взаимодействуете с генератором помех. Время действия петли увеличено на ##"..ecm_feedback_3_b.."%##.\n\nГенератор помех перезаряжается с вероятностью ##"..ecm_feedback_4_b.."%## каждые ##"..ecm_feedback_5_b.."## минуты, позволяя снова включить петлю.",
 				menu_hitman_desc =				"БАЗОВЫЙ: ##$basic##\nУрон любого оружия с глушителем и шанс пробить вражескую броню увеличены на ##"..hitman_1_a.."%## и ##"..hitman_2_a.."%## соответственно.\n\nПРО: ##$pro##\nУрон любого оружия с глушителем и шанс пробить вражескую броню увеличены на дополнительные ##"..hitman_1_b.."%## и ##"..hitman_2_b.."%## соответственно.",
-				menu_silence_expert_desc =		"БАЗОВЫЙ: ##$basic##\nПовышает точность и стабильность оружия с установленным глушителем на ##"..silence_expert_1_a.."%##. Вы прицеливаетесь на ##"..silence_expert_2_a.."%## быстрее со всем оружием, на котором установлен глушитель.\n\nПРО: ##$pro##\nВаше вторичное оружие с установленным глушителем наносит дополнительные ##"..silence_expert_1_b.."## урона.\nВаши глушители улучшены на шумоподавление и теперь издают на ##"..silence_expert_2_b.."%## меньше шума при стрельбе.",
+				menu_silence_expert_desc =		"БАЗОВЫЙ: ##$basic##\nПовышает точность и стабильность оружия с установленным глушителем на ##"..silence_expert_1_a.."%##. Вы прицеливаетесь на ##"..silence_expert_2_a.."%## быстрее со всем оружием, на котором установлен глушитель.\n\nПРО: ##$pro##\nВаше вторичное оружие с установленным глушителем наносит дополнительные ##"..silence_expert_1_b.."## урона.",
 				menu_spotter_desc =				"БАЗОВЫЙ: ##$basic##\nУвеличивает продолжительность пометки врагов на ##"..spotter_1_a.."%##.\n\nПРО: ##$pro##\nОткрывает активы Наблюдателя в меню задания.\n\nВо время стелса, наблюдатель будет подсвечивать охрану для вас и вашей команды. После поднятия тревоги наблюдатель будет подсвечивать специальных юнитов.",
 				menu_cleaner_desc =				"БАЗОВЫЙ: ##$basic##\nВ инвентаре будет ##"..cleaner_1_a.."## мешкок с самого начала.\n\nВы можете купить мешки для трупов в меню активов для себя и команды. Актив содержит ##"..cleaner_2_a.."## мешка.\n\nПРО: ##$pro##\nВ инвентаре будет ##"..cleaner_1_b.."## дополнительный мешкок с самого начала.\n\nСкорость упаковки трупов увеличена на ##"..cleaner_2_b.."%##.",
 				menu_chameleon_desc =			"БАЗОВЫЙ: ##$basic##\nВы можете подсвечивать охрану и камеры в режиме исследования. Вы на ##"..chameleon_1_a.."%## скрытнее для гражданских и врагов до тех пор, пока не наденете маску.\n\nПРО: ##$pro##\nЕсли ваша скрытность ##"..chameleon_1_b.."## или ниже, охранники не не смогут вас заподозрить в режиме исследования.",
 				menu_cat_burglar_desc =			"БАЗОВЫЙ: ##$basic##\nУрон от падения с несмертельной высоты снижен на ##"..cat_burglar_1_a.."%##.\n\nПРО: ##$pro##\nПадая с несмертельной высоты вы приземляетесь бесшумно, а так же при падении вы не теряете здоровье.",
 
 				menu_iron_man_desc =			"БАЗОВЫЙ: ##$basic##\nПоказатель брони увеличен на ##"..iron_man_1_a.."%## .\n\nПРО: ##$pro##\nУвеличивает скорость восстановления брони у вас и у напарников на ##"..iron_man_1_b.."%##.\n\nКогда вы лишитесь брони, то она восстановится через ##"..iron_man_2_b.."## секунд даже будучи под обстрелом.",
-				menu_aggressive_shots_desc =	"БАЗОВЫЙ: ##$basic##\nУвеличивает скорость перезарядки снайперских винтовок на ##"..body_expertise_1_a.."%##. Убийство в голову увеличивает вашу скорость перезарядки на дополнительные ##"..body_expertise_2_a.."%## в течение ##"..body_expertise_3_a.."## секунд.\n\nПРО: ##$pro##\nМножитель попадания в голову применяется к телу противника с эффективностью в ##"..body_expertise_1_b.."%## с пистолетами-пулемётами, ##"..body_expertise_2_b.."%## с штурмовыми винтовками и ##"..body_expertise_3_b.."%## со снайперскими винтовками при прицеливании в режиме одиночной стрельбы.",
+				menu_aggressive_shots_desc =	"БАЗОВЫЙ: ##$basic##\nВаши пистолеты-пулеметы и штурмовые винтовки в одиночном режиме стрельбы наносят ##"..body_expertise_1_a.."%## урона множителя попадания в голову стреляя по телу.\n\nУбийство в голову увеличивает вашу скорость перезарядки на дополнительные ##"..body_expertise_2_a.."%## в течение ##"..body_expertise_3_a.."## секунд.\n\nПРО: ##$pro##\nВаши пистолеты-пулеметы и штурмовые винтовки в одиночном режиме стрельбы наносят дополнительный ##"..body_expertise_1_b.."%## урона множителя попадания в голову стреляя по телу.\n\nУвеличивает скорость перезарядки снайперских винтовок на ##"..body_expertise_2_b.."%##.",
 				menu_sentry_gun_2x_desc =		"БАЗОВЫЙ: ##$basic##\nПозволяет устанавливать ##"..sentry_gun_2x_1_a.."## турели вместо одной.\n\nПРО: ##$pro##\nУвеличивает урон, наносимый вашими турелями на ##"..sentry_gun_2x_1_b.."%##.\n\nОткрывает менее заметную, приглушённую бронебойную турель с уменьшенной скорострельностью, но значительно увеличенным уроном.",
 				menu_sentry_gun_desc =			"БАЗОВЫЙ: ##$basic##\nОткрывает турель.\n\nПРО: ##$pro##\nЗдоровье и скорость вращения ваших турелей увеличено на ##"..sentry_gun_1_b.."%##.\n\nОткрывает особую модифицированную менее заметную турель с приглушённым стволом, бронебойными патронами, уменьшенной скорострельность для экономии патронов и увеличенным количеством урона.",
 				menu_master_craftsman_desc =	"БАЗОВЫЙ: ##$basic##\nУвеличивает радиус поражения мин на ##"..master_craftsman_1_a.."%##.\n\nПРО: ##$pro##\nУвеличивает радиус поражения мин еще на ##"..master_craftsman_1_b.."%##.\n\nСпециальные юниты, отмеченные вашими минами, получают на ##"..master_craftsman_2_b.."%## больше урона.",
@@ -2355,7 +2346,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				}
 			}
 		}
-		
+
+		self.values.weapon.automatic_head_shot_add = {0.15, 0.3}
 		self.values.player.reduce_loose_money_exp_convertation_amount_mul = {0.35}
 		self.values.team.xp.multiplier = {1.4}
 		self.values.player.walking_bleedout_doctor_bag_self_revive = {true}
@@ -2378,13 +2370,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		self.values.player.camouflage_bonus = {0.65}
 		self.values.player.fugitive_tier_health_multiplier = {1.2}
 		self.values.player.guards_cant_spot_you_in_casing = {10}
-		self.values.player.reduce_silencer_alert_size = {0.05}
 		self.values.player.secondary_silencer_damage_addend = {0.5}
 		
 		self.values.player.passive_always_regen_armor = {2.25}
-		self.values.weapon.assault_rifle_single_head_shot_add = {0.25}
-		self.values.weapon.smg_single_head_shot_add = {0.35}
-		self.values.weapon.snp_single_head_shot_add = {0.15}
 		
 		self.values.player.single_shot_fire_rate_mul = {0.25}
 		self.values.player.recoil_not_moving_mul = {0.8}
@@ -2711,15 +2699,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				value = 1
 			}
 		}
-		self.definitions.player_reduce_silencer_alert_size = {
-			category = "feature",
-			name_id = "menu_player_reduce_silencer_alert_size",
-			upgrade = {
-				category = "player",
-				upgrade = "reduce_silencer_alert_size",
-				value = 1
-			}
-		}
 		self.definitions.player_secondary_silencer_damage_addend = {
 			category = "feature",
 			name_id = "menu_player_secondary_silencer_damage_addend",
@@ -2727,33 +2706,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 				category = "player",
 				upgrade = "secondary_silencer_damage_addend",
 				value = 1
-			}
-		}
-		self.definitions.weapon_assault_rifle_single_head_shot_add = {
-			name_id = "menu_assault_rifle_single_head_shot_add",
-			category = "feature",
-			upgrade = {
-				value = 1,
-				upgrade = "assault_rifle_single_head_shot_add",
-				category = "weapon"
-			}
-		}
-		self.definitions.weapon_smg_single_head_shot_add = {
-			name_id = "menu_smg_single_head_shot_add",
-			category = "feature",
-			upgrade = {
-				value = 1,
-				upgrade = "smg_single_head_shot_add",
-				category = "weapon"
-			}
-		}
-		self.definitions.weapon_snp_single_head_shot_add = {
-			name_id = "menu_snp_single_head_shot_add",
-			category = "feature",
-			upgrade = {
-				value = 1,
-				upgrade = "snp_single_head_shot_add",
-				category = "weapon"
 			}
 		}
 		self.definitions.player_single_shot_fire_rate_mul = {
@@ -5638,18 +5590,15 @@ if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
 		local chance_value = current_state and current_state:in_steelsight() and managers.player:upgrade_value("player", "shotgun_steelsight_shield_knock") or managers.player:upgrade_value("player", "shotgun_shield_knock") or 0
 		self._shield_knock = math.random() <= chance_value and self:is_category("shotgun")
 	end
+	
 	function NewRaycastWeaponBase:get_add_head_shot_mul()
-		local user_unit = self._setup and self._setup.user_unit
-		local current_state = alive(user_unit) and user_unit:movement() and user_unit:movement()._current_state
-		if self:is_single_shot() and (current_state and current_state:in_steelsight()) then
-			local snp = self:is_category("snp") and managers.player:upgrade_value("weapon", "snp_single_head_shot_add", nil)
-			local assault_rifle = self:is_category("assault_rifle") and managers.player:upgrade_value("weapon", "assault_rifle_single_head_shot_add", nil)
-			local smg = self:is_category("smg") and managers.player:upgrade_value("weapon", "smg_single_head_shot_add", nil)
-			local bonus = snp or smg or assault_rifle
-			return bonus
+		if self:is_category("smg", "assault_rifle") and self._fire_mode == Idstring("single") then
+			return managers.player:upgrade_value("weapon", "automatic_head_shot_add", nil)
 		end
+
 		return nil
-	end	
+	end
+	
 	function NewRaycastWeaponBase:fire_rate_multiplier()
 		local weapon_unit = managers.player:equipped_weapon_unit()
 		local mul = self._fire_rate_multiplier
@@ -5657,13 +5606,6 @@ if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
 			mul = mul + managers.player:upgrade_value("player", "single_shot_fire_rate_mul")
 		end
 		return mul
-	end
-	local data = NewRaycastWeaponBase._update_stats_values
-	function NewRaycastWeaponBase:_update_stats_values(disallow_replenish)
-		data(self, disallow_replenish)
-		if self:got_silencer() then
-			self._alert_size = self._alert_size * managers.player:upgrade_value("player", "reduce_silencer_alert_size", 1)
-		end
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
