@@ -4,11 +4,17 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		data(self, tweak_data)
 		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
-		if difficulty_index >= 8 then
-			self.killing_civilian_deduction = self._create_value_table(20000, 500000, 10, true, 2)
+		if difficulty == "easy_wish" or difficulty == "sm_wish" then
+			self.killing_civilian_deduction = self._create_value_table(10000, 250000, 10, true, 2)
 		else
 			self.killing_civilian_deduction = self._create_value_table(2000, 50000, 10, true, 2)
 		end
+		
+		local smallest_cashout = (self.stage_completion[1] + self.job_completion[1]) * self.offshore_rate
+		local biggest_weapon_mod_cost = math.round(self.biggest_cashout * 0.5)
+		local smallest_weapon_mod_cost = math.round(smallest_cashout * 3)
+		self.modify_weapon_cost = self._create_value_table(smallest_weapon_mod_cost, biggest_weapon_mod_cost, 10, true, 1.2)
+
 		self.bag_values.meth = 3250
 		self.bag_values.gold = 2200
 		self.bag_values.warhead = 2300
@@ -31,7 +37,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 		self.bag_values.stones = 2200
 		self.bag_values.sah_artifact_bag = 500
 		self.bag_values.old_wine = 400
-		
 		
 		self.loot_drop_cash.cash10 = 100000 * 2
 		self.loot_drop_cash.cash20 = 100000 * 4
@@ -66,8 +71,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 			hard = 1.25,
 			overkill = 1.5,
 			overkill_145 = 2,
-			easy_wish = 2.5,
-			overkill_290 = 4
+			overkill_290 = 4,
+			easy_wish = 7,
+			sm_wish = 10
 		}
 		self.buy_premium_static_fee = {
 			easy = 100000,
@@ -75,24 +81,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/moneytweakdata" then
 			hard = 150000,
 			overkill = 200000,
 			overkill_145 = 300000,
-			easy_wish = 360000,
-			overkill_290 = 760000
-		}
-		self.difficulty_multiplier = {
-			4,
-			9,
-			12,
-			20,
-			40,
-			50
-		}
-		self.difficulty_multiplier_payout = {
-			1,
-			2,
-			5,
-			10,
-			13,
-			18
+			overkill_290 = 760000,
+			easy_wish = 1000000,
+			sm_wish = 1300000
 		}
 	end
 end

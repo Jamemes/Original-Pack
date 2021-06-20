@@ -26,9 +26,7 @@ elseif RequiredScript == 'lib/managers/customsafehousemanager' then
 		if not self:unlocked() then
 			return false
 		end
-		if Global.game_settings.one_down then
-			return false
-		end
+		
 		if managers.mutators:are_trophies_disabled() then
 			for i, achivement_category in ipairs(self._mutator_achievement_categories) do
 				local achievements = tweak_data.achievement[achivement_category]

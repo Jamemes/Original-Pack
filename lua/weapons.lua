@@ -1,15 +1,10 @@
 if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
-	local SELECTION = {
-		SECONDARY = 1, 
-		PRIMARY = 2, 
-		UNDERBARREL = 3
-	}
 	local data = WeaponTweakData.init
 	function WeaponTweakData:init(tweak_data)
 		data(self, tweak_data)
-		
 		local total_damage_primary = 300
 		local total_damage_secondary = 150
+
 		self.alert_size = {
 			30000, 
 			20000, 
@@ -78,2657 +73,408 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 			0.5
 		}
 
-		self.amcar.stats = {
-			reload = 11,
-			damage = 16,
-			spread = 6,
-			recoil = 8,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 21,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.s552.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 6,
-			recoil = 9,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 22,
-			suppression = 12,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.scar.stats = {
-			reload = 11,
-			damage = 43,
-			spread = 7,
-			recoil = 5,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 8,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.ak74.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 6,
-			recoil = 6,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 16,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.new_m4.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 20,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.corgi.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 16,
-			alert_size = 8,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 7,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 20
-		}
-		self.aug.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 20,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.akm.stats = {
-			reload = 11,
-			damage = 40,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 13,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.g36.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 19,
-			suppression = 11,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.flint.stats = { --ak12
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 33,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 10,
-			concealment = 16
-		}
-		self.akm_gold.stats = {
-			reload = 11,
-			damage = 40,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 11,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.tecci.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 7,
-			recoil = 12,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 10,
-			concealment = 16
-		}
-		self.l85a2.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 6,
-			zoom = 1,
-			concealment = 16,
-			suppression = 12,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.new_m14.stats = {
-			reload = 11,
-			damage = 75,
-			spread = 9,
-			recoil = 2,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 8,
-			suppression = 4,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.famas.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 4,
-			zoom = 3,
-			concealment = 24,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.vhs.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 9,
-			recoil = 4,
-			spread_moving = 6,
-			zoom = 1,
-			concealment = 17,
-			suppression = 12,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.asval.stats = {
-			reload = 11,
-			damage = 30,
-			spread = 9,
-			recoil = 6,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 26,
-			suppression = 24,
-			alert_size = 12,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.ak5.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 9,
-			recoil = 12,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 18,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.galil.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 15,
-			suppression = 7,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.komodo.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 23,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 4,
-			alert_size = 8,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 26
-		}
-		self.m16.stats = {
-			reload = 11,
-			damage = 30,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 5,
-			zoom = 4,
-			concealment = 17,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.sub2000.stats = {
-			reload = 11,
-			damage = 38,
-			spread = 8,
-			recoil = 4,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 25,
-			suppression = 4,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.contraband.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 40,
-			spread = 7,
-			recoil = 14,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 8,
-			concealment = 8
-		}
-		self.contraband_m203.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			alert_size = 7,
-			spread = 3,
-			recoil = 9,
-			spread_moving = 6,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 18
-		}
-		self.fal.stats = {
-			reload = 11,
-			damage = 43,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 10,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.g3.stats = {
-			reload = 11,
-			damage = 43,
-			spread = 8,
-			recoil = 4,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 12,
-			suppression = 6,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.ching.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 80,
-			spread = 10,
-			recoil = 4,
-			spread_moving = 5,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 4,
-			concealment = 20
+		for id, _ in pairs(self) do
+			local weapons = self[id]
+			if weapons.stats then
+				local dmg = weapons.stats.damage
+				local spread = weapons.stats.spread
+				local spread_m = weapons.stats.spread_moving
+				local recoil = weapons.stats.recoil
+				
+				if weapons.categories[1] == "assault_rifle" then
+					local mul_dmg = dmg < 50 and 0.675 or dmg < 60 and 0.57 or dmg < 100 and 0.32 or 0.47
+					local mul_spread = spread >= 19 and 0.368 or spread >= 13 and 0.461 or 0.6
+					local mul_recoil = recoil <= 12 and 0.416 or recoil <= 15 and 0.6 or 0.4
+					local mul_spread_moving = 0.75
+					
+					weapons.stats.damage = math.round(weapons.stats.damage * mul_dmg)
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+				end
+				
+				if weapons.categories[1] == "shotgun" or weapons.categories[2] == "shotgun" then
+					local mul_dmg = dmg < 100 and 0.67 or 0.55
+					local mul_spread = 0.75
+					local mul_recoil = 0.333
+					local mul_spread_moving = 0.875
+					
+					weapons.stats.damage = math.round(weapons.stats.damage * mul_dmg)
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+					
+					if weapons.has_magazine then
+						weapons.stats.damage = math.round(weapons.stats.damage * 1.25)
+					end
+					if weapons.use_data.selection_index == 1 then
+						local mul = dmg < 100 and 1.09 or 1
+						weapons.stats.damage = math.round(weapons.stats.damage * mul)
+					end
+				end
+				
+				if weapons.categories[1] == "lmg" then
+					local mul_spread = spread >= 13 and 0.3376 or 0.625
+					local mul_recoil = recoil >= 8 and 0.7 or 2
+					
+					weapons.stats.damage = math.round(30 * (weapons.auto.fire_rate * 12.175))
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					
+				end
+				
+				if weapons.categories[1] == "snp" then
+					local mul_spread = 0.3913
+					local mul_recoil = 0.55
+					local mul_spread_moving = 0.3636
+					table.insert(weapons.stats_modifiers, suppression)
+					table.insert(weapons.stats_modifiers, spread)
+					weapons.stats_modifiers.suppression = weapons.stats_modifiers.damage >= 35 and 5 or 4
+					weapons.stats_modifiers.spread = 0.83
+					
+					local dmg_mul = weapons.single.fire_rate > 1 and 130 or 95
+					local dmg_mod_mul = weapons.stats_modifiers.damage > 10 and 288 or weapons.CLIP_AMMO_MAX < 10 and 2 or 1
+					weapons.stats.damage = weapons.stats_modifiers.damage >= 35 and 10 or weapons.stats_modifiers.damage >= 4 and 125 or dmg_mul
+					weapons.stats_modifiers.damage = dmg_mod_mul
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+				end
+				
+				if weapons.categories[1] == "pistol" or weapons.categories[2] == "pistol" then
+					local mul_dmg = dmg < 40 and 0.48 or dmg < 100 and 0.36 or dmg < 150 and 0.375 or 0.315
+					local mul_spread = 0.4117
+					local mul_recoil = 0.74
+					local mul_spread_moving = 0.444
+		
+					weapons.stats.damage = math.round(weapons.stats.damage * mul_dmg)
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+				end
+				
+				if weapons.categories[1] == "smg" or weapons.categories[2] == "smg" then
+					local mul_dmg = dmg < 50 and 0.4 or dmg < 60 and 0.435 or 0.35
+					local mul_spread = 0.3846
+					local mul_recoil = 0.3529
+					local mul_spread_moving = 0.444
+
+					weapons.stats.damage = math.round(weapons.stats.damage * mul_dmg)
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+				end
+				
+				if weapons.categories[1] == "bow" then
+					local dmg_mod = weapons.stats_modifiers.damage > 10 and 65 or 19.5
+					local mul_spread = 0.4
+					local mul_recoil = 0.56
+					
+					weapons.stats.damage = 10
+					weapons.stats_modifiers.damage = dmg_mod
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+				end
+				
+				if weapons.categories[1] == "crossbow" then
+					local dmg_mod = weapons.stats.damage >= 35 and weapons.stats.damage < 40 and 10 or weapons.stats_modifiers.damage > 10 and 52.5 or 24
+					local mul_spread = 0.4
+					local mul_recoil = 0.32
+					
+					weapons.stats.damage = 10
+					weapons.stats_modifiers.damage = dmg_mod
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+				end
+				
+				if weapons.categories[1] == "grenade_launcher" then
+					weapons.stats.recoil = math.round(weapons.stats.recoil * 0.12)
+					
+					if weapons.stats_modifiers.damage >= 100 then
+						weapons.stats.damage = math.round(weapons.stats.damage / 1.25)
+						weapons.stats.spread = math.round(weapons.stats.spread * 0.4)
+					else
+						local damage = dmg > 50 and 34 or 17
+						weapons.stats.damage = math.round(damage)
+						weapons.stats.spread = math.round(weapons.stats.spread * 0.28)
+					end
+				end
+				
+				if weapons.categories[1] == "minigun" then
+					local mul_spread = 0.555
+					local mul_recoil = 0.2857
+					
+					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
+					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+				end
+			end
+		end
+		
+		self.amcar.stats.damage = 16
+		self.scar.stats.damage = 43
+		self.corgi.stats.damage = 32
+		self.ak74.stats.damage = 28
+		self.new_m4.stats.damage = 23
+		self.aug.stats.damage = 28
+		self.sub2000.stats.damage = 85
+		self.akm.stats.damage = 40
+		self.g36.stats.damage = 25
+		self.flint.stats.damage = 43
+		self.akm_gold.stats.damage = 40
+		self.famas.stats.damage = 25
+		self.asval.stats.damage = 38
+		self.ak5.stats.damage = 20
+		self.galil.stats.damage = 33
+		self.fal.stats.damage = 43
+		self.g3.stats.damage = 43
+		self.ching.stats.damage = 95
+		self.spas12.stats.damage = 48
+		self.benelli.stats.damage = 35
+		self.basset.stats.damage = 25
+		self.striker.stats.damage = 35
+		self.judge.stats.damage = 95
+		self.x_rota.stats.damage = self.rota.stats.damage
+		self.x_basset.stats.damage = self.basset.stats.damage
+		self.x_judge.stats.damage = self.judge.stats.damage
+		self.rpk.stats.damage = 30
+		self.hk21.stats.damage = 33
+		self.mg42.stats.damage = 30
+		self.wa2000.stats.damage = 175
+		self.winchester1874.stats.damage = 175
+		self.usp.stats.damage = 20
+		self.glock_17.stats.damage = 15
+		self.c96.stats.damage = 33
+		self.hs2000.stats.damage = 18
+		self.glock_18c.stats.damage = 20
+		self.peacemaker.stats.damage = 144
+		self.mateba.stats.damage = 95
+		self.breech.stats.damage = 95
+		self.x_breech.stats.damage = self.breech.stats.damage
+		self.x_2006m.stats.damage = self.mateba.stats.damage
+		self.x_g18c.stats.damage = self.glock_18c.stats.damage
+		self.x_hs2000.stats.damage = self.hs2000.stats.damage
+		self.x_c96.stats.damage = self.c96.stats.damage
+		self.x_g17.stats.damage = self.glock_17.stats.damage
+		self.x_usp.stats.damage = self.usp.stats.damage
+		self.m45.stats.damage = 28
+		self.mp7.stats.damage = 28
+		self.m1928.stats.damage = 23
+		self.mp9.stats.damage = 20
+		self.olympic.stats.damage = 20
+		self.baka.stats.damage = 25
+		self.akmsu.stats.damage = 25
+		self.tec9.stats.damage = 25
+		self.p90.stats.damage = 20
+		self.polymer.stats.damage = 28
+		self.sterling.stats.damage = 35
+		self.uzi.stats.damage = 28
+		self.erma.stats.damage = 42
+		self.x_erma.stats.damage = self.erma.stats.damage
+		self.x_uzi.stats.damage = self.uzi.stats.damage
+		self.x_sterling.stats.damage = self.sterling.stats.damage
+		self.x_polymer.stats.damage = self.polymer.stats.damage
+		self.x_p90.stats.damage = self.p90.stats.damage
+		self.x_tec9.stats.damage = self.tec9.stats.damage
+		self.x_akmsu.stats.damage = self.akmsu.stats.damage
+		self.x_baka.stats.damage = self.baka.stats.damage
+		self.x_olympic.stats.damage = self.olympic.stats.damage
+		self.x_mp9.stats.damage = self.mp9.stats.damage
+		self.x_m1928.stats.damage = self.m1928.stats.damage
+		self.x_mp7.stats.damage = self.mp7.stats.damage
+		self.x_m45.stats.damage = self.m45.stats.damage
+		self.m134.stats.damage = 38
+		self.shuno.stats.damage = 40
+		self.flamethrower_mk2.stats.damage = 14
+		self.system.stats.damage = 14
+		
+		self.sub2000.stats.spread = 8
+		self.akm.stats.spread = 6
+		self.akm_gold.stats.spread = self.akm.stats.spread
+		self.l85a2.stats.spread = 7
+		self.new_m14.stats.spread = 9
+		self.famas.stats.spread = 8
+		self.vhs.stats.spread = 9
+		self.asval.stats.spread = 9
+		self.ak5.stats.spread = 9
+		self.galil.stats.spread = 7
+		self.m16.stats.spread = 7
+		self.fal.stats.spread = 6
+		self.ksg.stats.spread = 6
+		self.huntsman.stats.spread = 7
+		self.b682.stats.spread = 8
+		self.aa12.stats.spread = 7
+		self.judge.stats.spread = 4
+		self.serbu.stats.spread = 5
+		self.x_judge.stats.spread = self.judge.stats.spread
+		self.wa2000.stats.spread = 8
+		self.winchester1874.stats.spread = 8
+		self.ppk.stats.spread = 9
+		self.b92fs.stats.spread = 8
+		self.new_raging_bull.stats.spread = 7
+		self.g22c.stats.spread = 6
+		self.c96.stats.spread = 6
+		self.g26.stats.spread = 7
+		self.glock_18c.stats.spread = 5
+		self.peacemaker.stats.spread = 8
+		self.deagle.stats.spread = 6
+		self.x_deagle.stats.spread = self.deagle.stats.spread
+		self.x_g18c.stats.spread = self.glock_18c.stats.spread
+		self.jowi.stats.spread = self.g26.stats.spread
+		self.x_c96.stats.spread = self.c96.stats.spread
+		self.x_g22c.stats.spread = self.g22c.stats.spread
+		self.x_rage.stats.spread = self.new_raging_bull.stats.spread
+		self.x_b92fs.stats.spread = self.b92fs.stats.spread
+		self.x_ppk.stats.spread = self.ppk.stats.spread		
+		self.m45.stats.spread = 6
+		self.cobray.stats.spread = 4
+		self.new_mp5.stats.spread = 7
+		self.m1928.stats.spread = 7
+		self.scorpion.stats.spread = 6
+		self.mp9.stats.spread = 7
+		self.olympic.stats.spread = 8
+		self.baka.stats.spread = 4
+		self.akmsu.stats.spread = 5
+		self.tec9.stats.spread = 7
+		self.p90.stats.spread = 8
+		self.sterling.stats.spread = 7
+		self.uzi.stats.spread = 8
+		self.x_uzi.stats.spread = self.uzi.stats.spread
+		self.x_sterling.stats.spread = self.sterling.stats.spread
+		self.x_p90.stats.spread = self.p90.stats.spread
+		self.x_tec9.stats.spread = self.tec9.stats.spread
+		self.x_akmsu.stats.spread = self.akmsu.stats.spread
+		self.x_baka.stats.spread = self.baka.stats.spread
+		self.x_olympic.stats.spread = self.olympic.stats.spread
+		self.x_mp9.stats.spread = self.mp9.stats.spread
+		self.x_scorpion.stats.spread = self.scorpion.stats.spread
+		self.x_m1928.stats.spread = self.m1928.stats.spread
+		self.x_mp5.stats.spread = self.new_mp5.stats.spread
+		self.x_cobray.stats.spread = self.cobray.stats.spread
+		self.x_m45.stats.spread = self.m45.stats.spread
+		self.m32.stats.spread = 3
+
+		self.new_m4.stats.recoil = 7
+		self.g36.stats.recoil = 8
+		self.l85a2.stats.recoil = 10
+		self.new_m14.stats.recoil = 2
+		self.famas.stats.recoil = 5
+		self.vhs.stats.recoil = 4
+		self.asval.stats.recoil = 6
+		self.ak5.stats.recoil = 12
+		self.galil.stats.recoil = 8
+		self.m16.stats.recoil = 10
+		self.g3.stats.recoil = 4
+		self.benelli.stats.recoil = 5
+		self.ksg.stats.recoil = 5
+		self.huntsman.stats.recoil = 2
+		self.b682.stats.recoil = 10
+		self.aa12.stats.recoil = 7
+		self.judge.stats.recoil = 2
+		self.x_judge.stats.recoil = self.judge.stats.recoil
+		self.hk21.stats.recoil = 5
+		self.msr.stats.recoil = 2
+		self.winchester1874.stats.recoil = 5
+		self.mosin.stats.recoil = 3
+		self.glock_17.stats.recoil = 13
+		self.ppk.stats.recoil = 9
+		self.p226.stats.recoil = 7
+		self.colt_1911.stats.recoil = 5	
+		self.b92fs.stats.recoil = 8
+		self.new_raging_bull.stats.recoil = 2
+		self.g22c.stats.recoil = 13
+		self.c96.stats.recoil = 7
+		self.g26.stats.recoil = 9
+		self.hs2000.stats.recoil = 7
+		self.glock_18c.stats.recoil = 6
+		self.peacemaker.stats.recoil = 6
+		self.mateba.stats.recoil = 10
+		self.deagle.stats.recoil = 3
+		self.x_deagle.stats.recoil = self.deagle.stats.recoil
+		self.x_2006m.stats.recoil = self.mateba.stats.recoil
+		self.x_g18c.stats.recoil = self.glock_18c.stats.recoil
+		self.x_hs2000.stats.recoil = self.hs2000.stats.recoil
+		self.jowi.stats.recoil = self.g26.stats.recoil
+		self.x_c96.stats.recoil = self.c96.stats.recoil
+		self.x_g22c.stats.recoil = self.g22c.stats.recoil
+		self.x_rage.stats.recoil = self.new_raging_bull.stats.recoil
+		self.x_b92fs.stats.recoil = self.b92fs.stats.recoil
+		self.x_1911.stats.recoil = self.colt_1911.stats.recoil
+		self.x_p226.stats.recoil = self.p226.stats.recoil
+		self.x_ppk.stats.recoil = self.ppk.stats.recoil
+		self.x_g17.stats.recoil = self.glock_17.stats.recoil
+		self.m45.stats.recoil = 7
+		self.mp7.stats.recoil = 8
+		self.cobray.stats.recoil = 8
+		self.new_mp5.stats.recoil = 11
+		self.m1928.stats.recoil = 10
+		self.scorpion.stats.recoil = 7
+		self.olympic.stats.recoil = 10
+		self.baka.stats.recoil = 4
+		self.akmsu.stats.recoil = 6
+		self.p90.stats.recoil = 9
+		self.polymer.stats.recoil = 9
+		self.uzi.stats.recoil = 10
+		self.x_uzi.stats.recoil = self.uzi.stats.recoil
+		self.x_polymer.stats.recoil = self.polymer.stats.recoil
+		self.x_p90.stats.recoil = self.p90.stats.recoil
+		self.x_akmsu.stats.recoil = self.akmsu.stats.recoil
+		self.x_baka.stats.recoil = self.baka.stats.recoil
+		self.x_olympic.stats.recoil = self.olympic.stats.recoil
+		self.x_scorpion.stats.recoil = self.scorpion.stats.recoil
+		self.x_m1928.stats.recoil = self.m1928.stats.recoil
+		self.x_mp5.stats.recoil = self.new_mp5.stats.recoil
+		self.x_cobray.stats.recoil = self.cobray.stats.recoil
+		self.x_mp7.stats.recoil = self.mp7.stats.recoil
+		self.x_m45.stats.recoil = self.m45.stats.recoil
+		self.m32.stats.recoil = 9
+
+		local function ammo(weapon_name, pickup_index, max_clip, clip)
+			self[weapon_name].CLIP_AMMO_MAX = clip or self[weapon_name].CLIP_AMMO_MAX
+			self[weapon_name].NR_CLIPS_MAX = max_clip or self[weapon_name].NR_CLIPS_MAX
+			self[weapon_name].AMMO_MAX = self[weapon_name].CLIP_AMMO_MAX * self[weapon_name].NR_CLIPS_MAX
+			self[weapon_name].AMMO_PICKUP = self:_pickup_chance(self[weapon_name].AMMO_MAX, pickup_index or 1)
+		end
+		
+		local PICKUP = {
+			AR_LOW_CAPACITY = 7,
+			SHOTGUN_HIGH_CAPACITY = 4,
+			OTHER = 1,
+			LMG_CAPACITY = 9,
+			AR_MED_CAPACITY = 3,
+			SNIPER_HIGH_DAMAGE = 6,
+			AR_HIGH_CAPACITY = 2,
+			SNIPER_LOW_DAMAGE = 5,
+			AR_DMR_CAPACITY = 8
 		}
 
-		self.spas12.stats = {
-			reload = 11,
-			damage = 48,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 14,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.boot.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 85,
-			alert_size = 7,
-			spread = 8,
-			recoil = 1,
-			spread_moving = 6,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 20
-		}
-		self.r870.stats = {
-			reload = 11,
-			damage = 60,
-			spread = 8,
-			recoil = 3,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 11,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.benelli.stats = {
-			reload = 11,
-			damage = 35,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 12,
-			suppression = 6,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.ksg.stats = {
-			reload = 11,
-			damage = 60,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 22,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.saiga.stats = {
-			reload = 11,
-			damage = 35,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 13,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.huntsman.stats = {
-			reload = 11,
-			damage = 85,
-			spread = 7,
-			recoil = 2,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 7,
-			suppression = 2,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.b682.stats = {
-			reload = 11,
-			damage = 85,
-			spread = 8,
-			recoil = 10,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 5,
-			suppression = 2,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.aa12.stats = {
-			reload = 11,
-			damage = 38,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 9,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.serbu.stats = {
-			reload = 11,
-			damage = 65,
-			spread = 5,
-			recoil = 3,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 23,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.m37.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 65,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 22
-		}
-		self.rota.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 35,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 13
-		}
-		self.x_rota.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 35,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 13
-		}
-		self.basset.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 4,
-			recoil = 4,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 21
-		}
-		self.x_basset.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 4,
-			recoil = 4,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 21
-		}
-		self.striker.stats = {
-			reload = 11,
-			damage = 35,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 21,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.judge.stats = {
-			reload = 11,
-			damage = 75,
-			spread = 4,
-			recoil = 2,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 29,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_judge.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			spread = 4,
-			recoil = 2,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 29
-		}
-		self.coach.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 85,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 6,
-			alert_size = 6,
-			value = 3,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 10
-		}
-
-		self.rpk.stats = {
-			reload = 11,
-			damage = 30,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 6,
-			zoom = 2,
-			concealment = 5,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.par.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 28,
-			alert_size = 8,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 6,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 4,
-			concealment = 1
-		}
-		self.m249.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 4,
-			recoil = 7,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 2,
-			suppression = 4,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.mg42.stats = {
-			reload = 11,
-			damage = 30,
-			spread = 4,
-			recoil = 6,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 2,
-			suppression = 4,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.hk21.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 6,
-			recoil = 5,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 2,
-			suppression = 2,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-
-		self.msr.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 9,
-			recoil = 2,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 5,
-			concealment = 5,
-			suppression = 6,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.model70.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 10,
-			alert_size = 7,
-			spread = 24,
-			spread_moving = 24,
-			recoil = 4,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 6
-		}
-		self.wa2000.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 8,
-			recoil = 7,
-			spread_moving = 6,
-			zoom = 1,
-			concealment = 16,
-			suppression = 12,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.desertfox.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 10,
-			alert_size = 7,
-			spread = 8,
-			recoil = 6,
-			spread_moving = 6,
-			value = 10,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 5,
-			concealment = 19
-		}
-		self.tti.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 9,
-			recoil = 9,
-			spread_moving = 6,
-			alert_size = 8,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 16
-		}
-		self.r93.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 9,
-			recoil = 2,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 5,
-			suppression = 4,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.winchester1874.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 12,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.siltstone.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 7,
-			recoil = 11,
-			spread_moving = 6,
-			alert_size = 8,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 16
-		}
-		self.mosin.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 9,
-			recoil = 3,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 6,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.m95.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 9,
-			recoil = 1,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 1,
-			suppression = 2,
-			alert_size = 9,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.m134.stats = {
-			reload = 11,
-			damage = 38,
-			spread = 5,
-			recoil = 2,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 5,
-			suppression = 4,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.china.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 7,
-			recoil = 3,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 18
-		}
-		self.m32.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 3,
-			recoil = 9,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 10,
-			suppression = 2,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.gre_m79.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 7,
-			recoil = 3,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 18,
-			suppression = 2,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.ecp.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 10,
-			recoil = 8,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 5
-		}
-		self.elastic.stats = {
-			zoom = 5,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 10,
-			recoil = 14,
-			spread_moving = 12,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 27
-		}
-		self.flamethrower_mk2.stats = {
-			reload = 11,
-			damage = 14,
-			spread = 1,
-			recoil = 0,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 7,
-			suppression = 2,
-			alert_size = 1,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.ray.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 10,
-			recoil = 3,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 5
-		}
-		self.rpg7.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 10,
-			recoil = 3,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 5,
-			suppression = 2,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.saw.stats = {
-			reload = 11,
-			alert_size = 9,
-			suppression = 7,
-			zoom = 1,
-			spread = 3,
-			recoil = 7,
-			spread_moving = 7,
-			damage = 23,
-			concealment = 16,
-			value = 1,
-			extra_ammo = 51,
-			total_ammo_mod = 21
-		}
-		self.saw_secondary.stats = {
-			reload = 11,
-			alert_size = 9,
-			suppression = 7,
-			zoom = 1,
-			spread = 3,
-			recoil = 7,
-			spread_moving = 7,
-			damage = 23,
-			concealment = 16,
-			value = 1,
-			extra_ammo = 51,
-			total_ammo_mod = 21
-		}
-		self.shuno.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 38,
-			spread = 5,
-			recoil = 5,
-			spread_moving = 9,
-			alert_size = 8,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 4,
-			concealment = 5
-		}
-		self.slap.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 5,
-			recoil = 2,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 22
-		}
-		self.arbiter.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 10,
-			spread = 7,
-			recoil = 3,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 2,
-			concealment = 18
-		}
-		self.hunter.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 10,
-			recoil = 8,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 26,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.system.stats.damage = 16
-
-		self.usp.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 7,
-			recoil = 9,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 29,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_usp.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 7,
-			recoil = 9,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 29,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.glock_17.stats = {
-			reload = 11,
-			damage = 15,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 1,
-			concealment = 30,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_g17.stats = {
-			reload = 11,
-			damage = 15,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 1,
-			concealment = 30,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.ppk.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 9,
-			recoil = 9,
-			spread_moving = 9,
-			zoom = 3,
-			concealment = 30,
-			suppression = 18,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_ppk.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 9,
-			recoil = 9,
-			spread_moving = 9,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 18,
-			concealment = 30
-		}
-		self.p226.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 29,
-			suppression = 15,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.x_p226.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 23,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.colt_1911.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 7,
-			recoil = 5,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 29,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_1911.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 7,
-			recoil = 5,
-			spread_moving = 4,
-			zoom = 3,
-			concealment = 27,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.b92fs.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 8,
-			recoil = 8,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 30,
-			suppression = 17,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_b92fs.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 8,
-			recoil = 8,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 28,
-			suppression = 17,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.new_raging_bull.stats = {
-			reload = 11,
-			damage = 75,
-			spread = 7,
-			recoil = 2,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 26,
-			suppression = 7,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_rage.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			spread = 7,
-			recoil = 2,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 7,
-			concealment = 26
-		}
-		self.pl14.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 60,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 4,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.x_pl14.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 60,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 4,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.sparrow.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 60,
-			alert_size = 7,
-			spread = 18,
-			spread_moving = 18,
-			recoil = 9,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.x_sparrow.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 60,
-			alert_size = 7,
-			spread = 18,
-			spread_moving = 18,
-			recoil = 9,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.legacy.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 8,
-			recoil = 11,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 30
-		}
-		self.x_legacy.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 8,
-			recoil = 11,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 30
-		}
-		self.g22c.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 6,
-			recoil = 13,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 29,
-			suppression = 15,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_g22c.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 6,
-			recoil = 13,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 29,
-			suppression = 15,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.c96.stats = {
-			reload = 11,
-			damage = 33,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 28,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_c96.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 33,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 28
-		}
-		self.lemming.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 33,
-			alert_size = 7,
-			spread = 18,
-			spread_moving = 18,
-			recoil = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.chinchilla.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			spread = 8,
-			recoil = 2,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 7,
-			concealment = 28
-		}
-		self.x_chinchilla.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			spread = 8,
-			recoil = 2,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 7,
-			concealment = 28
-		}
-		self.packrat.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 23,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.x_packrat.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 23,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 27
-		}
-		self.g26.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 7,
-			recoil = 9,
-			spread_moving = 9,
-			zoom = 3,
-			concealment = 30,
-			suppression = 18,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.jowi.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 7,
-			recoil = 9,
-			spread_moving = 9,
-			zoom = 3,
-			concealment = 30,
-			suppression = 15,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.shrew.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 30
-		}
-		self.x_shrew.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 30
-		}
-		self.hs2000.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 3,
-			concealment = 29,
-			suppression = 15,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 4
-		}
-		self.x_hs2000.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.glock_18c.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 9,
-			zoom = 1,
-			concealment = 29,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_g18c.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 20,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 9,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 29
-		}	
-		self.peacemaker.stats = {
-			reload = 11,
-			damage = 10,
-			spread = 8,
-			recoil = 6,
-			spread_moving = 9,
-			zoom = 5,
-			concealment = 26,
-			suppression = 5,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.mateba.stats = {
-			reload = 11,
-			damage = 95,
-			spread = 9,
-			recoil = 10,
-			spread_moving = 5,
-			zoom = 3,
-			concealment = 20,
-			suppression = 7,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_2006m.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 95,
-			spread = 9,
-			recoil = 10,
-			spread_moving = 5,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 7,
-			concealment = 20
-		}
-		self.deagle.stats = {
-			reload = 11,
-			damage = 60,
-			spread = 6,
-			recoil = 3,
-			spread_moving = 6,
-			zoom = 3,
-			concealment = 28,
-			suppression = 7,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_deagle.stats = {
-			reload = 11,
-			damage = 60,
-			spread = 6,
-			recoil = 3,
-			spread_moving = 4,
-			zoom = 3,
-			concealment = 26,
-			suppression = 7,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.breech.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			alert_size = 7,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 5,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.x_breech.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 75,
-			alert_size = 7,
-			spread = 6,
-			recoil = 4,
-			spread_moving = 5,
-			value = 4,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 29
-		}
-		self.beer.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			alert_size = 7,
-			spread = 5,
-			spread_moving = 5,
-			recoil = 11,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 28
-		}
-		self.x_beer.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			alert_size = 7,
-			spread = 5,
-			spread_moving = 5,
-			recoil = 11,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 28
-		}
-		self.czech.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 20,
-			alert_size = 7,
-			spread = 8,
-			spread_moving = 7,
-			recoil = 8,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 26
-		}
-		self.x_czech.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 20,
-			alert_size = 7,
-			spread = 8,
-			spread_moving = 7,
-			recoil = 8,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 26
-		}
-		self.stech.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 23,
-			alert_size = 7,
-			spread = 6,
-			spread_moving = 3,
-			recoil = 8,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 25
-		}
-		self.x_stech.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 23,
-			alert_size = 7,
-			spread = 6,
-			spread_moving = 3,
-			recoil = 8,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 25
-		}
-
-		self.m45.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 24,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 5
-		}
-		self.x_m45.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 5,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.mp7.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 7,
-			zoom = 1,
-			concealment = 23,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 7
-		}
-		self.x_mp7.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			alert_size = 7,
-			damage = 28,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 7,
-			value = 7,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 23
-		}
-		self.mac10.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 27,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_mac10.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 27
-		}
-		self.hajk.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 18
-		}
-		self.x_hajk.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 8,
-			recoil = 5,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 18
-		}
-		self.cobray.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 4,
-			recoil = 8,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 25,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_cobray.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 4,
-			recoil = 8,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 25
-		}
-		self.new_mp5.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 7,
-			recoil = 11,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 23,
-			suppression = 17,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_mp5.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 7,
-			recoil = 11,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 17,
-			concealment = 24
-		}
-		self.m1928.stats = {
-			reload = 11,
-			damage = 23,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 6,
-			zoom = 1,
-			concealment = 18,
-			suppression = 12,
-			alert_size = 8,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 9
-		}
-		self.x_m1928.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 23,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 6,
-			alert_size = 8,
-			value = 9,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 18
-		}
-		self.scorpion.stats = {
-			reload = 11,
-			damage = 18,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 7,
-			zoom = 1,
-			concealment = 28,
-			suppression = 17,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 7
-		}
-		self.x_scorpion.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 18,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 7,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 17,
-			concealment = 28
-		}
-		self.mp9.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 26,
-			suppression = 16,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_mp9.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 20,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 16,
-			concealment = 26
-		}
-		self.olympic.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 8,
-			recoil = 10,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 24,
-			suppression = 10,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_olympic.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 20,
-			spread = 8,
-			recoil = 10,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 10,
-			concealment = 24
-		}
-		self.baka.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 4,
-			recoil = 4,
-			spread_moving = 4,
-			zoom = 3,
-			concealment = 29,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_baka.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 4,
-			recoil = 4,
-			spread_moving = 4,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 29
-		}
-		self.shepheard.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 7,
-			recoil = 5,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.x_shepheard.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 7,
-			recoil = 5,
-			spread_moving = 7,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.schakal.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.x_schakal.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 6,
-			recoil = 7,
-			spread_moving = 6,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.sr2.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			alert_size = 7,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 28
-		}
-		self.x_sr2.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			alert_size = 7,
-			spread = 7,
-			recoil = 10,
-			spread_moving = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 15,
-			concealment = 28
-		}
-		self.akmsu.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 9,
-			zoom = 3,
-			concealment = 21,
-			suppression = 8,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_akmsu.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 5,
-			recoil = 6,
-			spread_moving = 9,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 8,
-			concealment = 21
-		}
-		self.tec9.stats = {
-			reload = 11,
-			damage = 25,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 10,
-			zoom = 1,
-			concealment = 27,
-			suppression = 12,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 7
-		}
-		self.x_tec9.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 10,
-			alert_size = 7,
-			value = 7,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 27
-		}
-		self.p90.stats = {
-			reload = 11,
-			damage = 20,
-			spread = 8,
-			recoil = 9,
-			spread_moving = 9,
-			zoom = 3,
-			concealment = 25,
-			suppression = 12,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_p90.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 20,
-			spread = 8,
-			recoil = 9,
-			spread_moving = 9,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 25
-		}
-		self.polymer.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 5,
-			recoil = 9,
-			spread_moving = 8,
-			zoom = 3,
-			concealment = 20,
-			suppression = 14,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 1
-		}
-		self.x_polymer.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 5,
-			recoil = 9,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 20
-		}
-		self.coal.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 4,
-			recoil = 6,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.x_coal.stats = {
-			zoom = 3,
-			total_ammo_mod = 21,
-			damage = 25,
-			spread = 4,
-			recoil = 6,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 1,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.sterling.stats = {
-			reload = 11,
-			damage = 35,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 20,
-			suppression = 12,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 7
-		}
-		self.x_sterling.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 35,
-			spread = 7,
-			recoil = 7,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 7,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 20
-		}
-		self.uzi.stats = {
-			reload = 11,
-			damage = 28,
-			spread = 8,
-			recoil = 10,
-			spread_moving = 8,
-			zoom = 1,
-			concealment = 24,
-			suppression = 12,
-			alert_size = 7,
-			extra_ammo = 51,
-			total_ammo_mod = 21,
-			value = 7
-		}
-		self.x_uzi.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 8,
-			recoil = 10,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 7,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 12,
-			concealment = 24
-		}
-		self.erma.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 5,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
-		self.x_erma.stats = {
-			zoom = 1,
-			total_ammo_mod = 21,
-			damage = 28,
-			spread = 7,
-			recoil = 8,
-			spread_moving = 8,
-			alert_size = 7,
-			value = 5,
-			extra_ammo = 51,
-			reload = 11,
-			suppression = 14,
-			concealment = 24
-		}
+		ammo("amcar", PICKUP.AR_HIGH_CAPACITY, 9)
+		ammo("aug", PICKUP.AR_MED_CAPACITY, 4)
+		ammo("g36", PICKUP.AR_HIGH_CAPACITY, 6)
+		ammo("scar", PICKUP.AR_LOW_CAPACITY, 4, 20)
+		ammo("s552", PICKUP.AR_HIGH_CAPACITY, 5)
+		ammo("fal", PICKUP.AR_LOW_CAPACITY, 5)
+		ammo("famas", PICKUP.AR_HIGH_CAPACITY, 5)
+		ammo("galil", PICKUP.AR_MED_CAPACITY, 4)
+		ammo("l85a2", PICKUP.AR_MED_CAPACITY, 6)
+		ammo("g3", PICKUP.AR_LOW_CAPACITY, 4, 20)
+		ammo("asval", PICKUP.AR_HIGH_CAPACITY, 8, 20)
+		ammo("spas12", PICKUP.SHOTGUN_HIGH_CAPACITY, 6)
+		ammo("b682", PICKUP.OTHER, 13)
+		ammo("r870", PICKUP.OTHER, 8)
+		ammo("benelli", PICKUP.SHOTGUN_HIGH_CAPACITY, 9)
+		ammo("ksg", PICKUP.OTHER, 8)
+		ammo("judge", PICKUP.SNIPER_HIGH_DAMAGE, 4)
+		ammo("x_judge", PICKUP.SNIPER_HIGH_DAMAGE, 4)
+		ammo("serbu", PICKUP.OTHER, 5)
+		ammo("striker", PICKUP.SHOTGUN_HIGH_CAPACITY, 4)
+		ammo("msr", PICKUP.SNIPER_LOW_DAMAGE, 5)
 		
-		self.plainsrider.stats.damage = 10
-		self.long.stats.damage = 10
-		self.frankish.stats.damage = 10
-		self.arblast.stats.damage = 10
-		
-		self.holt.stats.damage = 23
-		self.holt.stats.spread = 8
-		self.holt.stats.spread_moving = 8
-		self.holt.stats.recoil = 9
-		self.x_holt.stats.damage = 23
-		self.x_holt.stats.spread = 8
-		self.x_holt.stats.spread_moving = 8
-		self.x_holt.stats.recoil = 9
-		
-		self.m60.stats.damage = 33
-		
-		self.r700.stats.damage = 10
-		self.r700.stats.recoil = 5
-		
-		self.r700.stats_modifiers = 			{damage = 10, suppression = 3, spread = 0.83}
-		self.winchester1874.stats_modifiers = 	{damage = 10, suppression = 3, spread = 0.83}
-		self.msr.stats_modifiers = 				{damage = 12, suppression = 3, spread = 0.83}
-		self.model70.stats_modifiers = 			{damage = 12, suppression = 3}
-		self.desertfox.stats_modifiers = 		{damage = 12, suppression = 3}
-		self.r93.stats_modifiers = 				{damage = 12, suppression = 3, spread = 0.83}
-		self.mosin.stats_modifiers = 			{damage = 12, suppression = 3, spread = 0.83}
-		self.m95.stats_modifiers = 				{damage = 144, suppression = 5, spread = 0.83}
-		
-		self.tti.stats_modifiers = 			{damage = 9, suppression = 3, spread = 0.83}
-		self.siltstone.stats_modifiers = 	{damage = 9, suppression = 3}
-		self.wa2000.stats_modifiers = 		{damage = 9.5, suppression = 3, spread = 0.67}
-		
-		self.plainsrider.stats_modifiers = 		{damage = 6.5}
-		self.long.stats_modifiers = 			{damage = 9}
-		self.frankish.stats_modifiers = 		{damage = 9}
-		self.arblast.stats_modifiers = 			{damage = 12}
-		self.hunter.stats_modifiers = 			{damage = 7.5}
-		self.elastic.stats_modifiers = 			{damage = 8.0}
-		self.ecp.stats_modifiers = 				{damage = 9.5}
-		self.peacemaker.stats_modifiers = 		{damage = 12}
-		self.arbiter.stats_modifiers = 			{damage = 12.5}
-		self.slap.stats_modifiers = 			{damage = 34}
-		self.china.stats_modifiers = 			{damage = 34}
-		self.gre_m79.stats_modifiers = 			{damage = 34}
-		self.m32.stats_modifiers = 				{damage = 34}
-		self.contraband_m203.stats_modifiers = 	{damage = 34}
-		self.ray.stats_modifiers = 				{damage = 250}
-		self.rpg7.stats_modifiers = 			{damage = 1000}
-		
-		self.saw_secondary = nil
-		
-		self.china.use_data = {selection_index = SELECTION.PRIMARY}
-		self.rpg7.use_data = {selection_index = SELECTION.PRIMARY}
-		self.ray.use_data = {selection_index = SELECTION.PRIMARY}
-		self.ecp.use_data = {selection_index = SELECTION.PRIMARY}
-		self.rpg7.NR_CLIPS_MAX = 2
-		self.ray.NR_CLIPS_MAX = 1
-		self.rpg7.AMMO_MAX = self.rpg7.CLIP_AMMO_MAX * self.rpg7.NR_CLIPS_MAX
-		self.ray.AMMO_MAX = self.ray.CLIP_AMMO_MAX * self.ray.NR_CLIPS_MAX
-		
-		self.gre_m79.has_description = true
-		self.m32.has_description = true
-		self.m95.has_description = true
-		self.slap.has_description = true
-		self.china.has_description = true
-		self.arbiter.has_description = true
-		self.m134.has_description = true
-		self.shuno.has_description = true
-		self.flamethrower_mk2.has_description = true
-		self.system.has_description = true
-		self.lemming.has_description = true
-		self.wa2000.has_description = true
-		self.tti.has_description = true
-		self.siltstone.has_description = true
-		self.msr.has_description = true
-		self.model70.has_description = true
-		self.desertfox.has_description = true
-		self.r93.has_description = true
-		self.winchester1874.has_description = true
-		self.mosin.has_description = true
-		self.r700.has_description = true
-		self.peacemaker.has_description = true
-		
-		self.gre_m79.desc_id = "bm_w_rpg7_desc"
-		self.m32.desc_id = "bm_w_rpg7_desc"
-		self.m95.desc_id = "bm_w_m95_desc"
-		self.slap.desc_id = "bm_w_rpg7_desc"
-		self.china.desc_id = "bm_w_rpg7_desc"
-		self.arbiter.desc_id = "bm_w_rpg7_desc"
-		self.m134.desc_id = "bm_w_rpg7_desc"
-		self.shuno.desc_id = "bm_w_rpg7_desc"
-		self.flamethrower_mk2.desc_id = "bm_w_rpg7_desc"
-		self.system.desc_id = "bm_w_rpg7_desc"
-		self.lemming.desc_id = "bm_w_lemming_desc"
-		self.wa2000.desc_id = "bm_w_wa2000_desc"
-		self.tti.desc_id = "bm_w_wa2000_desc"
-		self.siltstone.desc_id = "bm_w_wa2000_desc"
-		self.msr.desc_id = "bm_w_msr_desc"
-		self.model70.desc_id = "bm_w_msr_desc"
-		self.desertfox.desc_id = "bm_w_msr_desc"
-		self.r93.desc_id = "bm_w_msr_desc"
-		self.winchester1874.desc_id = "bm_w_msr_desc"
-		self.mosin.desc_id = "bm_w_msr_desc"
-		self.r700.desc_id = "bm_w_msr_desc"
-		self.peacemaker.desc_id = "bm_w_peacemaker_desc"
-		
-		self.x_legacy.global_value = nil
-		self.m95.global_value = nil
-		self.m134.global_value = nil
-		self.shuno.global_value = nil
-		self.rpg7.global_value = nil
-		self.ray.global_value = nil
-		self.flamethrower_mk2.global_value = nil
-		self.system.global_value = nil
-		self.ecp.global_value = nil
-		self.elastic.global_value = nil
-		self.hunter.global_value = nil
-		self.plainsrider.global_value = nil
-		self.long.global_value = nil
-		self.frankish.global_value = nil
-		self.arblast.global_value = nil
-		
-		self.wa2000.shoot_through_chance = 20
-		self.tti.shoot_through_chance = 20
-		self.siltstone.shoot_through_chance = 20
-		
-		self.msr.shoot_through_chance = 40
-		self.model70.shoot_through_chance = 40
-		self.desertfox.shoot_through_chance = 40
-		self.r93.shoot_through_chance = 40
-		self.winchester1874.shoot_through_chance = 40
-		self.mosin.shoot_through_chance = 40
-		
-		self.peacemaker.can_shoot_through_enemy = true
-		self.peacemaker.shoot_through_chance = 15
-
-		self.lemming.can_shoot_through_enemy = false
-		self.lemming.can_shoot_through_shield = false
-		self.lemming.can_shoot_through_wall = false
-		
-		self.wa2000.fire_mode_data.fire_rate = 0.5
-
 		self.flamethrower_mk2.CLIP_AMMO_MAX = 150
 		self.flamethrower_mk2.NR_CLIPS_MAX = 4
 		self.flamethrower_mk2.AMMO_MAX = self.flamethrower_mk2.CLIP_AMMO_MAX * self.flamethrower_mk2.NR_CLIPS_MAX
 		self.system.CLIP_AMMO_MAX = 100
 		self.system.NR_CLIPS_MAX = 4
 		self.system.AMMO_MAX = self.system.CLIP_AMMO_MAX * self.system.NR_CLIPS_MAX
-		
-		self.new_m4.CLIP_AMMO_MAX = 30
-		self.new_m4.NR_CLIPS_MAX = 4
-		self.new_m4.AMMO_MAX = self.new_m4.CLIP_AMMO_MAX * self.new_m4.NR_CLIPS_MAX
-		self.s552.CLIP_AMMO_MAX = 30
-		self.s552.NR_CLIPS_MAX = 5
-		self.s552.AMMO_MAX = self.s552.CLIP_AMMO_MAX * self.s552.NR_CLIPS_MAX
-		self.scar.CLIP_AMMO_MAX = 20
-		self.scar.NR_CLIPS_MAX = 4
-		self.scar.AMMO_MAX = self.scar.CLIP_AMMO_MAX * self.scar.NR_CLIPS_MAX
-		self.g36.CLIP_AMMO_MAX = 30
-		self.g36.NR_CLIPS_MAX = 4
-		self.g36.AMMO_MAX = self.g36.CLIP_AMMO_MAX * self.g36.NR_CLIPS_MAX
-		self.famas.CLIP_AMMO_MAX = 30
-		self.famas.NR_CLIPS_MAX = 5
-		self.famas.AMMO_MAX = self.famas.CLIP_AMMO_MAX * self.famas.NR_CLIPS_MAX
-		self.asval.CLIP_AMMO_MAX = 20
-		self.asval.NR_CLIPS_MAX = 4
-		self.asval.AMMO_MAX = self.asval.CLIP_AMMO_MAX * self.asval.NR_CLIPS_MAX
-		self.contraband.CLIP_AMMO_MAX = 20
-		self.contraband.NR_CLIPS_MAX = 5
-		self.contraband.AMMO_MAX = self.contraband.CLIP_AMMO_MAX * self.contraband.NR_CLIPS_MAX
-		self.fal.CLIP_AMMO_MAX = 20
-		self.fal.NR_CLIPS_MAX = 4
-		self.fal.AMMO_MAX = self.fal.CLIP_AMMO_MAX * self.fal.NR_CLIPS_MAX
-		self.g3.CLIP_AMMO_MAX = 20
-		self.g3.NR_CLIPS_MAX = 4
-		self.g3.AMMO_MAX = self.g3.CLIP_AMMO_MAX * self.g3.NR_CLIPS_MAX
-		self.new_m14.CLIP_AMMO_MAX = 10
-		self.new_m14.NR_CLIPS_MAX = 4
-		self.new_m14.AMMO_MAX = self.new_m14.CLIP_AMMO_MAX * self.new_m14.NR_CLIPS_MAX
-		self.ching.CLIP_AMMO_MAX = 8
-		self.ching.NR_CLIPS_MAX = 5
-		self.ching.AMMO_MAX = self.ching.CLIP_AMMO_MAX * self.ching.NR_CLIPS_MAX
-		self.slap.CLIP_AMMO_MAX = 1
-		self.slap.NR_CLIPS_MAX = 3
-		self.slap.AMMO_MAX = self.slap.CLIP_AMMO_MAX * self.slap.NR_CLIPS_MAX
-		self.judge.NR_CLIPS_MAX = 5
-		self.judge.AMMO_MAX = self.judge.CLIP_AMMO_MAX * self.judge.NR_CLIPS_MAX
-		
-		self.r870.damage_near = 700
-		self.r870.damage_far = 1500
-		self.saiga.damage_near = 700
-		self.saiga.damage_far = 1800
-		self.serbu.damage_near = 800
-		self.serbu.damage_far = 1200
-		self.huntsman.damage_near = 1000
-		self.huntsman.damage_far = 2000
-		self.judge.damage_near = 800
-		self.judge.damage_far = 1200
-		self.benelli.damage_near = 700
-		self.benelli.damage_far = 1800
-		self.striker.damage_near = 700
-		self.striker.damage_far = 1800
-		self.ksg.damage_near = 700
-		self.ksg.damage_far = 1500
-		self.gre_m79.damage_near = 1000
-		self.gre_m79.damage_far = 2000
-		self.spas12.damage_near = 700
-		self.spas12.damage_far = 1800
-		self.rpg7.damage_near = 1000
-		self.rpg7.damage_far = 2000
-		self.b682.damage_near = 1000
-		self.b682.damage_far = 2000
-		self.m32.damage_near = 1000
-		self.m32.damage_far = 2000
-		self.aa12.damage_near = 800
-		self.aa12.damage_far = 2000
-		self.m37.damage_near = 800
-		self.m37.damage_far = 1200
-		self.china.damage_near = 1000
-		self.china.damage_far = 2000
-		self.boot.damage_near = 1000
-		self.boot.damage_far = 2000
-		self.rota.damage_near = 700
-		self.rota.damage_far = 1800
-		self.contraband_m203.damage_near = 1000
-		self.contraband_m203.damage_far = 2000
-		self.basset.damage_near = 700
-		self.basset.damage_far = 1800
-		self.x_basset.damage_near = 700
-		self.x_basset.damage_far = 1800
-		self.slap.damage_near = 1000
-		self.slap.damage_far = 2000
-		self.x_judge.damage_near = 800
-		self.x_judge.damage_far = 1200
-		self.x_rota.damage_near = 700
-		self.x_rota.damage_far = 1800
-		self.coach.damage_near = 1000
-		self.coach.damage_far = 2000
-
-		self.scorpion.AMMO_PICKUP = self:_pickup_chance(180, 1)
-		self.tec9.AMMO_PICKUP = self:_pickup_chance(160, 1)
-		self.uzi.AMMO_PICKUP = self:_pickup_chance(100, 1)
-		self.sterling.AMMO_PICKUP = self:_pickup_chance(100, 1)
-		self.m1928.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
-		self.l85a2.AMMO_PICKUP = self:_pickup_chance(90, 1.5)
-		
-		self.m134.AMMO_PICKUP = self:_pickup_chance(0, 2)
-		self.shuno.AMMO_PICKUP = self:_pickup_chance(0, 2)
-		self.flamethrower_mk2.AMMO_PICKUP = self:_pickup_chance(0, 1)
-		self.system.AMMO_PICKUP = self:_pickup_chance(0, 1)
-		self.gre_m79.AMMO_PICKUP = {0, 0}
-		self.m32.AMMO_PICKUP = {0, 0}
-		self.m95.AMMO_PICKUP = {0, 0}
-		self.slap.AMMO_PICKUP = {0, 0}
-		self.china.AMMO_PICKUP = {0, 0}
-		self.arbiter.AMMO_PICKUP = {0, 0}
-		self.contraband_m203.AMMO_PICKUP = {0, 0}
-		
-		self.msr.AMMO_PICKUP = {1, 1}
-		self.r93.AMMO_PICKUP = {0.7, 1}
-		self.mosin.AMMO_PICKUP = {0.7, 1}
-		self.model70.AMMO_PICKUP = {0.7, 1}
-		self.winchester1874.AMMO_PICKUP = {0.7, 1}
-		
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
@@ -2742,80 +488,153 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 	local data = WeaponFactoryTweakData.init
 	function WeaponFactoryTweakData:init(tweak_data)
 		data(self, tweak_data)
-		self.parts.wpn_fps_upg_ns_ass_smg_large.stats.damage = -2
-		self.parts.wpn_fps_upg_ns_ass_smg_medium.stats.damage = -7
-		self.parts.wpn_fps_upg_ns_ass_smg_small.stats.damage = -10
-		self.parts.wpn_fps_upg_ns_pis_large.stats.damage = -2
-		self.parts.wpn_fps_upg_ns_pis_medium.stats.damage = -4
+		
+		for id, _ in pairs(self) do
+			if self[id].override then
+				for ids, _ in pairs(self[id].override) do
+					local overrides = self[id].override[ids]
+					local slugs = {
+						damage_near_mul = 2,
+						damage_far_mul = 1.15,
+						rays = 1,
+						armor_piercing_add = 1,
+						can_shoot_through_enemy = true,
+						can_shoot_through_shield = true,
+						can_shoot_through_wall = true,
+						ammo_pickup_min_mul = 1,
+						ammo_pickup_max_mul = 1
+					}
+					local explosive = {
+						ignore_statistic = true,
+						rays = 1,
+						damage_near_mul = 2,
+						damage_far_mul = 2.5,
+						bullet_class = "InstantExplosiveBulletBase",
+						ammo_pickup_min_mul = 0.5,
+						ammo_pickup_max_mul = 0.7
+					}
+					local piercing = {
+						damage_near_mul = 2,
+						damage_far_mul = 1.7,
+						armor_piercing_add = 1,
+						ammo_pickup_min_mul = 0.9,
+						ammo_pickup_max_mul = 1
+					}
+					if overrides.wpn_fps_upg_a_slug then
+						overrides.wpn_fps_upg_a_slug.custom_stats = slugs
+					end
+					if overrides.wpn_fps_upg_a_explosive then
+						overrides.wpn_fps_upg_a_explosive.custom_stats = explosive
+					end
+					if overrides.wpn_fps_upg_a_piercing then
+						overrides.wpn_fps_upg_a_piercing.custom_stats = piercing
+					end
+					
+					if overrides.wpn_fps_upg_ass_ak_b_zastava then
+						overrides.wpn_fps_upg_ass_ak_b_zastava.custom_stats = {ammo_pickup_min_mul = 0.5, ammo_pickup_max_mul = 0.5}
+					end
+					if overrides.wpn_fps_upg_ass_m4_b_beowulf then
+						overrides.wpn_fps_upg_ass_m4_b_beowulf.custom_stats = {ammo_pickup_min_mul = 0.8, ammo_pickup_max_mul = 0.8}
+					end
+					if overrides.stats then
+						if overrides.stats.reload then
+							overrides.stats.reload = math.round(overrides.stats.reload * 0.3)
+						end
+						if overrides.stats.damage then
+							overrides.stats.damage = math.round(overrides.stats.damage * 0.454)
+						end
+					end
+				end
+			end
+		end
+		
+		for id, _ in pairs(self.parts) do
+			local part = self.parts[id]
+			if part.stats then
+				
+				if part.stats.damage then
+					if part.stats.damage >= 100 then
+						part.stats.damage = math.round(part.stats.damage / 3.375)
+					elseif part.stats.damage >= 60 then
+						part.stats.damage = math.round(part.stats.damage / 1.340)
+					elseif part.stats.damage <= -40 then
+						part.stats.damage = math.round(part.stats.damage * 0.325)
+					else
+						part.stats.damage = math.round(part.stats.damage * 2)
+					end
+					if part.stats.damage == 4 then
+						part.stats.damage = part.stats.damage + 1
+					end
+					if part.stats.damage == 6 or part.stats.damage == -6 then
+						part.stats.damage = math.round(part.stats.damage / 0.857)
+					end
+					if part.stats.damage == 8 or part.stats.damage == -8 then
+						part.stats.damage = math.round(part.stats.damage * 1.25)
+					end
+				end
+			
+				if part.sub_type == "silencer" then
+					part.has_description = true
+					if part.stats.alert_size then
+						if part.stats.damage then
+							if part.stats.damage <= -10 then
+								part.stats.alert_size = math.round(part.stats.alert_size + (part.stats.damage * 0.27))
+							else
+								part.stats.alert_size = math.round(part.stats.alert_size + (part.stats.damage * 0.4))
+							end
+						end
+						if part.stats.alert_size <= 4 then
+							part.desc_id = "menu_silencer_radius_very_high"
+						elseif part.stats.alert_size <= 5 then
+							part.desc_id = "menu_silencer_radius_high"
+						elseif part.stats.alert_size <= 8 then
+							part.desc_id = "menu_silencer_radius_medium"
+						elseif part.stats.alert_size <= 9 then
+							part.desc_id = "menu_silencer_radius_small"
+						else
+							part.desc_id = "menu_silencer_radius_silent"
+						end
+					end
+				end
+				
+				if part.type == "magazine" then
+					if part.stats.reload then
+						part.stats.reload = math.round(part.stats.reload * 0.3)
+					end
+				end
+				
+				-- if part.pcs then
+					-- part.pcs = {10, 20, 30, 40}
+				-- end
+			end
+		end
+
 		self.parts.wpn_fps_upg_ns_pis_small.stats.damage = -6
-		self.parts.wpn_fps_upg_ns_shot_thick.stats.damage = -10
-		self.parts.wpn_fps_upg_ns_ass_smg_firepig.stats.damage = 7
-		self.parts.wpn_fps_upg_ns_ass_smg_stubby.stats.damage = 2
-		self.parts.wpn_fps_upg_ns_ass_smg_tank.stats.damage = 5
 		self.parts.wpn_fps_upg_ns_shot_shark.stats.damage = 7
-		self.parts.wpn_fps_upg_i_autofire.stats.damage = 2
-		self.parts.wpn_fps_upg_fg_jp.stats.damage = 2
-		self.parts.wpn_fps_upg_fg_smr.stats.damage = 5
-		self.parts.wpn_fps_upg_ak_b_draco.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_ns_jprifles.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_ns_linear.stats.damage = 10
 		self.parts.wpn_fps_upg_pis_ns_flash.stats.damage = 2
 		self.parts.wpn_fps_upg_ass_ns_surefire.stats.damage = 5
 		self.parts.wpn_fps_upg_shot_ns_king.stats.damage = 5
 		self.parts.wpn_fps_m4_upper_reciever_edge.stats.damage = 5
 		self.parts.wpn_fps_upg_shot_ns_king.stats.damage = 5
-		self.parts.wpn_fps_m4_uupg_b_long.stats.damage = 5
 		self.parts.wpn_fps_m4_uupg_b_sd.stats.damage = -5
 		self.parts.wpn_fps_pis_g18c_co_1.stats.damage = 3
 		self.parts.wpn_fps_pis_g18c_co_comp_2.stats.damage = 3
-		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -11, damage = 30, concealment = -4}
-		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -14, damage = 47, concealment = -4}
 		self.parts.wpn_fps_ass_ak5_fg_ak5c.stats.damage = 3
-		self.parts.wpn_fps_aug_b_long.stats.damage = 2
-		self.parts.wpn_fps_aug_fg_a3.stats.damage = 2
-		self.parts.wpn_fps_smg_p90_b_long.stats.damage = 5
 		self.parts.wpn_fps_pis_deagle_b_long.stats.damage = 10
 		self.parts.wpn_fps_pis_deagle_co_long.stats.damage = 10
 		self.parts.wpn_fps_pis_deagle_co_short.stats.damage = 5
 		self.parts.wpn_fps_smg_mp5_fg_mp5sd.stats.damage = -5
-		self.parts.wpn_fps_pis_1911_b_long.stats.damage = 2
-		self.parts.wpn_fps_pis_1911_b_vented.stats.damage = 2
-		self.parts.wpn_fps_pis_1911_co_1.stats.damage = 2
-		self.parts.wpn_fps_pis_1911_co_2.stats.damage = 5
-		self.parts.wpn_fps_pis_beretta_co_co1.stats.damage = 2
-		self.parts.wpn_fps_pis_beretta_co_co2.stats.damage = 5
 		self.parts.wpn_fps_pis_rage_b_comp1.stats.damage = 10
 		self.parts.wpn_fps_pis_rage_b_comp2.stats.damage = 5
-		self.parts.wpn_fps_pis_usp_co_comp_1.stats.damage = 5
-		self.parts.wpn_fps_pis_g22c_b_long.stats.damage = 2
-		self.parts.wpn_fps_ass_s552_b_long.stats.damage = 2
-		self.parts.wpn_fps_ass_s552_body_standard_black.stats.damage = 2
-		self.parts.wpn_fps_pis_ppk_b_long.stats.damage = 2
 		self.parts.wpn_fps_smg_mp7_b_suppressed.stats.damage = -3
-		self.parts.wpn_fps_ass_scar_b_short.stats.damage = 2
-		self.parts.wpn_fps_pis_p226_b_equinox.stats.damage = 5
-		self.parts.wpn_fps_pis_p226_b_long.stats.damage = 2
-		self.parts.wpn_fps_pis_p226_co_comp_1.stats.damage = 5
 		self.parts.wpn_fps_lmg_hk21_b_long.stats.damage = -3
-		self.parts.wpn_fps_lmg_hk21_fg_short.stats.damage = 2
 		self.parts.wpn_fps_lmg_m249_b_long.stats.damage = -3
-		self.parts.wpn_fps_lmg_m249_fg_mk46.stats.damage = 5
 		self.parts.wpn_fps_lmg_rpk_fg_standard.stats.damage = 3
 		self.parts.wpn_fps_snp_m95_barrel_suppressed.stats.damage = -3
 		self.parts.wpn_fps_snp_msr_ns_suppressor.stats.damage = -2
 		self.parts.wpn_fps_snp_r93_b_suppressed.stats.damage = -2
-		self.parts.wpn_fps_ass_fal_fg_01.stats.damage = 2
-		self.parts.wpn_fps_ass_fal_fg_03.stats.damage = 2
-		self.parts.wpn_fps_ass_fal_fg_04.stats.damage = 2
-		self.parts.wpn_fps_sho_striker_b_suppressed.stats.damage = -1
-		self.parts.wpn_fps_sho_ksg_b_short.stats.damage = 5
-		self.parts.wpn_fps_ass_g3_b_sniper.stats = {value = 2, recoil = -2, spread = 2, concealment = -2, total_ammo_mod = -10, damage = 32, extra_ammo = -5}
-		self.parts.wpn_fps_ass_g3_b_short.stats = {value = 2, recoil = 2, spread = -2, concealment = 4, damage = -13, total_ammo_mod = 5}
-		self.parts.wpn_fps_ass_galil_fg_mar.stats.damage = 5
-		self.parts.wpn_fps_ass_galil_fg_sar.stats.damage = 2
-		self.parts.wpn_fps_ass_famas_b_long.stats.damage = 2
+		self.parts.wpn_fps_ass_g3_b_sniper.stats.damage = 32
 		self.parts.wpn_fps_ass_famas_b_short.stats.damage = 5
-		self.parts.wpn_fps_ass_famas_b_sniper.stats.damage = 2
 		self.parts.wpn_fps_upg_a_slug.stats = {value = 5, total_ammo_mod = -10, damage = 15, spread = 2, moving_spread = 2}	
 		self.parts.wpn_fps_upg_a_custom.stats = {value = 5, total_ammo_mod = -6, damage = 15}
 		self.parts.wpn_fps_upg_a_custom_free.stats = {value = 5, total_ammo_mod = -6, damage = 15}
@@ -2824,86 +643,34 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_upg_a_dragons_breath.stats = {value = 5, total_ammo_mod = -6, damage = -10, spread = -1, moving_spread = 3}
 		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary.stats.damage = -10
 		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary_arbiter.stats.damage = -8
-		self.parts.wpn_fps_pis_g26_b_custom.stats.damage = 2
-		self.parts.wpn_fps_pis_g26_body_custom.stats.damage = 2
-		self.parts.wpn_fps_upg_ns_pis_large_kac.stats.damage = -2
-		self.parts.wpn_fps_upg_ns_pis_medium_gem.stats.damage = -7
-		self.parts.wpn_fps_upg_ns_pis_meatgrinder.stats.damage = 5
-		self.parts.wpn_fps_lmg_mg42_b_mg34.stats.damage = -2
 		self.parts.wpn_fps_pis_c96_b_long.stats.damage = 5
 		self.parts.wpn_fps_pis_c96_nozzle.stats.damage = 5
-		self.parts.wpn_fps_smg_sterling_b_long.stats.damage = 2
-		self.parts.wpn_fps_smg_sterling_b_short.stats.damage = 5
 		self.parts.wpn_fps_snp_mosin_b_sniper.stats.damage = -2
-		self.parts.wpn_fps_ass_vhs_b_silenced.stats.damage = -2
-		self.parts.wpn_fps_pis_hs2000_sl_custom.stats.damage = 5
-		self.parts.wpn_fps_pis_hs2000_sl_long.stats.damage = 2
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -11, damage = 47, concealment = -4}
-		self.parts.wpn_fps_upg_ak_b_ak105.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_m4_fg_lvoa.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_m4_fg_moe.stats.damage = 2
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_core.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_m4_lower_reciever_core.stats.damage = 5
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -14, damage = 32, concealment = -4}
-		self.parts.wpn_fps_smg_cobray_body_upper_jacket.stats.damage = 2
-		self.parts.wpn_fps_smg_cobray_ns_barrelextension.stats.damage = 5
-		self.parts.wpn_fps_smg_cobray_ns_silencer.stats.damage = -7
-		self.parts.wpn_fps_saw_body_speed.stats.damage = 7
-		self.parts.wpn_fps_saw_m_blade_sharp.stats.damage = 7
-		self.parts.wpn_fps_aug_body_f90.stats.damage = 5
-		self.parts.wpn_fps_ass_ak5_b_short.stats.damage = 5
-		self.parts.wpn_fps_smg_p90_b_civilian.stats.damage = 5
-		self.parts.wpn_fps_smg_p90_b_ninja.stats.damage = -2
-		self.parts.wpn_fps_upg_ass_ns_battle.stats.damage = 5
-		self.parts.wpn_fps_upg_ns_ass_filter.stats.damage = -7
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.stats.damage = -10
 		self.parts.wpn_fps_fla_mk2_mag_rare.stats = {value = 1, total_ammo_mod = 5, damage = -3}
 		self.parts.wpn_fps_fla_mk2_mag_welldone.stats = {value = 1, total_ammo_mod = -5, damage = 4}
 		self.parts.wpn_fps_sho_aa12_barrel_silenced.stats.damage = -5
 		self.parts.wpn_fps_snp_winchester_b_suppressed.stats.damage = -2
-		self.parts.wpn_fps_bow_elastic_m_explosive.stats.damage = 2
-		self.parts.wpn_fps_bow_elastic_m_poison.stats.damage = -4
-		self.parts.wpn_fps_bow_ecp_m_arrows_explosive.stats.damage = 2
-		self.parts.wpn_fps_bow_ecp_m_arrows_poison.stats.damage = -4
-		self.parts.wpn_fps_upg_a_bow_explosion.stats.damage = 2
-		self.parts.wpn_fps_upg_a_bow_poison.stats.damage = -4
-		self.parts.wpn_fps_bow_long_m_explosive.stats.damage = 2
-		self.parts.wpn_fps_bow_long_m_poison.stats.damage = -4
-		self.parts.wpn_fps_bow_frankish_m_explosive.stats.damage = 2
-		self.parts.wpn_fps_bow_frankish_m_poison.stats.damage = -4
-		self.parts.wpn_fps_bow_arblast_m_explosive.stats.damage = 2
-		self.parts.wpn_fps_bow_arblast_m_poison.stats.damage = -4
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.stats.damage = -2
 		self.parts.wpn_fps_snp_wa2000_b_suppressed.stats.damage = -2
-		self.parts.wpn_fps_smg_polymer_barrel_precision.stats.damage = 5
-		self.parts.wpn_fps_smg_polymer_ns_silencer.stats.damage = -7
-		self.parts.wpn_fps_upg_a_crossbow_explosion.stats.damage = 2
-		self.parts.wpn_fps_upg_a_crossbow_poison.stats = {damage = -4, total_ammo_mod = -6}
-		self.parts.wpn_fps_smg_baka_b_midsupp.stats.damage = -5
 		self.parts.wpn_fps_smg_baka_b_smallsupp.stats.damage = -9
 		self.parts.wpn_fps_snp_model70_ns_suppressor.stats.damage = -2
 		self.parts.wpn_fps_ass_74_b_legend.stats.damage = 14
-		self.parts.wpn_fps_pis_deagle_b_legend.stats.damage = 5
-		self.parts.wpn_fps_fla_mk2_body_fierybeast.stats.damage = -5
 		self.parts.wpn_fps_shot_r870_b_legendary.stats.damage = 10
-		self.parts.wpn_fps_ass_m16_s_legend.stats.damage = 7
 		self.parts.wpn_fps_sho_boot_fg_legendary.stats.damage = 20
 		self.parts.wpn_fps_shot_shorty_fg_legendary.stats.damage = 15
-		self.parts.wpn_fps_ass_m14_body_legendary.stats.damage = 7
 		self.parts.wpn_fps_smg_sr2_ns_silencer.stats.damage = -5
-		self.parts.wpn_fps_ass_tecci_ns_special.stats.damage = 5
-		self.parts.wpn_fps_smg_schakal_ns_silencer.stats.damage = -7
 		self.parts.wpn_fps_snp_desertfox_b_silencer.stats.damage = -2
 		self.parts.wpn_fps_sho_rota_b_silencer.stats.damage = -1
-		self.parts.wpn_fps_upg_ns_duck.stats.damage = 5
 		self.parts.wpn_fps_snp_tti_ns_hex.stats.damage = -2
-		self.parts.wpn_fps_snp_siltstone_b_silenced.stats.damage = -2
 		self.parts.wpn_fps_pis_deagle_b_modern.stats.damage = 10
 		self.parts.wpn_fps_fla_system_m_high.stats.damage = 10
 		self.parts.wpn_fps_fla_system_m_low.stats = {value = 1, total_ammo_mod = 5, damage = -3}
 		self.parts.wpn_fps_fla_system_m_high.stats = {value = 1, total_ammo_mod = -5, damage = 7}
-		self.parts.wpn_fps_upg_ns_ass_smg_v6.stats.damage = 2
-		self.parts.wpn_fps_upg_ns_pis_typhoon.stats.damage = 2
+		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -11, damage = 30, concealment = -4}
+		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -14, damage = 47, concealment = -4}
+		self.parts.wpn_fps_ass_g3_b_sniper.stats = {value = 2, recoil = -2, spread = 2, concealment = -2, total_ammo_mod = -10, damage = 32, extra_ammo = -5}
+		self.parts.wpn_fps_ass_g3_b_short.stats = {value = 2, recoil = 2, spread = -2, concealment = 4, damage = -13, total_ammo_mod = 5}
+		self.parts.wpn_fps_upg_ass_ak_b_zastava.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -11, damage = 47, concealment = -4}
+		self.parts.wpn_fps_upg_ass_m4_b_beowulf.stats = {value = 1, spread = 2, recoil = -8, total_ammo_mod = -14, damage = 32, concealment = -4}
 		
 		self.parts.wpn_fps_upg_i_autofire.forbids = {
 			"wpn_fps_amcar_uupg_body_upperreciever",
@@ -2913,893 +680,20 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 			"wpn_fps_upg_o_sig"
 		}
 		
-		self.parts.wpn_fps_upg_ns_pis_large_kac.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_large.has_description = true
-		self.parts.wpn_fps_upg_ns_ass_smg_large.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_medium.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_medium_slim.has_description = true
-		self.parts.wpn_fps_m4_uupg_b_sd.has_description = true
-		self.parts.wpn_fps_smg_mp7_b_suppressed.has_description = true
-		self.parts.wpn_fps_snp_msr_ns_suppressor.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_medium_gem.has_description = true
-		self.parts.wpn_fps_smg_sterling_b_suppressed.has_description = true
-		self.parts.wpn_fps_sho_striker_b_suppressed.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_small.has_description = true
-		self.parts.wpn_fps_upg_ns_ass_smg_medium.has_description = true
-		self.parts.wpn_fps_smg_sterling_b_e11.has_description = true
-		self.parts.wpn_fps_snp_mosin_b_sniper.has_description = true
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.has_description = true
-		self.parts.wpn_fps_upg_ns_ass_smg_small.has_description = true
-		self.parts.wpn_fps_upg_ns_shot_thick.has_description = true
-		self.parts.wpn_fps_ass_famas_b_suppressed.has_description = true
-		self.parts.wpn_fps_smg_uzi_b_suppressed.has_description = true
-		self.parts.wpn_fps_ass_vhs_b_silenced.has_description = true
-		self.parts.wpn_fps_snp_r93_b_suppressed.has_description = true
-		self.parts.wpn_fps_lmg_mg42_b_vg38.has_description = true
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.has_description = true
-		self.parts.wpn_fps_saw_body_silent.has_description = true
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.has_description = true
-		self.parts.wpn_fps_upg_ns_pis_jungle.has_description = true
-		self.parts.wpn_fps_upg_ns_ass_filter.has_description = true
-		self.parts.wpn_fps_smg_cobray_ns_silencer.has_description = true
-		self.parts.wpn_fps_smg_mp9_b_suppressed.has_description = true
-		self.parts.wpn_fps_smg_baka_b_longsupp.has_description = true
-		self.parts.wpn_fps_smg_baka_b_midsupp.has_description = true
-		self.parts.wpn_fps_smg_baka_b_smallsupp.has_description = true
-		self.parts.wpn_fps_smg_schakal_ns_silencer.has_description = true
-		self.parts.wpn_fps_smg_sr2_ns_silencer.has_description = true
-		self.parts.wpn_fps_upg_ns_ass_pbs1.has_description = true
-		self.parts.wpn_fps_smg_p90_b_civilian.has_description = true
-		self.parts.wpn_fps_smg_p90_b_ninja.has_description = true
-		self.parts.wpn_fps_smg_polymer_ns_silencer.has_description = true
-		self.parts.wpn_fps_ass_asval_b_proto.has_description = true
-		self.parts.wpn_fps_sho_aa12_barrel_silenced.has_description = true
-		self.parts.wpn_fps_snp_wa2000_b_suppressed.has_description = true
-		self.parts.wpn_fps_snp_siltstone_b_silenced.has_description = true
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.has_description = true
-		self.parts.wpn_fps_sho_rota_b_silencer.has_description = true
-		self.parts.wpn_fps_snp_tti_ns_hex.has_description = true
-		self.parts.wpn_fps_smg_mp5_fg_mp5sd.has_description = true
-
-		self.parts.wpn_fps_upg_ns_pis_large_kac.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_upg_ns_pis_large.desc_id = 			"menu_silencer_radius_silent"
-		self.parts.wpn_fps_upg_ns_pis_jungle.desc_id = 			"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_cobray_ns_silencer.desc_id = 	"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_mp9_b_suppressed.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_baka_b_longsupp.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_baka_b_midsupp.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_baka_b_smallsupp.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_sr2_ns_silencer.desc_id = 		"menu_silencer_radius_silent"
-		self.parts.wpn_fps_upg_ns_ass_pbs1.desc_id = 			"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_p90_b_ninja.desc_id = 			"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_polymer_ns_silencer.desc_id = 	"menu_silencer_radius_silent"
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.desc_id = 	"menu_silencer_radius_silent"
-		self.parts.wpn_fps_smg_mp5_fg_mp5sd.desc_id = 			"menu_silencer_radius_silent"
-		
-		
-		self.parts.wpn_fps_upg_ns_ass_smg_large.stats.alert_size = 10		--очень малый
-		self.parts.wpn_fps_upg_ns_pis_medium.stats.alert_size = 10			--очень малый
-		self.parts.wpn_fps_upg_ns_pis_medium_slim.stats.alert_size = 10		--очень малый
-		self.parts.wpn_fps_m4_uupg_b_sd.stats.alert_size = 10				--очень малый
-		self.parts.wpn_fps_smg_mp7_b_suppressed.stats.alert_size = 10		--очень малый
-		self.parts.wpn_fps_snp_msr_ns_suppressor.stats.alert_size = 5		--очень малый
-		self.parts.wpn_fps_upg_ns_pis_medium_gem.stats.alert_size = 10		--очень малый
-		self.parts.wpn_fps_smg_sterling_b_suppressed.stats.alert_size = 9	--очень малый
-		self.parts.wpn_fps_smg_schakal_ns_silencer.stats.alert_size = 10	--очень малый
-		self.parts.wpn_fps_ass_asval_b_proto.stats.alert_size = 10			--очень малый
-		self.parts.wpn_fps_upg_ns_ass_smg_large.desc_id = 		"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_upg_ns_pis_medium.desc_id = 			"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_upg_ns_pis_medium_slim.desc_id = 	"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_m4_uupg_b_sd.desc_id = 				"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_smg_mp7_b_suppressed.desc_id = 		"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_snp_msr_ns_suppressor.desc_id = 		"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_upg_ns_pis_medium_gem.desc_id = 		"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_smg_sterling_b_suppressed.desc_id = 	"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_smg_schakal_ns_silencer.desc_id = 	"menu_silencer_radius_very_small"
-		self.parts.wpn_fps_ass_asval_b_proto.desc_id = 			"menu_silencer_radius_very_small"
-		
-		self.parts.wpn_fps_upg_ns_pis_small.stats.alert_size = 9			--малый
-		self.parts.wpn_fps_upg_ns_ass_smg_medium.stats.alert_size = 9		--малый
-		self.parts.wpn_fps_smg_sterling_b_e11.stats.alert_size = 8			--малый
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.stats.alert_size = 9	--малый
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.stats.alert_size = 9		--малый
-		self.parts.wpn_fps_upg_ns_pis_small.desc_id = 			"menu_silencer_radius_small"
-		self.parts.wpn_fps_upg_ns_ass_smg_medium.desc_id = 		"menu_silencer_radius_small"
-		self.parts.wpn_fps_smg_sterling_b_e11.desc_id = 		"menu_silencer_radius_small"
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.desc_id = 	"menu_silencer_radius_small"
-		self.parts.wpn_fps_upg_ns_sho_salvo_large.desc_id = 	"menu_silencer_radius_small"
-		
-		self.parts.wpn_fps_upg_ns_ass_smg_small.stats.alert_size = 8		--средний
-		self.parts.wpn_fps_ass_famas_b_suppressed.stats.alert_size = 7		--средний
-		self.parts.wpn_fps_smg_uzi_b_suppressed.stats.alert_size = 6		--средний
-		self.parts.wpn_fps_ass_vhs_b_silenced.stats.alert_size = 6			--средний
-		self.parts.wpn_fps_upg_ns_ass_filter.stats.alert_size = 8			--средний
-		self.parts.wpn_fps_sho_aa12_barrel_silenced.stats.alert_size = 8	--средний
-		self.parts.wpn_fps_snp_winchester_b_suppressed.stats.alert_size = 8	--средний
-		self.parts.wpn_fps_upg_ns_shot_thick.stats.alert_size = 8			--средний
-		self.parts.wpn_fps_upg_ns_ass_smg_small.desc_id = 			"menu_silencer_radius_medium"
-		self.parts.wpn_fps_ass_famas_b_suppressed.desc_id = 		"menu_silencer_radius_medium"
-		self.parts.wpn_fps_smg_uzi_b_suppressed.desc_id = 			"menu_silencer_radius_medium"
-		self.parts.wpn_fps_ass_vhs_b_silenced.desc_id = 			"menu_silencer_radius_medium"
-		self.parts.wpn_fps_upg_ns_ass_filter.desc_id = 				"menu_silencer_radius_medium"
-		self.parts.wpn_fps_sho_aa12_barrel_silenced.desc_id = 		"menu_silencer_radius_medium"
-		self.parts.wpn_fps_snp_winchester_b_suppressed.desc_id = 	"menu_silencer_radius_medium"
-		self.parts.wpn_fps_upg_ns_shot_thick.desc_id = 				"menu_silencer_radius_medium"
-		 
-		self.parts.wpn_fps_snp_r93_b_suppressed.stats.alert_size = 5		--большой
-		self.parts.wpn_fps_lmg_mg42_b_vg38.stats.alert_size = 5				--большой
-		self.parts.wpn_fps_snp_wa2000_b_suppressed.stats.alert_size = 5		--большой
-		self.parts.wpn_fps_snp_mosin_b_sniper.stats.alert_size = 5			--большой
-		self.parts.wpn_fps_snp_tti_ns_hex.stats.alert_size = 5				--большой
-		self.parts.wpn_fps_snp_siltstone_b_silenced.stats.alert_size = 5	--большой
-		self.parts.wpn_fps_sho_rota_b_silencer.stats.alert_size = 5			--большой
-		self.parts.wpn_fps_sho_striker_b_suppressed.stats.alert_size = 5	--большой
-		self.parts.wpn_fps_snp_r93_b_suppressed.desc_id = 		"menu_silencer_radius_high"
-		self.parts.wpn_fps_lmg_mg42_b_vg38.desc_id = 			"menu_silencer_radius_high"
-		self.parts.wpn_fps_snp_wa2000_b_suppressed.desc_id = 	"menu_silencer_radius_high"
-		self.parts.wpn_fps_snp_mosin_b_sniper.desc_id = 		"menu_silencer_radius_high"
-		self.parts.wpn_fps_snp_tti_ns_hex.desc_id = 			"menu_silencer_radius_high"
-		self.parts.wpn_fps_snp_siltstone_b_silenced.desc_id = 	"menu_silencer_radius_high"
-		self.parts.wpn_fps_sho_rota_b_silencer.desc_id = 		"menu_silencer_radius_high"
-		self.parts.wpn_fps_sho_striker_b_suppressed.desc_id = 	"menu_silencer_radius_high"
-		
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.stats.alert_size = 4	--очень большой
-		self.parts.wpn_fps_saw_body_silent.stats.alert_size = 7				--очень большой
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.desc_id = 	"menu_silencer_radius_very_high"
-		self.parts.wpn_fps_saw_body_silent.desc_id = 			"menu_silencer_radius_very_high"
-		
 		self.parts.wpn_fps_smg_p90_b_ninja.stats.concealment = -5
 		self.parts.wpn_fps_smg_p90_b_civilian.stats.concealment = -3
-
-		self.parts.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_min_mul = 0.5
-		self.parts.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_max_mul = 0.5
-		self.wpn_fps_shot_serbu.override.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_min_mul = 0.5
-		self.wpn_fps_shot_serbu.override.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_max_mul = 0.5
-		self.wpn_fps_sho_striker.override.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_min_mul = 0.5
-		self.wpn_fps_sho_striker.override.wpn_fps_upg_a_slug.custom_stats.ammo_pickup_max_mul = 0.5
-		self.parts.wpn_fps_upg_a_custom.custom_stats = {ammo_pickup_min_mul = 0.85, ammo_pickup_max_mul = 0.85}
-
-		self.wpn_fps_shot_huntsman.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.wpn_fps_shot_huntsman.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.wpn_fps_sho_coach.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.wpn_fps_sho_coach.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.wpn_fps_pis_judge.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.wpn_fps_pis_judge.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.wpn_fps_pis_x_judge.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.wpn_fps_pis_x_judge.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.wpn_fps_shot_b682.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.wpn_fps_shot_b682.override.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.parts.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_min_mul = 0
-		self.parts.wpn_fps_upg_a_explosive.custom_stats.ammo_pickup_max_mul = 0
-		self.wpn_fps_pis_x_judge.override.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_min_mul = 0.5
-		self.wpn_fps_pis_x_judge.override.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_max_mul = 0.5
-		self.wpn_fps_pis_judge.override.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_min_mul = 0.5
-		self.wpn_fps_pis_judge.override.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_max_mul = 0.5
-		self.parts.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_min_mul = 0.5
-		self.parts.wpn_fps_upg_a_piercing.custom_stats.ammo_pickup_max_mul = 0.5
+		
 		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_damage = "1.5"
 		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_trigger_chance = "65"
-		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.ammo_pickup_min_mul = 0
-		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.ammo_pickup_max_mul = 0
 
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_min_mul = 0.15
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_max_mul = 0.15
-		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_min_mul = 0.25
-		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_max_mul = 0.25
-		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_min_mul = 0.15
-		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_max_mul = 0.15
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_min_mul = 0.65
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_max_mul = 0.65
-		self.parts.wpn_fps_ass_g3_b_sniper.custom_stats = {ammo_pickup_min_mul = 0.75, ammo_pickup_max_mul = 0.75}
-		
-		self.parts.wpn_fps_ass_aug_m_quick.stats = {value = 2, reload = 3}
-		self.parts.wpn_fps_m4_upg_m_quick.stats = {value = 2, reload = 3}
-		self.parts.wpn_fps_upg_ak_m_quick.stats = {value = 2, reload = 3}
-		self.parts.wpn_fps_ass_g36_m_quick.stats = {value = 2, reload = 3}
-		self.parts.wpn_fps_smg_mac10_m_quick.stats = {value = 2, reload = 3}
-		self.parts.wpn_fps_smg_sr2_m_quick.stats = {value = 2, reload = 3}
-			
-		self.wpn_fps_lmg_m249.uses_parts = {
-			"wpn_fps_lmg_m249_b_long",
-			"wpn_fps_lmg_m249_b_short",
-			"wpn_fps_lmg_m249_body_standard",
-			"wpn_fps_lmg_m249_fg_mk46",
-			"wpn_fps_lmg_m249_fg_standard",
-			"wpn_fps_lmg_m249_m_standard",
-			"wpn_fps_lmg_m249_s_para",
-			"wpn_fps_lmg_m249_s_solid",
-			"wpn_fps_lmg_m249_upper_reciever",
-			"wpn_fps_upg_m4_s_standard",
-			"wpn_fps_upg_m4_s_pts",
-			"wpn_fps_upg_ns_ass_smg_firepig",
-			"wpn_fps_upg_ns_ass_smg_stubby",
-			"wpn_fps_upg_ns_ass_smg_tank",
-			"wpn_fps_upg_bp_lmg_lionbipod",
-			"wpn_fps_upg_fl_ass_smg_sho_peqbox",
-			"wpn_fps_upg_fl_ass_smg_sho_surefire",
-			"wpn_fps_upg_m4_s_crane",
-			"wpn_fps_upg_m4_s_mk46",
-			"wpn_fps_upg_ass_ns_jprifles",
-			"wpn_fps_upg_ass_ns_linear",
-			"wpn_fps_upg_ass_ns_surefire",
-			"wpn_fps_upg_fl_ass_peq15",
-			"wpn_fps_upg_fl_ass_laser",
-			"wpn_fps_upg_m4_s_ubr",
-			"wpn_fps_upg_ass_ns_battle",
-			"wpn_fps_upg_fl_ass_utg",
-			"wpn_fps_snp_tti_s_vltor",
-			"wpn_fps_upg_ns_ass_smg_v6"
-		}
-		self.wpn_fps_lmg_hk21.uses_parts = {
-			"wpn_fps_lmg_hk21_b_short",
-			"wpn_fps_lmg_hk21_b_long",
-			"wpn_fps_lmg_hk21_body_lower",
-			"wpn_fps_lmg_hk21_body_upper",
-			"wpn_fps_lmg_hk21_fg_short",
-			"wpn_fps_lmg_hk21_fg_long",
-			"wpn_fps_lmg_hk21_g_standard",
-			"wpn_fps_lmg_hk21_g_ergo",
-			"wpn_fps_lmg_hk21_m_standard",
-			"wpn_fps_lmg_hk21_s_standard",
-			"wpn_fps_upg_ns_ass_smg_firepig",
-			"wpn_fps_upg_ns_ass_smg_stubby",
-			"wpn_fps_upg_ns_ass_smg_tank",
-			"wpn_fps_upg_bp_lmg_lionbipod",
-			"wpn_fps_upg_fl_ass_smg_sho_peqbox",
-			"wpn_fps_upg_fl_ass_smg_sho_surefire",
-			"wpn_fps_upg_ass_ns_jprifles",
-			"wpn_fps_upg_ass_ns_linear",
-			"wpn_fps_upg_ass_ns_surefire",
-			"wpn_fps_upg_fl_ass_peq15",
-			"wpn_fps_upg_fl_ass_laser",
-			"wpn_fps_upg_ass_ns_battle",
-			"wpn_fps_upg_fl_ass_utg",
-			"wpn_fps_upg_ns_ass_smg_v6"
-		}
-		self.wpn_fps_lmg_rpk.uses_parts = {
-			"wpn_fps_lmg_rpk_b_standard",
-			"wpn_fps_lmg_rpk_fg_standard",
-			"wpn_fps_lmg_rpk_fg_wood",
-			"wpn_lmg_rpk_m_drum",
-			"wpn_fps_lmg_rpk_s_standard",
-			"wpn_fps_lmg_rpk_s_wood",
-			"wpn_fps_ass_74_body_upperreceiver",
-			"wpn_fps_lmg_rpk_body_lowerreceiver",
-			"wpn_upg_ak_g_standard",
-			"wpn_fps_upg_ak_g_hgrip",
-			"wpn_fps_upg_ak_g_pgrip",
-			"wpn_fps_upg_ak_g_wgrip",
-			"wpn_fps_upg_m4_s_standard",
-			"wpn_fps_upg_m4_s_pts",
-			"wpn_upg_ak_s_folding",
-			"wpn_upg_ak_s_skfoldable_vanilla",
-			"wpn_fps_upg_fl_ass_smg_sho_peqbox",
-			"wpn_fps_upg_fl_ass_smg_sho_surefire",
-			"wpn_fps_upg_ns_ass_smg_firepig",
-			"wpn_fps_upg_ns_ass_smg_stubby",
-			"wpn_fps_upg_ns_ass_smg_tank",
-			"wpn_fps_upg_bp_lmg_lionbipod",
-			"wpn_fps_upg_vg_ass_smg_verticalgrip",
-			"wpn_fps_upg_m4_s_crane",
-			"wpn_fps_upg_m4_s_mk46",
-			"wpn_fps_upg_ass_ns_jprifles",
-			"wpn_fps_upg_ass_ns_linear",
-			"wpn_fps_upg_ass_ns_surefire",
-			"wpn_fps_upg_fl_ass_peq15",
-			"wpn_fps_upg_fl_ass_laser",
-			"wpn_fps_upg_m4_s_ubr",
-			"wpn_fps_upg_ak_g_rk3",
-			"wpn_fps_upg_ak_s_solidstock",
-			"wpn_fps_upg_ass_ns_battle",
-			"wpn_fps_upg_fl_ass_utg",
-			"wpn_fps_snp_tti_s_vltor",
-			"wpn_fps_upg_ns_ass_smg_v6"
-		}
-		self.wpn_fps_lmg_mg42.uses_parts = {
-			"wpn_fps_lmg_mg42_b_mg42",
-			"wpn_fps_lmg_mg42_b_mg34",
-			"wpn_fps_lmg_mg42_b_vg38",
-			"wpn_fps_lmg_mg42_reciever",
-			"wpn_fps_lmg_mg42_n42",
-			"wpn_fps_lmg_mg42_n34",
-			"wpn_fps_upg_ns_ass_smg_firepig",
-			"wpn_fps_upg_ns_ass_smg_stubby",
-			"wpn_fps_upg_ns_ass_smg_tank",
-			"wpn_fps_upg_bp_lmg_lionbipod",
-			"wpn_fps_upg_fl_ass_smg_sho_peqbox",
-			"wpn_fps_upg_fl_ass_smg_sho_surefire",
-			"wpn_fps_upg_ass_ns_jprifles",
-			"wpn_fps_upg_ass_ns_linear",
-			"wpn_fps_upg_ass_ns_surefire",
-			"wpn_fps_upg_fl_ass_peq15",
-			"wpn_fps_upg_fl_ass_laser",
-			"wpn_fps_upg_ass_ns_battle",
-			"wpn_fps_upg_fl_ass_utg",
-			"wpn_fps_upg_ns_ass_smg_v6"
-		}
-		self.wpn_fps_lmg_par.uses_parts = {
-			"wpn_fps_lmg_par_b_short",
-			"wpn_fps_lmg_par_b_standard",
-			"wpn_fps_lmg_par_body_standard",
-			"wpn_fps_lmg_par_m_standard",
-			"wpn_fps_lmg_par_s_standard",
-			"wpn_fps_lmg_par_s_plastic",
-			"wpn_fps_lmg_par_upper_reciever",
-			"wpn_fps_upg_ns_ass_smg_firepig",
-			"wpn_fps_upg_ns_ass_smg_stubby",
-			"wpn_fps_upg_ns_ass_smg_tank",
-			"wpn_fps_upg_bp_lmg_lionbipod",
-			"wpn_fps_upg_fl_ass_smg_sho_peqbox",
-			"wpn_fps_upg_fl_ass_smg_sho_surefire",
-			"wpn_fps_upg_ass_ns_jprifles",
-			"wpn_fps_upg_ass_ns_linear",
-			"wpn_fps_upg_ass_ns_surefire",
-			"wpn_fps_upg_fl_ass_peq15",
-			"wpn_fps_upg_fl_ass_laser",
-			"wpn_fps_upg_ass_ns_battle",
-			"wpn_fps_upg_fl_ass_utg",
-			"wpn_fps_lmg_svinet_b_standard",
-			"wpn_fps_lmg_svinet_s_legend",
-			"wpn_fps_upg_ns_ass_smg_v6"
-		}
-
-		self.parts.wpn_fps_pis_beretta_body_modern.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_deagle_b_modern.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_deagle_extra.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_judge_body_modern.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_rage_extra.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_mac10_body_modern.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_p90_body_boxy.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_b_draco.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_fg_tapco.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_g_hgrip.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_g_pgrip.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_g_wgrip.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_m_quad.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_ns_jprifles.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_ns_linear.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_ns_surefire.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_fg_jp.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_fg_midwest.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_fg_smr.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_fl_ass_laser.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_fl_ass_peq15.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_m4_m_quad.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_m4_s_crane.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_m4_s_mk46.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ns_pis_medium_slim.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_cs.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_eotech_xps.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_reflex.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_rmr.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_rx01.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_rx30.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_pis_ns_flash.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_shot_ns_king.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_asval_b_proto.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_asval_s_solid.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_aug_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_fg_01.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_fg_03.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_fg_04.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_fg_wood.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_g_01.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_m_01.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_s_01.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_s_03.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_fal_s_wood.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_famas_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_famas_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_famas_b_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_famas_b_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_famas_g_retro.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_b_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_fg_psg.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_fg_retro.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_fg_retro_plastic.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_g_retro.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_g_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_s_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g3_s_wood.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g36_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_g36_o_vintage.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_fg_fab.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_fg_mar.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_fg_sar.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_fg_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_g_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_fab.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_light.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_plastic.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_skeletal.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_galil_s_wood.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_sub2000_fg_gen2.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_sub2000_fg_railed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_bow_ecp_m_arrows_explosive.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_bow_ecp_m_arrows_poison.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_bow_elastic_m_explosive.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_bow_elastic_m_poison.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_gre_arbiter_b_comp.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_gre_arbiter_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_gre_m32_no_stock.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_gre_m79_barrel_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_gre_m79_stock_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_lmg_mg42_b_mg34.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_lmg_mg42_b_vg38.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_m4_upg_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_1911_m_big.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_c96_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_c96_m_extended.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_c96_nozzle.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_c96_s_solid.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_c96_sight.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_packrat_m_extended.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_packrat_ns_wick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_packrat_o_expert.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_pis_usp_m_big.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ben_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ben_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ben_s_collapsed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ben_s_solid.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ksg_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_ksg_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_saiga_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_saiga_fg_holy.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_striker_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_sho_striker_b_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_cobray_body_upper_jacket.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_mac10_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_mp5_fg_flash.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_mp5_s_folding.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_p90_m_strap.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_b_civil.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_m_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_m_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_ns_silencer.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_s_civil.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_s_folded.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_schakal_vg_surefire.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_g_ergo.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_g_wood.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_m_extended.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_s_nostock.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_scorpion_s_unfolded.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sr2_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_b_e11.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_b_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_m_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_m_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_s_folded.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_s_nostock.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_sterling_s_solid.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_tec9_b_standard.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_tec9_m_extended.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_tec9_ns_ext.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_tec9_s_unfolded.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_uzi_b_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_uzi_fg_rail.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_uzi_s_leather.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_uzi_s_solid.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_smg_uzi_s_standard.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_desertfox_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_desertfox_b_silencer.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_m95_barrel_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_m95_barrel_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_model70_iron_sight.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_mosin_b_short.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_mosin_b_sniper.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_mosin_b_standard.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_mosin_body_black.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_mosin_ns_bayonet.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_msr_b_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_msr_body_msr.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_snp_msr_ns_suppressor.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_bow_explosion.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_bow_poison.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_custom.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_dragons_breath.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_explosive.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary_arbiter.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_piercing.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_a_slug.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_b_ak105.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_fg_krebs.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_fg_trax.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_fg_zenit.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_g_rk3.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_m_quick.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_m_uspalm.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ak_s_solidstock.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_fg_lvoa.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_fg_moe.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_lower_reciever_core.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_ballos.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_core.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ass_m16_fg_stag.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_g36_fg_long.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_m4_m_l5.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_m4_s_ubr.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ns_ass_pbs1.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_ns_duck.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_45iron.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_45rds.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_ak_scopemount.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_box.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_leupold.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_mbus_rear.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_o_spot.pcs = {10, 20, 30, 40}
-		self.parts.wpn_fps_upg_smg_olympic_fg_lr300.pcs = {10, 20, 30, 40}
-		
-		self.parts.wpn_fps_pis_beretta_body_modern.stats.value = 6
-		self.parts.wpn_fps_pis_deagle_b_modern.stats.value = 6
-		self.parts.wpn_fps_pis_deagle_extra.stats.value = 6
-		self.parts.wpn_fps_pis_judge_body_modern.stats.value = 6
-		self.parts.wpn_fps_pis_rage_extra.stats.value = 6
-		self.parts.wpn_fps_smg_mac10_body_modern.stats.value = 6
-		self.parts.wpn_fps_smg_p90_body_boxy.stats.value = 6
-		self.parts.wpn_fps_upg_ak_b_draco.stats.value = 6
-		self.parts.wpn_fps_upg_ak_fg_tapco.stats.value = 6
-		self.parts.wpn_fps_upg_ak_g_hgrip.stats.value = 6
-		self.parts.wpn_fps_upg_ak_g_pgrip.stats.value = 6
-		self.parts.wpn_fps_upg_ak_g_wgrip.stats.value = 6
-		self.parts.wpn_fps_upg_ak_m_quad.stats.value = 6
-		self.parts.wpn_fps_upg_ass_ns_jprifles.stats.value = 6
-		self.parts.wpn_fps_upg_ass_ns_linear.stats.value = 6
-		self.parts.wpn_fps_upg_ass_ns_surefire.stats.value = 6
-		self.parts.wpn_fps_upg_fg_jp.stats.value = 6
-		self.parts.wpn_fps_upg_fg_midwest.stats.value = 6
-		self.parts.wpn_fps_upg_fg_smr.stats.value = 6
-		self.parts.wpn_fps_upg_fl_ass_laser.stats.value = 6
-		self.parts.wpn_fps_upg_fl_ass_peq15.stats.value = 6
-		self.parts.wpn_fps_upg_m4_m_quad.stats.value = 6
-		self.parts.wpn_fps_upg_m4_s_crane.stats.value = 6
-		self.parts.wpn_fps_upg_m4_s_mk46.stats.value = 6
-		self.parts.wpn_fps_upg_ns_pis_medium_slim.stats.value = 6
-		self.parts.wpn_fps_upg_o_cs.stats.value = 6
-		self.parts.wpn_fps_upg_o_eotech_xps.stats.value = 6
-		self.parts.wpn_fps_upg_o_reflex.stats.value = 6
-		self.parts.wpn_fps_upg_o_rmr.stats.value = 6
-		self.parts.wpn_fps_upg_o_rx01.stats.value = 6
-		self.parts.wpn_fps_upg_pis_ns_flash.stats.value = 6
-		self.parts.wpn_fps_upg_shot_ns_king.stats.value = 6
-		self.parts.wpn_fps_ass_asval_b_proto.stats.value = 7
-		self.parts.wpn_fps_ass_asval_s_solid.stats.value = 7
-		self.parts.wpn_fps_ass_aug_m_quick.stats.value = 7
-		self.parts.wpn_fps_ass_fal_fg_01.stats.value = 7
-		self.parts.wpn_fps_ass_fal_fg_03.stats.value = 7
-		self.parts.wpn_fps_ass_fal_fg_04.stats.value = 7
-		self.parts.wpn_fps_ass_fal_fg_wood.stats.value = 7
-		self.parts.wpn_fps_ass_fal_g_01.stats.value = 7
-		self.parts.wpn_fps_ass_fal_m_01.stats.value = 7
-		self.parts.wpn_fps_ass_fal_s_01.stats.value = 7
-		self.parts.wpn_fps_ass_fal_s_03.stats.value = 7
-		self.parts.wpn_fps_ass_fal_s_wood.stats.value = 7
-		self.parts.wpn_fps_ass_famas_b_long.stats.value = 7
-		self.parts.wpn_fps_ass_famas_b_short.stats.value = 7
-		self.parts.wpn_fps_ass_famas_b_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_famas_b_suppressed.stats.value = 7
-		self.parts.wpn_fps_ass_famas_g_retro.stats.value = 7
-		self.parts.wpn_fps_ass_g3_b_short.stats.value = 7
-		self.parts.wpn_fps_ass_g3_b_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_g3_fg_psg.stats.value = 7
-		self.parts.wpn_fps_ass_g3_fg_retro.stats.value = 7
-		self.parts.wpn_fps_ass_g3_fg_retro_plastic.stats.value = 7
-		self.parts.wpn_fps_ass_g3_g_retro.stats.value = 7
-		self.parts.wpn_fps_ass_g3_g_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_g3_s_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_g3_s_wood.stats.value = 7
-		self.parts.wpn_fps_ass_g36_m_quick.stats.value = 7
-		self.parts.wpn_fps_ass_g36_o_vintage.stats.value = 7
-		self.parts.wpn_fps_ass_galil_fg_fab.stats.value = 7
-		self.parts.wpn_fps_ass_galil_fg_mar.stats.value = 7
-		self.parts.wpn_fps_ass_galil_fg_sar.stats.value = 7
-		self.parts.wpn_fps_ass_galil_fg_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_galil_g_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_fab.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_light.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_plastic.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_skeletal.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_sniper.stats.value = 7
-		self.parts.wpn_fps_ass_galil_s_wood.stats.value = 7
-		self.parts.wpn_fps_ass_sub2000_fg_gen2.stats.value = 7
-		self.parts.wpn_fps_ass_sub2000_fg_railed.stats.value = 7
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.stats.value = 7
-		self.parts.wpn_fps_bow_ecp_m_arrows_explosive.stats.value = 7
-		self.parts.wpn_fps_bow_ecp_m_arrows_poison.stats.value = 7
-		self.parts.wpn_fps_bow_elastic_m_explosive.stats.value = 7
-		self.parts.wpn_fps_bow_elastic_m_poison.stats.value = 7
-		self.parts.wpn_fps_gre_arbiter_b_comp.stats.value = 7
-		self.parts.wpn_fps_gre_arbiter_b_long.stats.value = 7
-		self.parts.wpn_fps_gre_m32_no_stock.stats.value = 7
-		self.parts.wpn_fps_gre_m79_barrel_short.stats.value = 7
-		self.parts.wpn_fps_gre_m79_stock_short.stats.value = 7
-		self.parts.wpn_fps_lmg_mg42_b_mg34.stats.value = 7
-		self.parts.wpn_fps_lmg_mg42_b_vg38.stats.value = 7
-		self.parts.wpn_fps_m4_upg_m_quick.stats.value = 7
-		self.parts.wpn_fps_pis_1911_m_big.stats.value = 7
-		self.parts.wpn_fps_pis_c96_b_long.stats.value = 7
-		self.parts.wpn_fps_pis_c96_m_extended.stats.value = 7
-		self.parts.wpn_fps_pis_c96_nozzle.stats.value = 7
-		self.parts.wpn_fps_pis_c96_s_solid.stats.value = 7
-		self.parts.wpn_fps_pis_c96_sight.stats.value = 7
-		self.parts.wpn_fps_pis_packrat_m_extended.stats.value = 7
-		self.parts.wpn_fps_pis_packrat_ns_wick.stats.value = 7
-		self.parts.wpn_fps_pis_packrat_o_expert.stats.value = 7
-		self.parts.wpn_fps_pis_usp_m_big.stats.value = 7
-		self.parts.wpn_fps_sho_ben_b_long.stats.value = 7
-		self.parts.wpn_fps_sho_ben_b_short.stats.value = 7
-		self.parts.wpn_fps_sho_ben_s_collapsed.stats.value = 7
-		self.parts.wpn_fps_sho_ben_s_solid.stats.value = 7
-		self.parts.wpn_fps_sho_ksg_b_long.stats.value = 7
-		self.parts.wpn_fps_sho_ksg_b_short.stats.value = 7
-		self.parts.wpn_fps_sho_saiga_b_short.stats.value = 7
-		self.parts.wpn_fps_sho_saiga_fg_holy.stats.value = 7
-		self.parts.wpn_fps_sho_striker_b_long.stats.value = 7
-		self.parts.wpn_fps_sho_striker_b_suppressed.stats.value = 7
-		self.parts.wpn_fps_smg_cobray_body_upper_jacket.stats.value = 7
-		self.parts.wpn_fps_smg_mac10_m_quick.stats.value = 7
-		self.parts.wpn_fps_smg_mp5_fg_flash.stats.value = 7
-		self.parts.wpn_fps_smg_mp5_s_folding.stats.value = 7
-		self.parts.wpn_fps_smg_p90_m_strap.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_b_civil.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_m_long.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_m_short.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_ns_silencer.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_s_civil.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_s_folded.stats.value = 7
-		self.parts.wpn_fps_smg_schakal_vg_surefire.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_g_ergo.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_g_wood.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_m_extended.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_s_nostock.stats.value = 7
-		self.parts.wpn_fps_smg_scorpion_s_unfolded.stats.value = 7
-		self.parts.wpn_fps_smg_sr2_m_quick.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_b_e11.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_b_long.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_b_short.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_b_suppressed.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_m_long.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_m_short.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_s_folded.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_s_nostock.stats.value = 7
-		self.parts.wpn_fps_smg_sterling_s_solid.stats.value = 7
-		self.parts.wpn_fps_smg_tec9_b_standard.stats.value = 7
-		self.parts.wpn_fps_smg_tec9_m_extended.stats.value = 7
-		self.parts.wpn_fps_smg_tec9_ns_ext.stats.value = 7
-		self.parts.wpn_fps_smg_tec9_s_unfolded.stats.value = 7
-		self.parts.wpn_fps_smg_uzi_b_suppressed.stats.value = 7
-		self.parts.wpn_fps_smg_uzi_fg_rail.stats.value = 7
-		self.parts.wpn_fps_smg_uzi_s_leather.stats.value = 7
-		self.parts.wpn_fps_smg_uzi_s_solid.stats.value = 7
-		self.parts.wpn_fps_smg_uzi_s_standard.stats.value = 7
-		self.parts.wpn_fps_snp_desertfox_b_long.stats.value = 7
-		self.parts.wpn_fps_snp_desertfox_b_silencer.stats.value = 7
-		self.parts.wpn_fps_snp_m95_barrel_long.stats.value = 7
-		self.parts.wpn_fps_snp_m95_barrel_short.stats.value = 7
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.stats.value = 7
-		self.parts.wpn_fps_snp_model70_iron_sight.stats.value = 7
-		self.parts.wpn_fps_snp_mosin_b_short.stats.value = 7
-		self.parts.wpn_fps_snp_mosin_b_sniper.stats.value = 7
-		self.parts.wpn_fps_snp_mosin_b_standard.stats.value = 7
-		self.parts.wpn_fps_snp_mosin_body_black.stats.value = 7
-		self.parts.wpn_fps_snp_mosin_ns_bayonet.stats.value = 7
-		self.parts.wpn_fps_snp_msr_b_long.stats.value = 7
-		self.parts.wpn_fps_snp_msr_body_msr.stats.value = 7
-		self.parts.wpn_fps_snp_msr_ns_suppressor.stats.value = 7
-		self.parts.wpn_fps_upg_a_bow_explosion.stats.value = 7
-		self.parts.wpn_fps_upg_a_bow_poison.stats.value = 7
-		self.parts.wpn_fps_upg_a_custom.stats.value = 7
-		self.parts.wpn_fps_upg_a_dragons_breath.stats.value = 7
-		self.parts.wpn_fps_upg_a_explosive.stats.value = 7
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary.stats.value = 7
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary_arbiter.stats.value = 7
-		self.parts.wpn_fps_upg_a_piercing.stats.value = 7
-		self.parts.wpn_fps_upg_a_slug.stats.value = 7
-		self.parts.wpn_fps_upg_ak_b_ak105.stats.value = 7
-		self.parts.wpn_fps_upg_ak_fg_krebs.stats.value = 7
-		self.parts.wpn_fps_upg_ak_fg_trax.stats.value = 7
-		self.parts.wpn_fps_upg_ak_fg_zenit.stats.value = 7
-		self.parts.wpn_fps_upg_ak_g_rk3.stats.value = 7
-		self.parts.wpn_fps_upg_ak_m_quick.stats.value = 7
-		self.parts.wpn_fps_upg_ak_m_uspalm.stats.value = 7
-		self.parts.wpn_fps_upg_ak_s_solidstock.stats.value = 7
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_fg_lvoa.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_fg_moe.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_lower_reciever_core.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_ballos.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_core.stats.value = 7
-		self.parts.wpn_fps_upg_ass_m16_fg_stag.stats.value = 7
-		self.parts.wpn_fps_upg_g36_fg_long.stats.value = 7
-		self.parts.wpn_fps_upg_m4_m_l5.stats.value = 7
-		self.parts.wpn_fps_upg_m4_s_ubr.stats.value = 7
-		self.parts.wpn_fps_upg_ns_ass_pbs1.stats.value = 7
-		self.parts.wpn_fps_upg_ns_duck.stats.value = 7
-		self.parts.wpn_fps_upg_o_45iron.stats.value = 7
-		self.parts.wpn_fps_upg_o_45rds.stats.value = 7
-		self.parts.wpn_fps_upg_o_ak_scopemount.stats.value = 7
-		self.parts.wpn_fps_upg_o_box.stats.value = 7
-		self.parts.wpn_fps_upg_o_leupold.stats.value = 7
-		self.parts.wpn_fps_upg_o_mbus_rear.stats.value = 7
-		self.parts.wpn_fps_upg_o_spot.stats.value = 7
-		self.parts.wpn_fps_upg_smg_olympic_fg_lr300.stats.value = 7
-		
-		self.parts.wpn_fps_ass_asval_b_proto.is_a_unlockable = false
-		self.parts.wpn_fps_ass_asval_s_solid.is_a_unlockable = false
-		self.parts.wpn_fps_ass_aug_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_fg_01.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_fg_03.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_fg_04.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_fg_wood.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_g_01.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_m_01.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_s_01.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_s_03.is_a_unlockable = false
-		self.parts.wpn_fps_ass_fal_s_wood.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_b_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_b_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_body_standard.is_a_unlockable = false
-		self.parts.wpn_fps_ass_famas_g_retro.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_b_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_fg_psg.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_fg_retro.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_fg_retro_plastic.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_g_retro.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_g_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_s_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g3_s_wood.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g36_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_ass_g36_o_vintage.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_fg_fab.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_fg_mar.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_fg_sar.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_fg_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_g_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_fab.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_light.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_plastic.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_skeletal.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_ass_galil_s_wood.is_a_unlockable = false
-		self.parts.wpn_fps_ass_sub2000_fg_gen2.is_a_unlockable = false
-		self.parts.wpn_fps_ass_sub2000_fg_railed.is_a_unlockable = false
-		self.parts.wpn_fps_ass_sub2000_fg_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_bow_ecp_m_arrows_explosive.is_a_unlockable = false
-		self.parts.wpn_fps_bow_ecp_m_arrows_poison.is_a_unlockable = false
-		self.parts.wpn_fps_bow_elastic_m_explosive.is_a_unlockable = false
-		self.parts.wpn_fps_bow_elastic_m_poison.is_a_unlockable = false
-		self.parts.wpn_fps_gre_arbiter_b_comp.is_a_unlockable = false
-		self.parts.wpn_fps_gre_arbiter_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_gre_m32_no_stock.is_a_unlockable = false
-		self.parts.wpn_fps_gre_m79_barrel_short.is_a_unlockable = false
-		self.parts.wpn_fps_gre_m79_stock_short.is_a_unlockable = false
-		self.parts.wpn_fps_lmg_mg42_b_mg34.is_a_unlockable = false
-		self.parts.wpn_fps_lmg_mg42_b_vg38.is_a_unlockable = false
-		self.parts.wpn_fps_m4_upg_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_pis_1911_m_big.is_a_unlockable = false
-		self.parts.wpn_fps_pis_c96_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_pis_c96_m_extended.is_a_unlockable = false
-		self.parts.wpn_fps_pis_c96_nozzle.is_a_unlockable = false
-		self.parts.wpn_fps_pis_c96_s_solid.is_a_unlockable = false
-		self.parts.wpn_fps_pis_c96_sight.is_a_unlockable = false
-		self.parts.wpn_fps_pis_packrat_m_extended.is_a_unlockable = false
-		self.parts.wpn_fps_pis_packrat_ns_wick.is_a_unlockable = false
-		self.parts.wpn_fps_pis_packrat_o_expert.is_a_unlockable = false
-		self.parts.wpn_fps_pis_usp_m_big.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ben_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ben_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ben_s_collapsed.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ben_s_solid.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ksg_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_sho_ksg_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_sho_saiga_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_sho_saiga_fg_holy.is_a_unlockable = false
-		self.parts.wpn_fps_sho_striker_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_sho_striker_b_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_smg_cobray_body_upper_jacket.is_a_unlockable = false
-		self.parts.wpn_fps_smg_mac10_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_smg_mp5_fg_flash.is_a_unlockable = false
-		self.parts.wpn_fps_smg_mp5_s_folding.is_a_unlockable = false
-		self.parts.wpn_fps_smg_p90_m_strap.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_b_civil.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_m_long.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_m_short.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_ns_silencer.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_s_civil.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_s_folded.is_a_unlockable = false
-		self.parts.wpn_fps_smg_schakal_vg_surefire.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_b_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_g_ergo.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_g_wood.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_m_extended.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_s_nostock.is_a_unlockable = false
-		self.parts.wpn_fps_smg_scorpion_s_unfolded.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sr2_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_b_e11.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_b_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_m_long.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_m_short.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_s_folded.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_s_nostock.is_a_unlockable = false
-		self.parts.wpn_fps_smg_sterling_s_solid.is_a_unlockable = false
-		self.parts.wpn_fps_smg_tec9_b_standard.is_a_unlockable = false
-		self.parts.wpn_fps_smg_tec9_m_extended.is_a_unlockable = false
-		self.parts.wpn_fps_smg_tec9_ns_ext.is_a_unlockable = false
-		self.parts.wpn_fps_smg_tec9_s_unfolded.is_a_unlockable = false
-		self.parts.wpn_fps_smg_uzi_b_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_smg_uzi_fg_rail.is_a_unlockable = false
-		self.parts.wpn_fps_smg_uzi_s_leather.is_a_unlockable = false
-		self.parts.wpn_fps_smg_uzi_s_solid.is_a_unlockable = false
-		self.parts.wpn_fps_smg_uzi_s_standard.is_a_unlockable = false
-		self.parts.wpn_fps_snp_desertfox_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_snp_desertfox_b_silencer.is_a_unlockable = false
-		self.parts.wpn_fps_snp_m95_barrel_long.is_a_unlockable = false
-		self.parts.wpn_fps_snp_m95_barrel_short.is_a_unlockable = false
-		self.parts.wpn_fps_snp_m95_barrel_suppressed.is_a_unlockable = false
-		self.parts.wpn_fps_snp_model70_iron_sight.is_a_unlockable = false
-		self.parts.wpn_fps_snp_mosin_b_short.is_a_unlockable = false
-		self.parts.wpn_fps_snp_mosin_b_sniper.is_a_unlockable = false
-		self.parts.wpn_fps_snp_mosin_b_standard.is_a_unlockable = false
-		self.parts.wpn_fps_snp_mosin_body_black.is_a_unlockable = false
-		self.parts.wpn_fps_snp_mosin_ns_bayonet.is_a_unlockable = false
-		self.parts.wpn_fps_snp_msr_b_long.is_a_unlockable = false
-		self.parts.wpn_fps_snp_msr_body_msr.is_a_unlockable = false
-		self.parts.wpn_fps_snp_msr_ns_suppressor.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_bow_explosion.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_bow_poison.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_custom.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_dragons_breath.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_explosive.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_grenade_launcher_incendiary_arbiter.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_piercing.is_a_unlockable = false
-		self.parts.wpn_fps_upg_a_slug.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_b_ak105.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_fg_krebs.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_fg_trax.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_fg_zenit.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_g_rk3.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_m_quick.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_m_uspalm.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ak_s_solidstock.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_ak_b_zastava.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_b_beowulf.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_fg_lvoa.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_fg_moe.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_lower_reciever_core.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_ballos.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m4_upper_reciever_core.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ass_m16_fg_stag.is_a_unlockable = false
-		self.parts.wpn_fps_upg_g36_fg_long.is_a_unlockable = false
-		self.parts.wpn_fps_upg_m4_m_l5.is_a_unlockable = false
-		self.parts.wpn_fps_upg_m4_s_ubr.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ns_ass_pbs1.is_a_unlockable = false
-		self.parts.wpn_fps_upg_ns_duck.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_45iron.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_45rds.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_ak_scopemount.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_box.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_leupold.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_mbus_rear.is_a_unlockable = false
-		self.parts.wpn_fps_upg_o_spot.is_a_unlockable = false
-		self.parts.wpn_fps_upg_smg_olympic_fg_lr300.is_a_unlockable = false
+		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_min_mul = 0.8
+		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_max_mul = 0.8
+		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_min_mul = 0.8
+		self.wpn_fps_ass_m16.override.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_max_mul = 0.8
+		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_min_mul = 0.5
+		self.wpn_fps_ass_74.override.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_max_mul = 0.5
+		self.parts.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_min_mul = 0.5
+		self.parts.wpn_fps_upg_ass_ak_b_zastava.custom_stats.ammo_pickup_max_mul = 0.5
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/meleeweaponstweakdata" then
@@ -3807,6 +701,17 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/meleeweaponstweak
 
 	function BlackMarketTweakData:_init_melee_weapons(...)
 		init_original(self, ...)
+		
+		for _, melee in pairs(self.melee_weapons) do
+			if melee.stats.max_damage >= 45 then
+				melee.stats.max_damage = 17
+			elseif melee.stats.max_damage >= 25 then
+				melee.stats.max_damage = 10
+			end
+			if melee.fire_dot_data then
+				melee.fire_dot_data.dot_damage = "1.5"
+			end
+		end
 		
 		self.melee_weapons.swagger.stats.min_damage = 2
 		self.melee_weapons.swagger.stats.max_damage = 3.5
@@ -4069,8 +974,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/meleeweaponstweak
 		self.melee_weapons.fireaxe.stats.max_damage_effect = 1
 		self.melee_weapons.fireaxe.stats.charge_time = 3.5
 
-		
-		
 		self.melee_weapons.weapon.stats = {
 			min_damage = 1.5,
 			max_damage = 1.5,
@@ -4366,129 +1269,262 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/projectilestweakd
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
-	local self = tweak_data
-	self.projectiles.frag.damage = 30
-	self.projectiles.frag.range = 1000
-	self.projectiles.launcher_frag.damage = 34
-	self.projectiles.launcher_rocket.damage = 1000
-	self.projectiles.launcher_incendiary.damage = 3
-	self.projectiles.launcher_incendiary.fire_dot_data.dot_damage = 3
-	self.projectiles.launcher_incendiary.fire_dot_data.dot_length = 3.1
-	self.projectiles.launcher_frag_m32.damage = 34
-	self.projectiles.launcher_frag_china.damage = 24.5
-	self.projectiles.launcher_frag_arbiter.damage = 12.5
-	self.projectiles.launcher_incendiary_arbiter.damage = 3
-	self.projectiles.launcher_incendiary_arbiter.fire_dot_data.dot_damage = 3
-	self.projectiles.launcher_incendiary_arbiter.fire_dot_data.dot_length = 3.1
-	self.projectiles.west_arrow.damage = 6
-	self.projectiles.west_arrow_exp.damage = 8.5
-	self.projectiles.dynamite.damage = 30
-	self.projectiles.bow_poison_arrow.damage = 6.5
-	self.projectiles.crossbow_arrow.damage = 10
-	self.projectiles.crossbow_poison_arrow.damage = 3.2
-	self.projectiles.crossbow_arrow_exp.damage = 15
-	self.projectiles.wpn_prj_four.damage = 1.1
-	self.projectiles.wpn_prj_jav.damage = 11
-	self.projectiles.arblast_arrow.damage = 10
-	self.projectiles.arblast_arrow_exp.damage = 13
-	self.projectiles.arblast_poison_arrow.damage = 6
-	self.projectiles.frankish_arrow.damage = 9.5
-	self.projectiles.frankish_arrow_exp.damage = 12
-	self.projectiles.frankish_poison_arrow.damage = 5
-	self.projectiles.long_arrow.damage = 8
-	self.projectiles.long_arrow_exp.damage = 10.5
-	self.projectiles.long_poison_arrow.damage = 3.5
-	self.projectiles.wpn_prj_hur.damage = 1.1
-	self.projectiles.wpn_prj_target.damage = 1.1
-	self.projectiles.frag_com.damage = 30
-	self.projectiles.rocket_ray_frag.damage = 500
-	self.projectiles.dada_com.damage = 30
-	self.projectiles.ecp_arrow.damage = 9.5
-	self.projectiles.ecp_arrow_exp.damage = 12
-	self.projectiles.ecp_arrow_poison.damage = 5
-	self.projectiles.elastic_arrow.damage = 8
-	self.projectiles.elastic_arrow_exp.damage = 10.5
-	self.projectiles.elastic_arrow_poison.damage = 3.5
-	self.projectiles.elastic_arrow_poison.damage = 3.5
-	self.dot_types = {
-		poison = {
-			damage_class = "PoisonBulletBase",
-			dot_damage = 1.7,
-			dot_length = 4,
-			hurt_animation_chance = 1
-		}
-	}
-end
-if string.lower(RequiredScript) == "lib/units/weapons/raycastweaponbase" then
-	function RaycastWeaponBase:_collect_hits(from, to)
-		local shoot_through_chance = tweak_data.weapon[self._name_id].shoot_through_chance or 100
-		local can_shoot_through = self._can_shoot_through_wall or self._can_shoot_through_shield or self._can_shoot_through_enemy
-		local ray_hits = nil
-		local hit_enemy = false
-		local enemy_mask = managers.slot:get_mask("enemies")
-		local wall_mask = managers.slot:get_mask("world_geometry", "vehicles")
-		local shield_mask = managers.slot:get_mask("enemy_shield_check")
-		local ai_vision_ids = Idstring("ai_vision")
-		local bulletproof_ids = Idstring("bulletproof")
-
-		if self._can_shoot_through_wall then
-			ray_hits = World:raycast_wall("ray", from, to, "slot_mask", self._bullet_slotmask, "ignore_unit", self._setup.ignore_units, "thickness", 40, "thickness_mask", wall_mask)
-		else
-			ray_hits = World:raycast_all("ray", from, to, "slot_mask", self._bullet_slotmask, "ignore_unit", self._setup.ignore_units)
+		for id, _ in pairs(tweak_data.projectiles) do
+			local projectile = tweak_data.projectiles[id]
+			if projectile.damage then
+			
+				if projectile.damage >= 500 then
+					projectile.damage = math.round(projectile.damage / 1.25)
+				elseif projectile.damage >= 200 then
+					projectile.damage = math.round(projectile.damage * 0.325)
+				elseif projectile.damage >= 140 then
+					projectile.damage = math.round(projectile.damage * 0.1875)
+				elseif projectile.damage >= 48 then
+					projectile.damage = math.round(projectile.damage * 0.2615)
+				elseif projectile.damage >= 30 then
+					projectile.damage = math.round(projectile.damage * 0.285)
+				end
+				
+				if projectile.bullet_class == "InstantExplosiveBulletBase" then
+					if projectile.damage >= 26 then
+						projectile.damage = math.round(projectile.damage * 3.269)
+					elseif projectile.damage >= 20 then
+						projectile.damage = math.round(projectile.damage * 1.575)
+					else
+						projectile.damage = math.round(projectile.damage * 1.153)
+					end
+				end
+			end
+			
+			if projectile.fire_dot_data then
+				projectile.fire_dot_data.dot_damage = 1
+				projectile.fire_dot_data.dot_length = 3
+			end
+			
+			if projectile.range then
+				if projectile.range >= 50 then
+					projectile.range = projectile.range * 2
+				end
+			end
 		end
 
-		local units_hit = {}
-		local unique_hits = {}
+	local self = tweak_data
+	self.projectiles.launcher_frag_china.damage = 34
+	self.projectiles.launcher_frag_arbiter.damage = 17
+	self.projectiles.west_arrow.damage = 19.5
+	self.projectiles.west_arrow_exp.damage = 26
+	self.projectiles.bow_poison_arrow.damage = 6.5
+	self.projectiles.crossbow_poison_arrow.damage = 3.2
+	self.projectiles.wpn_prj_jav.damage = 110
+	self.projectiles.arblast_arrow.damage = 52.5
+	self.projectiles.arblast_poison_arrow.damage = 19.6
+	self.projectiles.arblast_arrow_exp.damage = 70
+	self.projectiles.frankish_arrow.damage = 24
+	self.projectiles.frankish_poison_arrow.damage = 9
+	self.projectiles.frankish_arrow_exp.damage = 31.5
+	self.projectiles.long_poison_arrow.damage = 30
+	self.projectiles.wpn_prj_hur.damage = 10
+	self.projectiles.wpn_prj_target.damage = 10
+	self.projectiles.frag_com.damage = 30
+	self.projectiles.rocket_ray_frag.damage = 500
+	self.projectiles.ecp_arrow.damage = 24
+	self.projectiles.ecp_arrow_poison.damage = 9
+	self.projectiles.ecp_arrow_exp.damage = 31.5
+	self.projectiles.elastic_arrow_poison.damage = 30
+	self.dot_types.poison.dot_length = 10
+	self.dot_types.poison.dot_damage = 2
+	self.dot_types.poison.hurt_animation_chance = 0.5
+end
+if string.lower(RequiredScript) == "lib/units/weapons/raycastweaponbase" then
+	local mvec_to = Vector3()
+	local mvec_spread_direction = Vector3()
+	
+	function RaycastWeaponBase:_fire_raycast(user_unit, from_pos, direction, dmg_mul, shoot_player, spread_mul, autohit_mul, suppr_mul)
+		if self:gadget_overrides_weapon_functions() then
+			return self:gadget_function_override("_fire_raycast", self, user_unit, from_pos, direction, dmg_mul, shoot_player, spread_mul, autohit_mul, suppr_mul)
+		end
 
-		for i, hit in ipairs(ray_hits) do
-			if not units_hit[hit.unit:key()] then
-				units_hit[hit.unit:key()] = true
-				unique_hits[#unique_hits + 1] = hit
-				hit.hit_position = hit.position
-				hit_enemy = hit_enemy or hit.unit:in_slot(enemy_mask)
-				local weak_body = hit.body:has_ray_type(ai_vision_ids)
-				weak_body = weak_body or hit.body:has_ray_type(bulletproof_ids)
+		local result = {}
+		local spread_x, spread_y = self:_get_spread(user_unit)
+		local ray_distance = self:weapon_range()
+		local right = direction:cross(Vector3(0, 0, 1)):normalized()
+		local up = direction:cross(right):normalized()
+		local theta = math.random() * 360
+		local ax = math.sin(theta) * math.random() * spread_x * (spread_mul or 1)
+		local ay = math.cos(theta) * math.random() * spread_y * (spread_mul or 1)
 
-				if not self._can_shoot_through_enemy and hit_enemy then
-					break
-				elseif not self._can_shoot_through_wall and hit.unit:in_slot(wall_mask) and weak_body then
-					break
-				elseif not self._can_shoot_through_shield and hit.unit:in_slot(shield_mask) then
-					break
-				elseif self._can_shoot_through_enemy and hit_enemy then
-					if math.random(100) > shoot_through_chance then
-						break
+		mvector3.set(mvec_spread_direction, direction)
+		mvector3.add(mvec_spread_direction, right * math.rad(ax))
+		mvector3.add(mvec_spread_direction, up * math.rad(ay))
+		mvector3.set(mvec_to, mvec_spread_direction)
+		mvector3.multiply(mvec_to, ray_distance)
+		mvector3.add(mvec_to, from_pos)
+
+		local damage = self:_get_current_damage(dmg_mul)
+		local ray_hits, hit_enemy = self:_collect_hits(from_pos, mvec_to)
+		local hit_anyone = false
+		local auto_hit_candidate, suppression_enemies = self:check_autoaim(from_pos, direction)
+
+		if suppression_enemies and self._suppression then
+			result.enemies_in_cone = suppression_enemies
+		end
+
+		if self._autoaim then
+			local weight = 0.1
+
+			if auto_hit_candidate and not hit_enemy then
+				local autohit_chance = 1 - math.clamp((self._autohit_current - self._autohit_data.MIN_RATIO) / (self._autohit_data.MAX_RATIO - self._autohit_data.MIN_RATIO), 0, 1)
+
+				if autohit_mul then
+					autohit_chance = autohit_chance * autohit_mul
+				end
+
+				if math.random() < autohit_chance then
+					self._autohit_current = (self._autohit_current + weight) / (1 + weight)
+
+					mvector3.set(mvec_to, from_pos)
+					mvector3.add_scaled(mvec_to, auto_hit_candidate.ray, ray_distance)
+
+					ray_hits, hit_enemy = self:_collect_hits(from_pos, mvec_to)
+				end
+			end
+
+			if hit_enemy then
+				self._autohit_current = (self._autohit_current + weight) / (1 + weight)
+			elseif auto_hit_candidate then
+				self._autohit_current = self._autohit_current / (1 + weight)
+			end
+		end
+
+		local hit_count = 0
+		local cop_kill_count = 0
+		local hit_through_wall = false
+		local hit_through_shield = false
+		local hit_result = nil
+
+		for _, hit in ipairs(ray_hits) do
+			damage = self:get_damage_falloff(damage, hit, user_unit)
+			
+			hit_result = nil
+
+			if damage > 0 then
+				hit_result = self._bullet_class:on_collision(hit, self._unit, user_unit, damage)
+			end
+
+			if hit_result and hit_result.type == "death" then
+				local unit_type = hit.unit:base() and hit.unit:base()._tweak_table
+				local is_civilian = unit_type and CopDamage.is_civilian(unit_type)
+
+				if not is_civilian then
+					cop_kill_count = cop_kill_count + 1
+				end
+
+				if self:is_category(tweak_data.achievement.easy_as_breathing.weapon_type) and not is_civilian then
+					self._kills_without_releasing_trigger = (self._kills_without_releasing_trigger or 0) + 1
+
+					if tweak_data.achievement.easy_as_breathing.count <= self._kills_without_releasing_trigger then
+						managers.achievment:award(tweak_data.achievement.easy_as_breathing.award)
 					end
-				elseif self._can_shoot_through_wall and hit.unit:in_slot(wall_mask) and weak_body then
-					if math.random(100) > shoot_through_chance then
-						break
-					end
-				elseif self._can_shoot_through_shield and hit.unit:in_slot(shield_mask) then
-					if math.random(100) > shoot_through_chance then
-						break
+				end
+			end
+
+			if hit_result then
+				hit.damage_result = hit_result
+				hit_anyone = true
+				hit_count = hit_count + 1
+			end
+			
+			if hit.unit:in_slot(managers.slot:get_mask("world_geometry")) then
+				hit_through_wall = true
+				damage = damage * 0.5
+			elseif hit.unit:in_slot(managers.slot:get_mask("enemy_shield_check")) then
+				hit_through_shield = hit_through_shield or alive(hit.unit:parent())
+				damage = damage * 0.2
+			end
+			
+			
+			if hit_result and hit_result.type == "death" and cop_kill_count > 0 then
+				local unit_type = hit.unit:base() and hit.unit:base()._tweak_table
+				local multi_kill, enemy_pass, obstacle_pass, weapon_pass, weapons_pass, weapon_type_pass = nil
+
+				for achievement, achievement_data in pairs(tweak_data.achievement.sniper_kill_achievements) do
+					multi_kill = not achievement_data.multi_kill or cop_kill_count == achievement_data.multi_kill
+					enemy_pass = not achievement_data.enemy or unit_type == achievement_data.enemy
+					obstacle_pass = not achievement_data.obstacle or achievement_data.obstacle == "wall" and hit_through_wall or achievement_data.obstacle == "shield" and hit_through_shield
+					weapon_pass = not achievement_data.weapon or self._name_id == achievement_data.weapon
+					weapons_pass = not achievement_data.weapons or table.contains(achievement_data.weapons, self._name_id)
+					weapon_type_pass = not achievement_data.weapon_type or self:is_category(achievement_data.weapon_type)
+
+					if multi_kill and enemy_pass and obstacle_pass and weapon_pass and weapons_pass and weapon_type_pass then
+						if achievement_data.stat then
+							managers.achievment:award_progress(achievement_data.stat)
+						elseif achievement_data.award then
+							managers.achievment:award(achievement_data.award)
+						elseif achievement_data.challenge_stat then
+							managers.challenge:award_progress(achievement_data.challenge_stat)
+						elseif achievement_data.trophy_stat then
+							managers.custom_safehouse:award(achievement_data.trophy_stat)
+						elseif achievement_data.challenge_award then
+							managers.challenge:award(achievement_data.challenge_award)
+						end
 					end
 				end
 			end
 		end
 
-		return unique_hits, hit_enemy
-	end
-end
-if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
-	function RaycastWeaponBase:update_next_shooting_time()
-		local next_fire = (tweak_data.weapon[self._name_id].fire_mode_data and tweak_data.weapon[self._name_id].fire_mode_data.fire_rate or 0) / self:fire_rate_multiplier()
-		self._next_fire_allowed = self._next_fire_allowed + next_fire
-		if self._ammo_data then
-			if self._ammo_data.can_shoot_through_shield ~= nil then
-				self._can_shoot_through_shield = math.random(100) < 75 and self._ammo_data.can_shoot_through_shield or nil
-			end
-			if self._ammo_data.can_shoot_through_wall ~= nil then
-				self._can_shoot_through_wall = math.random(100) < 75 and self._ammo_data.can_shoot_through_wall or nil
-			end
-			if self._ammo_data.can_shoot_through_enemy ~= nil then
-				self._can_shoot_through_enemy = math.random(100) < 75 and self._ammo_data.can_shoot_through_enemy or nil
+		if not tweak_data.achievement.tango_4.difficulty or table.contains(tweak_data.achievement.tango_4.difficulty, Global.game_settings.difficulty) then
+			if self._gadgets and table.contains(self._gadgets, "wpn_fps_upg_o_45rds") and cop_kill_count > 0 and managers.player:player_unit():movement():current_state():in_steelsight() then
+				if self._tango_4_data then
+					if self._gadget_on == self._tango_4_data.last_gadget_state then
+						self._tango_4_data = nil
+					else
+						self._tango_4_data.last_gadget_state = self._gadget_on
+						self._tango_4_data.count = self._tango_4_data.count + 1
+					end
+
+					if self._tango_4_data and tweak_data.achievement.tango_4.count <= self._tango_4_data.count then
+						managers.achievment:_award_achievement(tweak_data.achievement.tango_4, "tango_4")
+					end
+				else
+					self._tango_4_data = {
+						count = 1,
+						last_gadget_state = self._gadget_on
+					}
+				end
+			elseif self._tango_4_data then
+				self._tango_4_data = nil
 			end
 		end
+
+		result.hit_enemy = hit_anyone
+
+		if self._autoaim then
+			self._shot_fired_stats_table.hit = hit_anyone
+			self._shot_fired_stats_table.hit_count = hit_count
+
+			if (not self._ammo_data or not self._ammo_data.ignore_statistic) and not self._rays then
+				managers.statistics:shot_fired(self._shot_fired_stats_table)
+			end
+		end
+
+		local furthest_hit = ray_hits[#ray_hits]
+
+		if (furthest_hit and furthest_hit.distance > 600 or not furthest_hit) and alive(self._obj_fire) then
+			self._obj_fire:m_position(self._trail_effect_table.position)
+			mvector3.set(self._trail_effect_table.normal, mvec_spread_direction)
+
+			local trail = World:effect_manager():spawn(self._trail_effect_table)
+
+			if furthest_hit then
+				World:effect_manager():set_remaining_lifetime(trail, math.clamp((furthest_hit.distance - 600) / 10000, 0, furthest_hit.distance))
+			end
+		end
+
+		if self._alert_events then
+			result.rays = ray_hits
+		end
+
+		return result
 	end
 end
 if string.lower(RequiredScript) == "lib/utils/inventorydescription" then

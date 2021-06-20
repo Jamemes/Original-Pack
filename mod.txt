@@ -1,12 +1,3 @@
 {
-	"name" : "Original Pack",
-	"description" : "Pack of features that brings back old gameplay of the PAYDAY 2 versions from 2014.",
-	"author" : "James",
-	"version" : "",
-	"priority" : 0,
-	"blt_version" : 2,
-	"image" : "assets/OP.png",
-	"persist_scripts" : [
-		{"global" : "OP", "script_path" : "lua/game/global.lua"}
-	]
+	"persist_scripts" : [{"global" : "OP", "script_path" : "lua/global.lua"}]
 }
