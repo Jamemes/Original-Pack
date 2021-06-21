@@ -294,7 +294,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		menu_node(nodes[OriginalPackOptions.options_menu], "OP_changelog", "OP_changelog_callback", 1, "options")
 		menu_node(nodes[OriginalPackOptions.options_menu], progress, "max_progress_callback", 3, "options")
 		MenuCallbackHandler.OP_discord_callback = function(self, item)
-			Steam:overlay_activate("url", "https://discord.com/invite/F9SBFWh")
+			Steam:overlay_activate("url", "https://discord.com/invite/sEEbE95")
 		end
 		
 		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 20, "")
