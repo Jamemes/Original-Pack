@@ -8293,7 +8293,7 @@ if string.lower(RequiredScript) == "lib/managers/hud/hudmissionbriefing" then
 			local _, _, w, h = job_overview_text:text_rect()
 
 			job_overview_text:set_size(w, h)
-			job_overview_text:set_leftbottom(self._job_schedule_panel:left(), pg_text:bottom() - ((Global.game_settings.one_down and job_and_diff_stars > 10 or job_and_diff_stars > 13) and 35 or 0))
+			job_overview_text:set_leftbottom(self._job_schedule_panel:left(), pg_text:bottom() - 35)
 			job_overview_text:set_y(math.round(job_overview_text:y()))
 			
 			if Global.game_settings.one_down then
