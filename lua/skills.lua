@@ -234,7 +234,22 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 			"player_civ_harmless_melee",
 			"striker_reload_speed_default",
 			"temporary_first_aid_damage_reduction",
-			"temporary_passive_revive_damage_reduction_2"
+			"temporary_passive_revive_damage_reduction_2",
+			"jowi",
+			"x_1911",
+			"x_b92fs",
+			"x_deagle",
+			"x_g22c",
+			"x_g17",
+			"x_usp",
+			"x_sr2",
+			"x_mp5",
+			"x_akmsu",
+			"x_packrat",
+			"x_p226",
+			"x_m45",
+			"x_mp7",
+			"x_ppk"
 		}
 
 	----------------------------------------------------------------------------
@@ -1114,27 +1129,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		}
 		
 		self.skills.akimbo[1].upgrades = {
-			"jowi",
-			"x_packrat",
-			"x_1911",
-			"x_b92fs",
-			"x_deagle",
-			"x_g22c",
-			"x_g17",
-			"x_usp",
-			"x_p226",
-			"x_ppk",
-			"x_rage",
-			"x_sparrow",
-			"x_pl14",
-			"x_legacy",
-			"x_c96",
-			"x_breech",
-			"x_chinchilla",
-			"x_shrew",
-			"x_hs2000",
-			"x_g18c",
-			"x_2006m",
+			"player_unlock_akimbo_pistols",
 			"akimbo_recoil_multiplier_1",
 			"akimbo_recoil_multiplier_2"
 		}
@@ -1158,36 +1153,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/skilltreetweakdata" then
 		self.skills.gunzerker = {
 			{
 				upgrades = {
-					"x_basset",
-					"x_judge",
-					"x_rota"
+					"player_unlock_akimbo_shotguns"
 				},
 				cost = self.costs.hightier
 			},
 			{
 				upgrades = {
-					"x_akmsu",
-					"x_baka",
-					"x_coal",
-					"x_cobray",
-					"x_erma",
-					"x_hajk",
-					"x_m1928",
-					"x_m45",
-					"x_mac10",
-					"x_mp5",
-					"x_mp7",
-					"x_mp9",
-					"x_olympic",
-					"x_p90",
-					"x_polymer",
-					"x_schakal",
-					"x_scorpion",
-					"x_shepheard",
-					"x_sr2",
-					"x_sterling",
-					"x_tec9",
-					"x_uzi"
+					"player_unlock_akimbo_smg"
 				},
 				cost = self.costs.hightierpro
 			},
@@ -1788,565 +1760,47 @@ if string.lower(RequiredScript) == "lib/tweak_data/upgradestweakdata" then
 		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 
-		self.level_tree = {
-			[0] = {
-				upgrades = {
-					"wpn_dallas_mask",
-					"clean",
-					"aziz"
-				}
-			},
-			{
-				name_id = "body_armor",
-				upgrades = {
-					"body_armor2"
-				}
-			},
-			{
-				name_id = "weapons",
-				upgrades = {
-					"new_m4",
-					"colt_1911",
-					"mac10",
-					"ak74",
-					"hajk",
-					"corgi"
-				}
-			},
-			{
-				name_id = "weapons",
-				upgrades = {
-					"spatula",
-					"fork",
-					"boot"
-				}
-			},
-			{
-				name_id = "weapons",
-				upgrades = {
-					"shovel",
-					"frag_com",
-					"fir_com",
-					"dada_com",
-					"frag",
-					"dynamite",
-					"molotov"
-				}
-			},
-			[6] = {
-				name_id = "weapons",
-				upgrades = {
-					"new_raging_bull",
-					"b92fs"
-				}
-			},
-			[7] = {
-				name_id = "body_armor",
-				upgrades = {
-					"body_armor1",
-					"moneybundle"
-				}
-			},
-			[8] = {
-				name_id = "weapons",
-				upgrades = {
-					"r870",
-					"aug",
-					"fight"
-				}
-			},
-			[10] = {
-				name_id = "lvl_10",
-				upgrades = {
-					"rep_upgrade1",
-					"cutters",
-					"shawn"
-				}
-			},
-			[12] = {
-				name_id = "body_armor3",
-				upgrades = {
-					"body_armor3",
-					"cobray",
-					"boxcutter"
-				}
-			},
-			[13] = {
-				name_id = "weapons",
-				upgrades = {
-					"new_mp5",
-					"serbu",
-					"microphone",
-					"selfie"
-				}
-			},
-			[14] = {
-				name_id = "weapons",
-				upgrades = {
-					"bayonet",
-					"m1928",
-					"sparrow",
-					"gator",
-					"pl14"
-				}
-			},
-			[15] = {
-				name_id = "weapons",
-				upgrades = {
-					"msr",
-					"benelli",
-					"road",
-					"legacy"
-				}
-			},
-			[16] = {
-				name_id = "weapons",
-				upgrades = {
-					"akm",
-					"g36",
-					"iceaxe",
-					"flint",
-					"oxide",
-					"sword"
-				}
-			},
-			[17] = {
-				name_id = "weapons",
-				upgrades = {
-					"akm_gold",
-					"baton",
-					"slot_lever"
-				}
-			},
-			[18] = {
-				name_id = "weapons",
-				upgrades = {
-					"baseballbat",
-					"scorpion",
-					"oldbaton",
-					"hockey",
-					"meter",
-					"hauteur",
-					"shock",
-					"fear"
-				}
-			},
-			[19] = {
-				name_id = "weapons",
-				upgrades = {
-					"olympic",
-					"mp9",
-					"baka",
-					"pugio",
-					"ballistic"
-				}
-			},
-			[20] = {
-				name_id = "lvl_20",
-				upgrades = {
-					"rep_upgrade2",
-					"schakal",
-					"agave",
-					"happy",
-					"shepheard",
-					"slap"
-				}
-			},
-			[21] = {
-				name_id = "body_armor4",
-				upgrades = {
-					"body_armor4",
-					"kampfmesser",
-					"buck",
-					"tecci",
-					"wing"
-				}
-			},
-			[22] = {
-				name_id = "community_item",
-				upgrades = {
-					"g22c",
-					"ksg",
-					"branding_iron",
-					"detector",
-					"croupier_rake"
-				}
-			},
-			[23] = {
-				name_id = "weapons",
-				upgrades = {
-					"bullseye",
-					"c96",
-					"par",
-					"m37",
-					"rota",
-					"brick",
-					"ostry"
-				}
-			},
-			[24] = {
-				name_id = "weapons",
-				upgrades = {
-					"model24",
-					"l85a2",
-					"scalper",
-					"switchblade"
-				}
-			},
-			[25] = {
-				name_id = "weapons",
-				upgrades = {
-					"boxing_gloves",
-					"meat_cleaver",
-					"wpn_prj_four",
-					"sr2",
-					"grip",
-					"push",
-					"breech",
-					"ching",
-					"sap"
-				}
-			},
-			[26] = {
-				name_id = "weapons",
-				upgrades = {
-					"new_m14",
-					"saiga",
-					"packrat",
-					"lemming",
-					"chinchilla"
-				}
-			},
-			[27] = {
-				name_id = "weapons",
-				upgrades = {
-					"famas",
-					"g26",
-					"twins",
-					"pitchfork",
-					"shrew",
-					"basset"
-				}
-			},
-			[28] = {
-				name_id = "weapons",
-				upgrades = {
-					"hs2000",
-					"vhs",
-					"bowie",
-					"micstand"
-				}
-			},
-			[29] = {
-				name_id = "weapons",
-				upgrades = {
-					"akmsu",
-					"glock_18c",
-					"asval",
-					"beer",
-					"czech",
-					"stech"
-				}
-			},
-			[30] = {
-				name_id = "lvl_30",
-				upgrades = {
-					"rep_upgrade3"
-				}
-			},
-			[31] = {
-				name_id = "body_armor5",
-				upgrades = {
-					"body_armor5",
-					"chef",
-					"wpn_prj_ace"
-				}
-			},
-			[32] = {
-				name_id = "weapons",
-				upgrades = {
-					"x46",
-					"tec9",
-					"tiger",
-					"model70"
-				}
-			},
-			[33] = {
-				name_id = "weapons",
-				upgrades = {
-					"ak5",
-					"striker",
-					"beardy",
-					"catch"
-				}
-			},
-			[34] = {
-				name_id = "weapons",
-				upgrades = {
-					"galil",
-					"cleaver",
-					"desertfox",
-					"wpn_prj_target",
-					"tti"
-				}
-			},
-			[35] = {
-				name_id = "weapons",
-				upgrades = {
-					"r93",
-					"judge",
-					"mining_pick",
-					"wing"
-				}
-			},
-			[36] = {
-				name_id = "weapons",
-				upgrades = {
-					"p90",
-					"deagle"
-				}
-			},
-			[37] = {
-				name_id = "weapons",
-				upgrades = {
-					"shillelagh",
-					"hammer",
-					"stick"
-				}
-			},
-			[38] = {
-				name_id = "weapons",
-				upgrades = {
-					"scoutknife",
-					"komodo"
-				}
-			},
-			[39] = {
-				name_id = "weapons",
-				upgrades = {
-					"m16",
-					"huntsman",
-					"polymer",
-					"sub2000",
-					"china"
-				}
-			},
-			[40] = {
-				name_id = "lvl_40",
-				upgrades = {
-					"rep_upgrade4"
-				}
-			},
-			[41] = {
-				name_id = "weapons",
-				upgrades = {
-					"gerber",
-					"fairbair",
-					"wpn_prj_jav",
-					"wpn_prj_hur",
-					"contraband"
-				}
-			},
-			[42] = {
-				name_id = "weapons",
-				upgrades = {
-					"fal",
-					"tomahawk",
-					"coal"
-				}
-			},
-			[43] = {
-				name_id = "weapons",
-				upgrades = {
-					"b682",
-					"m32",
-					"morning",
-					"coach",
-					"hunter"
-				}
-			},
-			[44] = {
-				name_id = "weapons",
-				upgrades = {
-					"poker"
-				}
-			},
-			[45] = {
-				name_id = "weapons",
-				upgrades = {
-					"m249",
-					"barbedwire",
-					"smoke_screen_grenade"
-				}
-			},
-			[46] = {
-				name_id = "weapons",
-				upgrades = {
-					"gre_m79",
-					"siltstone"
-				}
-			},
-			[47] = {
-				name_id = "weapons",
-				upgrades = {
-					"freedom",
-					"whiskey",
-					"arbiter"
-				}
-			},
-			[48] = {
-				name_id = "weapons",
-				upgrades = {
-					"dingdong",
-					"tenderizer",
-					"plainsrider"
-				}
-			},
-			[50] = {
-				name_id = "lvl_50",
-				upgrades = {
-					"rep_upgrade5"
-				}
-			},
-			[51] = {
-				name_id = "weapons",
-				upgrades = {
-					"machete",
-					"sterling"
-				}
-			},
-			[52] = {
-				name_id = "weapons",
-				upgrades = {
-					"g3",
-					"aa12"
-				}
-			},
-			[54] = {
-				name_id = "weapons",
-				upgrades = {
-					"becker",
-					"mosin",
-					"cqc"
-				}
-			},
-			[55] = {
-				name_id = "weapons",
-				upgrades = {
-					"uzi"
-				}
-			},
-			[57] = {
-				name_id = "weapons",
-				upgrades = {
-					"elastic",
-					"long",
-					"frankish",
-					"ecp"
-				}
-			},		
-			[60] = {
-				name_id = "lvl_60",
-				upgrades = {
-					"rep_upgrade6"
-				}
-			},
-			[61] = {
-				name_id = "weapons",
-				upgrades = {
-					"rambo"
-				}
-			},
-			[68] = {
-				name_id = "weapons",
-				upgrades = {
-					"arblast"
-				}
-			},
-			[70] = {
-				name_id = "lvl_70",
-				upgrades = {
-					"rep_upgrade7"
-				}
-			},
-			[71] = {
-				name_id = "weapons",
-				upgrades = {
-					"fireaxe",
-					"mg42",
-					"flamethrower_mk2",
-					"system"
-				}
-			},
-			[72] = {
-				name_id = "weapons",
-				upgrades = {
-					"taser",
-					"zeus"
-				}
-			},
-			[74] = {
-				name_id = "weapons",
-				upgrades = {
-					"m134",
-					"shuno"
-				}
-			},
-			[75] = {
-				name_id = "weapons",
-				upgrades = {
-					"hk21",
-					"sandsteel",
-					"cs",
-					"great",
-					"nin"
-				}
-			},
-			[77] = {
-				name_id = "weapons",
-				upgrades = {
-					"erma"
-				}
-			},
-			[80] = {
-				name_id = "lvl_80",
-				upgrades = {
-					"rep_upgrade8"
-				}
-			},
-			[84] = {
-				name_id = "weapons",
-				upgrades = {
-					"mateba",
-					"wa2000",
-					"winchester1874",
-					"ray"
-				}
-			},
-			[87] = {
-				name_id = "weapons",
-				upgrades = {
-					"concussion",
-					"peacemaker",
-					"m95",
-					"rpg7",
-					"ray"
-				}
-			},
-			[90] = {
-				name_id = "lvl_90",
-				upgrades = {
-					"rep_upgrade9"
-				}
-			},
-			[100] = {
-				name_id = "lvl_100",
-				upgrades = {
-					"rep_upgrade10"
-				}
+		self.values.player.unlock_unlock_op_weapons = {true}
+		self.definitions.player_unlock_op_weapons = {
+			category = "feature",
+			name_id = "menu_player_unlock_op_weapons",
+			upgrade = {
+				category = "player",
+				upgrade = "unlock_op_weapons",
+				value = 1
 			}
 		}
-
+		self.values.player.unlock_akimbo_pistols = {true}
+		self.definitions.player_unlock_akimbo_pistols = {
+			category = "feature",
+			name_id = "menu_player_unlock_akimbo_pistols",
+			upgrade = {
+				category = "player",
+				upgrade = "unlock_akimbo_pistols",
+				value = 1
+			}
+		}
+		self.values.player.unlock_akimbo_shotguns = {true}
+		self.definitions.player_unlock_akimbo_shotguns = {
+			category = "feature",
+			name_id = "menu_player_unlock_akimbo_shotguns",
+			upgrade = {
+				category = "player",
+				upgrade = "unlock_akimbo_shotguns",
+				value = 1
+			}
+		}
+		self.values.player.unlock_akimbo_smg = {true}
+		self.definitions.player_unlock_akimbo_smg = {
+			category = "feature",
+			name_id = "menu_player_unlock_akimbo_smg",
+			upgrade = {
+				category = "player",
+				upgrade = "unlock_akimbo_smg",
+				value = 1
+			}
+		}
+		
 		self.values.weapon.automatic_head_shot_add = {0.15, 0.3}
 		self.values.player.reduce_loose_money_exp_convertation_amount_mul = {0.35}
 		self.values.team.xp.multiplier = {1.4}
@@ -3971,6 +3425,12 @@ if string.lower(RequiredScript) == "lib/units/beings/player/states/playerstandar
 			local total = (maxed - (maxed / wb_ttr * pm_wb))
 			dt = dt * (tweak_data.upgrades.walking_bleedout_interaction_time_penalty + total)
 		end
+		
+		local morale_boost_bonus = self._ext_movement:morale_boost()
+		if morale_boost_bonus then
+			dt = dt * morale_boost_bonus.move_speed_bonus
+		end
+		
 		return dt
 	end
 end
@@ -4990,7 +4450,7 @@ if string.lower(RequiredScript) == "lib/managers/menu/skilltreegui" then
 end
 if string.lower(RequiredScript) == "lib/managers/skilltreemanager" then
 
-	SkillTreeManager.VERSION = 11
+	SkillTreeManager.VERSION = 12
 	
 	function SkillTreeManager:_create_tree_data(tree_id)
 		self._global.trees[tree_id] = {
@@ -5609,6 +5069,22 @@ if string.lower(RequiredScript) == "lib/units/weapons/newraycastweaponbase" then
 	end
 end
 if string.lower(RequiredScript) == "lib/managers/blackmarketmanager" then
+	function BlackMarketManager:unlock_overpowered_weapons()
+		return managers.experience:current_level() >= 85, "bm_menu_unlock_overpowered"
+	end
+	
+	function BlackMarketManager:unlock_akimbo_pistols()
+		return managers.player:has_category_upgrade("player", "unlock_akimbo_pistols"), "bm_menu_unlock_akimbo"
+	end
+	
+	function BlackMarketManager:unlock_akimbo_shotguns()
+		return managers.player:has_category_upgrade("player", "unlock_akimbo_shotguns"), "bm_menu_unlock_gunzerker"
+	end
+	
+	function BlackMarketManager:unlock_akimbo_smg()
+		return managers.player:has_category_upgrade("player", "unlock_akimbo_smg"), "bm_menu_unlock_gunzerker"
+	end
+						
 	function BlackMarketManager:recoil_multiplier(name, categories, silencer, blueprint, is_moving)
 		local multiplier = 1
 
@@ -5915,16 +5391,13 @@ if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebas
 end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimidated" then
 	function CopLogicIntimidated._start_action_hands_up(data)
-		data.rand_value = math.random()
-		data.good_chance = 0.5
 		local my_data = data.internal_data
-		local spooked = data.rand_value <= data.good_chance
-		local anim_name = spooked and managers.groupai:state():whisper_mode() and "tied_all_in_one" or "hands_up"
+		local anim_name = data.unit:character_damage():health_ratio() < 0.25 and "tied_all_in_one" or "hands_up"
 		local action_data = {
+			clamp_to_graph = true,
 			type = "act",
 			body_part = 1,
 			variant = anim_name,
-			clamp_to_graph = true,
 			blocks = {
 				light_hurt = -1,
 				hurt = -1,
@@ -5933,13 +5406,15 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogicintimid
 			}
 		}
 		my_data.act_action = data.unit:brain():action_request(action_data)
+
 		if my_data.act_action and data.unit:anim_data().hands_tied then
 			CopLogicIntimidated._do_tied(data, my_data.aggressor_unit)
 		end
 	end
+	
 	function CopLogicIntimidated._chk_begin_alarm_pager(data)
 		if managers.groupai:state():whisper_mode() and data.unit:unit_data().has_alarm_pager then
-			if data.rand_value >= data.good_chance then
+			if data.unit:character_damage():health_ratio() < 1 then
 				data.brain:begin_alarm_pager()
 			end
 		end

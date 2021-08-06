@@ -1,4 +1,5 @@
-<mod name="OriginalPack" global_key="OriginalPackCore" core_class="init.lua">
+<mod name="OriginalPack" global_key="OriginalPackCore" core_class="lua/init.lua">
+	<AssetUpdates id="26900" version="1.4.1" provider="modworkshop" use_local_dir="true" use_local_path="true"/>
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/tipstweakdata"							file="tips.lua"/>
 		
@@ -101,7 +102,7 @@
 		<hook source_file="lib/managers/blackmarketmanager"							file="interface.lua"/>
 		<hook source_file="lib/states/bootupstate" 									file="interface.lua"/>
         <hook source_file="lib/managers/menu/menucomponentmanager" 					file="interface.lua"/>
-		
+
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties.lua"/>
 		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties.lua"/>
 		<hook source_file="lib/tweak_data/groupaitweakdata"							file="difficulties.lua"/>
@@ -148,9 +149,8 @@
 		<hook source_file="lib/managers/menumanager"								file="core.lua"/>
 		<hook source_file="core/lib/managers/coresequencemanager"					file="core.lua"/>
 		<hook source_file="lib/managers/menu/renderers/menunodecreditsgui"			file="core.lua"/>
-		
     </Hooks>
-	
+	  
 	<ScriptMods directory="xml">
 		<mod file="menu.xml" type="custom_xml" target_file="gamedata/menus/start_menu" target_type="menu">
 			<options merge_mode="script_merge"/>
@@ -322,9 +322,6 @@
 		<animation path="anims/shared/special/lobby_generic_idle2" force="true"/>
 		<animation path="anims/shared/special/lobby_generic_idle3" force="true"/>
 		<animation path="anims/shared/special/lobby_generic_idle4" force="true"/>
-		<texture path="units/menu/menu_scene/infamy_card_df" force="true"/>
-		
-		<movie path="movies/177" force="true"/>
 		
     </AddFiles>
 </mod>

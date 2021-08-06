@@ -100,12 +100,6 @@ if string.lower(RequiredScript) == "lib/managers/menu/walletguiobject" then
 		skillpoint_text:set_left(skillpoint_icon:right() + 2)
 		skillpoint_text:set_center_y(skillpoint_icon:center_y())
 		skillpoint_text:set_y(math.round(skillpoint_text:y()))
-		
-		local unlocked = managers.custom_safehouse:unlocked()
-		if unlocked then
-			coins_text:set_color(managers.custom_safehouse:coins() >= tweak_data.max_coins and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text)
-		end
-		money_text:set_color(managers.money:total() >= tweak_data.max_spending_cash and tweak_data.screen_colors.max_money or tweak_data.screen_colors.text)
 	end
 	
 	local data = WalletGuiObject.set_wallet

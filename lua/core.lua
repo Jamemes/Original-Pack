@@ -1,7 +1,7 @@
 if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 	local self = tweak_data
 
-	self.version = "1.4"
+	self.version = "1.4.1"
 	self.testing_text = ''
 
 	self.hate_multipler = 1.5
@@ -50,8 +50,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 end
 if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 	_G.OriginalPackOptions = _G.OriginalPackOptions or {}
-	OriginalPackOptions.options_menu = "OriginalPackOptions_menu"
-	OriginalPackOptions.interface_menu = "OriginalPackOptions_interface_menu"
 	OriginalPackOptions.ModPath = ModPath
 	OriginalPackOptions.SaveFile = OriginalPackOptions.SaveFile or SavePath .. "OriginalPackOptions.txt"
 	OriginalPackOptions.ModOptions = OriginalPackOptions.ModPath .. "menus/modoptions.txt"
@@ -101,11 +99,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		string_id == "menu_anlways_show_kills_title" 		and managers.localization:to_upper_text("menu_always_show_kills_title") or
 		data(self, string_id, ...)
 	end
-
-	Hooks:Add("MenuManagerSetupCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
-		MenuHelper:NewMenu(OriginalPackOptions.options_menu)
-		MenuHelper:NewMenu(OriginalPackOptions.interface_menu)
-	end)
+	
 	Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
 		if OriginalPackOptions.settings.Enable_Test then
 			SavefileManager.PROGRESS_SLOT = 25
@@ -148,7 +142,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			title = "menu_always_show_body_bags_title",
 			callback = "OriginalPackOptions_menu_Anlways_Show_Body_Bags_callback",
 			value = OriginalPackOptions.settings.Anlways_Show_Body_Bags,
-			menu_id = OriginalPackOptions.interface_menu,  
+			menu_id = "OP_interface",  
 		})
 		
 		MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Accuracy_callback = function(self, item)
@@ -160,7 +154,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			title = "menu_anlways_show_accuracy_title",
 			callback = "OriginalPackOptions_menu_Anlways_Show_Accuracy_callback",
 			value = OriginalPackOptions.settings.Anlways_Show_Accuracy,
-			menu_id = OriginalPackOptions.interface_menu,  
+			menu_id = "OP_interface",  
 		})
 		
 		MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Kills_callback = function(self, item)
@@ -172,15 +166,18 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 			title = "menu_anlways_show_kills_title",
 			callback = "OriginalPackOptions_menu_Anlways_Show_Kills_callback",
 			value = OriginalPackOptions.settings.Anlways_Show_Kills,
-			menu_id = OriginalPackOptions.interface_menu,  
+			menu_id = "OP_interface",  
 		})
 	end)
 
+	Hooks:Add("MenuManagerSetupCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
+		MenuHelper:NewMenu("OP_options")
+		MenuHelper:NewMenu("OP_interface")
+	end)
+	
 	Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
-		nodes[OriginalPackOptions.options_menu] = MenuHelper:BuildMenu(OriginalPackOptions.options_menu)
-		nodes[OriginalPackOptions.interface_menu] = MenuHelper:BuildMenu(OriginalPackOptions.interface_menu)
-		MenuHelper:AddMenuItem(nodes["main"], OriginalPackOptions.options_menu, "menu_OP_title", "", 21)
-		MenuHelper:AddMenuItem(nodes[OriginalPackOptions.options_menu], OriginalPackOptions.interface_menu, "menu_user_interface", "", 1)
+		nodes["OP_options"] = MenuHelper:BuildMenu("OP_options")
+		nodes["OP_interface"] = MenuHelper:BuildMenu("OP_interface")
 
 		local function menu_node(menu_item, name, clbk, pos, item_name)
 			local menu_item = menu_item
@@ -227,7 +224,7 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 				local menu = QuickMenu:new(blank, blank, menu_options)
 				menu:Show()
 			end
-			menu_node(nodes[OriginalPackOptions.options_menu], "test_mode", "test_mode_callback", 4, "")
+			menu_node(nodes["OP_options"], "test_mode", "test_mode_callback", 4, "")
 		end
 		
 		MenuCallbackHandler.max_progress_enable_callback = function(self, item)
@@ -290,14 +287,14 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 		end
 
 		local progress = OriginalPackOptions.settings.Enable_Max_Progress and "normal_progress" or "max_progress"
-		menu_node(nodes.main, "find_game", "start_quickplay_game", 1, "crimenet")
-		menu_node(nodes[OriginalPackOptions.options_menu], "OP_changelog", "OP_changelog_callback", 1, "options")
-		menu_node(nodes[OriginalPackOptions.options_menu], progress, "max_progress_callback", 3, "options")
+		
+		MenuHelper:AddMenuItem(nodes["OP_options"], "OP_interface", "menu_user_interface", "", 1)
+		menu_node(nodes["OP_options"], "OP_changelog", "OP_changelog_callback", 1, "options")
+		menu_node(nodes["OP_options"], progress, "max_progress_callback", 3, "options")
 		MenuCallbackHandler.OP_discord_callback = function(self, item)
 			Steam:overlay_activate("url", "https://discord.com/invite/sEEbE95")
 		end
-		
-		menu_node(nodes.main, "OP_discord", "OP_discord_callback", 20, "")
+		menu_node(nodes["OP_options"], "OP_discord", "OP_discord_callback", 1, "")
 	end)
 end
 if string.lower(RequiredScript) == "lib/network/matchmaking/networkmatchmakingsteam" then

@@ -1,7 +1,10 @@
 <table>
     <menu search="menu;id='start_menu'">
         <node search="node;name='main'">
+			<item index="after:item;name='divider_test2'" help_id="menu_options_help" name="OP_options" next_node="OP_options" text_id="menu_OP_title"/>
             <item index="after:item;name='options'" next_node="OP_credits" trial_buy="true" help_id="OP_credits_help" name="OP_credits" text_id="OP_credits"/>
+			<item search="item;name='crimenet'" font_size="25"/>
+			<item search="item;name='crimenet_offline'" font_size="25"/>
         </node>
 		<node search="node;name='crimenet_contract_host'">
 			<item index="after:item;name='toggle_ai'" callback="choice_crimenet_one_down" name="toggle_one_down_OP" text_id="menu_toggle_one_down" type="CoreMenuItemToggle.ItemToggle" visible_callback="not_customize_contract">

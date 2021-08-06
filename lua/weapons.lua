@@ -72,6 +72,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 			0.6,
 			0.5
 		}
+		
+		self.peacemaker.unlock_func = "unlock_overpowered_weapons"
+		self.wa2000.unlock_func = "unlock_overpowered_weapons"
 
 		for id, _ in pairs(self) do
 			local weapons = self[id]
@@ -80,6 +83,18 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 				local spread = weapons.stats.spread
 				local spread_m = weapons.stats.spread_moving
 				local recoil = weapons.stats.recoil
+				
+				if weapons.categories[1] == "akimbo" then
+					if weapons.categories[2] == "pistol" then
+						weapons.unlock_func = "unlock_akimbo_pistols"
+					end
+					if weapons.categories[2] == "shotgun" then
+						weapons.unlock_func = "unlock_akimbo_shotguns"
+					end
+					if weapons.categories[2] == "smg" then
+						weapons.unlock_func = "unlock_akimbo_smg"
+					end
+				end
 				
 				if weapons.categories[1] == "assault_rifle" then
 					local mul_dmg = dmg < 50 and 0.675 or dmg < 60 and 0.57 or dmg < 100 and 0.32 or 0.47
@@ -139,6 +154,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
 					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
 					weapons.stats.spread_moving = math.round(weapons.stats.spread_moving * mul_spread_moving)
+					
+					if weapons.stats_modifiers.damage > 10 then
+						weapons.unlock_func = "unlock_overpowered_weapons"
+					end
 				end
 				
 				if weapons.categories[1] == "pistol" or weapons.categories[2] == "pistol" then
@@ -174,6 +193,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 					weapons.stats_modifiers.damage = dmg_mod
 					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
 					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					if dmg_mod > 25 then
+						weapons.unlock_func = "unlock_overpowered_weapons"
+					end
 				end
 				
 				if weapons.categories[1] == "crossbow" then
@@ -185,6 +207,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 					weapons.stats_modifiers.damage = dmg_mod
 					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
 					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					if weapons.stats_modifiers.damage > 10 then
+						weapons.unlock_func = "unlock_overpowered_weapons"
+					end
 				end
 				
 				if weapons.categories[1] == "grenade_launcher" then
@@ -198,6 +223,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 						weapons.stats.damage = math.round(damage)
 						weapons.stats.spread = math.round(weapons.stats.spread * 0.28)
 					end
+					weapons.unlock_func = "unlock_overpowered_weapons"
 				end
 				
 				if weapons.categories[1] == "minigun" then
@@ -206,10 +232,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 					
 					weapons.stats.spread = math.round(weapons.stats.spread * mul_spread)
 					weapons.stats.recoil = math.round(weapons.stats.recoil * mul_recoil)
+					weapons.unlock_func = "unlock_overpowered_weapons"
+				end
+				
+				if weapons.categories[1] == "flamethrower" then
+					weapons.unlock_func = "unlock_overpowered_weapons"
 				end
 			end
 		end
-		
+
 		self.amcar.stats.damage = 16
 		self.scar.stats.damage = 43
 		self.corgi.stats.damage = 32
@@ -1248,7 +1279,15 @@ if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/meleeweaponstweak
 		self.melee_weapons.sandsteel.stats.max_damage = 15
 		self.melee_weapons.cs.stats.max_damage = 15
 		self.melee_weapons.great.stats.max_damage = 15
-
+		
+		for _, melee in pairs(self.melee_weapons) do
+			if melee.stats.min_damage >= 7 or melee.stats.max_damage >= 15 then
+				melee.locks = {func = "unlock_overpowered_weapons"}
+			end
+			if melee.tase_data then
+				melee.locks = {func = "unlock_overpowered_weapons"}
+			end
+		end
 	end
 end
 if string.lower(RequiredScript) == "lib/tweak_data/blackmarket/projectilestweakdata" then

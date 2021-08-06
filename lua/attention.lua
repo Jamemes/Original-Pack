@@ -22,6 +22,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 			{6, 6}
 		}
 		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
+		self.fall_damage_alert_size = 0
 	end
 
 	function PlayerTweakData:_set_hard()
@@ -34,6 +35,19 @@ if string.lower(RequiredScript) == "lib/tweak_data/playertweakdata" then
 			{6, 6}
 		}
 		self.alarm_pager.bluff_success_chance = {1, 1, 1, 1, 0}
+		self.fall_damage_alert_size = 0
+	end
+
+	local data = PlayerTweakData._set_overkill
+	function PlayerTweakData:_set_overkill()
+		data(self)
+		self.fall_damage_alert_size = 0
+	end
+	
+	local data = PlayerTweakData._set_overkill_145
+	function PlayerTweakData:_set_overkill_145()
+		data(self)
+		self.fall_damage_alert_size = 0
 	end
 end
 if string.lower(RequiredScript) == "lib/units/props/securitycamera" then
@@ -214,6 +228,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/attentiontweakdata" then
 elseif string.lower(RequiredScript) == "lib/units/beings/player/states/playerstandard" then
 	--==Реплики издают шум==--
 	function PlayerStandard:say_line(sound_name, skip_alert)
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 		self._unit:sound():say(sound_name, true, false)
 		skip_alert = skip_alert or managers.groupai:state():whisper_mode()
 		local alert_rad = tweak_data.whisper_alert_radius
@@ -224,10 +239,14 @@ elseif string.lower(RequiredScript) == "lib/units/beings/player/states/playersta
 			self._unit:movement():SO_access(),
 			self._unit
 		}
-		managers.groupai:state():propagate_alert(new_alert)
+		if difficulty == "easy_wish" or difficulty == "sm_wish" then
+			managers.groupai:state():propagate_alert(new_alert)
+		end
 	end
-	--==Бег в определенном радиусе будет тревожить гражданских/охранников, но не камеры.==--
+	--==Бег в определенном радиусе будет тревожить гражданских/охранников.==--
 	Hooks:PreHook(PlayerStandard, "_update_movement", "PlayerStandard_update_movement", function(self, t)
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 		local cur_pos = pos_new or self._pos
 		local move_dis = mvector3.distance_sq(cur_pos, self._last_sent_pos)
 		if not self:_on_zipline() and (move_dis > 22500 or move_dis > 400 and (t - self._last_sent_pos_t > 1.5 or not pos_new)) then
@@ -245,13 +264,17 @@ elseif string.lower(RequiredScript) == "lib/units/beings/player/states/playersta
 					managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 					self._unit
 				}
-				managers.groupai:state():propagate_alert(footstep_alert)
+				if difficulty_index > 3 then
+					managers.groupai:state():propagate_alert(footstep_alert)
+				end
 			end
 		end
 	end)
 elseif string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebase" then
 	--==Соседи будут звонить в полицию через некоторое время, после того был издан шум определенного радиуса. (Радиус по умолчанию - 2450)==--
 	Hooks:PreHook(GroupAIStateBase, "propagate_alert", "GroupAIStateBase_propagate_alert", function(self, alert_data)
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+		local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 		local alert_type = alert_data[1]
 		local alert_epicenter = alert_data[2]
 		local alert_radius = alert_data[3]
@@ -264,7 +287,7 @@ elseif string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistat
 					function GroupAIStateBase:_on_neighbours_called()
 						managers.groupai:state():on_police_called("sys_csgo_gunfire")
 					end
-					if managers.groupai:state():whisper_mode() then
+					if managers.groupai:state():whisper_mode() and difficulty_index > 3 then
 						managers.enemy:add_delayed_clbk(nil, callback(self, self, "_on_neighbours_called"), self._t + tweak_data.neighbours_trigger_delay)
 					end
 				end
@@ -274,6 +297,7 @@ elseif string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistat
 elseif string.lower(RequiredScript) == "lib/managers/gameplaycentralmanager" then
 	--==Тревога нпс от хлопков пуль прилетевшей в стену\поверхность==--
 	Hooks:PreHook(GamePlayCentralManager, "_play_bullet_hit", "GamePlayCentralManager_play_bullet_hit", function(self, params)
+		local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 		local hit_pos = params.col_ray.position
 		local need_sound = not params.no_sound and World:in_view_with_options(hit_pos, 4000, 0, 0)
 		local need_effect = World:in_view_with_options(hit_pos, 20, 100, 5000)
@@ -286,10 +310,14 @@ elseif string.lower(RequiredScript) == "lib/managers/gameplaycentralmanager" the
 				managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 				params.col_ray.unit
 			}
-			managers.groupai:state():propagate_alert(alert_event)
+			if difficulty == "easy_wish" or difficulty == "sm_wish" then
+				managers.groupai:state():propagate_alert(alert_event)
+			end
 		end
 	end)
 elseif string.lower(RequiredScript) == "lib/units/props/drill" then
+	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+	local difficulty_index = tweak_data:difficulty_to_index(difficulty)
 	--==Зона тревоги нпс от дрели==--
 	local investigate_zone = tweak_data.drill_investigate_zone_multipler -- Множитель зоны "проверки" шума дрели, чтобы охранник шел к источнику звука.
 	Hooks:PreHook(Drill, "_set_alert_state", "Drill_set_alert_state", function(self, state)
@@ -301,7 +329,9 @@ elseif string.lower(RequiredScript) == "lib/units/props/drill" then
 				managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 				self._unit
 			}
-			managers.groupai:state():propagate_alert(alert_event)
+			if difficulty_index > 5 then
+				managers.groupai:state():propagate_alert(alert_event)
+			end
 		end
 	end)
 	--==Удержание зоны тревоги нпс во время работы дрели через "проверку" охранников==--
@@ -320,12 +350,15 @@ elseif string.lower(RequiredScript) == "lib/units/props/drill" then
 						managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 						self._unit
 					}
-					managers.groupai:state():propagate_alert(alert_event)
+					if difficulty_index > 5 then
+						managers.groupai:state():propagate_alert(alert_event)
+					end
 				return
 			end
 		end
 	end)
 elseif string.lower(RequiredScript) == "lib/units/weapons/weaponlaser" then
+	local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 	local mvec1 = Vector3()
 	local mvec2 = Vector3()
 	local mvec_l_dir = Vector3()
@@ -378,7 +411,9 @@ elseif string.lower(RequiredScript) == "lib/units/weapons/weaponlaser" then
 				managers.groupai:state():get_unit_type_filter("civilians_enemies"),
 				unit
 			}
-			managers.groupai:state():propagate_alert(alert_event)
+			if difficulty == "easy_wish" or difficulty == "sm_wish" then
+				managers.groupai:state():propagate_alert(alert_event)
+			end
 		end
 		self._custom_position = nil
 		self._custom_rotation = nil

@@ -1,3 +1,0 @@
-{
-	"persist_scripts" : [{"global" : "OP", "script_path" : "lua/global.lua"}]
-}
