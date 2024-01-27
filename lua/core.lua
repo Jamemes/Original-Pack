@@ -1,7 +1,17 @@
+local function get_mod_info()
+	local file = io.open(ModPath .. "mod.txt", "r")
+	if file then
+		local info = json.decode(file:read("*all"))
+		file:close()
+		
+		return info
+	end
+end
+
 if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 	local self = tweak_data
 
-	self.version = "1.4.1"
+	self.version = get_mod_info().version
 	self.testing_text = ''
 
 	self.hate_multipler = 1.5
@@ -299,6 +309,9 @@ if string.lower(RequiredScript) == "lib/managers/localizationmanager" then
 end
 if string.lower(RequiredScript) == "lib/network/matchmaking/networkmatchmakingsteam" then
 	NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version
+end
+if string.lower(RequiredScript) == "lib/network/matchmaking/networkmatchmakingepic" then
+	NetworkMatchMakingEPIC._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version
 end
 if string.lower(RequiredScript) == "lib/managers/savefilemanager" then
 	SavefileManager.PROGRESS_SLOT = 24

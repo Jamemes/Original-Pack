@@ -474,19 +474,19 @@ if string.lower(RequiredScript) == "lib/tweak_data/missiondoortweakdata" then
 		self.cage_door_deluxe_non_jamming.devices.c4[1].unit = Idstring("units/payday2/equipment/gen_equipment_shape_charge/gen_equipment_shape_charge")
 	end
 end
-if string.lower(RequiredScript) == "lib/managers/musicmanager" then
-	local data = MusicManager.jukebox_default_tracks
-	function MusicManager:jukebox_default_tracks()
-			local default_options = data()
-			default_options.heist_branchbank_hl = "track_03"
-			default_options.loadout = "preplanning_music_old"
-			if managers.dlc:has_dlc_or_soundtrack_or_cce("armored_transport") then
-				default_options.heist_arm = "track_09"
-			end
+-- if string.lower(RequiredScript) == "lib/managers/musicmanager" then
+	-- local data = MusicManager.jukebox_default_tracks
+	-- function MusicManager:jukebox_default_tracks()
+			-- local default_options = data()
+			-- default_options.heist_branchbank_hl = "track_03"
+			-- default_options.loadout = "preplanning_music_old"
+			-- if managers.dlc:has_dlc_or_soundtrack_or_cce("armored_transport") then
+				-- default_options.heist_arm = "track_09"
+			-- end
 			
-		return default_options
-	end
-end
+		-- return default_options
+	-- end
+-- end
 if string.lower(RequiredScript) == "core/lib/managers/mission/coreelementrandom" then
 	core:module("CoreElementRandom")
 	core:import("CoreMissionScriptElement")

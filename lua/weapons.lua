@@ -714,8 +714,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/weaponfactorytweakdata" then
 		self.parts.wpn_fps_smg_p90_b_ninja.stats.concealment = -5
 		self.parts.wpn_fps_smg_p90_b_civilian.stats.concealment = -3
 		
-		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_damage = "1.5"
-		self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_trigger_chance = "65"
+		-- self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_damage = "1.5"
+		-- self.parts.wpn_fps_upg_a_dragons_breath.custom_stats.fire_dot_data.dot_trigger_chance = "65"
 
 		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_min_mul = 0.8
 		self.parts.wpn_fps_upg_ass_m4_b_beowulf.custom_stats.ammo_pickup_max_mul = 0.8

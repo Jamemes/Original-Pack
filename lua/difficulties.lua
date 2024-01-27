@@ -845,7 +845,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 				run = 	{hos = {fwd = 220, strafe = 190, bwd = 144},		cbt = {fwd = 220, strafe = 150, bwd = 156}}
 			}
 		}
-		self.presets.hurt_severities.tank_mk1 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
 		self.presets.weapon.normal.is_shotgun_pump_rapid = deep_clone(self.presets.weapon.normal.is_shotgun_pump)
 		self.presets.weapon.normal.is_shotgun_pump_rapid.FALLOFF[2].recoil = {0.4, 0.7}
 		self.presets.weapon.normal.is_shotgun_pump_rapid.FALLOFF[3].recoil = {0.45, 0.8}
@@ -898,17 +897,17 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.presets.weapon.expert.is_rifle.FALLOFF[4].acc = {0.5, 0.7}
 		self.presets.weapon.expert.is_rifle.FALLOFF[5].acc = {0.2, 0.4}
 		self.presets.weapon.expert.is_rifle.FALLOFF[5].dmg_mul = 5.25
-		self.presets.hurt_severities.unit = deep_clone(self.presets.hurt_severities.base)
-		self.presets.hurt_severities.tank_mk1 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
-		self.presets.hurt_severities.tank_mk2 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
-		self.presets.hurt_severities.unit_mk2 = deep_clone(self.presets.hurt_severities.only_fire_and_poison_hurts)
-		self.presets.hurt_severities.only_fire_and_poison_hurts.bullet.zones = {{light = 1}}
-		self.presets.hurt_severities.only_fire_and_poison_hurts.explosion.zones = {{light = 1}}
-		self.presets.hurt_severities.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
-		self.presets.hurt_severities.tank_mk2.explosion.zones = {{light = 1}}
-		self.presets.hurt_severities.tank_mk1.explosion.zones = {{light = 1}}
+		-- self.presets.hurt_severities.unit = deep_clone(self.presets.hurt_severities.base)
+		-- self.presets.hurt_severities.tank_mk1 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
+		-- self.presets.hurt_severities.tank_mk2 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
+		-- self.presets.hurt_severities.unit_mk2 = deep_clone(self.presets.hurt_severities.only_fire_and_poison_hurts)
+		-- self.presets.hurt_severities.only_fire_and_poison_hurts.bullet.zones = {{light = 1}}
+		-- self.presets.hurt_severities.only_fire_and_poison_hurts.explosion.zones = {{light = 1}}
+		-- self.presets.hurt_severities.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
+		-- self.presets.hurt_severities.tank_mk2.explosion.zones = {{light = 1}}
+		-- self.presets.hurt_severities.tank_mk1.explosion.zones = {{light = 1}}
 		
-		self.presets.hurt_severities.base.melee.zones = {{light = 1}}
+		-- self.presets.hurt_severities.base.melee.zones = {{light = 1}}
 		
 		self.security.HEALTH_INIT = 3
 		self.security.headshot_dmg_mul = self.security.HEALTH_INIT / 1

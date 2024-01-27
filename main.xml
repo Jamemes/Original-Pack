@@ -1,5 +1,5 @@
 <mod name="OriginalPack" global_key="OriginalPackCore" core_class="lua/init.lua">
-	<AssetUpdates id="26900" version="1.4.1" provider="modworkshop" use_local_dir="true" use_local_path="true"/>
+	<!-- <AssetUpdates id="26900" version="1.4.1" provider="modworkshop" use_local_dir="true" use_local_path="true"/> -->
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/tipstweakdata"							file="tips.lua"/>
 		
@@ -142,6 +142,7 @@
 		<hook source_file="lib/tweak_data/tweakdata"								file="core.lua"/>
 		<hook source_file="lib/managers/localizationmanager"						file="core.lua"/>
 		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="core.lua"/>
+		<hook source_file="lib/network/matchmaking/networkmatchmakingepic"			file="core.lua"/>
 		<hook source_file="lib/managers/savefilemanager"							file="core.lua"/>
 		<hook source_file="lib/managers/menu/menunodegui"							file="core.lua"/>
 		<hook source_file="lib/managers/blackmarketmanager"							file="core.lua"/>
