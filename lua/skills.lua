@@ -4924,6 +4924,12 @@ if string.lower(RequiredScript) == "lib/managers/menu/menucomponentmanager" then
 
 		self:enable_skilltree_gui()
 	end
+	
+	function MenuComponentManager:on_skill_unlocked(...)
+		if self._skilltree_gui then
+			self._skilltree_gui:on_skill_unlocked(...)
+		end
+	end
 end
 if string.lower(RequiredScript) == "lib/units/beings/player/states/playertased" then
 	function PlayerTased:call_teammate(line, t, no_gesture, skip_alert)

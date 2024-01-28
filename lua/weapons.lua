@@ -1335,10 +1335,10 @@ if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 				end
 			end
 			
-			if projectile.fire_dot_data then
-				projectile.fire_dot_data.dot_damage = 1
-				projectile.fire_dot_data.dot_length = 3
-			end
+			-- if projectile.fire_dot_data then
+				-- projectile.fire_dot_data.dot_damage = 1
+				-- projectile.fire_dot_data.dot_length = 3
+			-- end
 			
 			if projectile.range then
 				if projectile.range >= 50 then
@@ -1370,9 +1370,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
 	self.projectiles.ecp_arrow_poison.damage = 9
 	self.projectiles.ecp_arrow_exp.damage = 31.5
 	self.projectiles.elastic_arrow_poison.damage = 30
-	self.dot_types.poison.dot_length = 10
-	self.dot_types.poison.dot_damage = 2
-	self.dot_types.poison.hurt_animation_chance = 0.5
+	-- self.dot_types.poison.dot_length = 10
+	-- self.dot_types.poison.dot_damage = 2
+	-- self.dot_types.poison.hurt_animation_chance = 0.5
 end
 if string.lower(RequiredScript) == "lib/units/weapons/raycastweaponbase" then
 	local mvec_to = Vector3()

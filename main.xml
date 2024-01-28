@@ -94,7 +94,7 @@
 		<hook source_file="lib/managers/menu/menuscenemanager"						file="interface.lua"/>
 		<hook source_file="lib/managers/chatmanager"								file="interface.lua"/>
 		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface.lua"/>
-		<hook source_file="lib/tweak_data/guitweakdata"								file="interface.lua"/>
+		<hook source_file="lib/tweak_data/tweakdata"								file="interface.lua"/>
 		<hook source_file="lib/managers/crimenetmanager"							file="interface.lua"/>
 		<hook source_file="core/lib/managers/coreenvironmentcontrollermanager"		file="interface.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/playerstyletweakdata"			file="interface.lua"/>

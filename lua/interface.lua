@@ -168,23 +168,30 @@ if string.lower(RequiredScript) == "lib/managers/crimenetmanager" then
 		end
 	end
 end
-if string.lower(RequiredScript) == "lib/tweak_data/guitweakdata" then
-	local data = GuiTweakData.init
-	function GuiTweakData:init(...)
-		data(self, ...)
-		table.remove(self.crime_net.sidebar, 10)
-		table.remove(self.crime_net.sidebar, 10)
-		table.remove(self.crime_net.sidebar, 10)
-		table.remove(self.crime_net.sidebar, 8)
-		table.remove(self.crime_net.special_contracts, 5)
-		table.remove(self.crime_net.special_contracts, 5)
-		table.remove(self.crime_net.special_contracts, 5)
-		table.remove(self.crime_net.special_contracts, 5)
-		table.remove(self.crime_net.special_contracts, 5)
-		self.crime_net.special_contracts[3].x = 347
-		self.crime_net.special_contracts[3].y = 716
-		self.crime_net.special_contracts[4].menu_node = "crimenet_contract_special"
+if string.lower(RequiredScript) == "lib/tweak_data/tweakdata" then
+	local function btn(tbl, name)
+		for id, btn in pairs(tbl) do
+			if btn.name_id == name then
+				return id
+			end
+		end
 	end
+	
+	local sidebar = tweak_data.gui.crime_net.sidebar
+	table.remove(sidebar, btn(sidebar, "menu_cn_side_jobs"))
+	table.remove(sidebar, btn(sidebar, "menu_cn_gage_assignment"))
+	table.remove(sidebar, btn(sidebar, "menu_cn_casino"))
+	table.remove(sidebar, btn(sidebar, "menu_cn_contact_info"))
+	
+	local special = tweak_data.gui.crime_net.special_contracts
+	table.remove(special, btn(special, "menu_cn_short"))
+	table.remove(special, btn(special, "menu_mutators"))
+	table.remove(special, btn(special, "cn_crime_spree"))
+	table.remove(special, btn(special, "menu_cn_challenge"))
+	
+	special[btn(special, "menu_cn_casino")].x = 347
+	special[btn(special, "menu_cn_casino")].y = 716
+	special[btn(special, "menu_cn_premium_buy")].menu_node = "crimenet_contract_special"
 end
 if string.lower(RequiredScript) == "core/lib/managers/coreenvironmentcontrollermanager" then
 	function CoreEnvironmentControllerManager:set_chromatic_enabled(enabled)
