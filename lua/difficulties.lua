@@ -897,59 +897,40 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.presets.weapon.expert.is_rifle.FALLOFF[4].acc = {0.5, 0.7}
 		self.presets.weapon.expert.is_rifle.FALLOFF[5].acc = {0.2, 0.4}
 		self.presets.weapon.expert.is_rifle.FALLOFF[5].dmg_mul = 5.25
-		-- self.presets.hurt_severities.unit = deep_clone(self.presets.hurt_severities.base)
-		-- self.presets.hurt_severities.tank_mk1 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
-		-- self.presets.hurt_severities.tank_mk2 = deep_clone(self.presets.hurt_severities.only_light_hurt_and_fire)
-		-- self.presets.hurt_severities.unit_mk2 = deep_clone(self.presets.hurt_severities.only_fire_and_poison_hurts)
-		-- self.presets.hurt_severities.only_fire_and_poison_hurts.bullet.zones = {{light = 1}}
-		-- self.presets.hurt_severities.only_fire_and_poison_hurts.explosion.zones = {{light = 1}}
-		-- self.presets.hurt_severities.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
-		-- self.presets.hurt_severities.tank_mk2.explosion.zones = {{light = 1}}
-		-- self.presets.hurt_severities.tank_mk1.explosion.zones = {{light = 1}}
 		
-		-- self.presets.hurt_severities.base.melee.zones = {{light = 1}}
 		
 		self.security.HEALTH_INIT = 3
 		self.security.headshot_dmg_mul = self.security.HEALTH_INIT / 1
-		self.security.damage.hurt_severity = self.presets.hurt_severities.unit
 		self.security_mex.headshot_dmg_mul = self.security.headshot_dmg_mul
 		self.security_mex.HEALTH_INIT = self.security.HEALTH_INIT
-		self.security_mex.damage.hurt_severity = self.presets.hurt_severities.unit
 		
 		self.gensec.HEALTH_INIT = 6
 		self.gensec.headshot_dmg_mul = self.gensec.HEALTH_INIT / 1
 		self.gensec.surrender = self.presets.surrender.hard
-		self.gensec.damage.hurt_severity = self.presets.hurt_severities.unit
 		
 		self.cop.HEALTH_INIT = 3
 		self.cop.headshot_dmg_mul = self.cop.HEALTH_INIT / 1
 		self.cop.surrender = self.presets.surrender.normal
-		self.cop.damage.hurt_severity = self.presets.hurt_severities.unit
 		
 		self.fbi.HEALTH_INIT = 5
 		self.fbi.headshot_dmg_mul = self.fbi.HEALTH_INIT / 1
 		self.fbi.surrender = self.presets.surrender.normal
-		self.fbi.damage.hurt_severity = self.presets.hurt_severities.unit
 		
 		self.swat.HEALTH_INIT = 8
 		self.swat.headshot_dmg_mul = self.swat.HEALTH_INIT / 2
 		self.swat.surrender = self.presets.surrender.hard
-		self.swat.damage.hurt_severity = self.presets.hurt_severities.unit
 			
 		self.heavy_swat.HEALTH_INIT = 10
 		self.heavy_swat.headshot_dmg_mul = self.heavy_swat.HEALTH_INIT / 6
 		self.heavy_swat.surrender = self.presets.surrender.hard
-		self.heavy_swat.damage.hurt_severity = self.presets.hurt_severities.unit
 				
 		self.fbi_swat.HEALTH_INIT = 13
 		self.fbi_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 4
 		self.fbi_swat.surrender = self.presets.surrender.hard
-		self.fbi_swat.damage.hurt_severity = self.presets.hurt_severities.unit
 			
 		self.fbi_heavy_swat.HEALTH_INIT = 20
 		self.fbi_heavy_swat.headshot_dmg_mul = self.fbi_heavy_swat.HEALTH_INIT / 10
 		self.fbi_heavy_swat.surrender = self.presets.surrender.hard
-		self.fbi_heavy_swat.damage.hurt_severity = self.presets.hurt_severities.unit
 			
 		self.city_swat.HEALTH_INIT = 13
 		self.city_swat.headshot_dmg_mul = self.city_swat.HEALTH_INIT / 4
@@ -960,13 +941,11 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 			
 		self.gangster.HEALTH_INIT = 4
 		self.gangster.headshot_dmg_mul = self.gangster.HEALTH_INIT / 1
-		self.gangster.damage.hurt_severity = self.presets.hurt_severities.unit
 			
 		self.tank.HEALTH_INIT = 550
 		self.tank.headshot_dmg_mul = self.tank.HEALTH_INIT / 24
 		self.tank.damage.explosion_damage_mul = 1
 		self.tank.move_speed = self.presets.move_speed.very_slow
-		self.tank.damage.hurt_severity = self.presets.hurt_severities.tank_mk1
 		self.tank.ecm_hurts.ears = {min_duration = 7, max_duration = 9}
 		self.tank.weapon.is_shotgun_mag.FALLOFF[1].dmg_mul = 3
 		self.tank_mini.headshot_dmg_mul = self.tank_mini.HEALTH_INIT / 75
@@ -985,7 +964,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 			
 		self.taser.HEALTH_INIT = 36
 		self.taser.headshot_dmg_mul = self.taser.HEALTH_INIT / 20
-		self.taser.damage.hurt_severity = self.presets.hurt_severities.unit
 	end
 	
 	function CharacterTweakData:_set_normal()
@@ -2421,7 +2399,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.city_swat.HEALTH_INIT = 24
 		self.city_swat.headshot_dmg_mul = self.fbi_swat.HEALTH_INIT / 8
 		self.city_swat.damage.explosion_damage_mul = 0.8
-		self.city_swat.damage.hurt_severity = self.presets.hurt_severities.only_light_hurt_and_fire
 		self.flashbang_multiplier = 2
 		self.concussion_multiplier = 1
 	end
@@ -2438,7 +2415,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.fbi_heavy_swat.HEALTH_INIT = 43
 		self.fbi_heavy_swat.move_speed = self.presets.move_speed.fast
 		self.fbi_heavy_swat.damage.explosion_damage_mul = 0.8
-		self.fbi_heavy_swat.damage.hurt_severity = self.presets.hurt_severities.only_light_hurt_and_fire
 		
 		self.shield.HEALTH_INIT = self.city_swat.HEALTH_INIT
 		self.shield.move_speed = self.presets.move_speed.very_fast
@@ -2477,19 +2453,6 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.tank_black.move_speed = self.presets.move_speed.very_slow_but_faster
 		self.tank_mini.move_speed = self.presets.move_speed.very_slow
 		
-		self.security.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.security_mex.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.cop.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.gangster.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.fbi_swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.fbi_heavy_swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.heavy_swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.swat.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.fbi.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.gensec.damage.hurt_severity = self.presets.hurt_severities.light_hurt_fire_poison
-		self.city_heavy_swat.damage.hurt_severity = self.presets.hurt_severities.only_light_hurt_and_fire
-		self.taser.damage.hurt_severity = self.presets.hurt_severities.unit_mk2
-		self.spooc.damage.hurt_severity = self.presets.hurt_severities.unit_mk2
 		
 		self.swat.damage.explosion_damage_mul = 0.75
 		self.heavy_swat.damage.explosion_damage_mul = 0.75
@@ -2544,7 +2507,13 @@ if string.lower(RequiredScript) == "lib/tweak_data/charactertweakdata" then
 		self.tank_green.steal_loot = true
 		
 		self.spooc.dodge_with_grenade = {
-			flash = {duration = {4, 6}},
+			flash = {
+				instant = true,
+				duration = {
+					1,
+					1
+				}
+			},
 			check = function (t, nr_grenades_used)
 				local delay_till_next_use = math.lerp(17, 45, math.min(1, (nr_grenades_used or 0) / 4))
 				local chance = math.lerp(1, 0.5, math.min(1, (nr_grenades_used or 0) / 10))
@@ -2755,6 +2724,8 @@ if string.lower(RequiredScript) == "lib/tweak_data/groupaitweakdata" then
 		local access_type_walk_only = {walk = true}
 		local access_type_all = {acrobatic = true, walk = true}
 		local is_console = SystemInfo:platform() ~= Idstring("WIN32")
+		self.ai_tick_rate = 0
+
 		--[[
 		notes:
 		radius seems to do nothing, game theory how many cops in a radius can say a certain chatter (should test this)
@@ -4129,12 +4100,16 @@ if string.lower(RequiredScript) == "lib/tweak_data/groupaitweakdata" then
 			self.smoke_and_flash_grenade_timeout = {4, 6}
 		end
 		
-		if difficulty_index == 8 then
-			self.flash_grenade.timer = 0.5
-		elseif difficulty_index >= 5 then
-			self.flash_grenade.timer = 1
+		if managers.job and managers.job:is_current_job_professional() then
+			self.flash_grenade.timer = 0
 		else
-			self.flash_grenade.timer = 2
+			if difficulty_index == 8 then
+				self.flash_grenade.timer = 0.5
+			elseif difficulty_index >= 5 then
+				self.flash_grenade.timer = 1
+			else
+				self.flash_grenade.timer = 2
+			end
 		end
 		
 		if difficulty_index <= 2 then
@@ -4330,6 +4305,9 @@ if string.lower(RequiredScript) == "lib/tweak_data/groupaitweakdata" then
 			increase = 0,
 			max = 0
 		}
+		
+        self.street = deep_clone(self.besiege)
+        self.safehouse = deep_clone(self.besiege)
 	end
 end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/copmovement" then
@@ -4403,134 +4381,108 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/copdamage" then
 		
 		for _, path in pairs(greens) do
 			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
-				self._HEALTH_INIT = tweak_data.character.tank_green.HEALTH_INIT
+				self._HEALTH_INIT = 550
 				self._health = self._HEALTH_INIT
 			end
 		end
 		for _, path in pairs(blacks) do
 			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
-				self._HEALTH_INIT = tweak_data.character.tank_black.HEALTH_INIT
+				self._HEALTH_INIT = 770
 				self._health = self._HEALTH_INIT
 			end
 		end
 		for _, path in pairs(skulls) do
 			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
-				self._HEALTH_INIT = tweak_data.character.tank_city.HEALTH_INIT
+				self._HEALTH_INIT = 935
 				self._health = self._HEALTH_INIT
 			end
 		end
 	end
 	
-	local hurt = tweak_data.character.presets.hurt_severities
-	local data = CopDamage.damage_explosion
-	function CopDamage:damage_explosion(attack_data)
-		local damage = attack_data.damage
-		if damage >= 100 then
-			if self._health_ratio > 0.9 then
-				hurt.tank_mk1.explosion.zones = {{moderate = 1}}
-				hurt.tank_mk2.explosion.zones = {{explode = 1}}
-			else
-				hurt.tank_mk1.explosion.zones = {{heavy = 1}}
-				hurt.tank_mk2.explosion.zones = {{moderate = 1}}
-			end
-		elseif damage >= 10 then
-			if self._health_ratio > 0.3 then
-				hurt.tank_mk1.explosion.zones = {{explode = 1}}
-				hurt.tank_mk2.explosion.zones = {{light = 1}}
-			else
-				hurt.tank_mk1.explosion.zones = {{heavy = 1}}
-				hurt.tank_mk2.explosion.zones = {{explode = 1}}
-			end
-		else
-			if self._health_ratio > 0.25 then
-				hurt.tank_mk1.explosion.zones = {{light = 1}}
-			else
-				hurt.tank_mk1.explosion.zones = {{explode = 1}}
-			end
-			hurt.tank_mk2.explosion.zones = {{light = 1}}
-		end
-		return data(self, attack_data)
-	end
+	-- local hurt = tweak_data.character.presets.hurt_severities
+	-- local data = CopDamage.damage_explosion
+	-- function CopDamage:damage_explosion(attack_data)
+		-- local damage = attack_data.damage
+		-- if damage >= 100 then
+			-- if self._health_ratio > 0.9 then
+				-- hurt.tank_mk1.explosion.zones = {{moderate = 1}}
+				-- hurt.tank_mk2.explosion.zones = {{explode = 1}}
+			-- else
+				-- hurt.tank_mk1.explosion.zones = {{heavy = 1}}
+				-- hurt.tank_mk2.explosion.zones = {{moderate = 1}}
+			-- end
+		-- elseif damage >= 10 then
+			-- if self._health_ratio > 0.3 then
+				-- hurt.tank_mk1.explosion.zones = {{explode = 1}}
+				-- hurt.tank_mk2.explosion.zones = {{light = 1}}
+			-- else
+				-- hurt.tank_mk1.explosion.zones = {{heavy = 1}}
+				-- hurt.tank_mk2.explosion.zones = {{explode = 1}}
+			-- end
+		-- else
+			-- if self._health_ratio > 0.25 then
+				-- hurt.tank_mk1.explosion.zones = {{light = 1}}
+			-- else
+				-- hurt.tank_mk1.explosion.zones = {{explode = 1}}
+			-- end
+			-- hurt.tank_mk2.explosion.zones = {{light = 1}}
+		-- end
+		-- return data(self, attack_data)
+	-- end
 	
-	local data = CopDamage.damage_bullet
-	function CopDamage:damage_bullet(attack_data)
-		local damage = attack_data.damage
-		if damage >= 100 then
-			hurt.tank_mk1.bullet.zones = {{heavy = 1}}
-			hurt.tank_mk2.bullet.zones = {{explode = 1}}
-		else
-			hurt.tank_mk1.bullet.zones = {{light = 1}}
-			hurt.tank_mk2.bullet.zones = {{light = 1}}
-		end
-		return data(self, attack_data)
-	end
+	-- local data = CopDamage.damage_bullet
+	-- function CopDamage:damage_bullet(attack_data)
+		-- local damage = attack_data.damage
+		-- if damage >= 100 then
+			-- hurt.tank_mk1.bullet.zones = {{heavy = 1}}
+			-- hurt.tank_mk2.bullet.zones = {{explode = 1}}
+		-- else
+			-- hurt.tank_mk1.bullet.zones = {{light = 1}}
+			-- hurt.tank_mk2.bullet.zones = {{light = 1}}
+		-- end
+		-- return data(self, attack_data)
+	-- end
 	
-	local data = CopDamage.damage_melee
-	function CopDamage:damage_melee(attack_data)
-		local damage_effect = attack_data.damage_effect
+	-- local data = CopDamage.damage_melee
+	-- function CopDamage:damage_melee(attack_data)
+		-- local damage_effect = attack_data.damage_effect
 		
-		for _, all_hurts in pairs(hurt) do
-			if damage_effect >= 15 then
-				all_hurts.melee.zones = {{explode = 1}}
-			elseif damage_effect >= 11 then
-				all_hurts.melee.zones = {{moderate = 1, heavy = 0.3}}
-			elseif damage_effect >= 5 then
-				all_hurts.melee.zones = {{light = 1, moderate = 0.3}}
-			else
-				all_hurts.melee.zones = {{light = 1}}
-			end
+		-- for _, all_hurts in pairs(hurt) do
+			-- if damage_effect >= 15 then
+				-- all_hurts.melee.zones = {{explode = 1}}
+			-- elseif damage_effect >= 11 then
+				-- all_hurts.melee.zones = {{moderate = 1, heavy = 0.3}}
+			-- elseif damage_effect >= 5 then
+				-- all_hurts.melee.zones = {{light = 1, moderate = 0.3}}
+			-- else
+				-- all_hurts.melee.zones = {{light = 1}}
+			-- end
 			
-			if damage_effect >= 15 then
-				hurt.tank_mk2.melee.zones = {{moderate = 1}}
-				hurt.tank_mk1.melee.zones = {{moderate = 1}}
-				hurt.light_hurt_fire_poison.melee.zones = {{moderate = 1}}
-				hurt.only_fire_and_poison_hurts.melee.zones = {{heavy = 1}}
-				hurt.unit_mk2.melee.zones = {{moderate = 1}}
-			elseif damage_effect >= 13 then
-				hurt.only_explosion_hurts.melee.zones = {{explode = 1}}
-				hurt.only_fire_and_poison_hurts.melee.zones = {{moderate = 1}}
-				hurt.tank_mk1.melee.zones = {{moderate = 1}}
-			else
-				hurt.tank_mk2.melee.zones = {{light = 1}}
-				hurt.tank_mk1.melee.zones = {{light = 1}}
-				hurt.light_hurt_fire_poison.melee.zones = {{light = 1}}
-				hurt.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
-				hurt.only_explosion_hurts.melee.zones = {{none = 1}}
-				hurt.unit_mk2.melee.zones = {{light = 1}}
-			end
+			-- if damage_effect >= 15 then
+				-- hurt.tank_mk2.melee.zones = {{moderate = 1}}
+				-- hurt.tank_mk1.melee.zones = {{moderate = 1}}
+				-- hurt.light_hurt_fire_poison.melee.zones = {{moderate = 1}}
+				-- hurt.only_fire_and_poison_hurts.melee.zones = {{heavy = 1}}
+				-- hurt.unit_mk2.melee.zones = {{moderate = 1}}
+			-- elseif damage_effect >= 13 then
+				-- hurt.only_explosion_hurts.melee.zones = {{explode = 1}}
+				-- hurt.only_fire_and_poison_hurts.melee.zones = {{moderate = 1}}
+				-- hurt.tank_mk1.melee.zones = {{moderate = 1}}
+			-- else
+				-- hurt.tank_mk2.melee.zones = {{light = 1}}
+				-- hurt.tank_mk1.melee.zones = {{light = 1}}
+				-- hurt.light_hurt_fire_poison.melee.zones = {{light = 1}}
+				-- hurt.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
+				-- hurt.only_explosion_hurts.melee.zones = {{none = 1}}
+				-- hurt.unit_mk2.melee.zones = {{light = 1}}
+			-- end
 			
-		end
+		-- end
 		
-		return data(self, attack_data)
-	end
+		-- return data(self, attack_data)
+	-- end
 end
-if string.lower(RequiredScript) == "lib/units/enemies/cop/actions/upper_body/copactionshoot" then
-	local data = CopActionShoot.update
-	function CopActionShoot:update(t)
-		data(self, t)
-		if not self._ext_anim.reload and not self._ext_anim.equip and not self._ext_anim.melee then
-			if self._weapon_base:clip_empty() then
-				if self._autofiring then
-					self._weapon_base:stop_autofire()
-					self._ext_movement:play_redirect("up_idle")
 
-					self._autofiring = nil
-					self._autoshots_fired = nil
-				end
-
-				local res = CopActionReload._play_reload(self)
-
-				if res then
-					self._machine:set_speed(res, self._reload_speed)
-				end
-
-				if Network:is_server() then
-					managers.network:session():send_to_peers("reload_weapon_cop", self._unit)
-				end
-			end
-		end
-	end
-end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/actions/upper_body/copactionhurt" then
 	function CopActionHurt:init(action_desc, common_data)
 		self._common_data = common_data
@@ -5607,56 +5559,18 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/logics/coplogictravel"
 	end
 end
 if string.lower(RequiredScript) == "lib/units/weapons/grenades/quickflashgrenade" then
-
-	function QuickFlashGrenade:init(unit)
-		self._unit = unit
-		self._state = 0
-		self._armed = false
-
-		for i, state in ipairs(QuickFlashGrenade.States) do
-			if state[2] == nil then
-				QuickFlashGrenade.States[i][2] = managers.job:is_current_job_professional() and 0 or tweak_data.group_ai.flash_grenade.timer
-			end
-		end
-
-		if Network:is_client() then
-			self:activate(self._unit:position(), tweak_data.group_ai.flash_grenade_lifetime)
-		end
-	end
-
-	function QuickFlashGrenade:_beep()
-	end
+	function QuickFlashGrenade:_beep() end
 end
 if string.lower(RequiredScript) == "lib/managers/mission/elementspawnenemygroup" then
-	-- Fix for custom cop spawn groups by Iamgoofball
-	-- Updated version of the fix from SC's Overhaul in Restoration mod
-	groupsOLD = {
-		"tac_shield_wall_charge",
-		"FBI_spoocs",
-		"tac_tazer_charge",
-		"tac_tazer_flanking",
-		"tac_shield_wall",
-		"tac_swat_rifle_flank",
-		"tac_shield_wall_ranged",
-		"tac_bull_rush"
-	}
-
-	local job = Global.level_data and Global.level_data.level_id    
-
-	local old_finalize_values = ElementSpawnEnemyGroup._finalize_values
-	function ElementSpawnEnemyGroup:_finalize_values()
-		old_finalize_values(self)
-				
-		local groups = self._values.preferred_spawn_groups
-		-- If we have an ordinary spawn with exactly the old group elements, add all defined groups.
-		if groups and #groups == #groupsOLD and table.contains_all(groups, groupsOLD) then
+	Hooks:PostHook(ElementSpawnEnemyGroup, "_finalize_values", "inf_elementspawnenemygroup_finalize", function(self)
+		local groups = {}
 			for name,_ in pairs(tweak_data.group_ai.enemy_spawn_groups) do
 				if not table.contains(groups, name) then
 					table.insert(groups, name)
 				end
 			end
-		end
-	end
+		self._values.preferred_spawn_groups = groups
+	end)
 end
 if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebesiege" then
 	function GroupAIStateBesiege:not_assault_0_check()
@@ -5985,343 +5899,6 @@ if string.lower(RequiredScript) == "lib/managers/group_ai_states/groupaistatebes
 		self:_assign_enemy_groups_to_assault(task_data.phase)
 	end
 
-	function GroupAIStateBesiege:_set_assault_objective_to_group(group, phase)
-		if not group.has_spawned then
-			return
-		end
-
-		local phase_is_anticipation = phase == "anticipation"
-		local current_objective = group.objective
-		local approach, open_fire, push, pull_back, charge = nil
-		local obstructed_area = self:_chk_group_areas_tresspassed(group)
-		local group_leader_u_key, group_leader_u_data = self._determine_group_leader(group.units)
-		local tactics_map = nil
-
-		if group_leader_u_data and group_leader_u_data.tactics then
-			tactics_map = {}
-
-			for _, tactic_name in ipairs(group_leader_u_data.tactics) do
-				tactics_map[tactic_name] = true
-			end
-
-			if current_objective.tactic and not tactics_map[current_objective.tactic] then
-				current_objective.tactic = nil
-			end
-
-			for i_tactic, tactic_name in ipairs(group_leader_u_data.tactics) do
-				if tactic_name == "deathguard" and not phase_is_anticipation then
-					if current_objective.tactic == tactic_name then
-						for u_key, u_data in pairs(self._char_criminals) do
-							if u_data.status and current_objective.follow_unit == u_data.unit then
-								local crim_nav_seg = u_data.tracker:nav_segment()
-
-								if current_objective.area.nav_segs[crim_nav_seg] then
-									return
-								end
-							end
-						end
-					end
-
-					local closest_crim_u_data, closest_crim_dis_sq = nil
-
-					for u_key, u_data in pairs(self._char_criminals) do
-						if u_data.status then
-							local closest_u_id, closest_u_data, closest_u_dis_sq = self._get_closest_group_unit_to_pos(u_data.m_pos, group.units)
-
-							if closest_u_dis_sq and (not closest_crim_dis_sq or closest_u_dis_sq < closest_crim_dis_sq) then
-								closest_crim_u_data = u_data
-								closest_crim_dis_sq = closest_u_dis_sq
-							end
-						end
-					end
-
-					if closest_crim_u_data then
-						local search_params = {
-							id = "GroupAI_deathguard",
-							from_tracker = group_leader_u_data.unit:movement():nav_tracker(),
-							to_tracker = closest_crim_u_data.tracker,
-							access_pos = self._get_group_acces_mask(group)
-						}
-						local coarse_path = managers.navigation:search_coarse(search_params)
-
-						if coarse_path then
-							local grp_objective = {
-								distance = 800,
-								type = "assault_area",
-								attitude = "engage",
-								tactic = "deathguard",
-								moving_in = true,
-								follow_unit = closest_crim_u_data.unit,
-								area = self:get_area_from_nav_seg_id(coarse_path[#coarse_path][1]),
-								coarse_path = coarse_path
-							}
-							group.is_chasing = true
-
-							self:_set_objective_to_enemy_group(group, grp_objective)
-							self:_voice_deathguard_start(group)
-
-							return
-						end
-					end
-				elseif tactic_name == "charge" and not current_objective.moving_out and group.in_place_t and (self._t - group.in_place_t > 15 or self._t - group.in_place_t > 4 and self._drama_data.amount <= tweak_data.drama.low) and next(current_objective.area.criminal.units) and group.is_chasing and not current_objective.charge then
-					charge = true
-				end
-			end
-		end
-
-		local objective_area = nil
-
-		if obstructed_area then
-			if current_objective.moving_out then
-				if not current_objective.open_fire then
-					open_fire = true
-				end
-			elseif not current_objective.pushed or charge and not current_objective.charge then
-				push = true
-			end
-		else
-			local obstructed_path_index = self:_chk_coarse_path_obstructed(group)
-
-			if obstructed_path_index then
-				print("obstructed_path_index", obstructed_path_index)
-
-				objective_area = self:get_area_from_nav_seg_id(group.coarse_path[math.max(obstructed_path_index - 1, 1)][1])
-				pull_back = true
-			elseif not current_objective.moving_out then
-				local has_criminals_close = nil
-
-				if not current_objective.moving_out then
-					for area_id, neighbour_area in pairs(current_objective.area.neighbours) do
-						if next(neighbour_area.criminal.units) then
-							has_criminals_close = true
-
-							break
-						end
-					end
-				end
-
-				if charge then
-					push = true
-				elseif not has_criminals_close or not group.in_place_t then
-					approach = true
-				elseif not phase_is_anticipation and not current_objective.open_fire then
-					open_fire = true
-				elseif not phase_is_anticipation and group.in_place_t and (group.is_chasing or not tactics_map or not tactics_map.ranged_fire or self._t - group.in_place_t > 15) then
-					push = true
-				elseif phase_is_anticipation and current_objective.open_fire then
-					pull_back = true
-				end
-			end
-		end
-
-		objective_area = objective_area or current_objective.area
-
-		if open_fire then
-			local grp_objective = {
-				attitude = "engage",
-				pose = "stand",
-				type = "assault_area",
-				stance = "hos",
-				open_fire = true,
-				tactic = current_objective.tactic,
-				area = obstructed_area or current_objective.area,
-				coarse_path = {
-					{
-						objective_area.pos_nav_seg,
-						mvector3.copy(current_objective.area.pos)
-					}
-				}
-			}
-
-			self:_set_objective_to_enemy_group(group, grp_objective)
-			self:_voice_open_fire_start(group)
-		elseif approach or push then
-			local assault_area, alternate_assault_area, alternate_assault_area_from, assault_path, alternate_assault_path = nil
-			local to_search_areas = {
-				objective_area
-			}
-			local found_areas = {
-				[objective_area] = "init"
-			}
-
-			repeat
-				local search_area = table.remove(to_search_areas, 1)
-
-				if next(search_area.criminal.units) then
-					local assault_from_here = true
-
-					if not push and tactics_map and tactics_map.flank then
-						local assault_from_area = found_areas[search_area]
-
-						if assault_from_area ~= "init" then
-							local cop_units = assault_from_area.police.units
-
-							for u_key, u_data in pairs(cop_units) do
-								if u_data.group and u_data.group ~= group and u_data.group.objective.type == "assault_area" then
-									assault_from_here = false
-
-									if not alternate_assault_area or math.random() < 0.5 then
-										local search_params = {
-											id = "GroupAI_assault",
-											from_seg = current_objective.area.pos_nav_seg,
-											to_seg = search_area.pos_nav_seg,
-											access_pos = self._get_group_acces_mask(group),
-											verify_clbk = callback(self, self, "is_nav_seg_safe")
-										}
-										alternate_assault_path = managers.navigation:search_coarse(search_params)
-
-										if alternate_assault_path then
-											self:_merge_coarse_path_by_area(alternate_assault_path)
-
-											alternate_assault_area = search_area
-											alternate_assault_area_from = assault_from_area
-										end
-									end
-
-									found_areas[search_area] = nil
-
-									break
-								end
-							end
-						end
-					end
-
-					if assault_from_here then
-						local search_params = {
-							id = "GroupAI_assault",
-							from_seg = current_objective.area.pos_nav_seg,
-							to_seg = search_area.pos_nav_seg,
-							access_pos = self._get_group_acces_mask(group),
-							verify_clbk = callback(self, self, "is_nav_seg_safe")
-						}
-						assault_path = managers.navigation:search_coarse(search_params)
-
-						if assault_path then
-							self:_merge_coarse_path_by_area(assault_path)
-
-							assault_area = search_area
-
-							break
-						end
-					end
-				else
-					for other_area_id, other_area in pairs(search_area.neighbours) do
-						if not found_areas[other_area] then
-							table.insert(to_search_areas, other_area)
-
-							found_areas[other_area] = search_area
-						end
-					end
-				end
-			until #to_search_areas == 0
-
-			if not assault_area and alternate_assault_area then
-				assault_area = alternate_assault_area
-				found_areas[assault_area] = alternate_assault_area_from
-				assault_path = alternate_assault_path
-			end
-
-			if assault_area and assault_path then
-				local assault_area = push and assault_area or found_areas[assault_area] == "init" and objective_area or found_areas[assault_area]
-
-				if #assault_path > 2 and assault_area.nav_segs[assault_path[#assault_path - 1][1]] then
-					table.remove(assault_path)
-				end
-
-				local used_grenade = nil
-
-				if push then
-					local detonate_pos = nil
-
-					if charge then
-						for c_key, c_data in pairs(assault_area.criminal.units) do
-							detonate_pos = c_data.unit:movement():m_pos()
-
-							break
-						end
-					end
-
-					local first_chk = math.random() < 0.5 and self._chk_group_use_flash_grenade or self._chk_group_use_smoke_grenade
-					local second_chk = first_chk == self._chk_group_use_flash_grenade and self._chk_group_use_smoke_grenade or self._chk_group_use_flash_grenade
-					used_grenade = first_chk(self, group, self._task_data.assault, detonate_pos)
-					used_grenade = used_grenade or second_chk(self, group, self._task_data.assault, detonate_pos)
-
-					self:_voice_move_in_start(group)
-				end
-
-				if not push or used_grenade then
-					local grp_objective = {
-						type = "assault_area",
-						stance = "hos",
-						area = assault_area,
-						coarse_path = assault_path,
-						pose = push and "crouch" or "stand",
-						attitude = push and "engage" or "avoid",
-						moving_in = push and true or nil,
-						open_fire = push or nil,
-						pushed = push or nil,
-						charge = charge,
-						interrupt_dis = charge and 0 or nil
-					}
-					group.is_chasing = group.is_chasing or push
-
-					self:_set_objective_to_enemy_group(group, grp_objective)
-				end
-			end
-		elseif pull_back then
-			self:_voice_gtfo(group)
-			local retreat_area, do_not_retreat = nil
-
-			for u_key, u_data in pairs(group.units) do
-				local nav_seg_id = u_data.tracker:nav_segment()
-
-				if current_objective.area.nav_segs[nav_seg_id] then
-					retreat_area = current_objective.area
-
-					break
-				end
-
-				if self:is_nav_seg_safe(nav_seg_id) then
-					retreat_area = self:get_area_from_nav_seg_id(nav_seg_id)
-
-					break
-				end
-			end
-
-			if not retreat_area and not do_not_retreat and current_objective.coarse_path then
-				local forwardmost_i_nav_point = self:_get_group_forwardmost_coarse_path_index(group)
-
-				if forwardmost_i_nav_point then
-					local nearest_safe_nav_seg_id = current_objective.coarse_path(forwardmost_i_nav_point)
-					retreat_area = self:get_area_from_nav_seg_id(nearest_safe_nav_seg_id)
-				end
-			end
-
-			if retreat_area then
-				local new_grp_objective = {
-					attitude = "avoid",
-					stance = "hos",
-					pose = "crouch",
-					type = "assault_area",
-					area = retreat_area,
-					coarse_path = {
-						{
-							retreat_area.pos_nav_seg,
-							mvector3.copy(retreat_area.pos)
-						}
-					}
-				}
-				group.is_chasing = nil
-
-				self:_set_objective_to_enemy_group(group, new_grp_objective)
-			   
-				self:_voice_gtfo(group)
-
-				return
-			end
-		end
-	end
-		
 	function GroupAIStateBesiege:_voice_saw()
 		for group_id, group in pairs(self._groups) do
 			for u_key, u_data in pairs(group.units) do

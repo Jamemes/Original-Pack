@@ -109,7 +109,6 @@
 		<hook source_file="lib/units/weapons/grenades/quickflashgrenade"			file="difficulties.lua"/>
 		<hook source_file="lib/managers/mission/elementspawnenemygroup"				file="difficulties.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebesiege"		file="difficulties.lua"/>
-		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="difficulties.lua"/>
 		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionshoot"	file="difficulties.lua"/>
 		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionhurt"	file="difficulties.lua"/>
 		<hook source_file="lib/units/enemies/cop/copbase"	                        file="difficulties.lua"/>
