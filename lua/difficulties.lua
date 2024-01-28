@@ -4351,34 +4351,34 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/copbase" then
 	end
 end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/copdamage" then
+	local greens = {
+		"units/payday2/characters/ene_bulldozer_1/ene_bulldozer_1",
+		"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_1/ene_bulldozer_hvh_1",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2",
+		"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_2/ene_murkywater_bulldozer_2",
+		"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_r870/ene_akan_fbi_tank_r870",
+		"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_r870/ene_swat_dozer_policia_federale_r870"
+	}
+	local blacks = {
+		"units/payday2/characters/ene_bulldozer_2/ene_bulldozer_2",
+		"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_2/ene_bulldozer_hvh_2",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3",
+		"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_3/ene_murkywater_bulldozer_3",
+		"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_saiga/ene_akan_fbi_tank_saiga",
+		"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_saiga/ene_swat_dozer_policia_federale_saiga"
+	}
+	local skulls = {
+		"units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3",
+		"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_3/ene_bulldozer_hvh_3",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer",
+		"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_4/ene_murkywater_bulldozer_4",
+		"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_rpk_lmg/ene_akan_fbi_tank_rpk_lmg",
+		"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_m249/ene_swat_dozer_policia_federale_m249"
+	}
+	
 	local data = CopDamage.init
 	function CopDamage:init(unit)
 		data(self, unit)
-		local greens = {
-			"units/payday2/characters/ene_bulldozer_1/ene_bulldozer_1",
-			"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_1/ene_bulldozer_hvh_1",
-			"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_2/ene_zeal_bulldozer_2",
-			"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_2/ene_murkywater_bulldozer_2",
-			"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_r870/ene_akan_fbi_tank_r870",
-			"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_r870/ene_swat_dozer_policia_federale_r870"
-		}
-		local blacks = {
-			"units/payday2/characters/ene_bulldozer_2/ene_bulldozer_2",
-			"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_2/ene_bulldozer_hvh_2",
-			"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer_3/ene_zeal_bulldozer_3",
-			"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_3/ene_murkywater_bulldozer_3",
-			"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_saiga/ene_akan_fbi_tank_saiga",
-			"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_saiga/ene_swat_dozer_policia_federale_saiga"
-		}
-		local skulls = {
-			"units/payday2/characters/ene_bulldozer_3/ene_bulldozer_3",
-			"units/pd2_dlc_hvh/characters/ene_bulldozer_hvh_3/ene_bulldozer_hvh_3",
-			"units/pd2_dlc_gitgud/characters/ene_zeal_bulldozer/ene_zeal_bulldozer",
-			"units/pd2_dlc_bph/characters/ene_murkywater_bulldozer_4/ene_murkywater_bulldozer_4",
-			"units/pd2_dlc_mad/characters/ene_akan_fbi_tank_rpk_lmg/ene_akan_fbi_tank_rpk_lmg",
-			"units/pd2_dlc_bex/characters/ene_swat_dozer_policia_federale_m249/ene_swat_dozer_policia_federale_m249"
-		}
-		
 		for _, path in pairs(greens) do
 			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
 				self._HEALTH_INIT = 550
@@ -4400,89 +4400,94 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/copdamage" then
 	end
 	
 	-- local hurt = tweak_data.character.presets.hurt_severities
-	-- local data = CopDamage.damage_explosion
-	-- function CopDamage:damage_explosion(attack_data)
-		-- local damage = attack_data.damage
-		-- if damage >= 100 then
-			-- if self._health_ratio > 0.9 then
-				-- hurt.tank_mk1.explosion.zones = {{moderate = 1}}
-				-- hurt.tank_mk2.explosion.zones = {{explode = 1}}
-			-- else
-				-- hurt.tank_mk1.explosion.zones = {{heavy = 1}}
-				-- hurt.tank_mk2.explosion.zones = {{moderate = 1}}
-			-- end
-		-- elseif damage >= 10 then
-			-- if self._health_ratio > 0.3 then
-				-- hurt.tank_mk1.explosion.zones = {{explode = 1}}
-				-- hurt.tank_mk2.explosion.zones = {{light = 1}}
-			-- else
-				-- hurt.tank_mk1.explosion.zones = {{heavy = 1}}
-				-- hurt.tank_mk2.explosion.zones = {{explode = 1}}
-			-- end
-		-- else
-			-- if self._health_ratio > 0.25 then
-				-- hurt.tank_mk1.explosion.zones = {{light = 1}}
-			-- else
-				-- hurt.tank_mk1.explosion.zones = {{explode = 1}}
-			-- end
-			-- hurt.tank_mk2.explosion.zones = {{light = 1}}
-		-- end
-		-- return data(self, attack_data)
-	-- end
-	
-	-- local data = CopDamage.damage_bullet
-	-- function CopDamage:damage_bullet(attack_data)
-		-- local damage = attack_data.damage
-		-- if damage >= 100 then
-			-- hurt.tank_mk1.bullet.zones = {{heavy = 1}}
-			-- hurt.tank_mk2.bullet.zones = {{explode = 1}}
-		-- else
-			-- hurt.tank_mk1.bullet.zones = {{light = 1}}
-			-- hurt.tank_mk2.bullet.zones = {{light = 1}}
-		-- end
-		-- return data(self, attack_data)
-	-- end
-	
-	-- local data = CopDamage.damage_melee
-	-- function CopDamage:damage_melee(attack_data)
-		-- local damage_effect = attack_data.damage_effect
+	local data = CopDamage.damage_explosion
+	function CopDamage:damage_explosion(attack_data)
+		local damage = attack_data.damage
+		local char_tweak = self._unit:base():char_tweak()
 		
-		-- for _, all_hurts in pairs(hurt) do
-			-- if damage_effect >= 15 then
-				-- all_hurts.melee.zones = {{explode = 1}}
-			-- elseif damage_effect >= 11 then
-				-- all_hurts.melee.zones = {{moderate = 1, heavy = 0.3}}
-			-- elseif damage_effect >= 5 then
-				-- all_hurts.melee.zones = {{light = 1, moderate = 0.3}}
-			-- else
-				-- all_hurts.melee.zones = {{light = 1}}
-			-- end
-			
-			-- if damage_effect >= 15 then
-				-- hurt.tank_mk2.melee.zones = {{moderate = 1}}
-				-- hurt.tank_mk1.melee.zones = {{moderate = 1}}
-				-- hurt.light_hurt_fire_poison.melee.zones = {{moderate = 1}}
-				-- hurt.only_fire_and_poison_hurts.melee.zones = {{heavy = 1}}
-				-- hurt.unit_mk2.melee.zones = {{moderate = 1}}
-			-- elseif damage_effect >= 13 then
-				-- hurt.only_explosion_hurts.melee.zones = {{explode = 1}}
-				-- hurt.only_fire_and_poison_hurts.melee.zones = {{moderate = 1}}
-				-- hurt.tank_mk1.melee.zones = {{moderate = 1}}
-			-- else
-				-- hurt.tank_mk2.melee.zones = {{light = 1}}
-				-- hurt.tank_mk1.melee.zones = {{light = 1}}
-				-- hurt.light_hurt_fire_poison.melee.zones = {{light = 1}}
-				-- hurt.only_fire_and_poison_hurts.melee.zones = {{light = 1}}
-				-- hurt.only_explosion_hurts.melee.zones = {{none = 1}}
-				-- hurt.unit_mk2.melee.zones = {{light = 1}}
-			-- end
-			
-		-- end
-		
-		-- return data(self, attack_data)
-	-- end
-end
+		for _, path in pairs(greens) do
+			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then		
+				if damage >= 100 then
+					char_tweak.damage.hurt_severity.explosion.zones = self._health_ratio > 0.9 and {{moderate = 1}} or {{heavy = 1}}
+				elseif damage >= 10 then
+					char_tweak.damage.hurt_severity.explosion.zones = self._health_ratio > 0.3 and {{explode = 1}} or {{heavy = 1}}
+				else
+					char_tweak.damage.hurt_severity.explosion.zones = self._health_ratio > 0.25 and {{light = 1}} or {{explode = 1}}
+				end
+			end
+		end
+		for _, path in pairs(blacks) do
+			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
+				if damage >= 100 then
+					char_tweak.damage.hurt_severity.explosion.zones = self._health_ratio > 0.9 and {{explode = 1}} or {{moderate = 1}}
+				elseif damage >= 10 then
+					char_tweak.damage.hurt_severity.explosion.zones = self._health_ratio > 0.3 and {{light = 1}} or {{explode = 1}}
+				else
+					char_tweak.damage.hurt_severity.explosion.zones = {{light = 1}}
+				end
+			end
+		end
 
+		return data(self, attack_data)
+	end
+	
+	local data = CopDamage.damage_bullet
+	function CopDamage:damage_bullet(attack_data)
+		local damage = attack_data.damage
+		local char_tweak = self._unit:base():char_tweak()
+
+		for _, path in pairs(greens) do
+			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then		
+				if damage >= 100 then
+					char_tweak.damage.hurt_severity.bullet.zones = self._health_ratio > 0.9 and {{moderate = 1}} or {{heavy = 1}}
+				else
+					char_tweak.damage.hurt_severity.bullet.zones = {{light = 1}}
+				end
+			end
+		end
+		for _, path in pairs(blacks) do
+			if self._unit:name() == Idstring(path) or self._unit:name() == Idstring(path .. "_husk") then
+				if damage >= 100 then
+					char_tweak.damage.hurt_severity.bullet.zones = self._health_ratio > 0.9 and {{explode = 1}} or {{moderate = 1}}
+				else
+					char_tweak.damage.hurt_severity.bullet.zones = {{light = 1}}
+				end
+			end
+		end
+		
+		return data(self, attack_data)
+	end
+	
+	local data = CopDamage.damage_melee
+	function CopDamage:damage_melee(attack_data)
+		local damage_effect = attack_data.damage_effect
+		local char_tweak = self._unit:base():char_tweak()
+		local default_zones = deep_clone(char_tweak.damage.hurt_severity.melee.zones)
+		if char_tweak.HEALTH_INIT >= 950 then
+			char_tweak.damage.hurt_severity.melee.zones = default_zones
+		elseif char_tweak.HEALTH_INIT >= 550 then
+			if damage_effect >= 15 then
+				char_tweak.damage.hurt_severity.melee.zones = {{explode = 1}}
+			elseif damage_effect >= 11 then
+				char_tweak.damage.hurt_severity.melee.zones = {{moderate = 1, heavy = 0.3}}
+			elseif damage_effect >= 5 then
+				char_tweak.damage.hurt_severity.melee.zones = {{light = 1, moderate = 0.3}}
+			else
+				char_tweak.damage.hurt_severity.melee.zones = default_zones
+			end
+		else
+			if damage_effect >= 15 then
+				char_tweak.damage.hurt_severity.melee.zones = {{moderate = 1}}
+			elseif damage_effect >= 13 then
+				char_tweak.damage.hurt_severity.melee.zones = {{explode = 1}}
+			else
+				char_tweak.damage.hurt_severity.melee.zones = default_zones
+			end
+		end
+		
+		return data(self, attack_data)
+	end
+end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/actions/upper_body/copactionhurt" then
 	function CopActionHurt:init(action_desc, common_data)
 		self._common_data = common_data
@@ -5088,6 +5093,15 @@ if string.lower(RequiredScript) == "lib/units/enemies/cop/actions/upper_body/cop
 	end
 end
 if string.lower(RequiredScript) == "lib/units/enemies/cop/copsound" then
+	local data = CopSound.say
+	function CopSound:say(sound_name, sync, skip_prefix, important, callback)
+		if not sound_name then
+			return
+		end
+		
+		data(self, sound_name, sync, skip_prefix, important, callback)
+	end
+
 	function CopSound:init(unit)
 		self._unit = unit
 		self._speak_expire_t = 0

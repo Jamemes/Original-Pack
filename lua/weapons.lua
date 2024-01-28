@@ -215,7 +215,7 @@ if string.lower(RequiredScript) == "lib/tweak_data/weapontweakdata" then
 				if weapons.categories[1] == "grenade_launcher" then
 					weapons.stats.recoil = math.round(weapons.stats.recoil * 0.12)
 					
-					if weapons.stats_modifiers.damage >= 100 then
+					if weapons.stats_modifiers and weapons.stats_modifiers.damage >= 100 then
 						weapons.stats.damage = math.round(weapons.stats.damage / 1.25)
 						weapons.stats.spread = math.round(weapons.stats.spread * 0.4)
 					else
