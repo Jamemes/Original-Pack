@@ -1,154 +1,135 @@
-<mod name="OriginalPack" global_key="OriginalPackCore" core_class="lua/init.lua">
-	<!-- <AssetUpdates id="26900" version="1.4.1" provider="modworkshop" use_local_dir="true" use_local_path="true"/> -->
+<mod name="OriginalPack">
     <Hooks directory="lua">
 		<hook source_file="lib/tweak_data/tipstweakdata"							file="tips.lua"/>
-		
-		<hook source_file="lib/tweak_data/playertweakdata"							file="attention.lua"/>
-		<hook source_file="lib/units/props/securitycamera"							file="attention.lua"/>
-		<hook source_file="lib/tweak_data/attentiontweakdata"						file="attention.lua"/>
-		<hook source_file="lib/units/beings/player/states/playerstandard"			file="attention.lua"/>
-		<hook source_file="lib/managers/gameplaycentralmanager"						file="attention.lua"/>
-		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="attention.lua"/>
-		<hook source_file="lib/units/props/drill"									file="attention.lua"/>
-		<hook source_file="lib/units/weapons/weaponlaser"							file="attention.lua"/>
-		
-		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative.lua"/>
-		<hook source_file="lib/managers/experiencemanager"							file="narrative.lua"/>
-		<hook source_file="lib/managers/hud/hudstageendscreen"						file="narrative.lua"/>
-		<hook source_file="lib/tweak_data/preplanningtweakdata"						file="narrative.lua"/>
-		<hook source_file="lib/tweak_data/assetstweakdata"							file="narrative.lua"/>
-		<hook source_file="lib/tweak_data/missiondoortweakdata"						file="narrative.lua"/>
-		<hook source_file="lib/managers/musicmanager"								file="narrative.lua"/>
-		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="narrative.lua"/>
-		<hook source_file="lib/units/interactions/interactionext"					file="narrative.lua"/>
-		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="narrative.lua"/>
-		<hook source_file="lib/managers/votemanager"								file="narrative.lua"/>
-		
-		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons.lua"/>
-		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons.lua"/>
-		<hook source_file="lib/tweak_data/tweakdata"								file="weapons.lua"/>
-		<hook source_file="lib/units/weapons/raycastweaponbase"						file="weapons.lua"/>
-		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="weapons.lua"/>
-		<hook source_file="lib/utils/inventorydescription"							file="weapons.lua"/>
-		
-		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="crime_spree.lua"/>
-		<hook source_file="lib/managers/crimespreemanager"							file="crime_spree.lua"/>
-		
-		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="skirmish.lua"/>
-		<hook source_file="lib/managers/skirmishmanager"							file="skirmish.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="skirmish.lua"/>
-		
-		<hook source_file="lib/tweak_data/moneytweakdata"							file="money.lua"/>
-		<hook source_file="lib/tweak_data/carrytweakdata"							file="money.lua"/>
-		<hook source_file="lib/managers/moneymanager"								file="money.lua"/>
-		
-		<hook source_file="lib/tweak_data/customsafehousetweakdata"					file="safehouse.lua"/>
-		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse.lua"/>
-		
-        <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills.lua"/>
-        <hook source_file="lib/managers/skilltreemanager" 							file="skills.lua"/>
-        <hook source_file="lib/tweak_data/upgradestweakdata"						file="skills.lua"/>
-        <hook source_file="lib/tweak_data/interactiontweakdata" 					file="skills.lua"/>
-        <hook source_file="lib/tweak_data/equipmentstweakdata" 						file="skills.lua"/>
-		<hook source_file="lib/units/beings/player/playerdamage"					file="skills.lua"/>
-		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="skills.lua"/>
-		<hook source_file="lib/units/pickups/ammoclip"								file="skills.lua"/>
-		<hook source_file="lib/units/beings/player/states/playermaskoff"			file="skills.lua"/>
-		<hook source_file="lib/managers/playermanager"								file="skills.lua"/>
-		<hook source_file="lib/managers/menu/skilltreegui"							file="skills.lua"/>
-        <hook source_file="lib/units/equipment/ammo_bag/ammobagbase" 				file="skills.lua"/>
-        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills.lua"/>
-        <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills.lua"/>
-        <hook source_file="lib/units/beings/player/states/playertased" 				file="skills.lua"/>
-		<hook source_file="lib/managers/menumanagerdialogs"							file="skills.lua"/>
-		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="skills.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="skills.lua"/>
-		<hook source_file="lib/units/weapons/sentrygunweapon"						file="skills.lua"/>
-		<hook source_file="lib/managers/localizationmanager"						file="skills.lua"/>
-		<hook source_file="lib/utils/inventorydescription"							file="skills.lua"/>
-		<hook source_file="lib/units/equipment/ecm_jammer/ecmjammerbase"			file="skills.lua"/>
-		<hook source_file="lib/units/equipment/doctor_bag/doctorbagbase"			file="skills.lua"/>
-		<hook source_file="lib/units/beings/player/states/playerstandard"			file="skills.lua"/>
-		<hook source_file="lib/units/beings/player/playermovement"					file="skills.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="skills.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="skills.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="skills.lua"/>
-		
-		<hook source_file="lib/managers/experiencemanager"							file="infamy.lua"/>
-		<hook source_file="lib/units/props/infamycardgui"							file="infamy.lua"/>
-		<hook source_file="lib/tweak_data/infamynewtweakdata"						file="infamy.lua"/>
-
-		<hook source_file="lib/tweak_data/achievementstweakdata"					file="achievements.lua"/>
-		<hook source_file="lib/tweak_data/hudiconstweakdata"						file="achievements.lua"/>
-		<hook source_file="lib/managers/achievmentmanager"							file="achievements.lua"/>
-		<hook source_file="lib/managers/menu/achievementlistgui"					file="achievements.lua"/>
-		<hook source_file="lib/managers/achievement/cac_customachievements"			file="achievements.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="achievements.lua"/>
-		
-		<hook source_file="lib/states/menumainstate"								file="interface.lua"/>
-		<hook source_file="lib/managers/menu/multiprofileitemgui"					file="interface.lua"/>
-		<hook source_file="lib/managers/menu/walletguiobject"						file="interface.lua"/>
-		<hook source_file="lib/managers/menu/menuscenemanager"						file="interface.lua"/>
-		<hook source_file="lib/managers/chatmanager"								file="interface.lua"/>
-		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface.lua"/>
-		<hook source_file="lib/tweak_data/tweakdata"								file="interface.lua"/>
-		<hook source_file="lib/managers/crimenetmanager"							file="interface.lua"/>
-		<hook source_file="core/lib/managers/coreenvironmentcontrollermanager"		file="interface.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/playerstyletweakdata"			file="interface.lua"/>
-		<hook source_file="lib/managers/menu/crewmanagementgui"						file="interface.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="interface.lua"/>
-		<hook source_file="lib/states/bootupstate" 									file="interface.lua"/>
-        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="interface.lua"/>
-
-		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties.lua"/>
-		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties.lua"/>
-		<hook source_file="lib/tweak_data/groupaitweakdata"							file="difficulties.lua"/>
-		<hook source_file="lib/units/weapons/grenades/quickflashgrenade"			file="difficulties.lua"/>
-		<hook source_file="lib/managers/mission/elementspawnenemygroup"				file="difficulties.lua"/>
-		<hook source_file="lib/managers/group_ai_states/groupaistatebesiege"		file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionshoot"	file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionhurt"	file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/copbase"	                        file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/copdamage"	                        file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/copsound"	                        file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/copbrain"	                        file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicbase"				file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties.lua"/>
-		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/mission/elementfilter"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/hud/hudassaultcorner"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/menumanagerpd2"								file="difficulties.lua"/>
-		<hook source_file="lib/managers/menu/items/contractbrokerheistitem"			file="difficulties.lua"/>
-		<hook source_file="lib/managers/hud/newhudstatsscreen"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/hud/hudstageendscreen"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/hud/hudblackscreen"							file="difficulties.lua"/>
-		<hook source_file="lib/managers/hud/hudmissionbriefing"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/menu/contractboxgui"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/menu/ingamecontractgui"						file="difficulties.lua"/>
-		<hook source_file="lib/managers/menu/crimenetcontractgui"					file="difficulties.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="difficulties.lua"/>
-		<hook source_file="lib/managers/crimenetmanager"							file="difficulties.lua"/>
-		<hook source_file="lib/tweak_data/moneytweakdata"							file="difficulties.lua"/>
-		<hook source_file="lib/tweak_data/tweakdata"								file="difficulties.lua"/>
-		<hook source_file="lib/managers/criminalsmanager"							file="difficulties.lua"/>
-		
 		<hook source_file="lib/tweak_data/gageassignmenttweakdata"					file="content.lua"/>
+		<hook source_file="lib/tweak_data/tweakdata"								file="tweakdata.lua"/>
+
+		<hook source_file="lib/tweak_data/achievementstweakdata"					file="achievements/achievementstweakdata.lua"/>
+		<hook source_file="lib/tweak_data/hudiconstweakdata"						file="achievements/hudiconstweakdata.lua"/>
+		<hook source_file="lib/managers/achievmentmanager"							file="achievements/achievmentmanager.lua"/>
+		<hook source_file="lib/managers/menu/achievementlistgui"					file="achievements/achievementlistgui.lua"/>
+		<hook source_file="lib/managers/achievement/cac_customachievements"			file="achievements/cac_customachievements.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="achievements/blackmarketmanager.lua"/>
 		
-		<hook source_file="lib/tweak_data/tweakdata"								file="core.lua"/>
-		<hook source_file="lib/managers/localizationmanager"						file="core.lua"/>
-		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="core.lua"/>
-		<hook source_file="lib/network/matchmaking/networkmatchmakingepic"			file="core.lua"/>
-		<hook source_file="lib/managers/savefilemanager"							file="core.lua"/>
-		<hook source_file="lib/managers/menu/menunodegui"							file="core.lua"/>
-		<hook source_file="lib/managers/blackmarketmanager"							file="core.lua"/>
-		<hook source_file="lib/managers/dlcmanager"									file="core.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="core.lua"/>
-		<hook source_file="core/lib/managers/coresequencemanager"					file="core.lua"/>
-		<hook source_file="lib/managers/menu/renderers/menunodecreditsgui"			file="core.lua"/>
+		<hook source_file="lib/tweak_data/playertweakdata"							file="attention/playertweakdata.lua"/>
+		<hook source_file="lib/units/props/securitycamera"							file="attention/securitycamera.lua"/>
+		<hook source_file="lib/tweak_data/attentiontweakdata"						file="attention/attentiontweakdata.lua"/>
+		<hook source_file="lib/units/beings/player/states/playerstandard"			file="attention/playerstandard.lua"/>
+		<hook source_file="lib/managers/gameplaycentralmanager"						file="attention/gameplaycentralmanager.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="attention/groupaistatebase.lua"/>
+		<hook source_file="lib/units/props/drill"									file="attention/drill.lua"/>
+		<hook source_file="lib/units/weapons/weaponlaser"							file="attention/weaponlaser.lua"/>
+		
+		<hook source_file="lib/managers/localizationmanager"						file="core/localizationmanager.lua"/>
+		<hook source_file="lib/network/matchmaking/networkmatchmakingsteam"			file="core/networkmatchmakingsteam.lua"/>
+		<hook source_file="lib/network/matchmaking/networkmatchmakingepic"			file="core/networkmatchmakingepic.lua"/>
+		<hook source_file="lib/managers/savefilemanager"							file="core/savefilemanager.lua"/>
+		<hook source_file="lib/managers/menu/menunodegui"							file="core/menunodegui.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="core/blackmarketmanager.lua"/>
+		<hook source_file="lib/managers/dlcmanager"									file="core/dlcmanager.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="core/menumanager.lua"/>
+		<hook source_file="core/lib/managers/coresequencemanager"					file="core/coresequencemanager.lua"/>
+		<hook source_file="lib/managers/menu/renderers/menunodecreditsgui"			file="core/menunodecreditsgui.lua"/>
+		
+		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="crime_spree/crimespreetweakdata.lua"/>
+		<hook source_file="lib/managers/crimespreemanager"							file="crime_spree/crimespreemanager.lua"/>
+		
+		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties/weapontweakdata.lua"/>
+		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties/charactertweakdata.lua"/>
+		<hook source_file="lib/tweak_data/groupaitweakdata"							file="difficulties/groupaitweakdata.lua"/>
+		<hook source_file="lib/units/weapons/grenades/quickflashgrenade"			file="difficulties/quickflashgrenade.lua"/>
+		<hook source_file="lib/managers/mission/elementspawnenemygroup"				file="difficulties/elementspawnenemygroup.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebesiege"		file="difficulties/groupaistatebesiege.lua"/>
+		<hook source_file="lib/units/enemies/cop/actions/upper_body/copactionhurt"	file="difficulties/copactionhurt.lua"/>
+		<hook source_file="lib/units/enemies/cop/copbase"	                        file="difficulties/copbase.lua"/>
+		<hook source_file="lib/units/enemies/cop/copdamage"	                        file="difficulties/copdamage.lua"/>
+		<hook source_file="lib/units/enemies/cop/copsound"	                        file="difficulties/copsound.lua"/>
+		<hook source_file="lib/units/enemies/cop/copbrain"	                        file="difficulties/copbrain.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicbase"				file="difficulties/coplogicbase.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="difficulties/coplogicidle.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/coplogictravel.lua"/>
+		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/copmovement.lua"/>
+		<hook source_file="lib/managers/hud/hudassaultcorner"						file="difficulties/hudassaultcorner.lua"/>
+		<hook source_file="lib/managers/menumanagerpd2"								file="difficulties/menumanagerpd2.lua"/>
+		<hook source_file="lib/managers/menu/items/contractbrokerheistitem"			file="difficulties/contractbrokerheistitem.lua"/>
+		<hook source_file="lib/managers/hud/newhudstatsscreen"						file="difficulties/newhudstatsscreen.lua"/>
+		<hook source_file="lib/managers/hud/hudstageendscreen"						file="difficulties/hudstageendscreen.lua"/>
+		<hook source_file="lib/managers/hud/hudblackscreen"							file="difficulties/hudblackscreen.lua"/>
+		<hook source_file="lib/managers/hud/hudmissionbriefing"						file="difficulties/hudmissionbriefing.lua"/>
+		<hook source_file="lib/managers/menu/contractboxgui"						file="difficulties/contractboxgui.lua"/>
+		<hook source_file="lib/managers/menu/ingamecontractgui"						file="difficulties/ingamecontractgui.lua"/>
+		<hook source_file="lib/managers/menu/crimenetcontractgui"					file="difficulties/crimenetcontractgui.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="difficulties/menumanager.lua"/>
+		<hook source_file="lib/managers/crimenetmanager"							file="difficulties/crimenetmanager.lua"/>
+		<hook source_file="lib/tweak_data/moneytweakdata"							file="difficulties/moneytweakdata.lua"/>
+		<hook source_file="lib/managers/criminalsmanager"							file="difficulties/criminalsmanager.lua"/>
+		
+		<hook source_file="lib/managers/experiencemanager"							file="infamy/experiencemanager.lua"/>
+		<hook source_file="lib/units/props/infamycardgui"							file="infamy/infamycardgui.lua"/>
+
+		<hook source_file="lib/managers/menu/multiprofileitemgui"					file="interface/multiprofileitemgui.lua"/>
+		<hook source_file="lib/managers/menu/walletguiobject"						file="interface/walletguiobject.lua"/>
+		<hook source_file="lib/managers/menu/menuscenemanager"						file="interface/menuscenemanager.lua"/>
+		<hook source_file="lib/managers/chatmanager"								file="interface/chatmanager.lua"/>
+		<hook source_file="lib/managers/menu/playerinventorygui"					file="interface/playerinventorygui.lua"/>
+		<hook source_file="lib/managers/crimenetmanager"							file="interface/crimenetmanager.lua"/>
+		<hook source_file="core/lib/managers/coreenvironmentcontrollermanager"		file="interface/coreenvironmentcontrollermanager.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/playerstyletweakdata"			file="interface/playerstyletweakdata.lua"/>
+		<hook source_file="lib/managers/menu/crewmanagementgui"						file="interface/crewmanagementgui.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="interface/blackmarketmanager.lua"/>
+		<hook source_file="lib/states/bootupstate" 									file="interface/bootupstate.lua"/>
+        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="interface/menucomponentmanager.lua"/>
+		
+		<hook source_file="lib/tweak_data/moneytweakdata"							file="money/moneytweakdata.lua"/>
+		<hook source_file="lib/managers/moneymanager"								file="money/moneymanager.lua"/>
+		
+		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative/narrativetweakdata.lua"/>
+		<hook source_file="lib/managers/experiencemanager"							file="narrative/experiencemanager.lua"/>
+		<hook source_file="lib/managers/hud/hudstageendscreen"						file="narrative/hudstageendscreen.lua"/>
+		<hook source_file="core/lib/managers/mission/coreelementrandom"				file="narrative/coreelementrandom.lua"/>
+		<hook source_file="lib/units/interactions/interactionext"					file="narrative/interactionext.lua"/>
+		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative/unitnetworkhandler.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="narrative/menumanager.lua"/>
+		<hook source_file="lib/managers/votemanager"								file="narrative/votemanager.lua"/>
+		
+		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse/customsafehousemanager.lua"/>
+		
+        <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills/skilltreetweakdata.lua"/>
+        <hook source_file="lib/managers/skilltreemanager" 							file="skills/skilltreemanager.lua"/>
+        <hook source_file="lib/tweak_data/upgradestweakdata"						file="skills/upgradestweakdata.lua"/>
+        <hook source_file="lib/tweak_data/interactiontweakdata" 					file="skills/interactiontweakdata.lua"/>
+        <hook source_file="lib/tweak_data/equipmentstweakdata" 						file="skills/equipmentstweakdata.lua"/>
+		<hook source_file="lib/units/beings/player/playerdamage"					file="skills/playerdamage.lua"/>
+		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="skills/groupaistatebase.lua"/>
+		<hook source_file="lib/units/beings/player/states/playermaskoff"			file="skills/playermaskoff.lua"/>
+		<hook source_file="lib/managers/playermanager"								file="skills/playermanager.lua"/>
+		<hook source_file="lib/managers/menu/skilltreegui"							file="skills/skilltreegui.lua"/>
+        <hook source_file="lib/units/equipment/ammo_bag/ammobagbase" 				file="skills/ammobagbase.lua"/>
+        <hook source_file="lib/managers/menu/menucomponentmanager" 					file="skills/menucomponentmanager.lua"/>
+        <hook source_file="lib/managers/menu/playerinventorygui" 					file="skills/playerinventorygui.lua"/>
+        <hook source_file="lib/units/beings/player/states/playertased" 				file="skills/playertased.lua"/>
+		<hook source_file="lib/managers/menumanagerdialogs"							file="skills/menumanagerdialogs.lua"/>
+		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="skills/newraycastweaponbase.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="skills/blackmarketmanager.lua"/>
+		<hook source_file="lib/units/weapons/sentrygunweapon"						file="skills/sentrygunweapon.lua"/>
+		<hook source_file="lib/managers/localizationmanager"						file="skills/localizationmanager.lua"/>
+		<hook source_file="lib/units/equipment/ecm_jammer/ecmjammerbase"			file="skills/ecmjammerbase.lua"/>
+		<hook source_file="lib/units/beings/player/states/playerstandard"			file="skills/playerstandard.lua"/>
+		<hook source_file="lib/units/beings/player/playermovement"					file="skills/playermovement.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="skills/menumanager.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="skills/coplogicidle.lua"/>
+		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="skills/coplogicintimidated.lua"/>
+		
+		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="skirmish/skirmishtweakdata.lua"/>
+		<hook source_file="lib/managers/skirmishmanager"							file="skirmish/skirmishmanager.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="skirmish/menumanager.lua"/>
+		
+		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
+		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons/weaponfactorytweakdata.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons/meleeweaponstweakdata.lua"/>
+		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons/projectilestweakdata.lua"/>
+		<hook source_file="lib/units/weapons/raycastweaponbase"						file="weapons/raycastweaponbase.lua"/>
+		<hook source_file="lib/utils/inventorydescription"							file="weapons/inventorydescription.lua"/>
     </Hooks>
 	  
 	<ScriptMods directory="xml">
@@ -156,10 +137,6 @@
 			<options merge_mode="script_merge"/>
 		</mod>
     </ScriptMods>
-	
-	<Localization directory="loc" default="english.txt">
-        <localization language="russian" file="russian.txt"/>
-    </Localization>
 
     <AddFiles directory="assets">
 		<texture path="guis/textures/pd2/cards" force="true"/>
@@ -321,7 +298,6 @@
 		<animation path="anims/shared/special/lobby_generic_idle1" force="true"/>
 		<animation path="anims/shared/special/lobby_generic_idle2" force="true"/>
 		<animation path="anims/shared/special/lobby_generic_idle3" force="true"/>
-		<animation path="anims/shared/special/lobby_generic_idle4" force="true"/>
-		
+		<animation path="anims/shared/special/lobby_generic_idle4" force="true"/>		
     </AddFiles>
 </mod>
