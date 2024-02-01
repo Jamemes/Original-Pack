@@ -209,12 +209,12 @@ function CrimeNetManager:_setup()
 	end
 end
 
--- function CrimeNetManager:update_difficulty_filter()
-	-- if self._presets then
-		-- self._presets = nil
-		-- self:_setup()
-	-- end
--- end
+function CrimeNetManager:update_difficulty_filter()
+	if self._presets then
+		self._presets = nil
+		self:_setup()
+	end
+end
 
 function CrimeNetGui:_create_job_gui(data, type, fixed_x, fixed_y, fixed_location)
 	local level_id = data.level_id

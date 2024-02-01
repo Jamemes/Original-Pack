@@ -1,22 +1,20 @@
-_G.OriginalPackOptions = _G.OriginalPackOptions or {}
-OriginalPackOptions.ModPath = ModPath
-OriginalPackOptions.SaveFile = OriginalPackOptions.SaveFile or SavePath .. "OriginalPackOptions.txt"
-OriginalPackOptions.ModOptions = OriginalPackOptions.ModPath .. "menus/modoptions.txt"
-OriginalPackOptions.settings = OriginalPackOptions.settings or {}
+_G.OPG = _G.OPG or {}
+OPG.ModPath = ModPath
+OPG.SaveFile = OPG.SaveFile or SavePath .. "OrPack_options.txt"
+OPG.ModOptions = OPG.ModPath .. "menus/modoptions.txt"
+OPG.settings = OPG.settings or {}
 
-function OriginalPackOptions:Reset()
+function OPG:Reset()
 	self.settings = {
-		Spooky = true,
-		Enable_Max_Progress = false,
-		Enable_Test = false,
-		Anlways_Show_Body_Bags = false,
-		Anlways_Show_Accuracy = false,
-		Anlways_Show_Kills = false
+		max_progress = false,
+		show_bodybags = false,
+		show_accuracy = false,
+		show_kills = false
 	}
 	self:Save()
 end
 
-function OriginalPackOptions:Load()
+function OPG:Load()
 	local file = io.open(self.SaveFile, "r")
 	if file then
 		for key, value in pairs(json.decode(file:read("*all"))) do
@@ -28,7 +26,7 @@ function OriginalPackOptions:Load()
 	end
 end
 
-function OriginalPackOptions:Save()
+function OPG:Save()
 	local file = io.open(self.SaveFile, "w+")
 	if file then
 		file:write(json.encode(self.settings))
@@ -36,7 +34,7 @@ function OriginalPackOptions:Save()
 	end
 end
 
-OriginalPackOptions:Load()
+OPG:Load()
 
 Hooks:Add("LocalizationManagerPostInit", "OrPack_loc", function(...)				
 	LocalizationManager:add_localized_strings({
@@ -134,9 +132,6 @@ Hooks:Add("LocalizationManagerPostInit", "OrPack_loc", function(...)
 		menu_killed_civs =							"Civilians were killed! Experience reduced by ",
 		menu_collected_packages =					"Gage packages found. Experience increased by ",
 		menu_loose_money =							"Loose money found. Experience increased by ",
-		menu_spooky_text =							"You've been spooked by spooky creep. Boo!",
-		menu_spooky_yes =							"Uh, OK",
-		menu_spooky_no =							"Not spooky enough",
 		cn_menu_contract_day =						"$stages day",
 		menu_OP_title =								"Original Pack",
 		menu_test_mode =							"",
@@ -240,9 +235,6 @@ Hooks:Add("LocalizationManagerPostInit", "OrPack_loc", function(...)
 			cn_menu_contract_length_header =				"Длительность:",
 			cn_menu_contract_day =							"$stages День",
 			cn_menu_contract_length =						"$stages Дня",
-			menu_spooky_text =								"Вы были напуганы ужасным существом. Бу!",
-			menu_spooky_yes =								"Хм, ну ОК",
-			menu_spooky_no =								"Недостаточно жутко",
 			cn_menu_community =								"Сообщество",
 			cn_menu_pro_job =								"PRO JOB",
 			menu_es_next_level =							"Следующий уровень:",
@@ -250,20 +242,13 @@ Hooks:Add("LocalizationManagerPostInit", "OrPack_loc", function(...)
 	end
 end)
 
-Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
-	if OriginalPackOptions.settings.Enable_Test then
-		SavefileManager.PROGRESS_SLOT = 25
-		SavefileManager.BACKUP_SLOT = 25
-		NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version .. "_test_mode"
-		MenuNodeMainGui.version = "Version " .. tweak_data.version .. "  TEST MODE  " .. tweak_data.testing_text
-	elseif OriginalPackOptions.settings.Enable_Max_Progress then
+Hooks:Add("MenuManagerPopulateCustomMenus", "OPGOptions", function(menu_manager, nodes)
+	if OPG.settings.max_progress then
 		SavefileManager.PROGRESS_SLOT = 69
 		SavefileManager.BACKUP_SLOT = 69
 		NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version .. "_max_mode"
 		MenuNodeMainGui.version = "Version " .. tweak_data.version .. "  MAX PROGRESS MODE"
-	end
-	
-	if OriginalPackOptions.settings.Enable_Max_Progress then
+		
 		tweak_data.narrative.contacts.classic.name_id = "heist_contact_classic"
 		tweak_data.narrative.contacts.classic.hidden = false
 		tweak_data.narrative.contacts.events.hidden = false
@@ -283,49 +268,52 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OriginalPackOptionsOptions", functi
 		tweak_data.narrative.jobs.kosugi_pro.contact = "bain"
 	end
 	
-	MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Body_Bags_callback = function(self, item)
-		OriginalPackOptions.settings.Anlways_Show_Body_Bags = item:value() == "on" and true or false
-		OriginalPackOptions:Save()
+	MenuCallbackHandler.OPG_menu_show_bodybags_callback = function(self, item)
+		OPG.settings.show_bodybags = item:value() == "on" and true or false
+		OPG:Save()
 	end
+	
 	MenuHelper:AddToggle({
-		id = "OriginalPackOptions_menu_Anlways_Show_Body_Bags_callback",
+		id = "OPG_menu_show_bodybags_callback",
 		title = "menu_always_show_body_bags_title",
-		callback = "OriginalPackOptions_menu_Anlways_Show_Body_Bags_callback",
-		value = OriginalPackOptions.settings.Anlways_Show_Body_Bags,
+		callback = "OPG_menu_show_bodybags_callback",
+		value = OPG.settings.show_bodybags,
 		menu_id = "OP_interface",  
 	})
 	
-	MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Accuracy_callback = function(self, item)
-		OriginalPackOptions.settings.Anlways_Show_Accuracy = item:value() == "on" and true or false
-		OriginalPackOptions:Save()
+	MenuCallbackHandler.OPG_menu_show_accuracy_callback = function(self, item)
+		OPG.settings.show_accuracy = item:value() == "on" and true or false
+		OPG:Save()
 	end
+	
 	MenuHelper:AddToggle({
-		id = "OriginalPackOptions_menu_Anlways_Show_Accuracy_callback",
-		title = "menu_anlways_show_accuracy_title",
-		callback = "OriginalPackOptions_menu_Anlways_Show_Accuracy_callback",
-		value = OriginalPackOptions.settings.Anlways_Show_Accuracy,
+		id = "OPG_menu_show_accuracy_callback",
+		title = "menu_always_show_accuracy_title",
+		callback = "OPG_menu_show_accuracy_callback",
+		value = OPG.settings.show_accuracy,
 		menu_id = "OP_interface",  
 	})
 	
-	MenuCallbackHandler.OriginalPackOptions_menu_Anlways_Show_Kills_callback = function(self, item)
-		OriginalPackOptions.settings.Anlways_Show_Kills = item:value() == "on" and true or false
-		OriginalPackOptions:Save()
+	MenuCallbackHandler.OPG_menu_show_kills_callback = function(self, item)
+		OPG.settings.show_kills = item:value() == "on" and true or false
+		OPG:Save()
 	end
+	
 	MenuHelper:AddToggle({
-		id = "OriginalPackOptions_menu_Anlways_Show_Kills_callback",
-		title = "menu_anlways_show_kills_title",
-		callback = "OriginalPackOptions_menu_Anlways_Show_Kills_callback",
-		value = OriginalPackOptions.settings.Anlways_Show_Kills,
+		id = "OPG_menu_show_kills_callback",
+		title = "menu_always_show_kills_title",
+		callback = "OPG_menu_show_kills_callback",
+		value = OPG.settings.show_kills,
 		menu_id = "OP_interface",  
 	})
 end)
 
-Hooks:Add("MenuManagerSetupCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
+Hooks:Add("MenuManagerSetupCustomMenus", "OPGOptions", function(menu_manager, nodes)
 	MenuHelper:NewMenu("OP_options")
 	MenuHelper:NewMenu("OP_interface")
 end)
 
-Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(menu_manager, nodes)
+Hooks:Add("MenuManagerBuildCustomMenus", "OPGOptions", function(menu_manager, nodes)
 	nodes["OP_options"] = MenuHelper:BuildMenu("OP_options")
 	nodes["OP_interface"] = MenuHelper:BuildMenu("OP_interface")
 
@@ -357,7 +345,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 		Steam:overlay_activate("url", "https://steamcommunity.com/sharedfiles/filedetails/?id=2062176985")
 	end
 	
-	if OriginalPackOptions.settings.Dev then
+	if OPG.settings.Dev then
 		MenuCallbackHandler.test_mode_enable_callback = function(self, item) end
 		MenuCallbackHandler.test_mode_callback = function(self, item)
 			local blank = ""
@@ -378,17 +366,16 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 	end
 	
 	MenuCallbackHandler.max_progress_enable_callback = function(self, item)
-		if OriginalPackOptions.settings.Enable_Max_Progress then
-			OriginalPackOptions.settings.Enable_Max_Progress = false
-			OriginalPackOptions:Save()
-		elseif not OriginalPackOptions.settings.Enable_Max_Progress then
-			OriginalPackOptions.settings.Enable_Max_Progress = true
-			OriginalPackOptions:Save()
+		if OPG.settings.max_progress then
+			OPG.settings.max_progress = false
+			OPG:Save()
+		elseif not OPG.settings.max_progress then
+			OPG.settings.max_progress = true
+			OPG:Save()
 		end
-		if not OriginalPackOptions.settings.Enable_Test then
-			os.execute("start steam://rungameid/218620")
-			os.exit()
-		end
+
+		os.execute("start steam://rungameid/218620")
+		os.exit()
 	end
 	MenuCallbackHandler.what_is_max_progress_callback = function(self, item)
 		local dialog_data = {
@@ -413,8 +400,8 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 		managers.menu:show_video_message_dialog(dialog_data)
 	end
 	MenuCallbackHandler.max_progress_callback = function(self, item)
-		local menu_title = OriginalPackOptions.settings.Enable_Max_Progress and managers.localization:text("menu_normal_progress_dialog_title") or managers.localization:text("menu_max_progress_dialog_title") 
-		local menu_message = OriginalPackOptions.settings.Enable_Max_Progress and managers.localization:text("menu_normal_progress_dialog_message") or managers.localization:text("menu_max_progress_dialog_message")
+		local menu_title = OPG.settings.max_progress and managers.localization:text("menu_normal_progress_dialog_title") or managers.localization:text("menu_max_progress_dialog_title") 
+		local menu_message = OPG.settings.max_progress and managers.localization:text("menu_normal_progress_dialog_message") or managers.localization:text("menu_max_progress_dialog_message")
 		local menu_options = {
 			[1] = {
 				text = managers.localization:text("dialog_yes"),
@@ -425,7 +412,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 				is_cancel_button = true,
 			},
 		}
-		if not OriginalPackOptions.settings.Enable_Max_Progress then
+		if not OPG.settings.max_progress then
 			menu_options[3] = {}
 			menu_options[4] = {
 				text = managers.localization:text("dialog_what_is_max_progress"),
@@ -436,7 +423,7 @@ Hooks:Add("MenuManagerBuildCustomMenus", "OriginalPackOptionsOptions", function(
 		menu:Show()
 	end
 
-	local progress = OriginalPackOptions.settings.Enable_Max_Progress and "normal_progress" or "max_progress"
+	local progress = OPG.settings.max_progress and "normal_progress" or "max_progress"
 	
 	MenuHelper:AddMenuItem(nodes["OP_options"], "OP_interface", "menu_user_interface", "", 1)
 	menu_node(nodes["OP_options"], "OP_changelog", "OP_changelog_callback", 1, "options")

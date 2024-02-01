@@ -31,8 +31,6 @@
 		<hook source_file="core/lib/managers/coresequencemanager"					file="core/coresequencemanager.lua"/>
 		<hook source_file="lib/managers/menu/renderers/menunodecreditsgui"			file="core/menunodecreditsgui.lua"/>
 		
-		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="crime_spree/crimespreetweakdata.lua"/>
-		<hook source_file="lib/managers/crimespreemanager"							file="crime_spree/crimespreemanager.lua"/>
 		
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties/weapontweakdata.lua"/>
 		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties/charactertweakdata.lua"/>
@@ -91,8 +89,11 @@
 		<hook source_file="lib/network/handlers/unitnetworkhandler"					file="narrative/unitnetworkhandler.lua"/>
 		<hook source_file="lib/managers/menumanager"								file="narrative/menumanager.lua"/>
 		<hook source_file="lib/managers/votemanager"								file="narrative/votemanager.lua"/>
-		
-		<hook source_file="lib/managers/customsafehousemanager"						file="safehouse/customsafehousemanager.lua"/>
+		<hook source_file="lib/tweak_data/crimespreetweakdata"						file="narrative/crimespreetweakdata.lua"/>
+		<hook source_file="lib/managers/crimespreemanager"							file="narrative/crimespreemanager.lua"/>
+		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="narrative/skirmishtweakdata.lua"/>
+		<hook source_file="lib/managers/skirmishmanager"							file="narrative/skirmishmanager.lua"/>
+		<hook source_file="lib/managers/customsafehousemanager"						file="narrative/customsafehousemanager.lua"/>
 		
         <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills/skilltreetweakdata.lua"/>
         <hook source_file="lib/managers/skilltreemanager" 							file="skills/skilltreemanager.lua"/>
@@ -120,9 +121,6 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="skills/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="skills/coplogicintimidated.lua"/>
 		
-		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="skirmish/skirmishtweakdata.lua"/>
-		<hook source_file="lib/managers/skirmishmanager"							file="skirmish/skirmishmanager.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="skirmish/menumanager.lua"/>
 		
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
 		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons/weaponfactorytweakdata.lua"/>

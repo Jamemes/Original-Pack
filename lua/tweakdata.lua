@@ -10,7 +10,6 @@ end
 
 local self = tweak_data
 self.version = get_mod_info().version
-self.testing_text = ''
 
 self.hate_multipler = 1.5
 self.bullet_hit_alert_radius = 300

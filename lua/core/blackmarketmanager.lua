@@ -1,5 +1,5 @@
 function BlackMarketManager:max_progress()
-	if _G.OriginalPackOptions.settings.Enable_Max_Progress then
+	if _G.OPG.settings.max_progress then
 		local xp = 23400000
 		managers.experience:add_points(xp, false, true)
 		managers.skilltree:give_specialization_points(xp)

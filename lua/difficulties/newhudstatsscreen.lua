@@ -761,13 +761,13 @@ function HUDStatsScreen:extended_inventory()
 	local extended = UiPlacer:new(36, (self._right:h() / 1.05) + 19, 0, 8)
 	extended:new_row(0, 0)
 	
-	local extended_inventory_panel
-	local accuracy_panel
-	local kill_panel
-	local pager_panel
-	local body_bags_panel
+	local extended_inventory_panel = nil
+	local accuracy_panel = nil
+	local kill_panel = nil
+	local pager_panel = nil
+	local body_bags_panel = nil
 	
-	if _G.OriginalPackOptions.settings.Anlways_Show_Body_Bags or is_whisper_mode then
+	if _G.OPG.settings.show_bodybags or is_whisper_mode then
 		body_bags_panel = extended:add_top(self._right:panel({name = "body_bags_panel", h = 19, w = self._right:w() / 1.2}))
 	end
 	
@@ -775,11 +775,11 @@ function HUDStatsScreen:extended_inventory()
 		pager_panel = extended:add_top(self._right:panel({name = "pager_panel", h = 19, w = self._right:w() / 1.2}), 5)
 	end
 	
-	if _G.OriginalPackOptions.settings.Anlways_Show_Kills or kill_requirements then
+	if _G.OPG.settings.show_kills or kill_requirements then
 		kill_panel = extended:add_top(self._right:panel({name = "kill_panel", h = 19, w = self._right:w() / 1.2}), 5)
 	end
 	
-	if _G.OriginalPackOptions.settings.Anlways_Show_Accuracy or accuracy_requirements then
+	if _G.OPG.settings.show_accuracy or accuracy_requirements then
 		accuracy_panel = extended:add_top(self._right:panel({name = "accuracy_panel", h = 19, w = self._right:w() / 1.2}), 5)
 	end
 	

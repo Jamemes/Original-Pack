@@ -43,22 +43,9 @@ function MenuManager:color_range(text, color, string_text)
 	end
 end
 
-local data = MenuManager.show_question_new_safehouse
-function MenuManager:show_question_new_safehouse(params)
-	if not _G.OriginalPackOptions.settings.Enable_Test then
-		data(self, params)
-	end
-end
-
-local data = MenuManager.show_question_new_safehouse_new_player
-function MenuManager:show_question_new_safehouse_new_player(params)
-	if not _G.OriginalPackOptions.settings.Enable_Test then
-		data(self, params)
-	end
-end
 function MenuCallbackHandler:_dialog_clear_progress_yes()
 	managers.menu:do_clear_progress()
-	if _G.OriginalPackOptions.settings.Enable_Max_Progress then
+	if _G.OPG.settings.max_progress then
 		managers.blackmarket:max_progress()
 	end
 	if managers.menu_component then

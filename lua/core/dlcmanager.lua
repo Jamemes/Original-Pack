@@ -3,7 +3,7 @@ function GenericDLCManager:give_dlc_and_verify_blackmarket()
 	data(self)
 
 	if managers.blackmarket then
-		if not Global.blackmarket_manager.max_progress and _G.OriginalPackOptions.settings.Enable_Max_Progress then
+		if not Global.blackmarket_manager.max_progress and _G.OPG.settings.max_progress then
 			Global.blackmarket_manager.max_progress = true
 			managers.blackmarket:max_progress()
 		end
