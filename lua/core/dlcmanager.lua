@@ -9,3 +9,7 @@ function GenericDLCManager:give_dlc_and_verify_blackmarket()
 		end
 	end
 end
+
+function GenericDLCManager:has_mrwi_deck_equipped_mimicing()
+	return false
+end

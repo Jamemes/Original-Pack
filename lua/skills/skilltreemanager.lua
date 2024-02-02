@@ -374,12 +374,3 @@ function SkillTreeManager:_verify_loaded_data(points_aquired_during_load)
 		end
 	end
 end
-
-local data = SkillTreeManager.get_specialization_value
-function SkillTreeManager:get_specialization_value(...)
-	if not self._global.specializations then
-		return 0
-	end
-	
-	return data(self, ...)
-end

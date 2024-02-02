@@ -1,8 +1,9 @@
 {
 	"name": "Original Pack",
-	"description": "Original???",
+	"description": "Classic Pack",
 	"author": "James",
-	"version": "1.4.1.6",
+	"version": "1.4.1.6.1",
+	"image" : "assets/OP.png",
 	"updates" : [
 		{
 			"identifier" : "og_pack",
