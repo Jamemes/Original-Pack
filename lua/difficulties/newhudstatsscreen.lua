@@ -317,9 +317,6 @@ function HUDStatsScreen:recreate_right()
 			local sx = paygrade_header:right() + 8
 			local job_stars = managers.job:current_job_stars()
 			local difficulty_stars = managers.job:current_difficulty_stars()
-			local diff = difficulty_stars == 5 and difficulty_stars - 1 or difficulty_stars == 4 and difficulty_stars + 1 or difficulty_stars
-			local job_and_diff_stars = job_stars + diff
-			local hate_risk = difficulty_stars == 6 and 3 or difficulty_stars == 5 and 1 or difficulty_stars == 4 and 2 or 0
 			local edge = 10
 
 			local level_data = { 
@@ -335,7 +332,7 @@ function HUDStatsScreen:recreate_right()
 				local star_data = level_data
 
 				local star = self._right:bitmap(star_data)
-				star:set_color(((i > (job_and_diff_stars > edge and job_and_diff_stars or edge)) and Color.green:with_alpha(0)) or ((i > job_and_diff_stars) and Color.black:with_alpha(0.5)) or ((i > job_and_diff_stars - hate_risk) and tweak_data.screen_colors.pro_color) or ((i > job_stars) and tweak_data.screen_colors.risk) or Color.white)
+				star:set_color(managers.crimenet:stars_color(i, job_stars, difficulty_stars))
 				star:set_x(x)
 				star:set_center_y(math.round(paygrade_header:center_y()) - 1)
 			end

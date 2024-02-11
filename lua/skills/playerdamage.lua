@@ -288,16 +288,16 @@ local data = PlayerDamage.update
 function PlayerDamage:update(unit, t, dt)
 	data(self, unit, t, dt)
 	if PlayerManager.walking_bleedout > 0 then
-		local ticks = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) - (self:remaining_delayed_damage() * 2)
+		local ticks = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120) - (self:remaining_delayed_damage() * 2)
 		PlayerManager.walking_bleedout = 1 + ticks
 	end
 	if self:dead() then
 		PlayerManager.walking_bleedout = 0
 	end
-	if PlayerManager.walking_bleedout > managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) then
+	if PlayerManager.walking_bleedout > managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120) then
 		PlayerManager.walking_bleedout = 0
 	end
-	local ticks_to_ressurection = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+	local ticks_to_ressurection = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120)
 	local bleeder = PlayerManager.walking_bleedout
 	local time_to_bleed = managers.player:upgrade_value("player", "walking_bleedout_time_to_bleed", 0)
 	local reability = ticks_to_ressurection - time_to_bleed
@@ -312,7 +312,7 @@ function PlayerDamage:_chk_cheat_death()
 	if math.rand(1) < managers.player:upgrade_value("player", "walking_bleedout_chance", 0) then
 		if PlayerManager.walking_bleedout == 0 then
 			self:set_health(self:_max_health() * managers.player:upgrade_value("player", "walking_bleedout_temporary_health_mul", 0))
-			self:delay_damage(managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10) * 0.5, managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10))
+			self:delay_damage(managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120) * 0.5, managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120))
 			PlayerManager.walking_bleedout = 1
 		end
 	end

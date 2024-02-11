@@ -26,7 +26,7 @@ function PlayerManager:movement_speed_multiplier(speed_state, bonus_multiplier, 
 	local multiplier = 1.00000001
 	if PlayerManager.walking_bleedout > 0 then
 		local maxed = 1 - tweak_data.upgrades.walking_bleedout_walk_speed_penalty
-		local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+		local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120)
 		local pm_wb =  (wb_ttr - PlayerManager.walking_bleedout)
 		local total = (maxed - (maxed / wb_ttr * pm_wb))
 		multiplier = multiplier + (tweak_data.upgrades.walking_bleedout_walk_speed_penalty + total) - 1

@@ -12,8 +12,6 @@
 		<hook source_file="lib/managers/blackmarketmanager"							file="achievements/blackmarketmanager.lua"/>
 		
 		<hook source_file="lib/tweak_data/playertweakdata"							file="attention/playertweakdata.lua"/>
-		<hook source_file="lib/units/props/securitycamera"							file="attention/securitycamera.lua"/>
-		<hook source_file="lib/tweak_data/attentiontweakdata"						file="attention/attentiontweakdata.lua"/>
 		<hook source_file="lib/units/beings/player/states/playerstandard"			file="attention/playerstandard.lua"/>
 		<hook source_file="lib/managers/gameplaycentralmanager"						file="attention/gameplaycentralmanager.lua"/>
 		<hook source_file="lib/managers/group_ai_states/groupaistatebase"			file="attention/groupaistatebase.lua"/>
@@ -31,7 +29,6 @@
 		<hook source_file="core/lib/managers/coresequencemanager"					file="core/coresequencemanager.lua"/>
 		<hook source_file="lib/managers/menu/renderers/menunodecreditsgui"			file="core/menunodecreditsgui.lua"/>
 		
-		
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="difficulties/weapontweakdata.lua"/>
 		<hook source_file="lib/tweak_data/charactertweakdata"						file="difficulties/charactertweakdata.lua"/>
 		<hook source_file="lib/tweak_data/groupaitweakdata"							file="difficulties/groupaitweakdata.lua"/>
@@ -48,19 +45,17 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogictravel"				file="difficulties/coplogictravel.lua"/>
 		<hook source_file="lib/units/enemies/cop/copmovement"						file="difficulties/copmovement.lua"/>
 		<hook source_file="lib/managers/hud/hudassaultcorner"						file="difficulties/hudassaultcorner.lua"/>
-		<hook source_file="lib/managers/menumanagerpd2"								file="difficulties/menumanagerpd2.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="difficulties/menumanager.lua"/>
 		<hook source_file="lib/managers/menu/items/contractbrokerheistitem"			file="difficulties/contractbrokerheistitem.lua"/>
 		<hook source_file="lib/managers/hud/newhudstatsscreen"						file="difficulties/newhudstatsscreen.lua"/>
 		<hook source_file="lib/managers/hud/hudstageendscreen"						file="difficulties/hudstageendscreen.lua"/>
-		<hook source_file="lib/managers/hud/hudblackscreen"							file="difficulties/hudblackscreen.lua"/>
 		<hook source_file="lib/managers/hud/hudmissionbriefing"						file="difficulties/hudmissionbriefing.lua"/>
 		<hook source_file="lib/managers/menu/contractboxgui"						file="difficulties/contractboxgui.lua"/>
 		<hook source_file="lib/managers/menu/ingamecontractgui"						file="difficulties/ingamecontractgui.lua"/>
 		<hook source_file="lib/managers/menu/crimenetcontractgui"					file="difficulties/crimenetcontractgui.lua"/>
-		<hook source_file="lib/managers/menumanager"								file="difficulties/menumanager.lua"/>
 		<hook source_file="lib/managers/crimenetmanager"							file="difficulties/crimenetmanager.lua"/>
-		<hook source_file="lib/tweak_data/moneytweakdata"							file="difficulties/moneytweakdata.lua"/>
 		<hook source_file="lib/managers/criminalsmanager"							file="difficulties/criminalsmanager.lua"/>
+		<hook source_file="lib/managers/menumanager"								file="difficulties/menumanager.lua"/>
 		
 		<hook source_file="lib/managers/experiencemanager"							file="infamy/experiencemanager.lua"/>
 		<hook source_file="lib/units/props/infamycardgui"							file="infamy/infamycardgui.lua"/>
@@ -78,9 +73,6 @@
 		<hook source_file="lib/states/bootupstate" 									file="interface/bootupstate.lua"/>
         <hook source_file="lib/managers/menu/menucomponentmanager" 					file="interface/menucomponentmanager.lua"/>
 		
-		<hook source_file="lib/tweak_data/moneytweakdata"							file="money/moneytweakdata.lua"/>
-		<hook source_file="lib/managers/moneymanager"								file="money/moneymanager.lua"/>
-		
 		<hook source_file="lib/tweak_data/narrativetweakdata"						file="narrative/narrativetweakdata.lua"/>
 		<hook source_file="lib/managers/experiencemanager"							file="narrative/experiencemanager.lua"/>
 		<hook source_file="lib/managers/hud/hudstageendscreen"						file="narrative/hudstageendscreen.lua"/>
@@ -94,6 +86,8 @@
 		<hook source_file="lib/tweak_data/skirmishtweakdata"						file="narrative/skirmishtweakdata.lua"/>
 		<hook source_file="lib/managers/skirmishmanager"							file="narrative/skirmishmanager.lua"/>
 		<hook source_file="lib/managers/customsafehousemanager"						file="narrative/customsafehousemanager.lua"/>
+		<hook source_file="lib/tweak_data/moneytweakdata"							file="narrative/moneytweakdata.lua"/>
+		<hook source_file="lib/managers/moneymanager"								file="narrative/moneymanager.lua"/>
 		
         <hook source_file="lib/tweak_data/skilltreetweakdata" 						file="skills/skilltreetweakdata.lua"/>
         <hook source_file="lib/managers/skilltreemanager" 							file="skills/skilltreemanager.lua"/>
@@ -121,13 +115,12 @@
 		<hook source_file="lib/units/enemies/cop/logics/coplogicidle"				file="skills/coplogicidle.lua"/>
 		<hook source_file="lib/units/enemies/cop/logics/coplogicintimidated"		file="skills/coplogicintimidated.lua"/>
 		
-		
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
 		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons/weaponfactorytweakdata.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons/meleeweaponstweakdata.lua"/>
-		<hook source_file="lib/tweak_data/blackmarket/projectilestweakdata"			file="weapons/projectilestweakdata.lua"/>
-		<hook source_file="lib/units/weapons/raycastweaponbase"						file="weapons/raycastweaponbase.lua"/>
+		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="weapons/newraycastweaponbase.lua"/>
 		<hook source_file="lib/utils/inventorydescription"							file="weapons/inventorydescription.lua"/>
+		<hook source_file="lib/managers/blackmarketmanager"							file="weapons/blackmarketmanager.lua"/>
     </Hooks>
 	  
 	<ScriptMods directory="xml">
@@ -143,7 +136,7 @@
 		<texture path="guis/textures/pd2/achievements/diff_icons" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_5" force="true"/>
-		<texture path="guis/textures/pd2/crimenet_marker_pro_outline" force="true"/>
+		<texture path="guis/textures/pd2/crimenet_marker_outline" force="true"/>
 		
 						<!-- Logo -->
 		<texture path="guis/textures/menu_original_pack_logo" force="true"/>
@@ -162,6 +155,9 @@
 		
 		<model path="units/payday2/characters/ene_fbi_swat_1/ene_fbi_swat_1"/>
 		<model path="units/payday2/characters/ene_city_swat_1/ene_city_swat_1"/>
+		
+						<!-- old cook off lines -->
+		<bnk path="soundbanks/job_h_rat_stage1"/>
 		
 								<!-- Zeal -->
 		<texture path="units/pd2_dlc_gitgud/characters/ene_zeal_tazer/ene_zeal_tazer_df" force="true"/>

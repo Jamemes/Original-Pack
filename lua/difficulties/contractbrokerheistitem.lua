@@ -127,25 +127,22 @@ function ContractBrokerHeistItem:init(parent_panel, job_data, idx)
 	job_name:set_left(self._image_panel:right() + padding * 2)
 	job_name:set_top(self._panel:h() * 0.4 + padding * 0.5)
 	
-	local filled_star_rect = {0, 32, 32, 32}
-	local job_stars = math.ceil(narrative.jc/10)
 	local cy = job_name:bottom() + 8
 	local sx = self._image_panel:right() + padding * 2
-	local level_data = { 
-			texture="guis/textures/pd2/mission_briefing/difficulty_icons", 
-			texture_rect = filled_star_rect, 
+	for i = 1, 10 do
+		local x = sx + (i - 1) * 18
+		local star_data = { 
+			texture = "guis/textures/pd2/mission_briefing/difficulty_icons", 
+			texture_rect = {0, 33, 32, 32}, 
 			w = 16, 
 			h = 16, 
 			color = tweak_data.screen_colors.text, 
 			alpha = 1 
-	}
-	for i = 1, 10 do
-		local x = sx + (i - 1) * 18
-		local star_data = level_data
+		}
 		local star = self._panel:bitmap( star_data )
 		star:set_x(x)
 		star:set_center_y(math.round(cy))
-		star:set_color(i > job_stars + (narrative.professional and 1 or 0) and Color.black or i > job_stars and tweak_data.screen_colors.risk or tweak_data.screen_colors.text)
+		star:set_color(managers.crimenet:stars_color(i, math.ceil(narrative.jc/10), narrative.professional and 1 or 0))
 	end
 	
 	local contact_name = self._panel:text({

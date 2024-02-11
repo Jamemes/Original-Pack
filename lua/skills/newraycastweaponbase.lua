@@ -11,7 +11,7 @@ function NewRaycastWeaponBase:reload_speed_multiplier()
 
 	if PlayerManager.walking_bleedout > 0 then
 		local maxed = tweak_data.upgrades.walking_bleedout_post_reload_speed_penalty
-		local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 10^10)
+		local wb_ttr = managers.player:upgrade_value("player", "walking_bleedout_ticks_to_ressurection", 120)
 		local pm_wb =  (wb_ttr - PlayerManager.walking_bleedout)
 		local total = (maxed - (maxed / wb_ttr * pm_wb))
 		multiplier = multiplier * (tweak_data.upgrades.walking_bleedout_reload_speed_penalty - total)

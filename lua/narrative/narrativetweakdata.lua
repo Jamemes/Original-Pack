@@ -338,5 +338,4 @@ function NarrativeTweakData:init(tweak_data)
 	self.jobs.man.jc = math.random(5, 9) * 10
 	self.jobs.pal.jc = math.random(5, 9) * 10
 	self.jobs.dinner.jc = math.random(5, 9) * 10
-	
 end

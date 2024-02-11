@@ -246,26 +246,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "OPGOptions", function(menu_manager,
 	if OPG.settings.max_progress then
 		SavefileManager.PROGRESS_SLOT = 69
 		SavefileManager.BACKUP_SLOT = 69
-		NetworkMatchMakingSTEAM._BUILD_SEARCH_INTEREST_KEY = "Classic_Pack_" .. tweak_data.version .. "_max_mode"
-		MenuNodeMainGui.version = "Version " .. tweak_data.version .. "  MAX PROGRESS MODE"
-		
-		tweak_data.narrative.contacts.classic.name_id = "heist_contact_classic"
-		tweak_data.narrative.contacts.classic.hidden = false
-		tweak_data.narrative.contacts.events.hidden = false
-		tweak_data.narrative.jobs.kenaz.contact = "the_dentist"
-		tweak_data.narrative.jobs.rat.contact = "bain"
-		tweak_data.narrative.jobs.gallery.contact = "bain"
-		tweak_data.narrative.jobs.arm_for.contact = "bain"
-		tweak_data.narrative.jobs.arm_fac.contact = "bain"
-		tweak_data.narrative.jobs.arm_par.contact = "bain"
-		tweak_data.narrative.jobs.arm_hcm.contact = "bain"
-		tweak_data.narrative.jobs.arm_und.contact = "bain"
-		tweak_data.narrative.jobs.arm_cro.contact = "bain"
-		tweak_data.narrative.jobs.branchbank_deposit.contact = "bain"
-		tweak_data.narrative.jobs.branchbank_cash.contact = "bain"
-		tweak_data.narrative.jobs.branchbank_gold_prof.contact = "bain"
-		tweak_data.narrative.jobs.branchbank_prof.contact = "bain"
-		tweak_data.narrative.jobs.kosugi_pro.contact = "bain"
+		MenuNodeMainGui.version = MenuNodeMainGui.version .. " (Max Progress Mode)"
 	end
 	
 	MenuCallbackHandler.OPG_menu_show_bodybags_callback = function(self, item)

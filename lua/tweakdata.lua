@@ -9,6 +9,8 @@ local function get_mod_info()
 end
 
 local self = tweak_data
+local difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
+
 self.version = get_mod_info().version
 
 self.hate_multipler = 1.5
@@ -45,6 +47,73 @@ self.quickplay.max_level_diff = {100, 100}
 self.infamy.infamy_icons[5].color = Color("BEAA00")
 self.screen_colors.max_money = Color(255, 121, 227, 177) / 255
 
+self.difficulties[6] = "overkill_290"
+self.difficulties[7] = "easy_wish"
+self.difficulty_level_locks[6] = 80
+self.difficulty_level_locks[7] = 95
+self.difficulty_level_locks[8] = 95
+self.experience_manager.difficulty_multiplier[4] = 13
+self.experience_manager.difficulty_multiplier[5] = 20
+self.experience_manager.difficulty_multiplier[6] = 25
+self.money_manager.difficulty_multiplier_payout[5] = 13
+self.money_manager.difficulty_multiplier_payout[6] = 15
+self.money_manager.difficulty_multiplier_payout[7] = 18
+self.money_manager.difficulty_multiplier[5] = 40
+self.money_manager.difficulty_multiplier[4] = 45
+self.money_manager.difficulty_multiplier[6] = 50
+self.money_manager.mission_asset_cost_multiplier_by_risk[5] = 8
+self.money_manager.mission_asset_cost_multiplier_by_risk[6] = 12
+self.money_manager.mission_asset_cost_multiplier_by_risk[7] = 16
+
+if difficulty == "easy_wish" or difficulty == "sm_wish" then
+	self.gui.blackscreen_risk_textures.overkill_290 = "guis/textures/pd2/risklevel_deathwish_easywish_blackscreen"
+	self.gui.blackscreen_risk_textures.easy_wish = "guis/textures/pd2/risklevel_deathwish_blackscreen"
+	self.money_manager.killing_civilian_deduction = self.money_manager._create_value_table(10000, 250000, 10, true, 2)
+	
+	for _, settings in pairs(self.attention.settings) do
+		if settings.verification_interval then
+			settings.verification_interval = 0
+		end
+		
+		if settings.relation ~= "friend" then
+			if settings.notice_delay_mul then
+				settings.notice_delay_mul = settings.notice_delay_mul / 3
+			end
+			
+			if settings.max_range then
+				settings.max_range = settings.max_range * 3
+			end
+			
+			if settings.notice_requires_FOV then
+				settings.notice_requires_FOV = false
+			end
+		end
+	end
+end
+
+self.character.gensec.weapon = self.character.security.weapon
+
+self.money_manager.buy_premium_multiplier = {
+	easy = 0.5,
+	normal = 0.75,
+	hard = 1.25,
+	overkill = 1.5,
+	overkill_145 = 2,
+	overkill_290 = 7,
+	easy_wish = 4,
+	sm_wish = 10
+}
+self.money_manager.buy_premium_static_fee = {
+	easy = 100000,
+	normal = 100000,
+	hard = 150000,
+	overkill = 200000,
+	overkill_145 = 300000,
+	overkill_290 = 1000000,
+	easy_wish = 760000,
+	sm_wish = 1300000
+}
+
 self.experience_manager.loot_drop_value.xp10 = 130000
 self.experience_manager.loot_drop_value.xp20 = 150000
 self.experience_manager.loot_drop_value.xp30 = 170000
@@ -55,16 +124,11 @@ self.experience_manager.loot_drop_value.xp70 = 300000
 self.experience_manager.loot_drop_value.xp80 = 350000
 self.experience_manager.loot_drop_value.xp90 = 390000
 self.experience_manager.loot_drop_value.xp100 = 430000
-self.experience_manager.difficulty_multiplier[4] = 20
-self.experience_manager.difficulty_multiplier[6] = 25
-
-self.assets.risk_death_wish.risk_lock = 4
-self.assets.risk_easy_wish.risk_lock = 5
 
 self.preplanning.types.escape_c4_loud.budget_cost = 6
 self.preplanning.types.escape_elevator_loud.budget_cost = 6
 self.preplanning.types.vault_thermite.budget_cost = 8
-
+	
 if Global.job_manager and Global.job_manager.interupt_stage == "arm_for" then
 	self.carry.lance_bag.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
 	self.carry.ammo.visual_unit_name = "units/payday2/characters/npc_acc_loot_bag_1/npc_acc_loot_bag_1"
@@ -129,9 +193,9 @@ self.safehouse.rewards = {
 	experience_ratio = 3900000
 }
 
-local function btn(tbl, name)
+local function btn(tbl, name, class, index)
 	for id, btn in pairs(tbl) do
-		if btn.name_id == name then
+		if btn[class or "name_id"] == name and id > (index or 0) then
 			return id
 		end
 	end
@@ -142,10 +206,12 @@ table.remove(sidebar, btn(sidebar, "menu_cn_side_jobs"))
 table.remove(sidebar, btn(sidebar, "menu_cn_gage_assignment"))
 table.remove(sidebar, btn(sidebar, "menu_cn_casino"))
 table.remove(sidebar, btn(sidebar, "menu_cn_contact_info"))
+table.remove(sidebar, btn(sidebar, "CrimeNetSidebarSeparator", "item_class", 5))
 
 local special = tweak_data.gui.crime_net.special_contracts
 table.remove(special, btn(special, "menu_cn_short"))
 table.remove(special, btn(special, "menu_mutators"))
+table.remove(special, btn(special, "cn_crime_spree"))
 table.remove(special, btn(special, "cn_crime_spree"))
 table.remove(special, btn(special, "menu_cn_challenge"))
 
@@ -179,12 +245,7 @@ for id, _ in pairs(tweak_data.projectiles) do
 			end
 		end
 	end
-	
-	-- if projectile.fire_dot_data then
-		-- projectile.fire_dot_data.dot_damage = 1
-		-- projectile.fire_dot_data.dot_length = 3
-	-- end
-	
+
 	if projectile.range then
 		if projectile.range >= 50 then
 			projectile.range = projectile.range * 2
@@ -214,6 +275,29 @@ self.projectiles.ecp_arrow.damage = 24
 self.projectiles.ecp_arrow_poison.damage = 9
 self.projectiles.ecp_arrow_exp.damage = 31.5
 self.projectiles.elastic_arrow_poison.damage = 30
--- self.dot_types.poison.dot_length = 10
--- self.dot_types.poison.dot_damage = 2
--- self.dot_types.poison.hurt_animation_chance = 0.5
+
+for _, poison in pairs(self.dot.dot_entries.poison) do
+	if poison.dot_damage then
+		poison.dot_damage = poison.dot_damage * 0.1
+		poison.dot_trigger_chance = 0.5
+	end
+end
+
+for _, fire in pairs(self.dot.dot_entries.fire) do
+	if fire.dot_damage then
+		fire.dot_damage = fire.dot_damage * 0.1
+	end
+	
+	if fire.dot_trigger_chance then
+		fire.dot_trigger_chance = fire.dot_trigger_chance * 0.5
+	end
+end
+
+self.blackmarket.projectiles.chico_injector.base_cooldown = nil
+self.blackmarket.projectiles.smoke_screen_grenade.base_cooldown = nil
+self.blackmarket.projectiles.pocket_ecm_jammer.base_cooldown = nil
+
+self.blackmarket.projectiles.chico_injector.max_amount = 3
+self.blackmarket.projectiles.smoke_screen_grenade.max_amount = 3
+self.blackmarket.projectiles.pocket_ecm_jammer.max_amount = 3
+self.blackmarket.projectiles.concussion.max_amount = 3

@@ -49,7 +49,7 @@ function UpgradesTweakData:init(tweak_data)
 	self.values.player.reduce_loose_money_exp_convertation_amount_mul = {0.35}
 	self.values.team.xp.multiplier = {1.4}
 	self.values.player.walking_bleedout_doctor_bag_self_revive = {true}
-	self.values.player.walking_bleedout_ticks_to_ressurection = {120, 90}
+	self.values.player.walking_bleedout_ticks_to_ressurection = {90, 60}
 	self.walking_bleedout_time_to_fatal_state = 5
 	self.walking_bleedout_interaction_time_penalty = 0.4
 	self.walking_bleedout_walk_speed_penalty = 0.4

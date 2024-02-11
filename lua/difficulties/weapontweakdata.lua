@@ -2,7 +2,6 @@ local data = WeaponTweakData.init
 function WeaponTweakData:init(tweak_data)
 	data(self, tweak_data)
 	self.benelli_npc.usage = "is_shotgun_pump_rapid"
-	self.mp9_npc.DAMAGE = 0.5
 end
 
 function WeaponTweakData:_set_normal()
