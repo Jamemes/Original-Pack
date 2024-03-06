@@ -118,7 +118,7 @@
 		<hook source_file="lib/tweak_data/weapontweakdata"							file="weapons/weapontweakdata.lua"/>
 		<hook source_file="lib/tweak_data/weaponfactorytweakdata"					file="weapons/weaponfactorytweakdata.lua"/>
 		<hook source_file="lib/tweak_data/blackmarket/meleeweaponstweakdata"		file="weapons/meleeweaponstweakdata.lua"/>
-		<hook source_file="lib/units/weapons/newraycastweaponbase"					file="weapons/newraycastweaponbase.lua"/>
+		<hook source_file="lib/units/weapons/raycastweaponbase"						file="weapons/raycastweaponbase.lua"/>
 		<hook source_file="lib/utils/inventorydescription"							file="weapons/inventorydescription.lua"/>
 		<hook source_file="lib/managers/blackmarketmanager"							file="weapons/blackmarketmanager.lua"/>
     </Hooks>

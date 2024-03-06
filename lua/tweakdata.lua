@@ -26,23 +26,10 @@ self.unlock_safehouse = pro_rank
 self.unlock_crimespree = pro_rank
 self.unlock_skirmish = pro_rank
 self.unlock_profiles = pro_rank
-self.unlock_mayhem = pro_rank
-self.unlock_death_sentence = 20
-
-self.easy_wish_drop_chance = 0.175
-self.sm_wish_drop_chance = 0.15
-
-self.max_offshore = 1000000000
-self.max_spending_cash = 150000000
-self.max_coins = 250000
 
 self.killed_civs_penalty = {1, 2, 3}
-self.easy_mode_exp_penalty = 50 --%
 self.max_loose_money_boost = 30 --%
 self.loose_money_exp_convertation_amount = 30000
-
-self.quickplay.default_level_diff = {100, 100}
-self.quickplay.max_level_diff = {100, 100}
 
 self.infamy.infamy_icons[5].color = Color("BEAA00")
 self.screen_colors.max_money = Color(255, 121, 227, 177) / 255
@@ -92,7 +79,6 @@ if difficulty == "easy_wish" or difficulty == "sm_wish" then
 end
 
 self.character.gensec.weapon = self.character.security.weapon
-
 self.money_manager.buy_premium_multiplier = {
 	easy = 0.5,
 	normal = 0.75,
