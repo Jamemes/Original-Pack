@@ -2,7 +2,7 @@
 	"name": "Original Pack",
 	"description": "Classic Pack",
 	"author": "James",
-	"version": "1.4.1.6.3",
+	"version": "1.4.1.6.4",
 	"image" : "assets/OP.png",
 	"updates" : [
 		{

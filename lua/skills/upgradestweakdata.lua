@@ -112,7 +112,8 @@ function UpgradesTweakData:init(tweak_data)
 	
 	self.values.player.convert_enemies_damage_multiplier = {1.45}
 
-	self.values.player.pocket_ecm_jammer_base = {{cooldown_drain = 8, duration = 8}}
+	self.values.player.pocket_ecm_jammer_base.cooldown_drain = 8
+	self.values.player.pocket_ecm_jammer_base.duration = 8
 	self.values.temporary.chico_injector = {{0.8, 8}}
 
 	self.values.team.health.passive_multiplier = {1.15}

@@ -955,8 +955,8 @@ function SkillTreeTweakData:init(tweak_data)
 		desc_id = "menu_backstab_beta_desc",
 		icon_xy = {0, 12}
 	}
-	self.skills.ecm_feedback[1].upgrades = {"ecm_jammer_can_activate_feedback", "pocket_ecm_jammer", "player_pocket_ecm_jammer_base"}
-	self.skills.ecm_feedback[2].upgrades = {"ecm_jammer_feedback_duration_boost", "ecm_jammer_interaction_speed_multiplier", "ecm_jammer_can_retrigger"}
+	self.skills.ecm_feedback[1].upgrades = {"ecm_jammer_can_activate_feedback"}
+	self.skills.ecm_feedback[2].upgrades = {"ecm_jammer_feedback_duration_boost", "ecm_jammer_interaction_speed_multiplier", "ecm_jammer_can_retrigger", "pocket_ecm_jammer", "player_pocket_ecm_jammer_base"}
 	self.skills.ecm_feedback.name_id = "menu_ecm_feedback"
 	self.skills.ecm_feedback.desc_id = "menu_ecm_feedback_desc"
 	self.skills.silence_expert[1].upgrades = {

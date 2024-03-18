@@ -137,6 +137,7 @@
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_4" force="true"/>
 		<texture path="guis/textures/pd2/mission_briefing/assets/assets_risklevel_5" force="true"/>
 		<texture path="guis/textures/pd2/crimenet_marker_outline" force="true"/>
+		<texture path="guis/textures/loading/hints/general_jules" force="true"/>
 		
 						<!-- Logo -->
 		<texture path="guis/textures/menu_original_pack_logo" force="true"/>
