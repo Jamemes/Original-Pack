@@ -1,15 +1,28 @@
 {
-	"name": "Original Pack",
-	"description": "Classic Pack",
-	"author": "James",
-	"version": "1.4.1.6.4",
-	"image" : "assets/OP.png",
-	"updates" : [
-		{
-			"identifier" : "og_pack",
-			"host": {
-				"meta": "https://raw.githubusercontent.com/Jamemes/Original-Pack/legacy_meta/meta.json"
+	"name": "DEBUG",
+	"description": "DEBUG",
+	"author": "Jameme",
+	"contact": "",
+	"version": "1",
+	"priority": 1,
+	"blt_version": 2,
+	"hooks": [
+		{"hook_id": "lib/units/enemies/cop/copmovement", "script_path": "copmovement.lua"},
+		{"hook_id": "lib/units/enemies/cop/logics/coplogicidle", "script_path": "coplogicidle.lua"},
+		{"hook_id": "lib/managers/mission/elementspawnenemygroup", "script_path": "elementspawnenemygroup.lua"},
+		{"hook_id": "lib/tweak_data/charactertweakdata", "script_path": "charactertweakdata.lua"},
+		{"hook_id": "lib/tweak_data/tweakdata", "script_path": "tweakdata.lua"}
+	],
+	"keybinds": [
+			{
+				"keybind_id": "DEBUG_callback",
+				"name": "DEBUG",
+				"description": " "
+				"script_path": "Run.lua",
+				"run_in_menu": true,
+				"run_in_game": true,
+				"localized" : false
 			}
-		}
-	]
+		]
+	}
 }
