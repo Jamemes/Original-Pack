@@ -1,3 +1,0 @@
-function MenuComponentManager:create_new_heists_gui(node)
-	return
-end
