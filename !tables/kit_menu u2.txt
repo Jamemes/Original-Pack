@@ -1,0 +1,42 @@
+menu[1] = {
+	name = "kit",
+	_meta = "default_node",
+},
+menu[2] = {
+	name = "kit",
+	menu_components = "mission_briefing chats",
+	topic_id = "menu_none",
+	_meta = "node",
+	no_menu_wrapper = true,
+	modifier = "LobbyOptionInitiator",
+},
+menu[3] = {
+	{
+		name = "back",
+		_meta = "default_item",
+	},
+	topic_id = "menu_none",
+	name = "loadout",
+	menu_components = "blackmarket",
+	modifier = "MenuLoadoutInitiator",
+	default_item = {
+		name = "back",
+		_meta = "default_item",
+	},
+	no_menu_wrapper = true,
+	_meta = "node",
+},
+id = "kit_menu",
+_meta = "menu",
+default_node = {
+	name = "kit",
+	_meta = "default_node",
+},
+node = {
+	name = "kit",
+	menu_components = "mission_briefing chats",
+	topic_id = "menu_none",
+	_meta = "node",
+	no_menu_wrapper = true,
+	modifier = "LobbyOptionInitiator",
+},
