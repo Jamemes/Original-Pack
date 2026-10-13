@@ -26,56 +26,6 @@ Hooks:Add("LocalizationManagerPostInit", "Update_2.LocalizationManagerPostInit",
 	end
 end)
 
--- local function SaveTableHard(tbl, cmp, fileName, fileIsOpen, preText)
--- 	local file = nil
--- 	if fileIsOpen == nil then
--- 		file = io.open(fileName, "w")
--- 	else
--- 		file = fileIsOpen
--- 	end
-
--- 	cmp = cmp or {}
--- 	if tbl and type(tbl) == "table" then
--- 		for k, v in pairs(tbl) do
--- 			if type(v) == "table" then
--- 				cmp[v] = true
-                
---                 local real_key = k
---                 if type(k) == "number" then
---                     real_key = preText == '' and 'menu[' .. tostring(k) .. '] = ' or ''
--- 				else
---                     real_key = tostring(k) .. ' = '
---                 end
-
--- 				file:write(preText .. string.format("%s{", tostring(real_key)) .. "\n")
--- 				SaveTableHard(v, cmp, fileName, file, preText .. "\t")
--- 				file:write(preText .. "}," .. "\n")
--- 			else
---                 local real_val = v
---                 if type(v) == "string" then
---                     real_val = '"' .. tostring(v) .. '"'
---                 end
-
---                 local real_key = k
---                 if type(k) == "number" then
---                     real_key = ''
--- 				else
---                     real_key = tostring(k) .. ' = '
---                 end
-                
--- 				file:write(preText .. string.format("%s%s", tostring(real_key), tostring(real_val)) .. ",\n")
--- 			end
--- 		end
--- 	else
--- 		file:write(preText .. tostring(tbl) .. "\n")
--- 	end
-
--- 	if fileIsOpen == nil then
--- 		file:close()
--- 	end
--- end
--- SaveTableHard(menu, {}, menu_id .. ".txt", nil, "")
-
 Hooks:Add("CoreMenuData.LoadDataMenu", "Update_2.CoreMenuData.LoadDataMenu", function(menu_id, menu)
 	if menu_id == "pause_menu" then
 		for index, node in pairs(menu) do

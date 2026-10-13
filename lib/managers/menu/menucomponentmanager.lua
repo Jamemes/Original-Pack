@@ -120,3 +120,25 @@ function MenuComponentManager:init()
 		vr_bg:set_size(vr_bg:texture_width() * dh, h)
 	end
 end
+
+function MenuComponentManager:_create_blackmarket_gui(node)
+	self:create_blackmarket_gui(node)
+end
+
+function MenuComponentManager:create_blackmarket_gui(node)
+	self:close_blackmarket_gui()
+	self._blackmarket_gui = BlackMarketGui:new(self._ws, self._fullscreen_ws, node)
+end
+
+function MenuComponentManager:set_blackmarket_tab_positions()
+	if self._blackmarket_gui then
+		self._blackmarket_gui:set_tab_positions()
+	end
+end
+
+function MenuComponentManager:close_blackmarket_gui()
+	if self._blackmarket_gui then
+		self._blackmarket_gui:close()
+		self._blackmarket_gui = nil
+	end
+end
