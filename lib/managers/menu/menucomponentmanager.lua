@@ -142,3 +142,14 @@ function MenuComponentManager:close_blackmarket_gui()
 		self._blackmarket_gui = nil
 	end
 end
+
+function MenuComponentManager:create_skilltree_gui(node)
+	self:close_skilltree_gui()
+	self._skilltree_gui = SkillTreeGui:new(self._ws, self._fullscreen_ws, node)
+end
+
+function MenuComponentManager:on_skill_unlocked(...)
+	if self._skilltree_gui then
+		self._skilltree_gui:on_skill_unlocked(...)
+	end
+end
