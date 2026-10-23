@@ -3,6 +3,7 @@ local digest = function(value)
 	return Application:digest_value(value, true)
 end
 
+self.HIDE_TIER_BONUS = nil
 self.tier_cost = { 	
 	{1, 3}, 	
 	{1, 3}, 	
@@ -12,6 +13,9 @@ self.tier_cost = {
 	{4, 8}
 }
 
+local digest = function(value)
+	return Application:digest_value(value, true)
+end
 self.tier_unlocks = {
 	digest(1),
 	digest(5),
@@ -20,7 +24,6 @@ self.tier_unlocks = {
 	digest(30),
 	digest(40)
 }
-
 self.costs = {
 	unlock_tree = digest(1),
 	default = digest(1),
@@ -28,34 +31,48 @@ self.costs = {
 	hightier = digest(4),
 	hightierpro = digest(8)
 }
-
 self.skills.mastermind = {
 	name_id = "menu_mastermind",
 	desc_id = "menu_mastermind_desc",
 	icon_xy = {2, 7},
 	[1] = {
-		upgrades = {"doctor_bag"},
+		upgrades = {
+			"doctor_bag",
+			"passive_doctor_bag_interaction_speed_multiplier"
+		},
 		cost = self.costs.unlock_tree,
 		desc_id = "menu_mastermind_tier_1"
 	},
 	[2] = {
-		upgrades = {},
+		upgrades = {
+			"team_passive_stamina_multiplier_1"
+		},
 		desc_id = "menu_mastermind_tier_2"
 	},
 	[3] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_intimidate_range_mul"
+		},
 		desc_id = "menu_mastermind_tier_3"
 	},
 	[4] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_convert_enemies_health_multiplier",
+			"player_passive_convert_enemies_damage_multiplier"
+		},
 		desc_id = "menu_mastermind_tier_4"
 	},
 	[5] = {
-		upgrades = {},
+		upgrades = {
+			"player_convert_enemies_interaction_speed_multiplier"
+		},
 		desc_id = "menu_mastermind_tier_5"
 	},
 	[6] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_empowered_intimidation",
+			"passive_player_assets_cost_multiplier"
+		},
 		desc_id = "menu_mastermind_tier_6"
 	}
 }
@@ -64,28 +81,41 @@ self.skills.enforcer = {
 	desc_id = "menu_enforcer_desc",
 	icon_xy = {1, 0},
 	[1] = {
-		upgrades = {"ammo_bag"},
+		upgrades = {
+			"ammo_bag",
+			"player_passive_suppression_bonus_1"
+		},
 		cost = self.costs.unlock_tree,
 		desc_id = "menu_menu_enforcer_tier_1"
 	},
 	[2] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_health_multiplier_1"
+		},
 		desc_id = "menu_menu_enforcer_tier_2"
 	},
 	[3] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_suppression_bonus_2"
+		},
 		desc_id = "menu_menu_enforcer_tier_3"
 	},
 	[4] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_health_multiplier_2"
+		},
 		desc_id = "menu_menu_enforcer_tier_4"
 	},
 	[5] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_damage_multiplier"
+		},
 		desc_id = "menu_menu_enforcer_tier_5"
 	},
 	[6] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_health_multiplier_3"
+		},
 		desc_id = "menu_menu_enforcer_tier_6"
 	}
 }
@@ -94,28 +124,46 @@ self.skills.technician = {
 	desc_id = "menu_technician_desc",
 	icon_xy = {7, 4},
 	[1] = {
-		upgrades = {"trip_mine"},
+		upgrades = {
+			"trip_mine",
+			"player_passive_crafting_weapon_multiplier_1",
+			"player_passive_crafting_mask_multiplier_1"
+		},
 		cost = self.costs.unlock_tree,
 		desc_id = "menu_technician_tier_1"
 	},
 	[2] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_recoil_multiplier_1"
+		},
 		desc_id = "menu_technician_tier_2"
 	},
 	[3] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_crafting_weapon_multiplier_2",
+			"player_passive_crafting_mask_multiplier_2"
+		},
 		desc_id = "menu_technician_tier_3"
 	},
 	[4] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_headshot_damage_multiplier"
+		},
 		desc_id = "menu_technician_tier_4"
 	},
 	[5] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_crafting_weapon_multiplier_3",
+			"player_passive_crafting_mask_multiplier_3"
+		},
 		desc_id = "menu_technician_tier_5"
 	},
 	[6] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_recoil_multiplier_2",
+			"player_passive_armor_multiplier_1",
+			"team_passive_armor_regen_time_multiplier"
+		},
 		desc_id = "menu_technician_tier_6"
 	}
 }
@@ -126,77 +174,57 @@ self.skills.ghost = {
 	[1] = {
 		upgrades = {
 			"ecm_jammer",
-			"ecm_jammer_affects_cameras"
+			"ecm_jammer_affects_cameras",
+			"player_passive_dodge_chance_1"
 		},
 		cost = self.costs.unlock_tree,
 		desc_id = "menu_ghost_tier_1"
 	},
 	[2] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_swap_speed_multiplier_1"
+		},
 		desc_id = "menu_ghost_tier_2"
 	},
 	[3] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_dodge_chance_2"
+		},
 		desc_id = "menu_ghost_tier_3"
 	},
 	[4] = {
-		upgrades = {},
+		upgrades = {
+			"player_passive_suspicion_bonus"
+		},
 		desc_id = "menu_ghost_tier_4"
 	},
 	[5] = {
-		upgrades = {},
+		upgrades = {
+			"weapon_passive_swap_speed_multiplier_2"
+		},
 		desc_id = "menu_ghost_tier_5"
 	},
 	[6] = {
-		upgrades = {},
-		desc_id = "menu_ghost_tier_6"
-	}
-}
-self.skills.hoxton = {
-	name_id = "menu_hoxton_pack",
-	desc_id = "menu_hoxton_pack_desc",
-	icon_xy = {3, 10},
-	[1] = {
 		upgrades = {
-			"first_aid_kit"
+			"player_passive_loot_drop_multiplier"
 		},
-		cost = self.costs.unlock_tree,
-		desc_id = "menu_hoxton_tier_1"
-	},
-	[2] = {
-		upgrades = {},
-		desc_id = "menu_hoxton_tier_2"
-	},
-	[3] = {
-		upgrades = {},
-		desc_id = "menu_hoxton_tier_3"
-	},
-	[4] = {
-		upgrades = {},
-		desc_id = "menu_hoxton_tier_4"
-	},
-	[5] = {
-		upgrades = {},
-		desc_id = "menu_hoxton_tier_5"
-	},
-	[6] = {
-		upgrades = {},
-		desc_id = "menu_hoxton_tier_6"
+		desc_id = "menu_ghost_tier_6"
 	}
 }
 self.skills.black_marketeer = {
 	name_id = "menu_black_marketeer",
 	desc_id = "menu_black_marketeer_desc",
-	icon_xy = {2, 10},
+	icon_xy = {4, 8},
 	[1] = {
 		upgrades = {
-			"player_hostage_health_regen_addend_1"
+			"player_buy_cost_multiplier_1"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"player_hostage_health_regen_addend_2"
+			"player_buy_cost_multiplier_2",
+			"player_sell_cost_multiplier_1"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -213,7 +241,7 @@ self.skills.gun_fighter = {
 	},
 	[2] = {
 		upgrades = {
-			"pistol_damage_addend"
+			"pistol_damage_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -238,19 +266,16 @@ self.skills.combat_medic = {
 self.skills.control_freak = {
 	name_id = "menu_control_freak",
 	desc_id = "menu_control_freak_desc",
-	icon_xy = {1, 10},
-	prerequisites = {"joker"},
+	icon_xy = {6, 7},
 	[1] = {
 		upgrades = {
-			"player_minion_master_speed_multiplier",
-			"player_passive_convert_enemies_health_multiplier_1"
+			"player_civ_calming_alerts"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"player_minion_master_health_multiplier",
-			"player_passive_convert_enemies_health_multiplier_2"
+			"player_civ_intimidation_mul"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -261,15 +286,13 @@ self.skills.leadership = {
 	icon_xy = {7, 7},
 	[1] = {
 		upgrades = {
-			"team_pistol_recoil_index_addend",
-			"team_pistol_suppression_recoil_index_addend"
+			"team_pistol_recoil_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"team_weapon_recoil_index_addend",
-			"team_weapon_suppression_recoil_index_addend"
+			"team_weapon_recoil_multiplier"
 		},
 		cost = self.costs.pro
 	}
@@ -277,11 +300,10 @@ self.skills.leadership = {
 self.skills.inside_man = {
 	name_id = "menu_inside_man",
 	desc_id = "menu_inside_man_desc",
-	icon_xy = {6, 7},
+	icon_xy = {0, 8},
 	[1] = {
 		upgrades = {
-			"player_civ_calming_alerts",
-			"player_civ_intimidation_mul"
+			"player_assets_cost_multiplier"
 		},
 		cost = self.costs.default
 	},
@@ -325,16 +347,16 @@ self.skills.dominator = {
 self.skills.fast_learner = {
 	name_id = "menu_fast_learner",
 	desc_id = "menu_fast_learner_desc",
-	icon_xy = {0, 10},
+	icon_xy = {7, 8},
 	[1] = {
 		upgrades = {
-			"player_revive_damage_reduction_level_1"
+			"player_xp_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"player_revive_damage_reduction_level_2"
+			"team_xp_multiplier"
 		},
 		cost = self.costs.pro
 	}
@@ -379,13 +401,13 @@ self.skills.tactician = {
 	icon_xy = {3, 7},
 	[1] = {
 		upgrades = {
-			"player_marked_enemy_extra_damage"
+			"player_corpse_alarm_pager_bluff"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"player_buy_spotter_asset"
+			"player_marked_enemy_extra_damage"
 		},
 		cost = self.costs.pro
 	}
@@ -413,16 +435,13 @@ self.skills.kilmer = {
 	icon_xy = {1, 9},
 	[1] = {
 		upgrades = {
-			"assault_rifle_reload_speed_multiplier",
-			"snp_reload_speed_multiplier"
+			"assault_rifle_reload_speed_multiplier"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"assault_rifle_move_spread_index_addend",
-			"player_run_and_reload",
-			"snp_move_spread_index_addend"
+			"assault_rifle_move_spread_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -433,7 +452,7 @@ self.skills.equilibrium = {
 	icon_xy = {3, 9},
 	[1] = {
 		upgrades = {
-			"pistol_spread_index_addend",
+			"pistol_spread_multiplier",
 			"pistol_swap_speed_multiplier"
 		},
 		cost = self.costs.default
@@ -488,8 +507,24 @@ self.skills.joker = {
 	[2] = {
 		upgrades = {
 			"player_convert_enemies_health_multiplier",
-			"player_convert_enemies_damage_multiplier",
-			"player_convert_enemies_interaction_speed_multiplier"
+			"player_convert_enemies_damage_multiplier"
+		},
+		cost = self.costs.hightierpro
+	}
+}
+self.skills.inspire = {
+	name_id = "menu_inspire",
+	desc_id = "menu_inspire_desc",
+	icon_xy = {4, 9},
+	[1] = {
+		upgrades = {
+			"player_revive_interaction_speed_multiplier"
+		},
+		cost = self.costs.hightier
+	},
+	[2] = {
+		upgrades = {
+			"player_long_dis_revive"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -587,9 +622,7 @@ self.skills.bandoliers = {
 	},
 	[2] = {
 		upgrades = {
-			"player_pick_up_ammo_multiplier",
-			"player_pick_up_ammo_multiplier_2",
-			"player_regain_throwable_from_ammo_1"
+			"player_pick_up_ammo_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -617,7 +650,7 @@ self.skills.shotgun_impact = {
 	icon_xy = {5, 0},
 	[1] = {
 		upgrades = {
-			"shotgun_recoil_index_addend"
+			"shotgun_recoil_multiplier"
 		},
 		cost = self.costs.default
 	},
@@ -689,8 +722,7 @@ self.skills.juggernaut = {
 	},
 	[2] = {
 		upgrades = {
-			"player_shield_knock",
-			"player_run_and_shoot"
+			"player_shield_knock"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -701,13 +733,16 @@ self.skills.from_the_hip = {
 	icon_xy = {4, 1},
 	[1] = {
 		upgrades = {
-			"shotgun_hip_fire_spread_index_addend"
+			"shotgun_hip_fire_spread_multiplier"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"weapon_hip_fire_spread_index_addend"
+			"assault_rifle_hip_fire_spread_multiplier",
+			"saw_hip_fire_spread_multiplier",
+			"pistol_hip_fire_spread_multiplier",
+			"smg_hip_fire_spread_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -781,8 +816,7 @@ self.skills.carbon_blade = {
 		upgrades = {
 			"player_saw_speed_multiplier_2",
 			"saw_lock_damage_multiplier_2",
-			"saw_enemy_slicer",
-			"saw_secondary"
+			"saw_enemy_slicer"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -878,15 +912,13 @@ self.skills.rifleman = {
 	icon_xy = {0, 5},
 	[1] = {
 		upgrades = {
-			"assault_rifle_enter_steelsight_speed_multiplier",
-			"snp_enter_steelsight_speed_multiplier"
+			"assault_rifle_enter_steelsight_speed_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"assault_rifle_zoom_increase",
-			"snp_zoom_increase"
+			"assault_rifle_zoom_increase"
 		},
 		cost = self.costs.pro
 	}
@@ -894,16 +926,16 @@ self.skills.rifleman = {
 self.skills.blast_radius = {
 	name_id = "menu_blast_radius",
 	desc_id = "menu_blast_radius_desc",
-	icon_xy = {7, 9},
+	icon_xy = {1, 5},
 	[1] = {
 		upgrades = {
-			"trip_mine_explosion_size_multiplier_2"
+			"trip_mine_explosion_size_multiplier_1"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"player_carry_sentry_and_trip"
+			"trip_mine_explosion_size_multiplier_2"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -956,8 +988,7 @@ self.skills.trip_mine_expert = {
 	},
 	[2] = {
 		upgrades = {
-			"trip_mine_sensor_toggle",
-			"trip_mine_sensor_highlight"
+			"trip_mine_sensor_toggle"
 		},
 		cost = self.costs.pro
 	}
@@ -968,14 +999,13 @@ self.skills.sharpshooter = {
 	icon_xy = {6, 5},
 	[1] = {
 		upgrades = {
-			"weapon_single_spread_index_addend"
+			"weapon_single_spread_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"assault_rifle_recoil_index_addend",
-			"snp_recoil_index_addend"
+			"assault_rifle_recoil_multiplier"
 		},
 		cost = self.costs.pro
 	}
@@ -1008,8 +1038,7 @@ self.skills.sentry_targeting_package = {
 	},
 	[2] = {
 		upgrades = {
-			"sentry_gun_rot_speed_multiplier",
-			"sentry_gun_extra_ammo_multiplier_1"
+			"sentry_gun_rot_speed_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1021,7 +1050,7 @@ self.skills.sentry_2_0 = {
 	prerequisites = {"sentry_gun"},
 	[1] = {
 		upgrades = {
-			"sentry_gun_can_reload"
+			"sentry_gun_extra_ammo_multiplier_1"
 		},
 		cost = self.costs.hightier
 	},
@@ -1047,6 +1076,38 @@ self.skills.drill_expert = {
 			"player_drill_speed_multiplier2"
 		},
 		cost = self.costs.pro
+	}
+}
+self.skills.military_grade = {
+	name_id = "menu_military_grade",
+	desc_id = "menu_military_grade_desc",
+	icon_xy = {4, 6},
+	[1] = {
+		upgrades = {
+			"trip_mine_quantity_increase_2"
+		},
+		cost = self.costs.hightier
+	},
+	[2] = {
+		upgrades = {},
+		cost = self.costs.hightierpro
+	}
+}
+self.skills.dye_pack_removal = {
+	name_id = "menu_dye_pack_removal",
+	desc_id = "menu_dye_pack_removal_desc",
+	icon_xy = {0, 6},
+	[1] = {
+		upgrades = {
+			"player_dye_pack_chance_multiplier"
+		},
+		cost = self.costs.hightier
+	},
+	[2] = {
+		upgrades = {
+			"player_dye_pack_cash_loss_multiplier"
+		},
+		cost = self.costs.hightierpro
 	}
 }
 self.skills.silent_drilling = {
@@ -1106,7 +1167,7 @@ self.skills.shaped_charge = {
 	icon_xy = {0, 7},
 	[1] = {
 		upgrades = {
-			"trip_mine_quantity_increase_2"
+			"trip_mine_quantity_increase_3"
 		},
 		cost = self.costs.hightier
 	},
@@ -1120,16 +1181,16 @@ self.skills.shaped_charge = {
 self.skills.master_craftsman = {
 	name_id = "menu_master_craftsman",
 	desc_id = "menu_master_craftsman_desc",
-	icon_xy = {6, 9},
+	icon_xy = {1, 7},
 	[1] = {
 		upgrades = {
-			"trip_mine_explosion_size_multiplier_1"
+			"player_crafting_weapon_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"trip_mine_marked_enemy_extra_damage"
+			"player_crafting_mask_multiplier"
 		},
 		cost = self.costs.pro
 	}
@@ -1217,7 +1278,7 @@ self.skills.smg_master = {
 	},
 	[2] = {
 		upgrades = {
-			"smg_fire_rate_multiplier"
+			"smg_recoil_multiplier"
 		},
 		cost = self.costs.pro
 	}
@@ -1263,9 +1324,7 @@ self.skills.chameleon = {
 	icon_xy = {5, 3},
 	[1] = {
 		upgrades = {
-			"player_suspicion_bonus",
-			"player_sec_camera_highlight_mask_off",
-			"player_special_enemy_highlight_mask_off"
+			"player_suspicion_bonus"
 		},
 		cost = self.costs.default
 	},
@@ -1282,14 +1341,13 @@ self.skills.cleaner = {
 	icon_xy = {7, 2},
 	[1] = {
 		upgrades = {
-			"player_buy_bodybags_asset",
 			"weapon_special_damage_taken_multiplier"
 		},
 		cost = self.costs.default
 	},
 	[2] = {
 		upgrades = {
-			"player_corpse_dispose_amount_2"
+			"player_corpse_dispose"
 		},
 		cost = self.costs.pro
 	}
@@ -1307,8 +1365,7 @@ self.skills.ecm_2x = {
 	[2] = {
 		upgrades = {
 			"ecm_jammer_duration_multiplier_2",
-			"ecm_jammer_feedback_duration_boost_2",
-			"ecm_jammer_affects_pagers"
+			"ecm_jammer_feedback_duration_boost_2"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1343,7 +1400,7 @@ self.skills.martial_arts = {
 	},
 	[2] = {
 		upgrades = {
-			"player_melee_damage_dampener"
+			"player_damage_dampener"
 		},
 		cost = self.costs.pro
 	}
@@ -1377,9 +1434,7 @@ self.skills.ecm_feedback = {
 	},
 	[2] = {
 		upgrades = {
-			"ecm_jammer_feedback_duration_boost",
-			"ecm_jammer_interaction_speed_multiplier",
-			"ecm_jammer_can_retrigger"
+			"ecm_jammer_feedback_duration_boost"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1430,8 +1485,25 @@ self.skills.hitman = {
 	},
 	[2] = {
 		upgrades = {
-			"weapon_silencer_damage_multiplier_2",
-			"weapon_silencer_armor_piercing_chance_1"
+			"weapon_silencer_damage_multiplier_2"
+		},
+		cost = self.costs.hightierpro
+	}
+}
+self.skills.silence = {
+	name_id = "menu_silence",
+	desc_id = "menu_silence_desc",
+	icon_xy = {4, 4},
+	[1] = {
+		upgrades = {
+			"weapon_silencer_recoil_multiplier"
+		},
+		cost = self.costs.hightier
+	},
+	[2] = {
+		upgrades = {
+			"weapon_silencer_enter_steelsight_speed_multiplier",
+			"weapon_silencer_spread_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1442,15 +1514,14 @@ self.skills.silence_expert = {
 	icon_xy = {4, 4},
 	[1] = {
 		upgrades = {
-			"weapon_silencer_recoil_index_addend",
-			"weapon_silencer_enter_steelsight_speed_multiplier"
+			"weapon_silencer_recoil_multiplier"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"weapon_silencer_spread_index_addend",
-			"weapon_silencer_armor_piercing_chance_2"
+			"weapon_silencer_enter_steelsight_speed_multiplier",
+			"weapon_silencer_spread_multiplier"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1461,13 +1532,13 @@ self.skills.good_luck_charm = {
 	icon_xy = {4, 2},
 	[1] = {
 		upgrades = {
-			"player_tape_loop_duration_1"
+			"player_loot_drop_multiplier_1"
 		},
 		cost = self.costs.hightier
 	},
 	[2] = {
 		upgrades = {
-			"player_tape_loop_duration_2"
+			"player_loot_drop_multiplier_2"
 		},
 		cost = self.costs.hightierpro
 	}
@@ -1496,326 +1567,11 @@ self.skills.magic_touch = {
 	},
 	[2] = {
 		upgrades = {
-			"player_pick_lock_hard",
-			"player_pick_lock_easy_speed_multiplier_2"
+			"player_pick_lock_hard"
 		},
 		cost = self.costs.hightierpro
 	}
 }
-self.skills.freedom_call = {
-	name_id = "menu_freedom_call",
-	desc_id = "menu_freedom_call_desc",
-	icon_xy = {5, 10},
-	[1] = {
-		upgrades = {
-			"player_climb_speed_multiplier_1"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_on_zipline_dodge_chance"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.hidden_blade = {
-	name_id = "menu_hidden_blade",
-	desc_id = "menu_hidden_blade_desc",
-	icon_xy = {4, 10},
-	[1] = {
-		upgrades = {
-			"player_melee_concealment_modifier"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_silent_kill"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.tea_time = {
-	name_id = "menu_tea_time",
-	desc_id = "menu_tea_time_desc",
-	icon_xy = {1, 11},
-	[1] = {
-		upgrades = {
-			"first_aid_kit_deploy_time_multiplier"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"first_aid_kit_damage_reduction_upgrade"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.awareness = {
-	name_id = "menu_awareness",
-	desc_id = "menu_awareness_desc",
-	icon_xy = {7, 10},
-	[1] = {
-		upgrades = {
-			"player_movement_speed_multiplier"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_steelsight_normal_movement_speed"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.alpha_dog = {
-	name_id = "menu_alpha_dog",
-	desc_id = "menu_alpha_dog_desc",
-	icon_xy = {0, 11},
-	[1] = {
-		upgrades = {
-			"player_crouch_dodge_chance_1"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_crouch_dodge_chance_2"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.tea_cookies = {
-	name_id = "menu_tea_cookies",
-	desc_id = "menu_tea_cookies_desc",
-	icon_xy = {2, 11},
-	[1] = {
-		upgrades = {
-			"first_aid_kit_quantity_increase_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"first_aid_kit_quantity_increase_2"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.cell_mates = {
-	name_id = "menu_cell_mates",
-	desc_id = "menu_cell_mates_desc",
-	icon_xy = {4, 11},
-	[1] = {
-		upgrades = {
-			"player_gangster_damage_dampener_1"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_gangster_damage_dampener_2"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.thug_life = {
-	name_id = "menu_thug_life",
-	desc_id = "menu_thug_life_desc",
-	icon_xy = {3, 12},
-	[1] = {
-		upgrades = {
-			"player_extra_corpse_dispose_amount"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_cleaner_cost_multiplier"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.thick_skin = {
-	name_id = "menu_thick_skin",
-	desc_id = "menu_thick_skin_desc",
-	icon_xy = {2, 12},
-	[1] = {
-		upgrades = {
-			"player_damage_shake_addend"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_level_2_armor_addend",
-			"player_level_3_armor_addend",
-			"player_level_4_armor_addend"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.backstab = {
-	name_id = "menu_backstab",
-	desc_id = "menu_backstab_desc",
-	icon_xy = {0, 12},
-	[1] = {
-		upgrades = {
-			"player_detection_risk_add_crit_chance_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"player_detection_risk_add_crit_chance_2"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.drop_soap = {
-	name_id = "menu_drop_soap",
-	desc_id = "menu_drop_soap_desc",
-	icon_xy = {4, 12},
-	[1] = {
-		upgrades = {
-			"player_counter_strike_melee"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"player_counter_strike_spooc"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.second_chances = {
-	name_id = "menu_second_chances",
-	desc_id = "menu_second_chances_desc",
-	icon_xy = {5, 11},
-	[1] = {
-		upgrades = {
-			"bodybags_bag"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"bodybags_bag_quantity"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.trigger_happy = {
-	name_id = "menu_trigger_happy",
-	desc_id = "menu_trigger_happy_desc",
-	icon_xy = {7, 11},
-	[1] = {
-		upgrades = {
-			"pistol_stacking_hit_damage_multiplier_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"pistol_stacking_hit_damage_multiplier_2"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.perseverance = {
-	name_id = "menu_perseverance",
-	desc_id = "menu_perseverance_desc",
-	icon_xy = {5, 12},
-	[1] = {
-		upgrades = {
-			"temporary_berserker_damage_multiplier_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"temporary_berserker_damage_multiplier_2",
-			"player_berserker_no_ammo_cost"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.jail_workout = {
-	name_id = "menu_jail_workout",
-	desc_id = "menu_jail_workout_desc",
-	icon_xy = {6, 10},
-	[1] = {
-		upgrades = {
-			"player_standstill_omniscience"
-		},
-		cost = self.costs.default
-	},
-	[2] = {
-		upgrades = {
-			"player_mask_off_pickup"
-		},
-		cost = self.costs.pro
-	}
-}
-self.skills.akimbo = {
-	name_id = "menu_akimbo_skill",
-	desc_id = "menu_akimbo_skill_desc",
-	icon_xy = {3, 11},
-	[1] = {
-		upgrades = {
-			"unlock_all_akimbo_weapons",
-			"akimbo_recoil_index_addend_1",
-			"akimbo_recoil_index_addend_2"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"akimbo_extra_ammo_multiplier_1",
-			"akimbo_extra_ammo_multiplier_2",
-			"akimbo_recoil_index_addend_3"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.jail_diet = {
-	name_id = "menu_jail_diet",
-	desc_id = "menu_jail_diet_desc",
-	icon_xy = {1, 12},
-	[1] = {
-		upgrades = {
-			"player_detection_risk_add_dodge_chance_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"player_detection_risk_add_dodge_chance_2"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-self.skills.prison_wife = {
-	name_id = "menu_prison_wife",
-	desc_id = "menu_prison_wife_desc",
-	icon_xy = {6, 11},
-	[1] = {
-		upgrades = {
-			"player_headshot_regen_armor_bonus_1"
-		},
-		cost = self.costs.hightier
-	},
-	[2] = {
-		upgrades = {
-			"player_headshot_regen_armor_bonus_2"
-		},
-		cost = self.costs.hightierpro
-	}
-}
-
 self.trees = {}
 self.trees[1] = {
 	name_id = "st_menu_mastermind",
@@ -1841,12 +1597,6 @@ self.trees[4] = {
 	background_texture = "guis/textures/pd2/skilltree/bg_ghost",
 	tiers = {}
 }
-self.trees[5] = {
-	name_id = "st_menu_hoxton_pack",
-	skill = "hoxton",
-	background_texture = "guis/textures/pd2/skilltree/bg_fugitive",
-	tiers = {}
-}
 self.trees[1].tiers[1] = {
 	"cable_guy",
 	"combat_medic",
@@ -1868,12 +1618,12 @@ self.trees[1].tiers[4] = {
 	"joker"
 }
 self.trees[1].tiers[5] = {
-	"kilmer",
+	"black_marketeer",
 	"gun_fighter",
-	"control_freak"
+	"kilmer"
 }
 self.trees[1].tiers[6] = {
-	"black_marketeer",
+	"control_freak",
 	"pistol_messiah",
 	"inspire"
 }
@@ -1967,161 +1717,425 @@ self.trees[4].tiers[6] = {
 	"ecm_feedback",
 	"moving_target"
 }
-self.trees[5].tiers[1] = {
-	"freedom_call",
-	"hidden_blade",
-	"thick_skin"
-}
-self.trees[5].tiers[2] = {
-	"awareness",
-	"jail_workout",
-	"alpha_dog"
-}
-self.trees[5].tiers[3] = {
-	"cell_mates",
-	"thug_life",
-	"tea_time"
-}
-self.trees[5].tiers[4] = {
-	"perseverance",
-	"second_chances",
-	"tea_cookies"
-}
-self.trees[5].tiers[5] = {
-	"trigger_happy",
-	"backstab",
-	"drop_soap"
-}
-self.trees[5].tiers[6] = {
-	"prison_wife",
-	"jail_diet",
-	"akimbo"
-}
 
 self.default_upgrades = {
 	"cable_tie",
 	"player_special_enemy_highlight",
 	"player_hostage_trade",
 	"player_sec_camera_highlight",
-	"player_corpse_dispose",
-	"player_corpse_dispose_amount_1",
-	"player_civ_harmless_melee",
-	"striker_reload_speed_default",
-	"temporary_first_aid_damage_reduction",
-	"temporary_passive_revive_damage_reduction_2",
 }
-
-table.insert(self.specializations[5][3].upgrades, "unlock_all_akimbo_weapons")
 
 local self = tweak_data.upgrades
-self.values.player.body_armor.armor = { 0, 1, 2, 3, 5, 7, 15 } 
-self.values.player.body_armor.dodge = { 0.1, -0.2, -0.25, -0.3, -0.35, -0.4, -0.5 } 
-self.ammo_bag_base = 3 
-self.sentry_gun_base_ammo = 150 
-self.taser_malfunction_min = 1 
-self.taser_malfunction_max = 3 
-self.max_melee_weapon_dmg_mul_stacks = 4 
-self.hostage_max_num = { health_regen = 1, health = 10, stamina = 10, damage_dampener = 1 } 
-self.on_killshot_cooldown = 2 
-self.weapon_movement_penalty.lmg = 0.8 
-self.weapon_movement_penalty.minigun = 0.6
-self.values.player.intimidate_aura = {700} 
-self.values.player.convert_enemies_health_multiplier = {0.65} 
-self.values.player.convert_enemies_damage_multiplier = {1.45} 
-self.values.pistol.damage_addend = {1.5} 
-self.values.assault_rifle.reload_speed_multiplier = {1.25} 
-self.values.player.pistol_revive_from_bleed_out = {1, 3}
-self.values.pistol.fire_rate_multiplier = {2} 
-self.values.cooldown.long_dis_revive = { {0.75, 1} } 
-self.values.player.suppression_multiplier = {1.25, 1.75}
-self.values.player.non_special_melee_multiplier = {1.5} 
-self.values.player.melee_damage_multiplier = {1.5} 
-self.values.temporary.dmg_dampener_outnumbered = { {0.85, 7} } 
-self.values.player.regain_throwable_from_ammo = { {chance = 0.3, chance_inc = 1.1} } 
-self.values.player.bleed_out_health_multiplier = {1.25} 
-self.values.shotgun.damage_multiplier = {1.35} 
-self.values.shotgun.reload_speed_multiplier = {1.5} 
-self.values.player.flashbang_multiplier = {0.75, 0.25}
-self.player_damage_health_ratio_threshold = 0.25 
-self.values.temporary.overkill_damage_multiplier = { {1.75, 5} } 
-self.values.player.drill_autorepair = {0.3}
-self.values.sentry_gun.damage_multiplier = {3} 
-self.values.player.armor_multiplier = {1.5}
-self.values.player.small_loot_multiplier = {1.1, 1.3} 
-self.values.player.run_dodge_chance = {0.25} 
-self.values.smg.reload_speed_multiplier = {1.35} 
-self.values.player.cheat_death_chance = {0.35}
-self.values.player.pick_lock_easy_speed_multiplier = {0.75, 0.5} 
-self.values.snp.reload_speed_multiplier = {1.25} 
-self.values.saw.swap_speed_multiplier = {1.5} 
-self.values.player.minion_master_health_multiplier = {1.2}
-self.values.temporary.berserker_damage_multiplier = { {1, 3}, {1, 9} } 
-self.values.player.gangster_damage_dampener = {0.9, 0.65} 
-self.values.player.headshot_regen_armor_bonus = {1.6, 3.2}
-self.values.pistol.stacking_hit_damage_multiplier = {
-	{
-		max_stacks = 4,
-		max_time = 2,
-		damage_bonus = 1.1
-	},
-	{
-		max_stacks = 4,
-		max_time = 8,
-		damage_bonus = 1.1
+
+self.values.player.body_armor.armor = {
+	0,
+	1,
+	2,
+	3,
+	4,
+	5,
+	10
+}
+self.values.player.body_armor.movement = {
+	1,
+	0.96,
+	0.92,
+	0.88,
+	0.84,
+	0.8,
+	0.76
+}
+self.values.player.body_armor.concealment = {
+	30,
+	27,
+	21,
+	18,
+	15,
+	12,
+	6
+}
+self.values.player.body_armor.damage_shake = {
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+}
+self.values.player.body_armor.stamina = {
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+}
+self.values.player.body_armor.dodge = {
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+}
+self.values.player.body_armor.damage_shake = {
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+}
+self.values.player.body_armor.stamina = {
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+}
+
+self.values.player.body_armor.skill_ammo_mul = {
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+}
+
+self.level_tree = {}
+self.level_tree[1] = {
+	name_id = "body_armor",
+	upgrades = {
+		"body_armor2",
+		"ak74"
 	}
 }
-self.values.first_aid_kit.quantity = {3, 10} 
-self.values.temporary.first_aid_damage_reduction = { {0.8, 10} } 
-self.values.temporary.passive_revive_damage_reduction = { {0.9, 5}, {0.7, 5} } 
-self.values.player.passive_convert_enemies_health_multiplier = {0.6, 0.2} 
-self.values.pistol.spread_index_addend = {1} 
-self.values.weapon.single_spread_index_addend = {1} 
-self.values.weapon.silencer_spread_index_addend = {2} 
-self.values.shotgun.recoil_index_addend = {1} 
-self.values.akimbo.recoil_index_addend = {
-	-10,
-	-8,
-	-6,
-	-4,
-	-2
+self.level_tree[2] = {
+	name_id = "Angst",
+	upgrades = {"colt_1911", "mac10"}
 }
-self.values.trip_mine.marked_enemy_extra_damage = {true} 
+self.level_tree[4] = {
+	name_id = "Angst",
+	upgrades = {"new_m4"}
+}
+self.level_tree[6] = {
+	name_id = "Angst",
+	upgrades = {
+		"new_raging_bull",
+		"b92fs"
+	}
+}
+self.level_tree[7] = {
+	name_id = "body_armor",
+	upgrades = {
+		"body_armor1"
+	}
+}
+self.level_tree[8] = {
+	name_id = "Angst",
+	upgrades = {"r870", "aug"}
+}
+self.level_tree[10] = {
+	name_id = "lvl_10",
+	upgrades = {
+		"rep_upgrade1"
+	}
+}
+self.level_tree[12] = {
+	name_id = "body_armor3",
+	upgrades = {
+		"body_armor3"
+	}
+}
+self.level_tree[13] = {
+	name_id = "Angst",
+	upgrades = {"new_mp5", "serbu"}
+}
+self.level_tree[16] = {
+	name_id = "Angst",
+	upgrades = {"akm", "g36"}
+}
+self.level_tree[19] = {
+	name_id = "Angst",
+	upgrades = {"olympic", "mp9"}
+}
+self.level_tree[20] = {
+	name_id = "lvl_20",
+	upgrades = {
+		"rep_upgrade2"
+	}
+}
+self.level_tree[21] = {
+	name_id = "body_armor4",
+	upgrades = {
+		"body_armor4"
+	}
+}
+self.level_tree[26] = {
+	name_id = "Angst",
+	upgrades = {"new_m14", "saiga"}
+}
+self.level_tree[29] = {
+	name_id = "Angst",
+	upgrades = {"akmsu", "glock_18c"}
+}
+self.level_tree[30] = {
+	name_id = "lvl_30",
+	upgrades = {
+		"rep_upgrade3"
+	}
+}
+self.level_tree[31] = {
+	name_id = "body_armor5",
+	upgrades = {
+		"body_armor5"
+	}
+}
+self.level_tree[33] = {
+	name_id = "Angst",
+	upgrades = {"ak5"}
+}
+self.level_tree[36] = {
+	name_id = "Angst",
+	upgrades = {"p90", "deagle"}
+}
+self.level_tree[39] = {
+	name_id = "Angst",
+	upgrades = {"m16", "huntsman"}
+}
+self.level_tree[40] = {
+	name_id = "lvl_40",
+	upgrades = {
+		"rep_upgrade4"
+	}
+}
+self.level_tree[50] = {
+	name_id = "lvl_50",
+	upgrades = {
+		"rep_upgrade5"
+	}
+}
+self.level_tree[60] = {
+	name_id = "lvl_60",
+	upgrades = {
+		"rep_upgrade6"
+	}
+}
+self.level_tree[70] = {
+	name_id = "lvl_70",
+	upgrades = {
+		"rep_upgrade7"
+	}
+}
+self.level_tree[80] = {
+	name_id = "lvl_80",
+	upgrades = {
+		"rep_upgrade8"
+	}
+}
+self.level_tree[90] = {
+	name_id = "lvl_90",
+	upgrades = {
+		"rep_upgrade9"
+	}
+}
+self.level_tree[95] = {
+	name_id = "menu_es_jobs_available",
+	upgrades = {
+		"lucky_charm"
+	}
+}
+self.level_tree[100] = {
+	name_id = "lvl_100",
+	upgrades = {
+		"rep_upgrade10"
+	}
+}
+
+self.revive_health_multiplier[1] = 1.25 --1.3
+
+
+-- self.values.player.passive_suspicion_multiplier[1] = 0.75 --nil
+-- self.definitions.player_passive_suspicion_bonus.upgrade.upgrade = "passive_suspicion_multiplier" --"passive_concealment_modifier"
+-- self.definitions.temporary_no_ammo_cost_1.upgrade.category = "temporary" --"player"
+-- self.definitions.temporary_no_ammo_cost_2.upgrade.category = "temporary" --"player"
+
+-- self.definitions.player_long_dis_revive.category = "feature" --nil
+-- self.definitions.player_long_dis_revive.upgrade.category = "player" --nil
+-- self.definitions.player_long_dis_revive.upgrade.upgrade = "long_dis_revive" --nil
+-- self.definitions.player_long_dis_revive.upgrade.value = 1 --nil
+-- self.definitions.player_long_dis_revive.name_id = "menu_player_long_dis_revive" --nil
+
+-- self.values.player.long_dis_revive[1] = true --nil
+
+-- self.definitions.trip_mine_quantity_increase_3.category = "feature" --nil
+-- self.definitions.trip_mine_quantity_increase_3.upgrade.category = "trip_mine" --nil
+-- self.definitions.trip_mine_quantity_increase_3.upgrade.upgrade = "quantity_3" --nil
+-- self.definitions.trip_mine_quantity_increase_3.upgrade.value = 1 --nil
+-- self.definitions.trip_mine_quantity_increase_3.name_id = "menu_trip_mine_quantity_increase_1" --nil
+
+-- self.definitions.trip_mine_quantity_increase_2.upgrade.upgrade = "quantity_2" --"quantity"
+-- self.definitions.trip_mine_quantity_increase_2.upgrade.value = 1 --2
+-- self.values.player.civ_intimidation_mul[1] = 10 --1.5
+-- self.values.player.taser_malfunction[1] = true --table: 0x40592cc0
+
+-- self.values.player.melee_damage_health_ratio_multiplier[1] = 5 --2.5 ???
+-- self.values.player.camouflage_bonus[1] = 1.25 --0.85 ???
+-- self.values.ecm_jammer.duration_multiplier[1] = 1.25 --true ???
+-- self.values.ecm_jammer.duration_multiplier_2[1] = 1.25 --true ???
+-- self.values.saw.enemy_slicer[1] = true --1 ???
+-- self.values.cable_tie.quantity[1] = 3 --nil ???
+-- self.values.sentry_gun.extra_ammo_multiplier[2] = 2 --nil ???
+-- self.values.player.suppression_multiplier[2] = 1.75 --nil
+-- self.values.player.small_loot_multiplier[2] = 1.3 --nil
+-- self.values.temporary.no_ammo_cost[1][1] = true --nil
+-- self.values.temporary.no_ammo_cost[1][2] = 5 --nil
+-- self.values.temporary.no_ammo_cost[2][1] = true --nil
+-- self.values.temporary.no_ammo_cost[2][2] = 10 --nil
+-- self.values.trip_mine.quantity_1[1] = 1 --nil
+-- self.values.trip_mine.quantity_2[1] = 2 --nil
+-- self.values.trip_mine.quantity[1] = 1 --4
+-- self.values.trip_mine.quantity[2] = 2 --11
+-- self.values.trip_mine.quantity[3] = 3 --nil
+-- self.values.trip_mine.quantity[4] = 4 --nil
+-- self.values.trip_mine.quantity[5] = 5 --nil
+-- self.values.trip_mine.quantity[6] = 8 --nil
+-- self.values.trip_mine.quantity_3[1] = 3 --nil
+-- self.definitions.cable_tie_quantity.upgrade.upgrade = "quantity" --"quantity_1"
+
+self.definitions.player_pistol_revive_from_bleed_out_timer = {}
+self.definitions.player_pistol_revive_from_bleed_out_timer.category = "temporary" --nil
+self.definitions.player_pistol_revive_from_bleed_out_timer.upgrade = {}
+self.definitions.player_pistol_revive_from_bleed_out_timer.upgrade.category = "temporary" --nil
+self.definitions.player_pistol_revive_from_bleed_out_timer.upgrade.upgrade = "pistol_revive_from_bleed_out" --nil
+self.definitions.player_pistol_revive_from_bleed_out_timer.upgrade.value = 1 --nil
+self.definitions.player_pistol_revive_from_bleed_out_timer.name_id = "menu_player_pistol_revive_from_bleed_out_timer" --nil
+
+self.definitions.shotgun_reload_speed_multiplier = {}
+self.definitions.shotgun_reload_speed_multiplier.category = "feature" --nil
+self.definitions.shotgun_reload_speed_multiplier.upgrade = {}
+self.definitions.shotgun_reload_speed_multiplier.upgrade.category = "shotgun" --nil
+self.definitions.shotgun_reload_speed_multiplier.upgrade.upgrade = "reload_speed_multiplier" --nil
+self.definitions.shotgun_reload_speed_multiplier.upgrade.value = 1 --nil
+self.definitions.shotgun_reload_speed_multiplier.name_id = "menu_shotgun_reload_speed_multiplier" --nil
+
+self.definitions.player_convert_enemies_damage_multiplier = {}
+self.definitions.player_convert_enemies_damage_multiplier.category = "feature" --nil
+self.definitions.player_convert_enemies_damage_multiplier.upgrade = {}
+self.definitions.player_convert_enemies_damage_multiplier.upgrade.category = "player" --nil
+self.definitions.player_convert_enemies_damage_multiplier.upgrade.upgrade = "convert_enemies_damage_multiplier" --nil
+self.definitions.player_convert_enemies_damage_multiplier.upgrade.value = 1 --nil
+self.definitions.player_convert_enemies_damage_multiplier.name_id = "menu_player_convert_enemies_damage_multiplier" --nil
+
+self.definitions.player_passive_convert_enemies_health_multiplier = {}
+self.definitions.player_passive_convert_enemies_health_multiplier.category = "feature" --nil
+self.definitions.player_passive_convert_enemies_health_multiplier.upgrade = {}
+self.definitions.player_passive_convert_enemies_health_multiplier.upgrade.category = "player" --nil
+self.definitions.player_passive_convert_enemies_health_multiplier.upgrade.upgrade = "passive_convert_enemies_health_multiplier" --nil
+self.definitions.player_passive_convert_enemies_health_multiplier.upgrade.value = 1 --nil
+self.definitions.player_passive_convert_enemies_health_multiplier.name_id = "menu_player_passive_convert_enemies_health_multiplier" --nil
+
+self.definitions.shotgun_damage_multiplier = {}
+self.definitions.shotgun_damage_multiplier.category = "feature" --nil
+self.definitions.shotgun_damage_multiplier.upgrade = {}
+self.definitions.shotgun_damage_multiplier.upgrade.category = "shotgun" --nil
+self.definitions.shotgun_damage_multiplier.upgrade.upgrade = "damage_multiplier" --nil
+self.definitions.shotgun_damage_multiplier.upgrade.value = 1 --nil
+self.definitions.shotgun_damage_multiplier.name_id = "menu_shotgun_damage_multiplier" --nil
+
+self.definitions.trip_mine_explosion_size_multiplier_1.upgrade.upgrade = "explosion_size_multiplier" --"explosion_size_multiplier_1"
+self.definitions.trip_mine_explosion_size_multiplier_2.upgrade.upgrade = "explosion_size_multiplier" --"explosion_size_multiplier_2"
+self.definitions.trip_mine_explosion_size_multiplier_2.upgrade.value = 2 --1
+
+self.definitions.player_cheat_death_chance = {}
+self.definitions.player_cheat_death_chance.category = "feature" --nil
+self.definitions.player_cheat_death_chance.upgrade = {}
+self.definitions.player_cheat_death_chance.upgrade.category = "player" --nil
+self.definitions.player_cheat_death_chance.upgrade.upgrade = "cheat_death_chance" --nil
+self.definitions.player_cheat_death_chance.upgrade.value = 1 --nil
+self.definitions.player_cheat_death_chance.name_id = "menu_player_cheat_death_chance" --nil
+
+self.player_damage_health_ratio_threshold = 0.4 --0.5
+self.values.assault_rifle.reload_speed_multiplier[1] = 1.33 --1.15
+self.values.player.saw_speed_multiplier[1] = 0.9 --0.95
+self.values.player.saw_speed_multiplier[2] = 0.7 --0.65
+self.values.player.damage_dampener[1] = 0.5 --0.95
+self.values.player.passive_crafting_weapon_multiplier[2] = 0.97 --0.96
+self.values.player.passive_crafting_weapon_multiplier[3] = 0.95 --0.91
+self.values.player.suppression_multiplier[1] = 1.25 --1.75
+self.values.player.flashbang_multiplier[1] = 0.5 --0.25
+self.values.player.xp_multiplier[1] = 1.1 --1.15
+self.values.player.intimidation_multiplier[1] = 1.25 --1.5
+self.values.player.run_dodge_chance[1] = 0.25 --0.1
+self.values.player.bleed_out_health_multiplier[1] = 1.25 --1.5
+self.values.player.crouch_speed_multiplier[1] = 1.25 --1.1
+self.values.player.silent_kill[1] = 400 --25
+self.values.player.passive_xp_multiplier[1] = 1.05 --1.45
+self.values.player.cheat_death_chance[1] = 0.1 --0.15
+self.values.player.passive_dodge_chance[1] = 0.05 --0.15
+self.values.player.passive_dodge_chance[2] = 0.15 --0.3
+self.values.player.drill_speed_multiplier[1] = 0.9 --0.85
+self.values.player.drill_speed_multiplier[2] = 0.75 --0.7
+self.values.player.armor_multiplier[1] = 1.5 --1.3
+self.values.player.intimidate_aura[1] = 700 --1000
+self.values.player.pistol_revive_from_bleed_out = {1, 3} --nil
+self.values.player.trip_mine_deploy_time_multiplier[2] = 0.5 --0.6
+self.values.player.fall_damage_multiplier[1] = 0.5 --0.25
+self.values.player.passive_crafting_mask_multiplier[2] = 0.97 --0.96
+self.values.player.passive_crafting_mask_multiplier[3] = 0.95 --0.91
+self.values.player.buy_cost_multiplier[1] = 0.95 --0.9
+self.values.player.buy_cost_multiplier[2] = 0.8 --0.7
+self.values.player.convert_enemies_damage_multiplier[1] = 1.43 --0.65
+self.values.player.convert_enemies_interaction_speed_multiplier[1] = 0.33 --0.35
+self.values.player.passive_convert_enemies_damage_multiplier[1] = 1.05 --1.15
+self.values.player.passive_convert_enemies_health_multiplier[1] = 0.25 --0.55
+self.values.player.convert_enemies_health_multiplier[1] = 0.65 --0.45
+self.values.player.pick_up_ammo_multiplier[1] = 1.75 --1.35
+self.values.team.stamina.passive_multiplier[1] = 1.15 --1.5
+self.values.team.xp.multiplier[1] = 1.1 --1.3
+self.values.team.weapon.suppression_recoil_multiplier[1] = 0.75 --0.5
+self.values.shotgun.reload_speed_multiplier[1] = 1.5 --1.15
+self.values.shotgun.damage_multiplier[1] = 1.2 --1.05
+self.values.smg.recoil_multiplier = {0.75} --nil
+self.values.smg.reload_speed_multiplier[1] = 1.33 --1.15
+self.values.cable_tie.interact_speed_multiplier[1] = 0.5 --0.25
+self.values.sentry_gun.damage_multiplier[1] = 2 --2.5
+self.values.sentry_gun.armor_multiplier[1] = 2 --2.5
+self.values.sentry_gun.spread_multiplier[1] = 0.5 --2
+self.values.sentry_gun.extra_ammo_multiplier[1] = 1.5 --2
+self.values.temporary.overkill_damage_multiplier[1][1] = 2 --1.75
+self.values.temporary.overkill_damage_multiplier[1][2] = 6 --20
+self.values.temporary.pistol_revive_from_bleed_out[1][2] = 3 --1
+self.values.temporary.dmg_multiplier_outnumbered[1][1] = 1.1 --1.15
+self.values.temporary.dmg_dampener_outnumbered[1][1] = 0.85 --0.9
+self.values.trip_mine.explosion_size_multiplier = {1.25, 1.75} --nil
+self.values.weapon.silencer_damage_multiplier[1] = 1.1 --1.15
+self.values.weapon.silencer_damage_multiplier[2] = 1.2 --1.3
+self.values.weapon.single_spread_multiplier[1] = 0.5 --0.8
+self.values.weapon.passive_swap_speed_multiplier[1] = 1.2 --1.8
+self.values.weapon.swap_speed_multiplier[1] = 1.25 --1.8
+self.values.pistol.reload_speed_multiplier[1] = 1.33 --1.5
+self.values.pistol.fire_rate_multiplier[1] = 2 --1.5
+self.values.pistol.damage_multiplier[1] = 1.25 --1.5
+self.values.carry.interact_speed_multiplier[1] = 0.6 --0.75
+self.sentry_gun_base_ammo = 150 --100
+
+self.ammo_bag_base = 3
+self.taser_malfunction_min = 1
+self.taser_malfunction_max = 3
+self.values.cooldown.long_dis_revive = { {0.5, 1} }
+self.values.player.drill_autorepair = {0.3}
+self.values.player.small_loot_multiplier = {1.1, 1.3} 
+self.values.player.pick_lock_easy_speed_multiplier = {0.75, 0.5}
 self.values.trip_mine.quantity = {1, 4}
-self.values.player.unlock_all_akimbo_weapons = {true} 
-
--- ИЗМЕНЕНИЯ ПЕРКОВ
--- self.values.player.passive_health_multiplier = { 1.1, 1.2, 1.4, 1.8 }
--- self.values.player.passive_dodge_chance = { 0.05, 0.15, 0.25 } 
--- self.values.team.health.hostage_multiplier = {1.02} 
--- self.values.team.stamina.hostage_multiplier = {1.04} 
--- self.values.player.level_2_dodge_addend = { 0.1, 0.2, 0.35 } 
--- self.values.player.level_3_dodge_addend = { 0.1, 0.2, 0.35 } 
--- self.values.player.level_4_dodge_addend = { 0.1, 0.2, 0.35 } 
--- self.values.player.passive_health_regen = {0.035} 
--- self.values.akimbo.extra_ammo_multiplier = {1.25, 1.5} 
--- self.values.player.tier_dodge_chance = { 0.1, 0.15, 0.2 } 
--- self.values.temporary.dmg_dampener_outnumbered_strong = { {0.92, 7} } 
--- self.values.melee.stacking_hit_damage_multiplier = {0.1, 0.2} 
--- self.loose_ammo_restore_health_values = { base = 4, cd = 4, multiplier = 0.2, {0, 2}, {2, 4}, {4, 6} } 
--- self.loose_ammo_give_team_health_ratio = 1 
--- self.values.player.gain_life_per_players = {1} 
--- self.damage_to_hot_data.tick_time = 0.5
--- self.values.player.damage_to_hot_extra_ticks = {2} 
--- self.values.player.armor_grinding = {
-	-- {
-		-- {1, 2},
-		-- {1.5, 3},
-		-- {2, 4},
-		-- {2.5, 5},
-		-- {3.5, 7},
-		-- {4.5, 9},
-		-- {8.5, 17}
-	-- }
--- } 
--- self.values.temporary.armor_break_invulnerable = { {2, 15} } 
--- self.values.player.passive_always_regen_armor = {5} 
--- self.values.player.cocaine_stack_absorption_multiplier = {1.5}
-
 
 self.definitions.weapon_silencer_damage_multiplier_1 = {
 	category = "feature",
@@ -2242,503 +2256,6 @@ self.definitions.player_pick_lock_easy_speed_multiplier_2 = {
 	}
 }
 
-self.definitions.player_gangster_damage_dampener_1 = {
-	category = "feature",
-	name_id = "menu_player_gangster_damage_dampener",
-	upgrade = {
-		category = "player",
-		upgrade = "gangster_damage_dampener",
-		value = 1
-	}
-}
-
-self.definitions.player_gangster_damage_dampener_2 = {
-	category = "feature",
-	name_id = "menu_player_gangster_damage_dampener",
-	upgrade = {
-		category = "player",
-		upgrade = "gangster_damage_dampener",
-		value = 2
-	}
-}
-
-self.definitions.unlock_all_akimbo_weapons = {
-	category = "feature",
-	name_id = "menu_unlock_all_akimbo_weapons",
-	upgrade = {
-		category = "player",
-		upgrade = "unlock_all_akimbo_weapons",
-		value = 1
-	}
-}
-
-self.definitions.trip_mine_marked_enemy_extra_damage = {
-	category = "feature",
-	name_id = "menu_trip_mine_marked_enemy_extra_damage",
-	upgrade = {
-		category = "trip_mine",
-		upgrade = "marked_enemy_extra_damage",
-		value = 1
-	}
-}
-
-local editable_skill_descs = {
-	ammo_2x = {
-		{"2"},
-		{"200%"}
-	},
-	ammo_reservoir = {
-		{"5"},
-		{"10"}
-	},
-	assassin = {
-		{"25%", "10%"},
-		{"95%"}
-	},
-	bandoliers = {
-		{"25%"},
-		{"175%"}
-	},
-	black_marketeer = {
-		{"0.6%", "5"},
-		{"2%", "5"}
-	},
-	blast_radius = {
-		{"70%"},
-		{}
-	},
-	cable_guy = {
-		{"75%"},
-		{"4"}
-	},
-	carbon_blade = {
-		{"20%"},
-		{"50%", "20%"}
-	},
-	cat_burglar = {
-		{"75%"},
-		{"50%"}
-	},
-	chameleon = {
-		{"25%"},
-		{"15%"}
-	},
-	cleaner = {
-		{"5%", "3"},
-		{"1"}
-	},
-	combat_medic = {
-		{"25%", "10"},
-		{"30%"}
-	},
-	control_freak = {
-		{"10%", "40%"},
-		{"20%", "40%"}
-	},
-	discipline = {
-		{"50%"},
-		{}
-	},
-	dominator = {
-		{},
-		{"50%"}
-	},
-	drill_expert = {
-		{"15%"},
-		{"15%"}
-	},
-	ecm_2x = {
-		{"2"},
-		{"25%", "25%"}
-	},
-	ecm_booster = {
-		{"25%"},
-		{}
-	},
-	ecm_feedback = {
-		{
-			"50%-100%",
-			"25",
-			"1.5",
-			"15-20"
-		},
-		{
-			"25%",
-			"100%",
-			"4"
-		}
-	},
-	enforcer = {
-		{"400%"},
-		{}
-	},
-	equilibrium = {
-		{"10%", "50%"},
-		{"100%"}
-	},
-	fast_learner = {
-		{"10%", "5"},
-		{"20%"}
-	},
-	from_the_hip = {
-		{"20%"},
-		{"20%"}
-	},
-	ghost = {
-		{"1", "20"},
-		{}
-	},
-	good_luck_charm = {
-		{"10", "1"},
-		{"10"}
-	},
-	gun_fighter = {
-		{"50%"},
-		{"50%"}
-	},
-	hardware_expert = {
-		{"25%", "20%"},
-		{"30%", "50%"}
-	},
-	hitman = {
-		{"15%"},
-		{"15%", "15%"}
-	},
-	inside_man = {
-		{"50%"},
-		{}
-	},
-	inspire = {
-		{
-			"50%",
-			"20%",
-			"10"
-		},
-		{
-			"75%",
-			"20",
-			"9"
-		}
-	},
-	insulation = {
-		{},
-		{"50%"}
-	},
-	iron_man = {
-		{"50%"},
-		{"25%"}
-	},
-	joker = {
-		{},
-		{
-			"55%",
-			"45%",
-			"65%"
-		}
-	},
-	juggernaut = {
-		{},
-		{}
-	},
-	kilmer = {
-		{"25%"},
-		{"50%"}
-	},
-	leadership = {
-		{"25%"},
-		{"50%"}
-	},
-	mag_plus = {
-		{"5"},
-		{"10"}
-	},
-	magic_touch = {
-		{"25%"},
-		{"25%"}
-	},
-	martial_arts = {
-		{"50%"},
-		{"50%"}
-	},
-	master_craftsman = {
-		{"30%"},
-		{"15%"}
-	},
-	mastermind = {
-		{"2"},
-		{}
-	},
-	medic_2x = {
-		{"2"},
-		{"2"}
-	},
-	nine_lives = {
-		{"1"},
-		{"35%"}
-	},
-	oppressor = {
-		{"25%"},
-		{"50%"}
-	},
-	overkill = {
-		{"75%", "5"},
-		{}
-	},
-	pack_mule = {
-		{"50%"},
-		{"50%"}
-	},
-	pistol_messiah = {
-		{"1"},
-		{"2"}
-	},
-	portable_saw = {
-		{},
-		{"1"}
-	},
-	rifleman = {
-		{"100%"},
-		{"25%"}
-	},
-	scavenger = {
-		{"10%"},
-		{"20%"}
-	},
-	sentry_2_0 = {
-		{},
-		{}
-	},
-	sentry_gun = {
-		{},
-		{"150%"}
-	},
-	sentry_gun_2x = {
-		{"2"},
-		{"300%"}
-	},
-	sentry_targeting_package = {
-		{"100%"},
-		{"150%", "50%"}
-	},
-	shades = {
-		{"25%"},
-		{"50%"}
-	},
-	shaped_charge = {
-		{"3"},
-		{}
-	},
-	sharpshooter = {
-		{"20%"},
-		{"25%"}
-	},
-	shotgun_cqb = {
-		{"50%"},
-		{"125%"}
-	},
-	shotgun_impact = {
-		{"25%"},
-		{"35%"}
-	},
-	show_of_force = {
-		{},
-		{"15%"}
-	},
-	silence = {
-		{},
-		{}
-	},
-	silence_expert = {
-		{"50%", "100%"},
-		{"50%", "15%"}
-	},
-	silent_drilling = {
-		{"65%"},
-		{}
-	},
-	smg_master = {
-		{"35%"},
-		{"20%"}
-	},
-	smg_training = {
-		{},
-		{}
-	},
-	sprinter = {
-		{"25%", "25%"},
-		{"25%", "25%"}
-	},
-	steroids = {
-		{"50%"},
-		{"50%"}
-	},
-	stockholm_syndrome = {
-		{},
-		{}
-	},
-	tactician = {
-		{"15%"},
-		{}
-	},
-	target_mark = {
-		{},
-		{}
-	},
-	technician = {
-		{"2"},
-		{}
-	},
-	tough_guy = {
-		{"50%"},
-		{"25%"}
-	},
-	transporter = {
-		{"25%"},
-		{"50%"}
-	},
-	triathlete = {
-		{"100%"},
-		{"50%"}
-	},
-	trip_mine_expert = {
-		{},
-		{}
-	},
-	trip_miner = {
-		{"1"},
-		{"20%"}
-	},
-	underdog = {
-		{"15%"},
-		{"15%"}
-	},
-	wolverine = {
-		{"25%", "250%"},
-		{"25%", "100%"}
-	},
-	hoxton = {
-		{"4"},
-		{}
-	},
-	freedom_call = {
-		{"20%"},
-		{"15%"}
-	},
-	hidden_blade = {
-		{"2"},
-		{"95%"}
-	},
-	tea_time = {
-		{"50%"},
-		{"20%", "10"}
-	},
-	awareness = {
-		{"10%"},
-		{}
-	},
-	alpha_dog = {
-		{"5%"},
-		{"10%"}
-	},
-	tea_cookies = {
-		{"3"},
-		{"7"}
-	},
-	cell_mates = {
-		{"10%"},
-		{"25%"}
-	},
-	thug_life = {
-		{"1"},
-		{"75%"}
-	},
-	thick_skin = {
-		{"10"},
-		{"20"}
-	},
-	backstab = {
-		{
-			"3%",
-			"3",
-			"35",
-			"30%"
-		},
-		{
-			"3%",
-			"1",
-			"35",
-			"30%"
-		}
-	},
-	drop_soap = {
-		{},
-		{}
-	},
-	second_chances = {
-		{},
-		{"2"}
-	},
-	trigger_happy = {
-		{
-			"10%",
-			"2",
-			"4"
-		},
-		{"8"}
-	},
-	perseverance = {
-		{
-			"0",
-			"3",
-			"60%"
-		},
-		{"6"}
-	},
-	jail_workout = {
-		{"3.5", "10"},
-		{}
-	},
-	akimbo = {
-		{"50%"},
-		{"25%", "150%"}
-	},
-	jail_diet = {
-		{
-			"1%",
-			"3",
-			"35",
-			"10%"
-		},
-		{
-			"1%",
-			"1",
-			"35",
-			"10%"
-		}
-	},
-	prison_wife = {
-		{"16", "3"},
-		{"16", "3"}
-	}
-}
-self.skill_descs = {}
-for skill_id, skill_desc in pairs(editable_skill_descs) do
-	self.skill_descs[skill_id] = {}
-	for index, skill_version in ipairs(skill_desc) do
-		local version = index == 1 and "multibasic" or "multipro"
-		self.skill_descs[skill_id][index] = #skill_version
-		for i, desc in ipairs(skill_version) do
-			self.skill_descs[skill_id][version .. (i == 1 and "" or tostring(i))] = desc
-		end
-	end
-end
-
-for _, weapon in pairs(tweak_data.weapon) do
-	if weapon.categories and weapon.categories[1] == "akimbo" then
-		weapon.unlock_func = "unlock_all_akimbo_weapons"
-	end
-end
-
 tweak_data.interaction.shaped_sharge.requires_upgrade = {
 	category = "player",
 	upgrade = "trip_mine_shaped_charge"
@@ -2768,3 +2285,166 @@ tweak_data.interaction.sentry_gun.requires_upgrade = {
 	upgrade = "can_reload",
 	category = "sentry_gun"
 }
+
+local self = tweak_data.attention
+self.settings.pl_law_susp_peaceful = {
+	reaction = "REACT_SUSPICIOUS",
+	filter = "combatant",
+	max_range = 600,
+	suspicion_range = 500,
+	suspicion_duration = 4,
+	turn_around_range = 250,
+	uncover_range = 150,
+	notice_delay_mul = 0.3,
+	verification_interval = 0.02,
+	release_delay = 2,
+	notice_requires_FOV = true
+}
+self.settings.pl_gangster_cur_peaceful = {
+	reaction = "REACT_SUSPICIOUS",
+	filter = "gangster",
+	max_range = 600,
+	suspicion_range = 500,
+	suspicion_duration = 5.5,
+	turn_around_range = 250,
+	uncover_range = 90,
+	notice_delay_mul = 0.3,
+	verification_interval = 0.02,
+	release_delay = 2,
+	notice_requires_FOV = true
+}
+self.settings.pl_team_cur_peaceful = {
+	reaction = "REACT_IDLE",
+	filter = "criminal",
+	max_range = 1000,
+	notice_delay_mul = 1,
+	verification_interval = 4,
+	release_delay = 3,
+	duration = {2, 5},
+	pause = {15, 25},
+	notice_requires_FOV = false
+}
+self.settings.pl_civ_idle_peaceful = {
+	reaction = "REACT_IDLE",
+	filter = "civilian",
+	max_range = 600,
+	notice_delay_mul = 0,
+	notice_interval = 0.5,
+	attract_chance = 0.5,
+	verification_interval = 2,
+	release_delay = 3,
+	duration = {2, 15},
+	pause = {10, 60},
+	notice_requires_FOV = true
+}
+self.settings.pl_team_idle_std = {
+	reaction = "REACT_IDLE",
+	filter = "criminal",
+	max_range = 1000,
+	notice_delay_mul = 0,
+	verification_interval = 4,
+	release_delay = 3,
+	duration = {1.7, 2.5},
+	pause = {45, 90},
+	notice_requires_FOV = false
+}
+self.settings.pl_enemy_cbt = {
+	reaction = "REACT_COMBAT",
+	filter = "all_enemy",
+	verification_interval = 1,
+	notice_interval = 0.1,
+	uncover_range = 550,
+	release_delay = 1,
+	notice_clbk = "clbk_attention_notice_sneak",
+	notice_requires_FOV = true
+}
+self.settings.pl_civ_cbt = {
+	reaction = "REACT_COMBAT",
+	filter = "civilian",
+	verification_interval = 0.1,
+	uncover_range = 550,
+	release_delay = 1,
+	notice_delay_mul = 1.5,
+	notice_clbk = "clbk_attention_notice_sneak",
+	notice_requires_FOV = true
+}
+self.settings.pl_enemy_cur_peaceful = {
+	reaction = "REACT_CURIOUS",
+	filter = "all_enemy",
+	max_range = 600,
+	notice_delay_mul = 0.5,
+	verification_interval = 2,
+	release_delay = 1,
+	duration = {1.5, 3.5},
+	pause = {25, 50},
+	notice_requires_FOV = true
+}
+self.settings.pl_civ_sneak = {
+	reaction = "REACT_COMBAT",
+	filter = "civilian",
+	verification_interval = 0.1,
+	uncover_range = 200,
+	release_delay = 1,
+	notice_delay_mul = 3,
+	max_range = 1500,
+	notice_clbk = "clbk_attention_notice_sneak",
+	notice_requires_FOV = true
+}
+self.settings.pl_enemy_sneak = {
+	reaction = "REACT_COMBAT",
+	filter = "all_enemy",
+	verification_interval = 0.1,
+	uncover_range = 350,
+	release_delay = 1,
+	notice_delay_mul = 2,
+	max_range = 1500,
+	notice_clbk = "clbk_attention_notice_sneak",
+	notice_requires_FOV = true
+}
+self.settings.pl_enemy_cbt_crh = {
+	reaction = "REACT_COMBAT",
+	filter = "all_enemy",
+	verification_interval = 0.1,
+	uncover_range = 350,
+	release_delay = 1,
+	notice_delay_mul = 2,
+	notice_requires_FOV = true
+}
+self.settings.enemy_team_corpse_cbt = {
+	reaction = "REACT_IDLE",
+	filter = "criminal",
+	max_range = 800,
+	notice_delay_mul = 2,
+	verification_interval = 1.5,
+	release_delay = 0,
+	duration = {2, 3},
+	pause = {50, 360},
+	notice_requires_FOV = true
+}
+self.settings.enemy_law_corpse_cbt = {
+	reaction = "REACT_CURIOUS",
+	filter = "law_enforcer",
+	max_range = 800,
+	notice_delay_mul = 0.1,
+	verification_interval = 1.5,
+	release_delay = 1,
+	duration = {2, 3},
+	pause = {30, 120},
+	notice_requires_FOV = true
+}
+
+self.settings.enemy_law_corpse_sneak.filter = "civilians_enemies" --"all"
+self.settings.enemy_team_corpse_sneak.filter = "civilians_enemies" --"all"
+self.settings.enemy_enemy_cbt.filter = "all_enemy" --"combatant"
+self.settings.enemy_enemy_cbt.max_range = 8000 --3900
+self.settings.sentry_gun_enemy_cbt.filter = "all_enemy" --"combatant"
+self.settings.civ_enemy_corpse_sneak.filter = "civilians_enemies" --"all"
+self.settings.team_enemy_cbt.filter = "all_enemy" --"all"
+self.settings.civ_civ_cbt.filter = "civilian" --"all"
+self.settings.team_enemy_idle.filter = "all_enemy" --"combatant"
+self.settings.enemy_team_cbt.filter = "criminal" --"combatant"
+self.settings.team_team_idle.filter = "criminal" --"all"
+self.settings.enemy_team_idle.filter = "criminal" --"combatant"
+self.settings.enemy_civ_cbt.filter = "civilian" --"non_combatant"
+self.settings.civ_enemy_cbt.filter = "all_enemy" --"all"
+self.settings.civ_enemy_cbt.notice_delay_mul = 0.6 --1

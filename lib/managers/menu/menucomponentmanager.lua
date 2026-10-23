@@ -55,8 +55,8 @@ function MenuComponentManager:init()
 		close = callback(self, self, "_disable_debug_fonts_gui")
 	}
 	self._active_components.skilltree = {
-		create = callback(self, self, "_create_skilltree_gui"),
-		close = callback(self, self, "close_skilltree_gui")
+		create = callback(self, self, "_create_skilltree_new_gui"),
+		close = callback(self, self, "close_skilltree_new_gui")
 	}
 	self._active_components.crimenet = {
 		create = callback(self, self, "_create_crimenet_gui"),
@@ -143,9 +143,14 @@ function MenuComponentManager:close_blackmarket_gui()
 	end
 end
 
-function MenuComponentManager:create_skilltree_gui(node)
-	self:close_skilltree_gui()
+function MenuComponentManager:create_skilltree_new_gui(node)
+	self:close_skilltree_new_gui()
+	
 	self._skilltree_gui = SkillTreeGui:new(self._ws, self._fullscreen_ws, node)
+	self._old_skilltree = nil
+	self._new_skilltree_gui_active = true
+
+	self:enable_skilltree_gui()
 end
 
 function MenuComponentManager:on_skill_unlocked(...)
